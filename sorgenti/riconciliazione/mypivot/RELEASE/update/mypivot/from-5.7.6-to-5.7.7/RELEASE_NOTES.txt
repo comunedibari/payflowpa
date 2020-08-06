@@ -1,0 +1,4 @@
+SPAC#50 - BO - Gestione Logo dell'ente
+Rimosso attributo deLogoEnte da oggetto di dominio Ente per non salvare in sessione i base64 dei loghi di tutti gli enti.
+
+SPAC#152: valorizzazione campo codice_documento in flusso tesoreria

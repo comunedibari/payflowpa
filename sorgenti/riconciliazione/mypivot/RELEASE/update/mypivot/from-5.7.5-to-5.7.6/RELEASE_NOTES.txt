@@ -1,0 +1,14 @@
+SPAC#50 - BO - Gestione Logo dell'ente
+
+N.B. 1: Come prerequisito al rilascio del presente tag è necessario aver aggiornato MyPay.PA al tag v5.7.2.
+N.B. 2: A partire da questa versione i loghi degli enti non vengono più memorizzati su file system,
+		ma nel db all' interno del campo de_logo_ente della tabella mygov_ente, codificati in Base64.
+
+DB:
+1. eseguire lo script USERE45_4_CREATE_UPDATE.sql (opportunamente configurato)
+2. copiare i loghi degli enti censiti in MyPay in una cartella locale. Tali loghi devono essere in formato png e non devono eccedere le dimensioni
+	massime di 250x250 pixels.
+3. generare lo script sql USERE45_4_INSERT_UPDATE.sql utilizzando il main della classe ToolLoghiEnti (all' interno del progetto pa-utils di mypay.pa)
+	e fornendo il path della cartella contenente i loghi di cui il punto 2.
+4. eseguire lo script generato al punto 3
+5. aggiornare i compilati del batch BatchAllineaDatabase
