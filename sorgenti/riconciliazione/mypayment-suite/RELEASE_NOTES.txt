@@ -1,0 +1,21 @@
+v1.1
+
++ Aggiornati i seguenti progetti, portando in configurazione lo schema db (prima cablato a public) 
+	MyBox v5.0.8
+	MyDictionary v1.1.0
+	MyProfile v1.1.0
+
+- Rimossi dalla suite i seguenti progetti, e tutte le relative risorse. 
+	
+	MyPay PA v5.3.3
+	MyPay Nodo Regionale FESP v5.3.2
+	MyPivot v5.3.5
+
+D’ora in avanti tutte le risorse inerenti i tre progetti sopra sono reperibili esclusivamente all’interno dei progetti stessi:
+
+++ all’interno della cartella “RELEASE” si trovano la risorse per una installazione FULL  del progetto
+++ all’interno della cartella “RELEASE/update/nome.progetto” si trovano le risorse per l’aggiornamento del progetto di versione in versione
+
+La suite mantiene invece i compilati dei progetti MyBox, MyDictionary, MyProfile in quanto i sorgenti di questi progetti non sono condivisi su SPAC.
+
+

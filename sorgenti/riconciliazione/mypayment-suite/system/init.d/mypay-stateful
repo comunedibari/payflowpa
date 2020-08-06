@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Tomcat Startup/Shutdown Script
+#
+# chkconfig: 345 95 2
+# description:  Tomcat Statup Script
+#
+CATALINA_HOME=__TAG_SYSTEM_MYPAY_TOMCAT_STATEFUL_CATALINA_HOME__ ; export CATALINA_HOME
+JAVA_HOME=__TAG_SYSTEM_MYPAY_TOMCAT_JAVA_HOME__; export JAVA_HOME
+SW_MW="mypay-stateful"
+TOMCAT_USER="__TAG_SYSTEM_MYPAY_TOMCAT_UNIX_USER__ "
+
+start() {
+        echo -n "Starting $SW_MW:  "
+        su - $TOMCAT_USER -c "cd $CATALINA_HOME/bin && $CATALINA_HOME/bin/startup.sh"
+	#cd $CATALINA_HOME/bin && ./startup.sh
+        sleep 2
+	echo
+}
+stop() {
+        echo -n "Stopping $SW_MW: "
+        su - $TOMCAT_USER -c "cd $CATALINA_HOME/bin && ./shutdown.sh -force"
+	#$CATALINA_HOME/bin/shutdown.sh
+	#cd $CATALINA_HOME/bin && ./shutdown.sh
+	echo
+}
+status() {
+        echo -n "Status $SW_MW: "
+	#pid=`ps auxww| grep "$CATALINA_HOME/conf/"|grep -v grep|tr -s " "|cut -f2 -d " "`
+	pid=`ps auxww| grep "$CATALINA_HOME/bin/tomcat-juli.jar"|grep -v grep|tr -s " "|cut -f2 -d " "`
+	case $pid in
+	"") echo -n $"$SW_MW is not running.";;
+	*)  echo -n $"$SW_MW is running pid=[$pid]";;
+	esac
+	echo
+}
+
+
+# See how we were called.
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        stop
+        start
+        ;;
+  status)
+        status
+        ;;
+  release)
+        release
+        ;;
+  *)
+        echo $"Usage: $SW_MW {start|stop|restart|status}"
+        exit
+esac
+

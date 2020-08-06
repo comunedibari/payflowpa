@@ -1,0 +1,10 @@
+        LogLevel warn
+        SSLEngine on
+        SSLProtocol all -SSLv2
+        SSLCipherSuite ALL:!ADH:!EXPORT:!SSLv2:RC4+RSA:+HIGH:+MEDIUM:+LOW
+        SSLOptions +StdEnvVars +ExportCertData
+
+        SSLCertificateFile /etc/httpd/mypay.d/certificati/star.mypay.crt
+        SSLCertificateKeyFile /etc/httpd/mypay.d/certificati/star.mypay.key
+
+

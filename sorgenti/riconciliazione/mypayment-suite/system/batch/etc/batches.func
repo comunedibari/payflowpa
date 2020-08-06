@@ -1,0 +1,301 @@
+_env(){
+
+	BATCH_USER="__TAG_SYSTEM_MYPAY_BATCH_UNIX_USER__"
+	BATCH_GROUP="$BATCH_USER"
+	BATCHDIR=__TAG_BATCH_ROOT_PATH__
+	BATCH_BIN=$BATCHDIR/bin
+	BATCH_LOG=$BATCHDIR/logs
+	BATCH_RUN="$BATCHDIR/var/run"
+	BATCH_INIT=$BATCHDIR/init.d
+	BATCH_MONITOR="$BATCHDIR/var/log"
+	BATCH_HOST="__TAG_SYSTEM_MYPAY_BATCH_PRIMARY_HOST__"
+	BATCH_UMASK="000"
+
+	if [ ! -d $BATCH_RUN ]; then mkdir -p $BATCH_RUN;fi
+	if [ ! -d $BATCH_BIN ]; then mkdir -p $BATCH_BIN;fi
+	if [ ! -d $BATCH_LOG ]; then mkdir -p $BATCH_LOG;fi
+	if [ ! -d $BATCH_INIT ]; then mkdir -p $BATCH_INIT;fi
+	if [ ! -d $BATCH_MONITOR ]; then mkdir -p $BATCH_MONITOR;fi
+	chown -R $BATCH_USER:$BATCH_GROUP $BATCHDIR
+	chmod 755 $BATCH_BIN/*
+
+	hostname=`hostname`
+
+	logfile=`echo "$SCRIPT"|sed -e "s/sh$/$hostname.log/g"`
+	logfile=$BATCH_LOG/$logfile
+	pidfile=`echo "$SCRIPT"|sed -e "s/sh$/$hostname.pid/g"`
+	pidfile="$BATCH_RUN/$pidfile"
+	monitorfile=`echo "$SCRIPT"|sed -e "s/sh$/nagios.txt/g"`
+	monitorfile="$BATCH_MONITOR/$monitorfile"
+	jobdir=`echo "$SCRIPT"|sed -e "s/_run.sh$//g"`
+	jobdir="$BATCHDIR/jobs/$jobdir/"
+	run_ctl="$BATCH_BIN/$SCRIPT"
+	job_ctl="$jobdir"
+	semfile=`echo "$SCRIPT"|sed -e "s/sh$/$hostname.sem/g"`
+	semfile=/tmp/$semfile
+
+	NAGIOS_HOST="MYPAY-BATCH"
+}
+###########
+_verifyHost(){
+	case $hostname in 
+	"$BATCH_HOST");;
+	*)
+		echo -e "\nERRORE"
+		echo -e "\tsistema corrente : $hostname"
+		echo -e "\tsistema batches  : $BATCH_HOST"
+		echo -e "\tCambia nodo oppure cambia configurazione"
+		echo -e "\nFile conf: $BATCHDIR/etc/batches.func"
+		echo -e "Variabile: BATCH_HOST"
+		exit
+	;;
+	esac
+}
+
+_start(){
+	_verifyHost
+        _statusFunc
+        case $STATUS in
+        'DOWN-ALL')
+		echo -e "\nStarting : $SCRIPT"
+		echo -e "\tlogfile  : $logfile"
+		echo -e "\tpidfile  : $pidfile"
+		echo -e "\tjobdir   : $jobdir"
+        	echo -e "\tCMD> su - $BATCH_USER -c \"umask $BATCH_UMASK; nohup /bin/sh $BATCH_BIN/$SCRIPT 0<&- &> $logfile 2>&1 &\" "
+        	su - $BATCH_USER -c "umask $BATCH_UMASK; nohup /bin/sh $BATCH_BIN/$SCRIPT 0<&- &> $logfile 2>&1 & "
+		sleep 2
+		_statusFunc
+		_statusFunc2
+        ;;
+        'UP-ALL')
+                echo -e "OK - Script : $SCRIPT running\t ExitCode=0 status=OK"
+		echo -e "\tScript gia' attivo"
+		exit 0
+        ;;
+        'DOWN-SHELL')
+                echo -e "ERR - Script : $SCRIPT down\t ExitCode=1 status=ERR"
+                echo -e "\tShell gia' spenta"
+                echo -e "\tJob java ATTIVO : $job_pid : Killing. Killato. Prova a riavviare"
+                for val in $job_pid; do
+                        if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+                done
+                if [ -f $pidfile ]; then rm -f $pidfile; fi
+                exit 1
+        ;;
+        'DOWN-JOB')
+                echo -e "ERR - Script : $SCRIPT down\t ExitCode=1 status=ERR"
+                echo -e "\tJob Java gia' spento"
+                echo -e "\tShell Script Attivo : $run_pid : Killing. Killato.Prova a riavviare"
+                for val in $run_pid; do
+                        if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+                done
+                if [ -f $pidfile ]; then rm -f $pidfile; fi
+                exit 0
+        ;;
+        *)
+                echo "**** STATUS=[$STATUS] non gestito : exit=0 *****"
+                exit 0
+        ;;
+        esac
+
+
+
+
+}
+_statusFunc(){
+	run_pid=`ps -edaf|grep "$run_ctl"|grep -v "grep"|awk -F " " '{print $2}' | tr -s "\n" " "`
+	job_pid=`ps -edaf|grep "$job_ctl"|grep -v "grep"|awk -F " " '{print $2}' | tr -s "\n" " "`
+
+	#echo "ps -edaf|grep \"$run_ctl\"|grep -v \"grep\"|awk -F \" \" '{print \$2}'"
+	#echo "ps -edaf|grep \"$job_ctl\"|grep -v \"grep\"|awk -F \" \" '{print \$2}'"
+
+	#case $run_pid in '') run_pid_status="DOWN";;esac
+	#case $job_pid in '') job_pid_status="DOWN";;esac
+	case $run_pid in
+	'')
+		case $job_pid in
+		'')
+			STATUS="DOWN-ALL";;
+		*)	STATUS="DOWN-SHELL";;
+		esac
+	;;
+	*)
+		case $job_pid in
+		'')
+			STATUS="DOWN-JOB";;
+		*)	STATUS="UP-ALL";;
+		esac
+	;;
+	esac
+
+}
+
+_statusFunc2(){
+	case $STATUS in
+	'UP-ALL')
+		echo -e "OK [UP]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		echo -e "\tPid Job Java     : $job_pid"
+		echo -e "\tPid Shell Script : $run_pid"
+		echo -e "\tPidFile  : $pidfile"
+		exit 0
+	;;
+	'DOWN-ALL')
+		echo -e "KO [DOWN]\t- Script : $SCRIPT \t ExitCode=1 status=KO"
+		if [ -f $pidfile ]; then rm -f $pidfile; fi
+		exit 1
+	;;
+	'DOWN-SHELL')
+		echo -e "OK [WARN]\t - Script : $SCRIPT \t ExitCode=0 status=WARN"
+		echo -e "\tProcess Shell Script : ASSENTE !!!"
+		echo -e "\tPid Job Java     : $job_pid"
+		if [ -f $pidfile ]; then rm -f $pidfile; fi
+		exit 0
+	;;
+	'DOWN-JOB')
+		echo -e "KO [DOWN]\t- Script : $SCRIPT \t ExitCode=1 status=ERR"
+		echo -e "\tProcess Java     : ASSENTE !!!"
+		echo -e "\tPid Shell Script : $run_pid"
+		if [ -f $pidfile ]; then rm -f $pidfile; fi
+		exit 1
+	;;
+	esac
+	######################################################
+}
+
+_status(){
+	_statusFunc
+
+	if [ -f $semfile ]
+	then
+		echo -e "$SCRIPT: Cluster Control Disabled"
+		echo "$SCRIPT : run_shell_pid [pid=$run_pid]"
+		echo "$SCRIPT : job_java_pid  [pid=$job_pid]"
+
+		exit 0
+	fi
+
+	_statusFunc2
+
+}
+_statusFuncNagios(){
+#_nsca "$myAS\t$NSCA_SERVICENAME\t$rCODE\t$NSCA_SERVICEOUT|$NSCA_PERFDATA"
+
+	cat /dev/null > $BATCH_MONITOR/e45-mypay-batches.nagios.txt
+	echo -e "`date +\"%s\"`|$NAGIOS_HOST\t0\tServizi Batch Attivo su `hostname`" | tee -a $BATCH_MONITOR/e45-mypay-batches.nagios.txt
+	chmod 755 $BATCH_MONITOR/e45-mypay-batches.nagios.txt
+	case $STATUS in
+	'UP-ALL')
+		#echo -e "OK: [UP]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		#echo -e "\tPid Job Java     : $job_pid"
+		#echo -e "\tPid Shell Script : $run_pid"
+		#echo -e "\tPidFile  : $pidfile"
+
+		cat /dev/null > $monitorfile
+		echo -e "`date +\"%s\"`|$NAGIOS_HOST\t$SCRIPT\t0\tStato OK : Sistema UP - host=`hostname`|perfdata=0" | tee -a $monitorfile
+		chmod 755 $monitorfile
+		exit 0
+	;;
+	'DOWN-ALL')
+		#echo -e "OK [DOWN]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		#if [ -f $pidfile ]; then rm -f $pidfile; fi
+		cat /dev/null > $monitorfile
+		echo -e "`date +\"%s\"`|$NAGIOS_HOST\t$SCRIPT\t2\tStato KO : Sistema DOWN - host=`hostname`|perfdata=-1" | tee -a $monitorfile
+		chmod 755 $monitorfile
+		exit 0
+	;;
+	'DOWN-SHELL')
+		#echo -e "KO [DOWN]\t - Script : $SCRIPT \t ExitCode=1 status=ERR"
+		#echo -e "\tProcess Shell Script : ASSENTE !!!"
+		#echo -e "\tPid Job Java     : $job_pid"
+		#if [ -f $pidfile ]; then rm -f $pidfile; fi
+		#exit 1
+		cat /dev/null > $monitorfile
+		echo -e "`date +\"%s\"`|$NAGIOS_HOST\t$SCRIPT\t1\tStato WARN :  Shell=DOWN, Java UP - host=`hostname`|perfdata=2" | tee -a $monitorfile
+		chmod 755 $monitorfile
+		exit 0
+	;;
+	'DOWN-JOB')
+		cat /dev/null > $monitorfile
+		echo -e "`date +\"%s\"`|$NAGIOS_HOST\t$SCRIPT\t2\tStato KO : Sistema DOWN (Shell=Up|Job=DOWN) - host=`hostname`|perfdata=-1" | tee -a $monitorfile
+		chmod 755 $monitorfile
+		exit 0
+	;;
+	esac
+}
+_nagiosFileSystem(){
+	##File system
+	#df -k /VOLGFS/E45-MYPAY/|tail -1|tr -s " "|sed -e 's/^ //g'
+	df_data=`df -k /VOLGFS/E45-MYPAY/|tail -1|tr -s " "|sed -e 's/^ //g'`
+	size=`echo "$df_data"|cut -f1 -d " "`
+	used=`echo "$df_data"|cut -f2 -d " "`
+	ava=`echo "$df_data"|cut -f3 -d " "`
+	pUsed=`echo "$df_data"|cut -f4 -d " "|tr -d "%"`
+	serviceName=`echo "$df_data"|cut -f5 -d " "|tr -s "/" "_"|sed -e 's/^_//'`
+	if [ $pUsed -gt 75 ] ; then st=2; else st=0;fi
+	cat /dev/null > $BATCH_MONITOR/filesystem.nagios.txt
+	echo -e "`date +\"%s\"`|$NAGIOS_HOST\t$serviceName\t$st\tFS ($df_data) - host=`hostname`|usedKB=$used avaKB=$ava percUsed=$pUsed" >> $BATCH_MONITOR/filesystem.nagios.txt
+	chmod 755 $BATCH_MONITOR/filesystem.nagios.txt
+	#exit 0
+}
+_nagios(){
+	_statusFunc
+	_nagiosFileSystem
+	_statusFuncNagios
+	
+}
+
+_stop(){
+        _statusFunc
+        case $STATUS in
+        'DOWN-ALL')
+		echo -e "OK [DOWN]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		echo -e "\tSistema gia' spento"
+                if [ -f $pidfile ]; then rm -f $pidfile; fi
+                exit 0
+        ;;
+        'UP-ALL')
+		echo -e "OK [DOWN]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		for val in $job_pid; do 
+			if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+		done
+		for val in $run_pid; do 
+			if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+		done
+		if [ -f $pidfile ]; then rm -f $pidfile;fi
+	;;
+        'DOWN-SHELL')
+		echo -e "OK [DOWN] - Script : $SCRIPT \t ExitCode=0 status=OK"
+		echo -e "\tShell gia' spenta"
+		echo -e "\tSpegnimento job java : $job_pid"
+		for val in $job_pid; do 
+			if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+		done
+                if [ -f $pidfile ]; then rm -f $pidfile; fi
+                exit 0
+        ;;
+        'DOWN-JOB')
+		echo -e "OK [DOWN]\t- Script : $SCRIPT \t ExitCode=0 status=OK"
+		echo -e "\tJob Java gia' spento"
+		echo -e "\tSpegnimento Shell Script : $run_pid"
+		for val in $run_pid; do 
+			if [ -d /proc/$val ]; then kill $val; sleep 1;fi
+		done
+                if [ -f $pidfile ]; then rm -f $pidfile; fi
+                exit 0
+        ;;
+	*)
+		echo "**** STATUS=[$STATUS] non gestito : exit=0 *****"
+		exit 0
+	;;
+        esac
+}
+
+_disable(){
+	echo -e "$SCRIPT : disabling Cluster Control [$semfile]"
+	touch $semfile
+}
+_enable(){
+	echo -e "$SCRIPT : enabling Cluster Control [$semfile]"
+	if [ -f $semfile ]; then rm -f $semfile;fi
+}
+

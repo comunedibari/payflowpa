@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Verbale amministrativo]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:include schemaLocation="/mydictionary/scarica.html?codice=mypay_ABSTRACT_VERBALE_AMMINISTRATIVO"/>
+
+    <xs:complexType name="verbale_amministrativo">
+        <xs:complexContent>
+            <xs:extension base="myp:abstract_verbale_amministrativo">
+                <xs:sequence>
+    
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="documento" type="myp:verbale_amministrativo"/>
+</xs:schema>

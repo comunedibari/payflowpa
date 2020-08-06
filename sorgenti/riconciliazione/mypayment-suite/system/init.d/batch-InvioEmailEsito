@@ -1,0 +1,46 @@
+#!/bin/bash
+#
+# Batches :  batch-InvioEmailEsito
+#
+# chkconfig: 345 95 2
+# description:  batch-InvioEmailEsito Statup Script
+#
+BATCH_INIT_DIR=__TAG_BATCH_ROOT_PATH__/init.d
+SCRIPT_NAME="batch-InvioEmailEsito"
+SW_MW="$SCRIPT_NAME"
+
+_execute() {
+	/bin/sh $BATCH_INIT_DIR/$SCRIPT_NAME $1
+}
+
+# See how we were called.
+case "$1" in
+  start)
+	echo -n "Starting : $SW_MW "
+	_execute $1
+	echo
+        ;;
+  stop)
+	echo -n "Stopping : $SW_MW "
+	_execute $1
+	echo
+        ;;
+  status)
+	echo -n "Status : $SW_MW "
+	_execute $1
+	echo
+        ;;
+  enable)
+	echo -n "Enabling Cluster Control : $SW_MW"
+	_execute $1
+	echo
+	;;
+  disable)
+	echo -n "Disabling Cluster Control : $SW_MW"
+	_execute $1
+	echo
+	;;
+  *)
+        echo $"Usage: $SW_MW {start|stop|status|enable|disable}"
+        exit
+esac

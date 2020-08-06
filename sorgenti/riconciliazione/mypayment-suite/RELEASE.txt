@@ -1,0 +1,5 @@
+Payment Suite v1.2
+
+	MyBox v5.0.11
+	MyDictionary v2.0.0
+	MyProfile v1.1.0

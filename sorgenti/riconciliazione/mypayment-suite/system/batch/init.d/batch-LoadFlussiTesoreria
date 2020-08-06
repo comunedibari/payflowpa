@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Cambia solo il nome dello script : SCRIPT
+SCRIPT="BatchLoadFlussiTesoreria_run.sh"
+#
+#
+. __TAG_BATCH_ROOT_PATH__/etc/batches.func
+_env
+
+
+case $1 in
+'start') _start;;
+'stop') _stop;;
+'status') _status;;
+'disable') _disable;;
+'enable') _enable;;
+'nagios') _nagios;;
+*)	echo -e "\nERROR:\n\t[start|stop|status|disable|enable]\n";exit 1;;
+esac
