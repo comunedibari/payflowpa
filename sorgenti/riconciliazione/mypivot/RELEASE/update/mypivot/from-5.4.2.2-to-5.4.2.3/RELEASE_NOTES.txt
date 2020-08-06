@@ -1,0 +1,1 @@
+Aggiornamento batch BatchFlussoTesoreriaF2K con la rimozione dello SCHEMA dalla connessione DB e dalle query
