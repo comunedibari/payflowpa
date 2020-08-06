@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2017-07-14T12:06:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AccertamentoReport" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="22a8a8ad-e75a-4e6d-8050-5bb5cfd8abee">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Adapter_USERE45_4O_USERE45_4_V5_4_x_accertamenti"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="cod_ipa_ente" class="java.lang.String"/>
+	<parameter name="pagolapa_img" class="java.lang.String"/>
+	<parameter name="ente_img" class="java.lang.String"/>
+	<parameter name="de_rp_ente_benef_denominazione_beneficiario" class="java.lang.String"/>
+	<parameter name="de_rp_ente_benef_email_beneficiario" class="java.lang.String"/>
+	<parameter name="codice_fiscale_ente" class="java.lang.String"/>
+	<parameter name="anagrafica_utente" class="java.lang.String"/>
+	<parameter name="codice_fiscale_utente" class="java.lang.String"/>
+	<parameter name="email_address_utente" class="java.lang.String"/>
+	<parameter name="de_nome_accertamento" class="java.lang.String"/>
+	<parameter name="de_tipo_dovuto_accertamento" class="java.lang.String"/>
+	<parameter name="dt_ultima_modifica_accertamento" class="java.lang.String"/>
+	<parameter name="id_accertamento" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="classificazione_accertamento" class="java.lang.String"/>
+	<parameter name="cod_tipo_dovuto_accertamento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 
+        a.mygov_accertamento_dettaglio_id as id_acc,
+	a.mygov_accertamento_id as accertamento_id_acc,
+	a.cod_iuv as codIuv_acc,
+	a.cod_iuf as codIuf_acc,
+	a.de_anno_bolletta as de_anno_bolletta_acc,
+	a.cod_bolletta as cod_bolletta_acc,
+	a.dt_data_inserimento as dt_data_inserimento_acc,
+	
+        codice_ipa_ente as codiceIpaEnte, 
+	dt_data_esecuzione_pagamento as dtDataEsecuzionePagamento,
+	de_data_esecuzione_pagamento as deDataEsecuzionePagamento, 
+	singolo_importo_commissione_carico_pa as singoloImportoCommissioneCaricoPa, 
+	bilancio as bilancio, 
+	nome_flusso_import_ente as nomeFlussoImportEnte, 
+	riga_flusso_import_ente as rigaFlussoImportEnte, 
+	codice_iud as codiceIud, 
+	codice_iuv as codiceIuv, 
+	versione_oggetto as versioneOggetto, 
+	identificativo_dominio as identificativoDominio, 
+	identificativo_stazione_richiedente as identificativoStazioneRichiedente, 
+	identificativo_messaggio_ricevuta as identificativoMessaggioRicevuta, 
+	data_ora_messaggio_ricevuta as dataOraMessaggioRicevuta, 
+	riferimento_messaggio_richiesta as riferimentoMessaggioRichiesta, 
+	riferimento_data_richiesta as riferimentoDataRichiesta, 
+	tipo_identificativo_univoco_attestante as tipoIdentificativoUnivocoAttestante, 
+	codice_identificativo_univoco_attestante as codiceIdentificativoUnivocoAttestante, 
+	denominazione_attestante as denominazioneAttestante, 
+	codice_unit_oper_attestante as codiceUnitOperAttestante, 
+	denom_unit_oper_attestante as denomUnitOperAttestante, 
+	indirizzo_attestante as indirizzoAttestante, 
+	civico_attestante as civicoAttestante, 
+	cap_attestante as capAttestante, 
+	localita_attestante as localitaAttestante, 
+	provincia_attestante as provinciaAttestante, 
+	nazione_attestante as nazioneAttestante, 
+	tipo_identificativo_univoco_beneficiario as tipoIdentificativoUnivocoBeneficiario, 
+	codice_identificativo_univoco_beneficiario as codiceIdentificativoUnivocoBeneficiario, 
+	denominazione_beneficiario as denominazioneBeneficiario, 
+	codice_unit_oper_beneficiario as codiceUnitOperBeneficiario, 
+	denom_unit_oper_beneficiario as denomUnitOperBeneficiario, 
+	indirizzo_beneficiario as indirizzoBeneficiario, 
+	civico_beneficiario as civicoBeneficiario, 
+	cap_beneficiario as capBeneficiario, 
+	localita_beneficiario as localitaBeneficiario, 
+	provincia_beneficiario as provinciaBeneficiario, 
+	nazione_beneficiario as nazioneBeneficiario, 
+	tipo_identificativo_univoco_versante AS tipoIdentificativoUnivocoVersante, 
+	codice_identificativo_univoco_versante as codiceIdentificativoUnivocoVersante, 
+	anagrafica_versante as anagraficaVersante, 
+	indirizzo_versante as indirizzoVersante, 
+	civico_versante as civicoVersante, 
+	cap_versante as capVersante, 
+	localita_versante as localitaVersante, 
+	provincia_versante as provinciaVersante, 
+	nazione_versante as nazioneVersante, 
+	email_versante as emailVersante, 
+	tipo_identificativo_univoco_pagatore as tipoIdentificativoUnivocoPagatore, 
+	codice_identificativo_univoco_pagatore as codiceIdentificativoUnivocoPagatore, 
+	anagrafica_pagatore as anagraficaPagatore, 
+	indirizzo_pagatore as indirizzoPagatore, 
+	civico_pagatore as civicoPagatore, 
+	cap_pagatore as capPagatore, 
+	localita_pagatore as localitaPagatore,
+	provincia_pagatore as provinciaPagatore, 
+	nazione_pagatore as nazionePagatore, 
+	email_pagatore as emailPagatore, 
+	codice_esito_pagamento as codiceEsitoPagamento, 
+	importo_totale_pagato as importoTotalePagato, 
+	identificativo_univoco_versamento AS identificativoUnivocoVersamento, 
+	codice_contesto_pagamento as codiceContestoPagamento, 
+	singolo_importo_pagato as singoloImportoPagato, 
+	esito_singolo_pagamento as esitoSingoloPagamento, 
+	dt_data_esito_singolo_pagamento as dtDataEsitoSingoloPagamento, 
+	de_data_esito_singolo_pagamento as deDataEsitoSingoloPagamento, 
+	identificativo_univoco_riscossione as identificativoUnivocoRiscossione, 
+	causale_versamento as causaleVersamento,
+	dati_specifici_riscossione as datiSpecificiRiscossione, 
+	tipo_dovuto as tipoDovuto, 
+	identificativo_flusso_rendicontazione as identificativoFlussoRendicontazione, 
+	data_ora_flusso_rendicontazione as dataOraFlussoRendicontazione, 
+	identificativo_univoco_regolamento as identificativoUnivocoRegolamento, 
+	dt_data_regolamento as dtDataRegolamento, 
+	de_data_regolamento as deDataRegolamento, 
+	numero_totale_pagamenti as numeroTotalePagamenti, 
+	importo_totale_pagamenti as importoTotalePagamenti, 
+	data_acquisizione as dataAcquisizione, 
+	cod_conto as codConto, 
+	dt_data_contabile as dtDataContabile, 
+	de_data_contabile as deDataContabile,
+	dt_data_valuta as dtDataValuta, 
+	de_data_valuta as deDataValuta, 
+	num_importo as numImporto, 
+	de_importo as deImporto, 
+	cod_or1 as codOr1, 
+	p.de_anno_bolletta as deAnnoBolletta, 
+	p.cod_bolletta as codBolletta, 
+	cod_id_dominio as codIdDominio, 
+	dt_ricezione as dtRicezione,
+	de_data_ricezione as deDataRicezione, 
+	de_anno_documento as deAnnoDocumento, 
+	cod_documento as codDocumento, 
+	de_anno_provvisorio as deAnnoProvvisorio, 
+	cod_provvisorio as codProvvisorio, 
+	verifica_totale as verificaTotale, 
+	classificazione_completezza as classificazioneCompletezza, 
+	dt_data_ultimo_aggiornamento as dtDataUltimoAggiornamento, 
+	de_data_ultimo_aggiornamento as deDataUltimoAggiornamento,
+	cod_iuf_key as codIufKey, 
+	cod_iud_key as codIudKey, 
+	cod_iuv_key as codIuvKey
+  FROM 
+      mygov_import_export_rendicontazione_tesoreria AS p INNER JOIN mygov_accertamento_dettaglio AS a 
+      ON p.cod_iuf_key = a.cod_iuf AND p.cod_iuv_key = a.cod_iuv AND p.de_anno_bolletta = a.de_anno_bolletta AND p.cod_bolletta = a.cod_bolletta
+  WHERE
+      /* Condizioni obbligatorie */
+      a.mygov_accertamento_id || '' =   $P{id_accertamento} AND
+       p.codice_ipa_ente = $P{cod_ipa_ente} AND
+        p.tipo_dovuto = $P{cod_tipo_dovuto_accertamento} AND 
+       p.classificazione_completezza = $P{classificazione_accertamento} 
+   ORDER BY dt_data_esito_singolo_pagamento ASC, codice_iuv ASC, codice_iud asc]]>
+	</queryString>
+	<field name="id_acc" class="java.lang.Long"/>
+	<field name="accertamento_id_acc" class="java.lang.Long"/>
+	<field name="codiuv_acc" class="java.lang.String"/>
+	<field name="codiuf_acc" class="java.lang.String"/>
+	<field name="de_anno_bolletta_acc" class="java.lang.String"/>
+	<field name="cod_bolletta_acc" class="java.lang.String"/>
+	<field name="dt_data_inserimento_acc" class="java.sql.Timestamp"/>
+	<field name="codiceipaente" class="java.lang.String"/>
+	<field name="dtdataesecuzionepagamento" class="java.sql.Date"/>
+	<field name="dedataesecuzionepagamento" class="java.lang.String"/>
+	<field name="singoloimportocommissionecaricopa" class="java.lang.String"/>
+	<field name="bilancio" class="java.lang.String"/>
+	<field name="nomeflussoimportente" class="java.lang.String"/>
+	<field name="rigaflussoimportente" class="java.lang.String"/>
+	<field name="codiceiud" class="java.lang.String"/>
+	<field name="codiceiuv" class="java.lang.String"/>
+	<field name="versioneoggetto" class="java.lang.String"/>
+	<field name="identificativodominio" class="java.lang.String"/>
+	<field name="identificativostazionerichiedente" class="java.lang.String"/>
+	<field name="identificativomessaggioricevuta" class="java.lang.String"/>
+	<field name="dataoramessaggioricevuta" class="java.lang.String"/>
+	<field name="riferimentomessaggiorichiesta" class="java.lang.String"/>
+	<field name="riferimentodatarichiesta" class="java.lang.String"/>
+	<field name="tipoidentificativounivocoattestante" class="java.lang.String"/>
+	<field name="codiceidentificativounivocoattestante" class="java.lang.String"/>
+	<field name="denominazioneattestante" class="java.lang.String"/>
+	<field name="codiceunitoperattestante" class="java.lang.String"/>
+	<field name="denomunitoperattestante" class="java.lang.String"/>
+	<field name="indirizzoattestante" class="java.lang.String"/>
+	<field name="civicoattestante" class="java.lang.String"/>
+	<field name="capattestante" class="java.lang.String"/>
+	<field name="localitaattestante" class="java.lang.String"/>
+	<field name="provinciaattestante" class="java.lang.String"/>
+	<field name="nazioneattestante" class="java.lang.String"/>
+	<field name="tipoidentificativounivocobeneficiario" class="java.lang.String"/>
+	<field name="codiceidentificativounivocobeneficiario" class="java.lang.String"/>
+	<field name="denominazionebeneficiario" class="java.lang.String"/>
+	<field name="codiceunitoperbeneficiario" class="java.lang.String"/>
+	<field name="denomunitoperbeneficiario" class="java.lang.String"/>
+	<field name="indirizzobeneficiario" class="java.lang.String"/>
+	<field name="civicobeneficiario" class="java.lang.String"/>
+	<field name="capbeneficiario" class="java.lang.String"/>
+	<field name="localitabeneficiario" class="java.lang.String"/>
+	<field name="provinciabeneficiario" class="java.lang.String"/>
+	<field name="nazionebeneficiario" class="java.lang.String"/>
+	<field name="tipoidentificativounivocoversante" class="java.lang.String"/>
+	<field name="codiceidentificativounivocoversante" class="java.lang.String"/>
+	<field name="anagraficaversante" class="java.lang.String"/>
+	<field name="indirizzoversante" class="java.lang.String"/>
+	<field name="civicoversante" class="java.lang.String"/>
+	<field name="capversante" class="java.lang.String"/>
+	<field name="localitaversante" class="java.lang.String"/>
+	<field name="provinciaversante" class="java.lang.String"/>
+	<field name="nazioneversante" class="java.lang.String"/>
+	<field name="emailversante" class="java.lang.String"/>
+	<field name="tipoidentificativounivocopagatore" class="java.lang.String"/>
+	<field name="codiceidentificativounivocopagatore" class="java.lang.String"/>
+	<field name="anagraficapagatore" class="java.lang.String"/>
+	<field name="indirizzopagatore" class="java.lang.String"/>
+	<field name="civicopagatore" class="java.lang.String"/>
+	<field name="cappagatore" class="java.lang.String"/>
+	<field name="localitapagatore" class="java.lang.String"/>
+	<field name="provinciapagatore" class="java.lang.String"/>
+	<field name="nazionepagatore" class="java.lang.String"/>
+	<field name="emailpagatore" class="java.lang.String"/>
+	<field name="codiceesitopagamento" class="java.lang.String"/>
+	<field name="importototalepagato" class="java.lang.String"/>
+	<field name="identificativounivocoversamento" class="java.lang.String"/>
+	<field name="codicecontestopagamento" class="java.lang.String"/>
+	<field name="singoloimportopagato" class="java.lang.String"/>
+	<field name="esitosingolopagamento" class="java.lang.String"/>
+	<field name="dtdataesitosingolopagamento" class="java.sql.Date"/>
+	<field name="dedataesitosingolopagamento" class="java.lang.String"/>
+	<field name="identificativounivocoriscossione" class="java.lang.String"/>
+	<field name="causaleversamento" class="java.lang.String"/>
+	<field name="datispecificiriscossione" class="java.lang.String"/>
+	<field name="tipodovuto" class="java.lang.String"/>
+	<field name="identificativoflussorendicontazione" class="java.lang.String"/>
+	<field name="dataoraflussorendicontazione" class="java.lang.String"/>
+	<field name="identificativounivocoregolamento" class="java.lang.String"/>
+	<field name="dtdataregolamento" class="java.sql.Date"/>
+	<field name="dedataregolamento" class="java.lang.String"/>
+	<field name="numerototalepagamenti" class="java.lang.String"/>
+	<field name="importototalepagamenti" class="java.lang.String"/>
+	<field name="dataacquisizione" class="java.lang.String"/>
+	<field name="codconto" class="java.lang.String"/>
+	<field name="dtdatacontabile" class="java.sql.Date"/>
+	<field name="dedatacontabile" class="java.lang.String"/>
+	<field name="dtdatavaluta" class="java.sql.Date"/>
+	<field name="dedatavaluta" class="java.lang.String"/>
+	<field name="numimporto" class="java.math.BigDecimal"/>
+	<field name="deimporto" class="java.lang.String"/>
+	<field name="codor1" class="java.lang.String"/>
+	<field name="deannobolletta" class="java.lang.String"/>
+	<field name="codbolletta" class="java.lang.String"/>
+	<field name="codiddominio" class="java.lang.String"/>
+	<field name="dtricezione" class="java.sql.Timestamp"/>
+	<field name="dedataricezione" class="java.lang.String"/>
+	<field name="deannodocumento" class="java.lang.String"/>
+	<field name="coddocumento" class="java.lang.String"/>
+	<field name="deannoprovvisorio" class="java.lang.String"/>
+	<field name="codprovvisorio" class="java.lang.String"/>
+	<field name="verificatotale" class="java.lang.String"/>
+	<field name="classificazionecompletezza" class="java.lang.String"/>
+	<field name="dtdataultimoaggiornamento" class="java.sql.Date"/>
+	<field name="dedataultimoaggiornamento" class="java.lang.String"/>
+	<field name="codiufkey" class="java.lang.String"/>
+	<field name="codiudkey" class="java.lang.String"/>
+	<field name="codiuvkey" class="java.lang.String"/>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[java.lang.Double.parseDouble($F{singoloimportopagato})]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0D)]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="204" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="mm"/>
+			<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="19" width="802" height="22" forecolor="#006699" backcolor="#FFFFFF" uuid="3c21c7f7-aa57-49b2-8e95-a41c62c0aac8">
+					<property name="local_mesure_unity" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACCERTAMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="70" width="269" height="17" forecolor="#000000" backcolor="#D5E7EF" uuid="cca30fd9-f9c1-4434-bfde-0c6118367273">
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[ENTE CREDITORE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="8" y="90" width="261" height="14" uuid="428837c3-d575-4cc4-ba94-f8fca8bf13f6">
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="local_mesure_unitx" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{de_rp_ente_benef_denominazione_beneficiario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="103" width="261" height="14" uuid="39725cfe-1160-4078-903a-ca9cf519fa47">
+					<property name="local_mesure_unitheight" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Codice Fiscale "+ $P{codice_fiscale_ente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="116" width="261" height="14" isRemoveLineWhenBlank="true" uuid="140b796d-5aeb-4979-84d7-d6c4966e4f95">
+					<property name="local_mesure_unitheight" value="mm"/>
+					<printWhenExpression><![CDATA[$P{de_rp_ente_benef_email_beneficiario} != null]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{de_rp_ente_benef_email_beneficiario}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="721" y="0" width="60" height="60" uuid="f7fb517a-22f5-4984-b3e0-c3fd2f30a5d7">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="mm"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{pagolapa_img}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="60" height="60" uuid="8045ed96-be6b-4870-8823-d1d2f0b362e7">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitx" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.x" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="mm"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{ente_img}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="562" y="71" width="234" height="17" forecolor="#000000" backcolor="#D5E7EF" uuid="c81419a6-829c-40c7-9463-7213f33d4476">
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[STAMPATO DA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="562" y="103" width="234" height="14" uuid="8cc00a5a-fe13-448b-9de7-7fb311965c44">
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codice_fiscale_utente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="562" y="116" width="234" height="14" isRemoveLineWhenBlank="true" uuid="af3ef8b5-d92f-4f6b-8811-6668b7b20cdd">
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{email_address_utente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="562" y="90" width="234" height="14" uuid="cd59e5a5-3d6c-4d69-b0b1-99b5669065b9">
+					<property name="local_mesure_unitx" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.y" value="mm"/>
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.height" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					<paragraph leftIndent="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{anagrafica_utente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="0" y="42" width="802" height="15" forecolor="#000000" uuid="494848b2-25f8-4ce1-98d7-64ccf5d4243c"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans Mono" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Stampato in data: " + new SimpleDateFormat("dd-MM-yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="144" width="802" height="60" backcolor="#D5E7EF" uuid="67be3627-486f-4035-9e4b-8164a9a24614">
+					<property name="ShowOutOfBoundContent" value="true"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<staticText>
+					<reportElement key="" positionType="Float" x="8" y="21" width="42" height="21" uuid="23f72538-2938-40b3-9309-dae2429fc137">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="mm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Nome:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement positionType="Float" x="333" y="21" width="100" height="21" uuid="bffba8b2-ce73-49db-8b88-c9651a6663b9">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Tipo Dovuto:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement positionType="Float" x="50" y="21" width="280" height="21" isPrintWhenDetailOverflows="true" uuid="8928ddde-8adc-4cea-a622-0dbb207c83be">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="mm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+						<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+						<paragraph lineSpacing="1_1_2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{de_nome_accertamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement positionType="Float" mode="Opaque" x="0" y="0" width="802" height="17" forecolor="#FFFFFF" backcolor="#006699" uuid="ef268026-f68d-4aaf-a903-48697fca1c36">
+						<property name="local_mesure_unitwidth" value="mm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+						<property name="local_mesure_unitheight" value="mm"/>
+						<property name="local_mesure_unity" value="mm"/>
+						<property name="com.jaspersoft.studio.unit.y" value="mm"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+						<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[INFORMAZIONI ACCERTAMENTO]]></text>
+				</staticText>
+				<textField>
+					<reportElement positionType="Float" x="700" y="21" width="100" height="21" uuid="02e28cfd-f804-4acc-930e-dcc92bdea809">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{dt_ultima_modifica_accertamento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement positionType="Float" x="433" y="21" width="170" height="21" isPrintWhenDetailOverflows="true" uuid="710d3bbe-26ab-4f22-a4d0-a5d49aae4406">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{de_tipo_dovuto_accertamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement key="" positionType="Float" x="604" y="21" width="96" height="21" uuid="d99f7737-a503-4000-a268-47a015f7729a">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="local_mesure_unitwidth" value="mm"/>
+						<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="true" isUnderline="false"/>
+					</textElement>
+					<text><![CDATA[Aggiornato al:]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="538" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="802" height="29" forecolor="#F5F5F5" uuid="824b2b0e-cbf5-4438-887f-cd8d0963c91e"/>
+				<frame>
+					<reportElement x="0" y="-6" width="266" height="29" uuid="574568bb-804c-4cb6-b60b-8aaf92bdc1ac">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<rectangle>
+						<reportElement positionType="Float" x="0" y="0" width="266" height="29" forecolor="#000000" backcolor="#FAF2CC" uuid="38a163b7-165c-4247-b1fd-75dcf64296ea">
+							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineStyle="Solid" lineColor="#D4D4D4"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="0" width="266" height="29" uuid="89949f2c-f2f1-4460-b17f-878b7de2427c"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[RICEVUTA TELEMATICA]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="267" y="-6" width="266" height="29" uuid="e48051da-1654-40bc-8136-a1996c695dac">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<rectangle>
+						<reportElement positionType="Float" x="0" y="0" width="266" height="29" forecolor="#000000" backcolor="#C4E3F3" uuid="51d19044-f8bd-4582-b1a2-cc83496f715f">
+							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineStyle="Solid" lineColor="#D4D4D4"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="0" width="266" height="29" uuid="52d0c989-bbbb-4101-b644-5ce3f70bdc10"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[RENDICONTAZIONE]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement x="534" y="-6" width="268" height="29" uuid="05ba0b88-b7e0-4c3f-9af9-3209e47e2a6e">
+						<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					</reportElement>
+					<rectangle>
+						<reportElement style="Table_TD" positionType="Float" x="0" y="0" width="268" height="29" forecolor="#000000" backcolor="#D0E9C6" uuid="cb25b928-dc35-4797-b32b-f12dca8100ea">
+							<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						</reportElement>
+						<graphicElement>
+							<pen lineStyle="Solid" lineColor="#D4D4D4"/>
+						</graphicElement>
+					</rectangle>
+					<staticText>
+						<reportElement positionType="Float" x="0" y="0" width="268" height="29" uuid="c775fad4-774d-42eb-b510-134dd9c339d9"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[TESORERIA]]></text>
+					</staticText>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement x="0" y="25" width="802" height="513" uuid="6038d2e9-d656-4a48-b6a0-7d08ac24c59e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<rectangle>
+					<reportElement x="0" y="18" width="266" height="495" forecolor="#DEDEDE" backcolor="#FAF2CC" uuid="1bdbcede-5a73-4ca4-aab9-151429e0b569">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="267" y="18" width="266" height="495" forecolor="#DEDEDE" backcolor="#C4E3F3" uuid="e446f55f-8b7c-47f7-b372-659701e81100">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="534" y="18" width="268" height="495" forecolor="#DEDEDE" backcolor="#D0E9C6" uuid="40cf1aaf-b6b8-4dd8-a42e-6df3cf5b0eac">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="-2" width="802" height="20" forecolor="#000000" backcolor="#F5F5F5" uuid="b734c191-6ee0-47ef-b590-80fbdb71c4bd">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<graphicElement>
+						<pen lineColor="#DEDEDE"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="-2" width="180" height="20" uuid="a02752aa-5a43-4c72-a98c-1a04c61eeeec">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data ultimo aggiornamento: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="180" y="-2" width="620" height="20" uuid="141b9d90-314f-448c-a804-0b74465db868">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $F{dedataultimoaggiornamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="18" width="262" height="20" uuid="923f8137-d042-4fc4-8c74-51d58f022ab9">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IUD]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="38" width="262" height="20" uuid="b0a2985f-00bb-49e3-a050-691d1548328a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codiceiud}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="79" width="262" height="20" uuid="fb2fdb9a-eee0-43c3-a5f8-de63b5da6424">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{identificativounivocoriscossione}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="59" width="262" height="20" uuid="035efb5b-93a7-40d3-a233-c8c0b2bb98f4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IUR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="100" width="262" height="20" uuid="3a182ba9-20bd-4201-ac19-967daec17799">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IUV]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="120" width="262" height="20" uuid="b202b056-1e48-4acc-a1ce-f7ae1deca078">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codiceiuv}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="161" width="262" height="20" uuid="c5a28e91-3cd9-4d92-9716-d0875a989c4b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA["€ " + $F{singoloimportopagato}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="141" width="262" height="20" uuid="6e32076e-5004-4310-9001-0033c6b1f456">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Importo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="2" y="182" width="262" height="20" uuid="2655c237-ed51-430a-877e-bf49e8344105">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Esito]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="202" width="262" height="20" uuid="52906f98-ce4d-430f-9032-c0d0586e7c1a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dedataesitosingolopagamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="223" width="262" height="20" uuid="6e92d56b-7d6a-4889-8a33-14f8e70d1cbe">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Attestante]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="243" width="262" height="20" uuid="5db80b33-afc7-4847-86ae-41da6b998a75">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocoattestante} != null) ? $F{denominazioneattestante} : "n/a"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="263" width="262" height="20" isRemoveLineWhenBlank="true" uuid="e775054e-b928-46c1-88bc-58e45bf99cae">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocoattestante} != null) ? $F{codiceidentificativounivocoattestante} : null]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="283" width="262" height="20" isRemoveLineWhenBlank="true" uuid="ae5a94b5-921c-4df3-87c7-3168f507c363">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{codiceidentificativounivocoattestante} != null && $F{tipoidentificativounivocoattestante} != null) ?  $F{tipoidentificativounivocoattestante}.replace("A","(Codice ABI)").replace("B","(Codice BIC)").replace("G","(Persona Giuridica)") : null]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="344" width="262" height="20" isRemoveLineWhenBlank="true" uuid="8603f755-48d0-4d87-8d5b-db265e19c080">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocopagatore} != null) ? $F{codiceidentificativounivocopagatore} : null]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="304" width="262" height="20" uuid="7c145909-51c0-48f6-85c2-40f6a06e3456">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pagatore]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="324" width="262" height="20" uuid="b593bab6-2f91-4faf-89d8-9b6d126abaf6">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocopagatore} != null) ? $F{anagraficapagatore} : "n/a"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="364" width="262" height="20" isRemoveLineWhenBlank="true" uuid="c24c55c2-44f6-47a8-a258-c120bf13c152">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{codiceidentificativounivocopagatore}  != null) ?  $F{tipoidentificativounivocopagatore}.replace("F","(Persona Fisica)").replace("G","(Persona Giuridica)") : null]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="405" width="262" height="20" uuid="7f2a49c1-26ec-4548-8548-317a4155ed0a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocoversante} != null) ? $F{anagraficaversante} : "n/a"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="385" width="262" height="20" uuid="eec0ef1a-f476-4654-a3da-ec1e6ad1d75c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Versante]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="445" width="262" height="20" isRemoveLineWhenBlank="true" uuid="7db6c106-a483-4241-aa10-454381a3a975">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{codiceidentificativounivocoversante}  != null) ?  $F{tipoidentificativounivocoversante}.replace("F","(Persona Fisica)").replace("G","(Persona Giuridica)") : null]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="2" y="425" width="262" height="20" isRemoveLineWhenBlank="true" uuid="fe08ae26-937c-4c7a-a459-c2f4c9f0116f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiceidentificativounivocoversante} != null) ? $F{codiceidentificativounivocoversante} : null]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="466" width="262" height="20" uuid="e7ebc2c4-4c6e-4ac5-80f7-ae6d8e64690c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Causale]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="2" y="486" width="262" height="20" uuid="afb53594-a63d-4ecd-8bde-34ad624716fc">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{causaleversamento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="269" y="38" width="262" height="20" uuid="9dc47b6e-8620-420b-b946-4fa89369f961">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{identificativoflussorendicontazione}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="269" y="18" width="262" height="20" uuid="48e3ec35-205b-4f5e-8ef8-33512e3a698a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="269" y="79" width="262" height="20" uuid="2de7e379-a285-4ab3-b817-2e42f760d978">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dataoraflussorendicontazione}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="269" y="59" width="262" height="20" uuid="1f6018e8-a892-4c2e-9626-9dbf9b8e1027">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data e Ora]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="269" y="120" width="262" height="20" uuid="ae7034d9-aba1-4759-bbda-6210060403c6">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{identificativounivocoregolamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="269" y="100" width="262" height="20" uuid="e8267dc3-c3f0-4be5-8028-23646ec39904">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID Reg]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="269" y="161" width="262" height="20" uuid="b88021ae-1222-4f19-b63b-dab90009b421">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dedataregolamento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="269" y="141" width="262" height="20" uuid="3c906270-af89-4b2a-9510-3e0db269e2c4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Reg]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="269" y="181" width="262" height="20" isRemoveLineWhenBlank="true" uuid="0c9c706e-2d18-4d45-9b7d-b3254faf58dc">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{identificativoflussorendicontazione}  == "n/a") ?  "(presunta)" : null]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="269" y="222" width="262" height="20" uuid="387882e6-efa8-4b24-80b7-7e29bf76b45f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA["€ " + $F{importototalepagamenti}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="269" y="202" width="262" height="20" uuid="a60ea3bc-4e7a-4638-9eeb-9135c3239653">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Importo Totale]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="538" y="38" width="262" height="20" uuid="acf94bf5-21db-4f23-9eb8-41a029fdcfc0">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codconto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="18" width="262" height="20" uuid="6bdc80fe-1e34-47f2-8e72-4f3295e0e298">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Conto]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="538" y="59" width="262" height="20" uuid="fc11a7bf-9ef6-4153-b80a-7ef06f9dc2e8">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data valuta]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="538" y="79" width="262" height="20" uuid="de93c058-7e27-4f8e-a893-1cefd5f98bc8">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dedatavaluta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="538" y="120" width="262" height="20" uuid="3f5c7c04-4a30-4220-95a8-7a0145d9656c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dedatacontabile}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="100" width="262" height="20" uuid="2f28a7a5-2cc8-46d1-8411-d1df9a036384">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data contabile]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="538" y="141" width="262" height="20" uuid="3cf668ad-c619-48ef-8a91-5d5ad10b157b">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Importo Tesoreria]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="538" y="161" width="262" height="20" uuid="4f7c642f-7c6a-4509-9570-4c0587229514">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA["€ " + $F{deimporto}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="182" width="262" height="20" uuid="624a1291-bb5f-46c5-9f6f-e9c4774bbea6">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ordinante]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="538" y="202" width="262" height="20" uuid="d8b5e47b-9787-453d-83be-88a8c46afc4c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codor1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="223" width="262" height="20" uuid="1d7d49aa-fec5-4cdd-8ebe-dda8fb401dc5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{deannobolletta}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Anno Bolletta]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="243" width="262" height="20" isRemoveLineWhenBlank="true" uuid="cc930daa-2744-4adf-b5a9-ad6449e74033">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{deannobolletta}.equals("n/a")) ? null :  $F{deannobolletta}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="538" y="284" width="262" height="20" isRemoveLineWhenBlank="true" uuid="29b12186-264d-420b-b1ce-a4555bb55d95">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codbolletta}.equals("n/a")) ? null :  $F{codbolletta}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="264" width="262" height="20" uuid="ca48c6b8-e0a6-404b-92fc-8242e02563d5">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{codbolletta}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codice Bolletta]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="325" width="262" height="20" isRemoveLineWhenBlank="true" uuid="c8332720-43b3-4490-82c2-1bcb894f44a4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codiddominio}.equals("n/a")) ? null :  $F{codiddominio}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="305" width="262" height="20" uuid="e8b3edba-b377-419f-86b6-8b45365fafb2">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{codiddominio}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codice fiscale ente]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="366" width="262" height="20" isRemoveLineWhenBlank="true" uuid="67955be7-dfb3-4ee1-a2e6-b7a400dc24d6">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{dedataricezione}.equals("n/a")) ? null :  $F{dedataricezione}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="346" width="262" height="20" uuid="c6b2757e-30b5-4aa4-bb58-d2cac7aa72d9">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{dedataricezione}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Ricezione]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="538" y="387" width="262" height="15" uuid="7eac8ef8-4875-42af-ad52-dc6dd916d37f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{deannodocumento}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Anno Documento]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="402" width="262" height="15" isRemoveLineWhenBlank="true" uuid="e733cc7f-c3c6-4ffe-8061-1d22257a8dbd">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{deannodocumento}.equals("n/a")) ? null :  $F{deannodocumento}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="433" width="262" height="15" isRemoveLineWhenBlank="true" uuid="7121ffe5-68eb-407f-ac9c-1c740b08e239">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{coddocumento}.equals("n/a")) ? null :  $F{coddocumento}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="418" width="262" height="15" uuid="c17d7738-60c3-4525-925c-cc5bc6e40e12">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{coddocumento}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codice Documento]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="464" width="262" height="15" isRemoveLineWhenBlank="true" uuid="17ee0a67-4285-4217-b586-ae18dfa13eb4">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{deannoprovvisorio}.equals("n/a")) ? null :  $F{deannoprovvisorio}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="538" y="449" width="262" height="15" uuid="a4be9875-20b0-4faf-b9f7-3f86d038352d">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{deannoprovvisorio}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Anno Provvisorio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="538" y="480" width="262" height="15" uuid="85e285de-d1dd-4825-93ba-601f1a307220">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<printWhenExpression><![CDATA[!$F{codprovvisorio}.equals("n/a")]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codice Provvisorio]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="538" y="495" width="262" height="15" isRemoveLineWhenBlank="true" uuid="d2e18d72-3e61-4551-8801-ad2dc2f914c7">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="DejaVu Sans Mono"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{codprovvisorio}.equals("n/a")) ? null :  $F{codprovvisorio}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="134">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="802" height="17" forecolor="#000000" backcolor="#D5E7EF" uuid="36d96a8d-77fb-4fbc-bb45-686bd3d8a16d">
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+					<property name="local_mesure_unitheight" value="mm"/>
+					<property name="local_mesure_unity" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="9" isBold="true"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0" leftIndent="8"/>
+				</textElement>
+				<text><![CDATA[RIEPILOGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" positionType="Float" x="495" y="29" width="171" height="21" uuid="ef7bab49-935b-4eb4-8e1f-a70dbcba0096">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Totale importo accertato:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="" positionType="Float" x="5" y="29" width="182" height="21" uuid="00fc143a-497b-48b6-95b4-a9b7c29b811f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="DejaVu Sans Mono" size="11" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Numero pagamenti accertati:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="187" y="29" width="66" height="21" isPrintWhenDetailOverflows="true" uuid="4b93ad76-0c8b-4359-add2-6f9b9cbcf6f9">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="70" width="770" height="15" uuid="98401005-d1b3-4241-a6b1-4b5c7a5dbe7b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle" rotation="None">
+					<font fontName="DejaVu Sans Mono" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma per presa visione]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="666" y="29" width="136" height="21" isPrintWhenDetailOverflows="true" uuid="63fbedd3-b5b7-4058-8c10-eeecb7bc4fee">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="mm"/>
+					<property name="com.jaspersoft.studio.unit.width" value="mm"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans Mono" size="10" isBold="false"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["€ " + new BigDecimal($V{total}).setScale(2, BigDecimal.ROUND_DOWN)]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="50" width="802" height="1" uuid="de1aa159-6632-4216-a36f-ed6d212a292d"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

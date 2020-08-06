@@ -1,0 +1,6 @@
+{:options {:username "..." 
+           :password "..." 
+           :tags-range "v4.0.21:v4.0.27"
+           :output-file "nodo-regionale-fesp-"} 
+ :arguments ["http://casanova.ve.eng.it/svn/RV_SIRV/branches/E45 - PayWeb/nodo-regionale-fesp/4.0.x"
+             "http://casanova.ve.eng.it/svn/RV_SIRV/tags/E45 - PayWeb/nodo-regionale-fesp"]}

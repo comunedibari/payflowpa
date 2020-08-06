@@ -1,0 +1,6 @@
+{:options {:username "..." 
+           :password "..." 
+           :tags-range "v4.0.30:v4.0.36"
+           :output-file "pa-"} 
+ :arguments ["http://casanova.ve.eng.it/svn/RV_SIRV/branches/E45 - PayWeb/pa/4.0.x" 
+             "http://casanova.ve.eng.it/svn/RV_SIRV/tags/E45 - PayWeb/pa"]}

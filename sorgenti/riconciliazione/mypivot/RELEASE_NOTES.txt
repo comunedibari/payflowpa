@@ -1,0 +1,14 @@
+MyPivot 5.3.x
+1) Rimozione segnalazioni di errore con aggiunta Note
+2) Visualizzazione dettaglio in classificazione "IUF_NO_TES"
+
+MyPivot 5.2.x
+1) Adeguamento codice "9"
+2) Sistema di prenotazione per export flussi
+
+
+MyPivot 5.1.x
+1) Import flussi xls di tesoreria per conto corrente bollo auto
+2) Import dovuti pagati via batch da infobollo
+3) Vista visualizzazione completa comprensiva di "pagati" e "tesoreria"
+4) Visualizzazione "pagati" e "tesoreria" configurabile per ente

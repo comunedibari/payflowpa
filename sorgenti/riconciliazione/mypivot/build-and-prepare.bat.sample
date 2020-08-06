@@ -1,0 +1,10 @@
+@echo off
+
+%~d0
+cd %~dp0
+
+set "ROOT_PATH=%cd%"
+
+set "JAVA_HOME=C:/Programmi/Java/jdk-1.7.0"
+
+call "%M2_HOME%"\bin\mvn.bat -o -U -f "%ROOT_PATH%"\pom.xml -DskipTests=true --batch-mode release:clean release:prepare release:clean

@@ -1,0 +1,40 @@
+ ---=== Start Migration of project Manage_Flussi_Export ===---
+ * Task [Remove routine dependency on antlr-3.3 jars] : Applied successfully
+ * Task [RemoveProjectLibsFolder] : Nothing to do
+ * Task [Fix a problem of project resources linked to items] : Applied successfully
+ * Task [ChangeReadByParameter4tFileInputJSON] : Applied successfully
+ * Task [Set tStoreResult associated tPigLoad] : Applied successfully
+ * Task [ChangeMappingParameter4Redshift] : Applied successfully
+ * Task [ChangeParameter4tSAPIDocOutput] : Applied successfully
+ * Task [ChangeDefaultValue4tMarketoOutput] : Applied successfully
+ * Task [AddSchemaDefaultValue4tFileInputDelimited] : Applied successfully
+ * Task [CorrectBatchModeForDBComponents] : Applied successfully
+ * Task [CorrectBatchModeForTeradataOutput] : Applied successfully
+ * Task [CorrectBatchModeForJDBCOutput] : Applied successfully
+ * Task [SetUrltStewardshipXXXTDI32354] : Applied successfully
+ * Task [MdmAddVersionMigrationTask] : Nothing to do
+ * Task [SetDefaultVauleMDMServerVersionFeatureTDI31722] : Applied successfully
+ * Task [CorrectBatchSizeForDBComponents] : Applied successfully
+ * Task [CorrectBatchSizeForDBComponentsMore] : Applied successfully
+ * Task [ChangeDefaultValue4JSONComponents] : Applied successfully
+ * Task [MapNetsuiteOperatorValueTDI32245] : Applied successfully
+ * Task [ChangeMongoDBMinimalVersion] : Applied successfully
+ * Task [ChangeValue4BonitaComponents] : Applied successfully
+ * Task [ODBCMigrationTask] : Applied successfully
+ * Task [ActivateQueryLogging] : Applied successfully
+ * Task [MigrateEncoding4tSalesforceWave] : Applied successfully
+ * Task [ChangeDefaultValueForCassandraAPIVersion] : Applied successfully
+ * Task [AccessMigrationTask] : Applied successfully
+ * Task [AddPortForTCassandraConfigurationSpark] : Applied successfully
+ * Task [AddTableActionForUpdateCassandraDatastax] : Applied successfully
+ * Task [UnifyParameterOfDatastaxAndHectorForCassandra] : Applied successfully
+ * Task [MigrateDeprecatedHadoopDistribution1] : Applied successfully
+ * Task [ChangeDefaultSparkSerializer] : Nothing to do
+ * Task [Set default readby mode] : Applied successfully
+ * Task [BuildRecycleBinIndexMigrationTask] : Applied successfully
+ * Task [ChangeDefaultValue4tLogRow] : Applied successfully
+ * Task [ChangeBatchParameter4SomeDBComponents] : Applied successfully
+ * Task [CheckIncludeSeparatorOnTFileOutputPositional] : Nothing to do
+ * Task [DisableUseBatchWhenRejectLineExists] : Applied successfully
+ * Task [AutoUpdateRelationsMigrationTask] : Applied successfully
+ ---=== End of migration ===---

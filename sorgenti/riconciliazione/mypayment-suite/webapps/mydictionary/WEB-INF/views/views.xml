@@ -1,0 +1,40 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/baseLayout.jsp"
+		preparer="it.regioneveneto.mydictionary.controller.preparer.MainViewPreparer">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/tiles/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+	
+	
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/home.jsp" />
+	</definition>
+	
+	<definition name="inserimento" extends="baseLayout">
+		<put-attribute name="title" value="Inserimento" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/inserimento.jsp" />
+	</definition>
+	
+	<definition name="ricerca" extends="baseLayout">
+		<put-attribute name="title" value="Ricerca" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/ricerca.jsp" />
+	</definition>
+	
+	<definition name="modifica" extends="baseLayout">
+		<put-attribute name="title" value="Modifica" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/modifica.jsp" />
+	</definition>
+	
+	<definition name="grafico" extends="baseLayout">
+		<put-attribute name="title" value="Grafico Ereditarietà" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/grafico.jsp" />
+	</definition>
+	
+</tiles-definitions>

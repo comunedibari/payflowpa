@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-set-2014 14.23.11 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="it.regioneveneto.myprofile.po.Application" table="application" >
+        <id name="idApplication" type="long">
+            <column name="id_application" />             
+            <generator class="sequence">
+                <param name="sequence">applications_id_seq</param>
+            </generator>
+        </id>
+        
+        <version name="version" type="int">
+            <column name="version" precision="8" scale="0" not-null="true" />
+        </version>
+        
+        <property name="applicationCode" type="string" unique="true" index="IDX_application_code">
+            <column name="application_code" length="250" not-null="true" />
+        </property>
+
+        <property name="description" type="string">
+            <column name="description" length="500" not-null="true" />
+        </property>
+        
+        <set name="roles" table="role" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_application" not-null="true" />
+            </key>
+            <one-to-many class="it.regioneveneto.myprofile.po.Role" />
+        </set>
+
+        
+        
+    </class>
+</hibernate-mapping>

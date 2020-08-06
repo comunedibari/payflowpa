@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18-set-2014 14.23.11 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="it.regioneveneto.myprofile.po.Role" table="role" >
+        <id name="idRole" type="long">
+            <column name="id_role" />
+            <generator class="sequence">
+                <param name="sequence">roles_id_seq</param>
+            </generator>
+        </id>
+        
+        <version name="version" type="int">
+            <column name="version" precision="8" scale="0" not-null="true" />
+        </version>
+        
+        <property name="roleName" type="string">
+            <column name="role_name" length="250" not-null="true" />
+        </property>
+
+
+
+	
+        
+    </class>
+</hibernate-mapping>

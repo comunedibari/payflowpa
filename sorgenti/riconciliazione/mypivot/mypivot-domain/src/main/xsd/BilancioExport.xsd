@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:pay_i="http://www.regione.veneto.it/schemas/2012/Pagamenti/Ente/bilancio/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.regione.veneto.it/schemas/2012/Pagamenti/Ente/bilancio/"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	version="1.0.0">
+	<xsd:annotation>
+		<xsd:documentation>Dovuti e Pagati</xsd:documentation>
+		<xsd:documentation>XSD Dovuti/Pagati</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:simpleType name="stText12">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="12" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="stText35">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="35" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="stText64">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="64" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="stImporto">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="2"/>
+			<xsd:totalDigits value="17"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:element name="bilancio" type="pay_i:ctBilancio">
+		<xsd:annotation>
+			<xsd:documentation>Bilancio</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+
+	<xsd:complexType name="ctBilancio">
+		<xsd:sequence>
+			<xsd:element name="capitolo" type="pay_i:ctCapitolo" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ctCapitolo">
+		<xsd:sequence>
+			<xsd:element name="codCapitolo" type="pay_i:stText12" minOccurs="1" />
+			<xsd:element name="codUfficio" type="pay_i:stText12" minOccurs="1" />
+			<xsd:element name="accertamento" type="pay_i:ctAccertamento" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ctAccertamento">
+		<xsd:sequence>
+			<xsd:element name="codAccertamento" type="pay_i:stText35" minOccurs="1" />
+			<xsd:element name="importo" type="pay_i:stImporto" minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

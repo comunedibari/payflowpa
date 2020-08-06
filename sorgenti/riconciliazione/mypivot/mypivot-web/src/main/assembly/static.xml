@@ -1,0 +1,20 @@
+<assembly>
+	<id>static</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+		<fileSet>
+			<directory>src/main/webapp</directory>
+			<includes>
+				<include>css/**</include>
+				<include>ext/**</include>
+				<include>images/**</include>
+				<include>js/**</include>
+				<include>styles/**</include>
+			</includes>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

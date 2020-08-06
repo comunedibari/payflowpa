@@ -1,0 +1,9 @@
+it\regioneveneto\mygov\payment\mypivot\xmlparser\rendicontazione\FlussoRendicontazioneIterator.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\NotAValidXMLException.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\AbstractParser.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\XMLStreamReaderIteratorFactory.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\rendicontazione\FlussoRendicontazioneDefaultParser$1.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\XMLStreamReaderProvider.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\rendicontazione\FlussoRendicontazioneDefaultParser.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\XMLStreamReaderIterator.class
+it\regioneveneto\mygov\payment\mypivot\xmlparser\AbstractXMLStreamReaderIterator.class

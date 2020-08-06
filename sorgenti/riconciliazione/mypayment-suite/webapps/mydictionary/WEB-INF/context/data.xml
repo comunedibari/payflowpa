@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd"
+>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>it/regioneveneto/mydictionary/domain/MyDictionaryModello.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.bytecode.use_reflection_optimizer">false</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.use_sql_comments">true</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:/comp/env/jdbc/mydictionary</value>
+		</property>
+	</bean>
+
+	<bean id="modelloDao" class="it.regioneveneto.mydictionary.dao.hibernate.HibernateModelloDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="cacheOperationsMyDictionaryService" class="it.regioneveneto.portal.varnish.service.CacheOperationsServiceImpl">
+		<property name="cacheOperationsDao" ref="cacheOperationsMyDictionaryDao" />
+	</bean>
+	<bean id="cacheOperationsMyDictionaryDao" class="it.regioneveneto.portal.varnish.dao.VarnishCacheOperationsDao">
+		<property name="isVarnishActivated" value="false" />
+		<property name="varnishRequestAndUrlsToBanMaps">
+			<map>
+				<entry>
+					<key>
+						<value></value>
+					</key>
+					<list>
+						<value></value>
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans>

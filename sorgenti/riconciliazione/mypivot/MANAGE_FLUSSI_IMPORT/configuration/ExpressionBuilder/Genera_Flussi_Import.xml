@@ -1,0 +1,317 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:expression="http:///expression.ecore">
+  <expression:EMFExpression id="null=>tipoVersamento=>length" expression="&quot;AQ&quot;"/>
+  <expression:EMFExpression id="null=>out1=>digestHexaString" expression="row2.digestHexaString.toUpperCase()">
+    <variables name="row2.filename" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row2.digestHexaString" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row2.digestBytes" value="null" talendType="id_byte[]" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>out_file=>dataScadenzaPagamento" expression="TalendDate.formatDate(&quot;yyyy-MM-dd&quot;,row1.dataScadenzaPagamento)  ">
+    <variables name="row1.IUD" value="null" talendType="id_String"/>
+    <variables name="row1.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.anagraficaPagatore" value="null" talendType="id_String"/>
+    <variables name="row1.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.dataScadenzaPagamento" value="null" talendType="id_Date"/>
+    <variables name="row1.importoDovuto" value="0" talendType="id_Double"/>
+    <variables name="row1.commissioneCaricoPa" value="null" talendType="id_Double" nullable="true"/>
+    <variables name="row1.ibanAccredito" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.bicAccredito" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row1.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row1.azione" value="null" talendType="id_String"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>dataScadenzaPagamento=>date" expression="new Date()"/>
+  <expression:EMFExpression id="null=>dataScadenzaPagamento=>nb" expression="1"/>
+  <expression:EMFExpression id="null=>tipoDovuto=>customize parameter" expression="&quot;cod_multe&quot;, &quot;cod_imu&quot;"/>
+  <expression:EMFExpression id="null=>IUD=>length" expression="&quot;001&quot; + &quot;CodiceIdentificUnivoco&quot; + String.valueOf(Numeric.random(1000000000, 9999999999))"/>
+  <expression:EMFExpression id="null=>nazionePagatore=>customize parameter" expression="&quot;IT&quot;"/>
+  <expression:EMFExpression id="null=>dataScadenzaPagamento=>pattern" expression="&quot;yyyy-MM-dd&quot;"/>
+  <expression:EMFExpression id="null=>importoDovuto=>customize parameter" expression="String.valueOf(new Double(10.03 + Numeric.random(0,10000)))   "/>
+  <expression:EMFExpression id="null=>commissioneCaricoPa=>customize parameter" expression="String.valueOf(new Double(1.00 + Numeric.random(0,100)))   "/>
+  <expression:EMFExpression id="null=>out=>anagraficaPagatore" expression="row1.cognome + &quot; &quot; + row1.nome">
+    <variables name="row1.IUD" value="null" talendType="id_String"/>
+    <variables name="row1.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row1.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row1.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row1.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row1.azione" value="null" talendType="id_String"/>
+    <variables name="row3.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row3.comune" value="null" talendType="id_String"/>
+    <variables name="row3.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row3.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row3.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row3.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>IUD=>customize parameter" expression="&quot;001&quot; + &quot;CodiceIdentificaUnivoco&quot; + String.valueOf(Numeric.random(100000000, 999999999)) "/>
+  <expression:EMFExpression id="null=>codiceIdentificativoUnivoco=>customize parameter" expression="null"/>
+  <expression:EMFExpression id="null=>localitaPagatore=>customize parameter" expression="null"/>
+  <expression:EMFExpression id="null=>provinciaPagatore=>customize parameter" expression="null"/>
+  <expression:EMFExpression id="null=>row3=>comune_id" expression="new Long(Numeric.random(1,13650))">
+    <variables name="row1.IUD" value="null" talendType="id_String"/>
+    <variables name="&#xA;    &lt;varia" value="=&quot;ro" talendType="gatore&quot; v" nullable="true"/>
+    <variables name="row1.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="able=&quot;true&quot;/" value="null" talendType="id_String" nullable="true"/>
+    <variables name="pe=&quot;id_St" value="    " talendType="e=&quot;row1.i" nullable="true"/>
+    <variables name="row1.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="&lt;variables name=&quot;row1." value="fici" talendType="id_String" nullable="true"/>
+    <variables name="row1.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row1.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row1.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row1.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row1.azione" value="null" talendType="id_String"/>
+    <variables name="row3.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row3.comune" value="null" talendType="id_String"/>
+    <variables name="row3.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row3.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row3.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row3.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_comune" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row4.comune" value="null" talendType="id_String"/>
+    <variables name="row4.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row4.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row4.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row4.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>row4=>comune_id" expression="new Long(Numeric.random(1,13650))">
+    <variables name="row1.IUD" value="null" talendType="id_String"/>
+    <variables name="row1.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row1.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row1.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row1.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row1.azione" value="null" talendType="id_String"/>
+    <variables name="row3.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row3.comune" value="null" talendType="id_String"/>
+    <variables name="row3.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row3.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row3.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row3.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_comune" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row4.comune" value="null" talendType="id_String"/>
+    <variables name="row4.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row4.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row4.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row4.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>out=>codiceIdentificativoUnivoco" expression="ManageCF.calcoloCodiceFiscale(row1.cognome, row1.nome, TalendDate.formatDate(&quot;dd-MM-yyyy&quot;, TalendDate.getRandomDate(&quot;1950-01-01&quot;,&quot;2013-12-31&quot;)), Numeric.random(0,1), row4.var_cod_belfiore) &#xA;&#xA;&#xA;   ">
+    <variables name="row1.IUD" value="null" talendType="id_String"/>
+    <variables name="row1.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row1.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row1.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row1.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row1.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row1.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row1.azione" value="null" talendType="id_String"/>
+    <variables name="row3.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row3.comune" value="null" talendType="id_String"/>
+    <variables name="row3.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row3.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row3.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row3.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row3.var_comune" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row4.comune" value="null" talendType="id_String"/>
+    <variables name="row4.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row4.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row4.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row4.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row4.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>codIuv=>customize parameter" expression="&quot;001&quot; + &quot;CodiceIdentificVersamen&quot; + String.valueOf(Numeric.random(100000000, 999999999))  "/>
+  <expression:EMFExpression id="null=>tipoIdentificativoUnivoco=>customize parameter" expression="&quot;F&quot;"/>
+  <expression:EMFExpression id="null=>cognome=>customize parameter" expression="&quot;TATTO&quot;"/>
+  <expression:EMFExpression id="null=>nome=>customize parameter" expression="&quot;GIULIO&quot;"/>
+  <expression:EMFExpression id="null=>indirizzoPagatore=>customize parameter" expression="&quot;VIA MOLAN&quot;"/>
+  <expression:EMFExpression id="null=>capPagatore=>customize parameter" expression="&quot;32032&quot;"/>
+  <expression:EMFExpression id="null=>civicoPagatore=>customize parameter" expression="&quot;8&quot; "/>
+  <expression:EMFExpression id="null=>emailPagatore=>length" expression="supporto.mypay@example.com"/>
+  <expression:EMFExpression id="null=>dataScadenzaPagamento=>customize parameter" expression="TalendDate.formatDate(&quot;yyyy-MM-dd&quot;, TalendDate.getRandomDate(&quot;2014-04-15&quot;, &quot;2015-04-31&quot;))   "/>
+  <expression:EMFExpression id="null=>tipoVersamento=>customize parameter" expression="&quot;ALL&quot;   "/>
+  <expression:EMFExpression id="null=>datiSpecificiRiscossione=>length" expression="&quot;9/124&quot;"/>
+  <expression:EMFExpression id="null=>datiSpecificiRiscossione=>customize parameter" expression="&quot;9/124&quot;"/>
+  <expression:EMFExpression id="null=>row7=>comune" expression="&quot;FELTRE&quot;">
+    <variables name="row6.IUD" value="null" talendType="id_String"/>
+    <variables name="row6.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row6.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row6.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row6.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row6.azione" value="null" talendType="id_String"/>
+    <variables name="row8.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row8.comune" value="null" talendType="id_String"/>
+    <variables name="row8.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row8.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row8.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row8.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_comune" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row7.comune" value="null" talendType="id_String"/>
+    <variables name="row7.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row7.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row7.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row7.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>row8=>comune_id" expression="">
+    <variables name="row6.IUD" value="null" talendType="id_String"/>
+    <variables name="row6.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row6.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row6.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row6.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row6.azione" value="null" talendType="id_String"/>
+    <variables name="row8.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row8.comune" value="null" talendType="id_String"/>
+    <variables name="row8.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row8.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row8.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row8.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row8.var_comune" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.comune_id" value="0" talendType="id_Long"/>
+    <variables name="row7.comune" value="null" talendType="id_String"/>
+    <variables name="row7.provincia_id" value="0" talendType="id_Long"/>
+    <variables name="row7.sigla_provincia" value="null" talendType="id_String"/>
+    <variables name="row7.cod_belfiore" value="null" talendType="id_String"/>
+    <variables name="row7.codice_istat" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_cod_belfiore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_provincia" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row7.var_comune" value="null" talendType="id_String" nullable="true"/>
+  </expression:EMFExpression>
+  <expression:EMFExpression id="null=>emailPagatore=>customize parameter" expression="&quot;supporto@example.com&quot;"/>
+  <expression:EMFExpression id="null=>copyOfout=>codiceIdentificativoUnivoco" expression="&quot;TTTGLI52T24D530V&quot;">
+    <variables name="row6.IUD" value="null" talendType="id_String"/>
+    <variables name="row6.codIuv" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.codiceIdentificativoUnivoco" value="null" talendType="id_String"/>
+    <variables name="row6.cognome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nome" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.indirizzoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.civicoPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.capPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.localitaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.provinciaPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.nazionePagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.emailPagatore" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.dataScadenzaPagamento" value="null" talendType="id_String"/>
+    <variables name="row6.importoDovuto" value="null" talendType="id_String"/>
+    <variables name="row6.commissioneCaricoPa" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoDovuto" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.tipoVersamento" value="null" talendType="id_String" nullable="true"/>
+    <variables name="row6.causaleVersamento" value="null" talendType="id_String"/>
+    <variables name="row6.datiSpecificiRiscossione" value="null" talendType="id_String"/>
+    <variables name="row6.azione" value="null" talendType="id_String"/>
+  </expression:EMFExpression>
+</xmi:XMI>

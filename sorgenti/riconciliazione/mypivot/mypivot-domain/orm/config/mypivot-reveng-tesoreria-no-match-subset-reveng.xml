@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table-filter match-name="mygov_import_export_rendicontazione_tesoreria"/>
+
+	<table name="mygov_import_export_rendicontazione_tesoreria"
+		class="it.regioneveneto.mygov.payment.mypivot.domain.po.TesoreriaNoMatchSubset">
+		
+		<primary-key>
+			<key-column name="codice_ipa_ente"></key-column>
+			<key-column name="de_anno_bolletta"></key-column>
+			<key-column name="cod_bolletta"></key-column>
+		</primary-key>
+
+		<column name="nome_flusso_import_ente" exclude="true" />
+		<column name="riga_flusso_import_ente" exclude="true" />
+		<column name="codice_iud" exclude="true" />
+		<column name="versione_oggetto" exclude="true" />
+		<column name="identificativo_dominio" exclude="true" />
+		<column name="identificativo_stazione_richiedente" exclude="true" />
+		<column name="identificativo_messaggio_ricevuta" exclude="true" />
+		<column name="data_ora_messaggio_ricevuta" exclude="true" />
+		<column name="riferimento_messaggio_richiesta" exclude="true" />
+		<column name="riferimento_data_richiesta" exclude="true" />
+		<column name="tipo_identificativo_univoco_attestante" exclude="true" />
+		<column name="codice_identificativo_univoco_attestante"
+			exclude="true" />
+		<column name="denominazione_attestante" exclude="true" />
+		<column name="codice_unit_oper_attestante" exclude="true" />
+		<column name="denom_unit_oper_attestante" exclude="true" />
+		<column name="indirizzo_attestante" exclude="true" />
+		<column name="civico_attestante" exclude="true" />
+		<column name="cap_attestante" exclude="true" />
+		<column name="localita_attestante" exclude="true" />
+		<column name="provincia_attestante" exclude="true" />
+		<column name="nazione_attestante" exclude="true" />
+		<column name="tipo_identificativo_univoco_beneficiario"
+			exclude="true" />
+		<column name="codice_identificativo_univoco_beneficiario"
+			exclude="true" />
+		<column name="denominazione_beneficiario" exclude="true" />
+		<column name="codice_unit_oper_beneficiario" exclude="true" />
+		<column name="denom_unit_oper_beneficiario" exclude="true" />
+		<column name="indirizzo_beneficiario" exclude="true" />
+		<column name="civico_beneficiario" exclude="true" />
+		<column name="cap_beneficiario" exclude="true" />
+		<column name="localita_beneficiario" exclude="true" />
+		<column name="provincia_beneficiario" exclude="true" />
+		<column name="nazione_beneficiario" exclude="true" />
+		<column name="tipo_identificativo_univoco_versante" exclude="true" />
+		<column name="codice_identificativo_univoco_versante" exclude="true" />
+		<column name="anagrafica_versante" exclude="true" />
+		<column name="indirizzo_versante" exclude="true" />
+		<column name="civico_versante" exclude="true" />
+		<column name="cap_versante" exclude="true" />
+		<column name="localita_versante" exclude="true" />
+		<column name="provincia_versante" exclude="true" />
+		<column name="nazione_versante" exclude="true" />
+		<column name="email_versante" exclude="true" />
+		<column name="tipo_identificativo_univoco_pagatore" exclude="true" />
+		<column name="codice_identificativo_univoco_pagatore" exclude="true" />
+		<column name="anagrafica_pagatore" exclude="true" />
+		<column name="indirizzo_pagatore" exclude="true" />
+		<column name="civico_pagatore" exclude="true" />
+		<column name="cap_pagatore" exclude="true" />
+		<column name="localita_pagatore" exclude="true" />
+		<column name="provincia_pagatore" exclude="true" />
+		<column name="nazione_pagatore" exclude="true" />
+		<column name="email_pagatore" exclude="true" />
+		<column name="codice_esito_pagamento" exclude="true" />
+		<column name="importo_totale_pagato" exclude="true" />
+		<column name="identificativo_univoco_versamento" exclude="true" />
+		<column name="codice_contesto_pagamento" exclude="true" />
+		<column name="singolo_importo_pagato" exclude="true" />
+		<column name="esito_singolo_pagamento" exclude="true" />
+		<column name="dt_data_esito_singolo_pagamento" exclude="true" />
+		<column name="de_data_esito_singolo_pagamento" exclude="true" />
+		<column name="identificativo_univoco_riscossione" exclude="true" />
+		<column name="causale_versamento" exclude="true" />
+		<column name="dati_specifici_riscossione" exclude="true" />
+		<column name="tipo_dovuto" exclude="true" />
+		<column name="data_ora_flusso_rendicontazione" exclude="true" />
+		<column name="identificativo_univoco_regolamento" exclude="true" />
+		<column name="dt_data_regolamento" exclude="true" />
+		<column name="de_data_regolamento" exclude="true" />
+		<column name="numero_totale_pagamenti" exclude="true" />
+		<column name="importo_totale_pagamenti" exclude="true" />
+		<column name="data_acquisizione" exclude="true" />
+		<column name="verifica_totale" exclude="true" />
+		<column name="cod_iud_key" exclude="true" />
+		<column name="indice_dati_singolo_pagamento" exclude="true" />
+		<column name="bilancio_e" exclude="true" />
+	</table>
+
+</hibernate-reverse-engineering>

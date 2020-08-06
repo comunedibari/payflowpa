@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType confirmationNeeded="false" name="collaudo">
+    <contextParameter comment="" name="conn_host_USERE45_1" prompt="conn_host_USERE45_1?" promptNeeded="false" type="id_String" value="10.10.42.168"/>
+    <contextParameter comment="" name="conn_port_USERE45_1" prompt="conn_port_USERE45_1?" promptNeeded="false" type="id_String" value="5432"/>
+    <contextParameter comment="" name="conn_db_USERE45_1" prompt="conn_db_USERE45_1?" promptNeeded="false" type="id_String" value="USERE45_1"/>
+    <contextParameter comment="" name="conn_schema_USERE45_1" prompt="conn_schema_USERE45_1?" promptNeeded="false" type="id_String" value="public"/>
+    <contextParameter comment="" name="conn_usr_USERE45_1" prompt="conn_usr_USERE45_1?" promptNeeded="false" type="id_String" value="USERE45O"/>
+    <contextParameter comment="" name="conn_psw_USERE45_1" prompt="conn_psw_USERE45_1?" promptNeeded="false" type="id_Password" value="ZHtGw9m3hIsu+YE6Ek0Pmw=="/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="conn_host_USERE45_1" prompt="conn_host_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_port_USERE45_1" prompt="conn_port_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_db_USERE45_1" prompt="conn_db_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_schema_USERE45_1" prompt="conn_schema_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_usr_USERE45_1" prompt="conn_usr_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_psw_USERE45_1" prompt="conn_psw_USERE45_1?" promptNeeded="false" type="id_Password" value=""/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="produzione">
+    <contextParameter comment="" name="conn_host_USERE45_1" prompt="conn_host_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_port_USERE45_1" prompt="conn_port_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_db_USERE45_1" prompt="conn_db_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_schema_USERE45_1" prompt="conn_schema_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_usr_USERE45_1" prompt="conn_usr_USERE45_1?" promptNeeded="false" type="id_String" value="null"/>
+    <contextParameter comment="" name="conn_psw_USERE45_1" prompt="conn_psw_USERE45_1?" promptNeeded="false" type="id_Password" value=""/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="test">
+    <contextParameter comment="" name="conn_host_USERE45_1" prompt="conn_host_USERE45_1?" promptNeeded="false" type="id_String" value="pg.dbms.ve.eng.it"/>
+    <contextParameter comment="" name="conn_port_USERE45_1" prompt="conn_port_USERE45_1?" promptNeeded="false" type="id_String" value="5432"/>
+    <contextParameter comment="" name="conn_db_USERE45_1" prompt="conn_db_USERE45_1?" promptNeeded="false" type="id_String" value="USERE45_1_V5_0_x"/>
+    <contextParameter comment="" name="conn_schema_USERE45_1" prompt="conn_schema_USERE45_1?" promptNeeded="false" type="id_String" value="public"/>
+    <contextParameter comment="" name="conn_usr_USERE45_1" prompt="conn_usr_USERE45_1?" promptNeeded="false" type="id_String" value="USERE45_1O"/>
+    <contextParameter comment="" name="conn_psw_USERE45_1" prompt="conn_psw_USERE45_1?" promptNeeded="false" type="id_Password" value="ZHtGw9m3hIsu+YE6Ek0Pmw=="/>
+  </talendfile:ContextType>
+</xmi:XMI>

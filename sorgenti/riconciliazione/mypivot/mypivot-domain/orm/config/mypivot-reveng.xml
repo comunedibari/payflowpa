@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table-filter match-name="mygov_anagrafica_stato" />
+	<table-filter match-name="mygov_ente" />
+	<table-filter match-name="mygov_ente_tipo_dovuto" />
+	<table-filter match-name="mygov_manage_flusso" />
+	<table-filter match-name="mygov_tipo_flusso" />
+	<table-filter match-name="mygov_utente" />
+	<table-filter match-name="mygov_export_rendicontazione" />
+	<table-filter match-name="mygov_import_export_rendicontazione_tesoreria" />
+	<table-filter match-name="mygov_info_flusso_poste_web" />
+	<table-filter match-name="mygov_prenotazione_flusso_riconciliazione" />
+	<table-filter match-name="mygov_operatore_ente_tipo_dovuto" />
+	<table-filter match-name="mygov_segnalazione" />
+	<table-filter match-name="mygov_flusso_rendicontazione" />
+	<table-filter match-name="mygov_flusso_export" />
+	<table-filter match-name="mygov_accertamento" />
+	<table-filter match-name="mygov_accertamento_dettaglio" />
+	<table-filter match-name="mygov_anagrafica_uff_cap_acc" />
+	<table-filter match-name="mygov_ente_tipo_dovuto_ufficio" />
+	<table-filter match-name="mygov_info_mapping_tesoreria" />
+	<table-filter match-name="mygov_flusso_tesoreria" />
+
+	<table name="mygov_flusso_export" class="it.regioneveneto.mygov.payment.mypivot.domain.po.FlussoExport">
+		<primary-key>
+			<key-column name="mygov_ente_id"></key-column>
+			<key-column name="cod_rp_silinviarp_id_univoco_versamento"></key-column>
+			<key-column name="cod_e_dati_pag_dati_sing_pag_id_univoco_riscoss"></key-column>
+			<key-column name="indice_dati_singolo_pagamento"></key-column>
+		</primary-key>
+		<foreign-key constraint-name="mygov_flusso_export_mygov_ente_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_flusso_export_mygov_manage_flusso_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_flusso_rendicontazione" class="it.regioneveneto.mygov.payment.mypivot.domain.po.FlussoRendicontazione">
+		<primary-key>
+			<key-column name="mygov_ente_id"></key-column>
+			<key-column name="cod_dati_sing_pagam_identificativo_univoco_versamento"></key-column>
+			<key-column name="cod_dati_sing_pagam_identificativo_univoco_riscossione"></key-column>
+			<key-column name="indice_dati_singolo_pagamento"></key-column>
+		</primary-key>
+		<foreign-key constraint-name="mygov_flusso_rendicontazione_mygov_ente_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_flusso_rendicontazione_mygov_manage_flusso_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_anagrafica_stato" class="it.regioneveneto.mygov.payment.mypivot.domain.po.AnagraficaStato">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_anagrafica_stato_mygov_anagrafica_stato_id_seq</param>
+			</generator>
+			<key-column name="mygov_anagrafica_stato_id" />
+		</primary-key>
+	</table>
+
+	<table name="mygov_ente" class="it.regioneveneto.mygov.payment.mypivot.domain.po.Ente">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_ente_mygov_ente_id_seq</param>
+			</generator>
+			<key-column name="mygov_ente_id" />
+		</primary-key>
+		<column name="de_password" exclude="true" />
+		<column name="de_logo_ente" exclude="true" />
+	</table>
+
+	<table name="mygov_ente_tipo_dovuto" class="it.regioneveneto.mygov.payment.mypivot.domain.po.EnteTipoDovuto">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_ente_tipo_dovuto_mygov_ente_tipo_dovuto_id_seq</param>
+			</generator>
+			<key-column name="mygov_ente_tipo_dovuto_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_ente_tipo_dovuto_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_manage_flusso" class="it.regioneveneto.mygov.payment.mypivot.domain.po.ManageFlusso">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_manage_flusso_mygov_manage_flusso_id_seq</param>
+			</generator>
+			<key-column name="mygov_manage_flusso_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_manage_flusso_mygov_anagrafica_stato_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_manage_flusso_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_manage_flusso_mygov_tipo_flusso_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_manage_flusso_mygov_utente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_tipo_flusso" class="it.regioneveneto.mygov.payment.mypivot.domain.po.TipoFlusso">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_tipo_flusso_mygov_tipo_flusso_id_seq</param>
+			</generator>
+			<key-column name="mygov_tipo_flusso_id" />
+		</primary-key>
+	</table>
+
+	<table name="mygov_utente" class="it.regioneveneto.mygov.payment.mypivot.domain.po.Utente">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_utente_mygov_utente_id_seq</param>
+			</generator>
+			<key-column name="mygov_utente_id" />
+		</primary-key>
+	</table>
+
+	<table name="mygov_export_rendicontazione" class="it.regioneveneto.mygov.payment.mypivot.domain.po.ExportRendicontazione">
+		<primary-key>
+			<key-column name="codice_ipa_ente"></key-column>
+			<key-column name="codice_iuv"></key-column>
+			<key-column name="identificativo_univoco_riscossione"></key-column>
+		</primary-key>
+	</table>
+
+	<table name="mygov_import_export_rendicontazione_tesoreria" class="it.regioneveneto.mygov.payment.mypivot.domain.po.ImportExportRendicontazioneTesoreria">
+		<primary-key>
+			<key-column name="codice_ipa_ente"></key-column>
+			<key-column name="codice_iuv"></key-column>
+			<key-column name="identificativo_univoco_riscossione"></key-column>
+			<key-column name="identificativo_flusso_rendicontazione"></key-column>
+			<key-column name="classificazione_completezza"></key-column>
+		</primary-key>
+	</table>
+
+	<table name="mygov_info_flusso_poste_web" class="it.regioneveneto.mygov.payment.mypivot.domain.po.InfoFlussoPosteWeb">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_info_flusso_poste_web_mygov_info_flusso_poste_web_id_seq</param>
+			</generator>
+			<key-column name="mygov_info_flusso_poste_web_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_info_flusso_poste_web_mygov_manage_flusso_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_prenotazione_flusso_riconciliazione" class="it.regioneveneto.mygov.payment.mypivot.domain.po.PrenotazioneFlussoRiconciliazione">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">
+					mygov_pren_flus_ric_mygov_pren_flus_ric_id_seq
+				</param>
+			</generator>
+			<key-column name="mygov_prenotazione_flusso_riconciliazione_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_pren_flus_ric_mygov_anagrafica_stato_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_pren_flus_ric_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_pren_flus_ric_mygov_utente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_operatore_ente_tipo_dovuto" class="it.regioneveneto.mygov.payment.mypivot.domain.po.OperatoreEnteTipoDovuto">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_op_ente_tipo_dovuto_mygov_op_ente_tipo_dovuto_id_seq</param>
+			</generator>
+			<key-column name="mygov_operatore_ente_tipo_dovuto_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_operatore_ente_tipo_dovuto_mygov_ente_tipo_dovuto_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+
+	<table name="mygov_segnalazione" class="it.regioneveneto.mygov.payment.mypivot.domain.po.Segnalazione">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_segnalazione_mygov_segnalazione_id_seq</param>
+			</generator>
+			<key-column name="mygov_segnalazione_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_segnalazione_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_segnalazione_mygov_utente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>		
+	</table>
+	
+	<table name="mygov_accertamento" class="it.regioneveneto.mygov.payment.mypivot.domain.po.Accertamento">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_accertamento_mygov_accertamento_id_seq</param>
+			</generator>
+			<key-column name="mygov_accertamento_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_accertamento_mygov_anagrafica_stato_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_accertamento_mygov_ente_tipo_dovuto_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_accertamento_mygov_utente_id_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>	
+	</table>
+	
+	<table name="mygov_accertamento_dettaglio" class="it.regioneveneto.mygov.payment.mypivot.domain.po.AccertamentoDettaglio">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_accertamento_dettaglio_mygov_accertamento_dett_id_seq</param>
+			</generator>
+			<key-column name="mygov_accertamento_dettaglio_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_accertamento_dettaglio_mygov_accertamento_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+		<foreign-key constraint-name="mygov_accertamento_dettaglio_mygov_utente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+	
+	<table name="mygov_anagrafica_uff_cap_acc" class="it.regioneveneto.mygov.payment.mypivot.domain.po.AnagraficaUfficioCapitoloAccertamento">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_anag_uff_cap_acc_mygov_anag_uff_cap_acc_id_seq</param>
+			</generator>
+			<key-column name="mygov_anagrafica_uff_cap_acc_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_anagrafica_uff_cap_acc_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+	
+	<table name="mygov_info_mapping_tesoreria" class="it.regioneveneto.mygov.payment.mypivot.domain.po.InfoMappingTesoreria">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_info_mapping_tesoreria_mygov_info_mapping_tes_id_seq</param>
+			</generator>
+			<key-column name="mygov_info_mapping_tesoreria_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_info_mapping_tesoreria_mygov_manage_flusso_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+	
+	<table name="mygov_flusso_tesoreria" class="it.regioneveneto.mygov.payment.mypivot.domain.po.FlussoTesoreria">
+		<primary-key property="id">
+			<generator class="sequence">
+				<param name="sequence">mygov_flusso_tesoreria_mygov_flusso_tesoreria_id_seq</param>
+			</generator>
+			<key-column name="mygov_flusso_tesoreria_id" />
+		</primary-key>
+		<foreign-key constraint-name="mygov_flusso_tesoreria_mygov_ente_fkey">
+			<one-to-one exclude="false" />
+			<inverse-one-to-one exclude="true" />
+		</foreign-key>
+	</table>
+	
+</hibernate-reverse-engineering>

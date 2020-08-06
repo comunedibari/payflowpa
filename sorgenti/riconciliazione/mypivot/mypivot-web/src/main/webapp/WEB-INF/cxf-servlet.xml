@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<context:annotation-config />
+	<context:component-scan base-package="it.regioneveneto.mygov.payment.mypivot.*" />
+	
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" />
+
+<!-- 	<bean id="jamonAdvisor" -->
+<!-- 		class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor"> -->
+<!-- 		<property name="advice" ref="jamonAdvice" /> -->
+<!-- 		<property name="expression" value="execution(* it.regioneveneto.mygov.payment.pa..*(..))" /> -->
+<!-- 	</bean> -->
+<!-- 	<bean id="jamonAdvice" -->
+<!-- 		class="org.springframework.aop.interceptor.JamonPerformanceMonitorInterceptor"> -->
+<!-- 		<property name="trackAllInvocations" value="true" /> -->
+<!-- 	</bean> -->
+
+	<jaxws:endpoint id="PagamentiTelematiciPagatiRiconciliati" implementor="#pagamentiTelematiciPagatiRiconciliati" address="/PagamentiTelematiciPagatiRiconciliati" />
+	<bean id="pagamentiTelematiciPagatiRiconciliati" class="it.regioneveneto.mygov.payment.mypivot.server.PagamentiTelematiciPagatiRiconciliatiImpl" />
+
+</beans>

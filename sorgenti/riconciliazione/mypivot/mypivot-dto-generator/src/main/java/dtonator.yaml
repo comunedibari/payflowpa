@@ -1,0 +1,114 @@
+config:
+  dtoPackage: it.regioneveneto.mygov.payment.mypivot.domain.to
+  domainPackage: it.regioneveneto.mygov.payment.mypivot.domain.po
+  mapperPackage: it.regioneveneto.mygov.payment.mypivot.domain.mapper
+  beanMethods: true
+AnagraficaStatoTO:
+  domain: AnagraficaStato
+  publicConstructor: true
+  properties: '*'
+EnteTO:
+  domain: Ente
+  publicConstructor: true
+  properties: '*'  
+EnteTipoDovutoTO:
+  domain: EnteTipoDovuto
+  publicConstructor: true
+  properties: ente EnteTO, *  
+SegnalazioneTO:
+  domain: Segnalazione
+  publicConstructor: true
+  properties: 'ente EnteTO, utente UtenteTO, *'
+RendicontazioneSubsetIdTO:
+  domain: RendicontazioneSubsetId
+  publicConstructor: true
+  properties: '*'  
+RendicontazioneSubsetTO:
+  domain: RendicontazioneSubset
+  publicConstructor: true
+  properties: 'id RendicontazioneSubsetIdTO, *'
+PrenotazioneFlussoRiconciliazioneTO:
+  domain: PrenotazioneFlussoRiconciliazione
+  publicConstructor: true
+  properties: 'anagraficaStato AnagraficaStatoTO, ente EnteTO, utente UtenteTO, *'
+OperatoreEnteTipoDovutoTO:
+  domain: OperatoreEnteTipoDovuto
+  publicConstructor: true
+  properties: 'enteTipoDovuto EnteTipoDovutoTO, *'
+ManageFlussoTO:
+  domain: ManageFlusso
+  publicConstructor: true
+  properties: 'anagraficaStato AnagraficaStatoTO, ente EnteTO, tipoFlusso TipoFlussoTO, utente UtenteTO, *'
+InfoFlussoPosteWebTO:
+  domain: InfoFlussoPosteWeb
+  publicConstructor: true
+  properties: 'manageFlusso ManageFlussoTO, *'
+TipoFlussoTO:
+  domain: TipoFlusso
+  publicConstructor: true
+  properties: '*'  
+UtenteTO:
+  domain: Utente
+  publicConstructor: true
+  properties: '*'  
+TesoreriaSubsetIdTO:
+  domain: TesoreriaSubsetId
+  properties: '*'  
+TesoreriaSubsetTO:
+  domain: TesoreriaSubset
+  properties: 'id TesoreriaSubsetIdTO, *'
+ImportExportRendicontazioneTesoreriaIdTO:
+  domain: ImportExportRendicontazioneTesoreriaId
+  properties: '*'  
+ImportExportRendicontazioneTesoreriaTO:
+  domain: ImportExportRendicontazioneTesoreria
+  properties: 'id ImportExportRendicontazioneTesoreriaIdTO, *'
+ExportRendicontazioneIdTO:
+  domain: ExportRendicontazioneId
+  properties: '*'  
+ExportRendicontazioneTO:
+  domain: ExportRendicontazione
+  properties: 'id ExportRendicontazioneIdTO, *'
+FlussoExportIdTO:
+  domain: FlussoExportId
+  properties: '*'  
+FlussoExportTO:
+  domain: FlussoExport
+  properties: 'id FlussoExportIdTO, ente EnteTO, manageFlusso ManageFlussoTO, *'
+FlussoRendicontazioneIdTO:
+  domain: FlussoRendicontazioneId
+  properties: '*'
+FlussoRendicontazioneTO:
+  domain: FlussoRendicontazione
+  properties: 'id FlussoRendicontazioneIdTO, ente EnteTO, manageFlusso ManageFlussoTO, *' 
+TesoreriaNoMatchSubsetIdTO:
+  domain: TesoreriaNoMatchSubsetId
+  properties: '*'  
+TesoreriaNoMatchSubsetTO:
+  domain: TesoreriaNoMatchSubset
+  properties: 'id TesoreriaNoMatchSubsetIdTO, *'
+AccertamentoTO:
+  domain: Accertamento
+  properties: 'enteTipoDovuto EnteTipoDovutoTO, utente UtenteTO, anagraficaStato AnagraficaStatoTO, *'
+AccertamentoDettaglioTO:
+  domain: AccertamentoDettaglio
+  properties: 'accertamento AccertamentoTO, utente UtenteTO, *'
+AnagraficaUfficioCapitoloAccertamentoTO:
+  domain: AnagraficaUfficioCapitoloAccertamento
+  publicConstructor: true
+  properties: 'ente EnteTO, *'
+InfoMappingTesoreriaTO:
+  domain: InfoMappingTesoreria
+  publicConstructor: true
+  properties: 'manageFlusso ManageFlussoTO, *'
+FlussoTesoreriaTO:
+  domain: FlussoTesoreria
+  publicConstructor: true
+  properties: 'ente EnteTO, *'
+RendicontazioneTesoreriaSubsetIdTO:
+  domain: RendicontazioneTesoreriaSubsetId
+  properties: '*'
+RendicontazioneTesoreriaSubsetTO:
+  domain: RendicontazioneTesoreriaSubset
+  publicConstructor: true
+  properties: 'id RendicontazioneTesoreriaSubsetIdTO, *'

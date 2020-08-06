@@ -1,0 +1,258 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+      "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+
+	<!-- **************************** -->
+	<!-- BASE LAYOUT PER OPERATORE -->
+	<!-- **************************** -->
+	<definition name="baseLayout" template="/WEB-INF/views/baseLayout.jsp"
+		preparer="it.regioneveneto.mygov.payment.mypivot.controller.preparer.MainViewPreparer">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="top_menu" value="/WEB-INF/views/tiles/top_menu.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/tiles/body.jsp" />
+		<put-attribute name="bottom_menu"
+			value="/WEB-INF/views/tiles/bottom_menu.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="baseLayoutNoMenu" template="/WEB-INF/views/baseLayoutNoMenu.jsp"
+		preparer="it.regioneveneto.mygov.payment.mypivot.controller.preparer.MainViewPreparer">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/tiles/body.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+	</definition>
+
+	<!-- **************************** -->
+	<!-- DEFINIZIONI BASE LAYOUT PER OPERATORE -->
+	<!-- **************************** -->
+
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/home.jsp" />
+	</definition>
+
+	<!-- SCELTA ENTE -->
+
+	<definition name="sceltaEnte" extends="baseLayout">
+		<put-attribute name="title" value="Scelta Ente" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/sceltaEnte.jsp" />
+	</definition>
+
+	<definition name="message" extends="baseLayout">
+		<put-attribute name="title" value="Scelta Ente" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/messages.jsp" />
+	</definition>
+
+	
+	<!-- CARICA -->
+	<definition name="flussiUpload" extends="baseLayout">
+		<put-attribute name="title" value="Carica Flussi Export" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussiUpload.jsp" />
+	</definition>
+	
+	<!-- VISUALIZZA -->
+	<definition name="visualizza" extends="baseLayout">
+		<put-attribute name="title" value="Visualizzazione Flussi" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/visualizza.jsp" />
+	</definition>
+		
+	<!-- VISUALIZZA COMPLETA -->
+	<definition name="visualizzaCompleta" extends="baseLayout">
+		<put-attribute name="title" value="Visualizzazione Completa" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/visualizzaCompleta.jsp" />
+	</definition>
+	
+	<definition name="cookies" extends="baseLayoutNoMenu">
+		<put-attribute name="title" value="Informativa sui cookies" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cookies.jsp" />
+	</definition>
+
+	<definition name="privacy" extends="baseLayoutNoMenu">
+		<put-attribute name="title" value="Privacy" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/privacy.jsp" />
+	</definition>
+	
+	<!-- EXPORT -->
+	<definition name="flussiExport" extends="baseLayout">
+		<put-attribute name="title" value="Scarica Flussi Export" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussiExport.jsp" />
+	</definition>
+
+	<!-- DETTAGLIO -->
+	<definition name="visualizzaDettaglio" extends="baseLayout">
+		<put-attribute name="title" value="Dettaglio" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/dettaglio.jsp">
+				<put-attribute name="dettaglio_ricevuta" value="/WEB-INF/views/jsp/dettaglio_ricevuta.jsp" />
+      			<put-attribute name="dettaglio_pagamento" value="/WEB-INF/views/jsp/dettaglio_pagamento.jsp" />
+      			<put-attribute name="dettaglio_rendicontazione">
+	      			<definition template="/WEB-INF/views/jsp/dettaglio_rendicontazione.jsp">
+		      			<put-attribute name="dettaglio_ricevuta_rendicontazione" value="/WEB-INF/views/jsp/dettaglio_ricevuta_rendicontazione.jsp" />
+	      			</definition>
+				</put-attribute>
+      			<put-attribute name="dettaglio_tesoreria" value="/WEB-INF/views/jsp/dettaglio_tesoreria.jsp" />
+      			<put-attribute name="dettaglio_segnalazione" value="/WEB-INF/views/jsp/dettaglio_segnalazione.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<!-- STORICO SEGNALAZIONI -->
+	<definition name="visualizzaStoricoSegnalazioni" extends="baseLayout">
+		<put-attribute name="title" value="Storico Segnalazioni" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/storicoSegnalazioni.jsp" />
+	</definition>
+	
+	<!-- VISUALIZZA ACCERTAMENTI -->
+	<definition name="visualizzaAccertamenti" extends="baseLayout">
+ 		<put-attribute name="title" value="Accertamento" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/accertamenti/visualizzaAccertamenti.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+ 	</definition>
+
+	<!-- NUOVO ACCERTAMENTO -->
+	<definition name="nuovoAccertamento" extends="baseLayout">
+		<put-attribute name="title" value="Crea Accertamento" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/accertamenti/nuovoAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- EDIT PAGAMENTI IN ACCERTAMENTO -->
+	<definition name="editPagamentiAccertamento" extends="baseLayout">
+		<put-attribute name="title" value="Definisci i pagamenti in Accertamento" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/accertamenti/editPagamentiAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+				<put-attribute name="dettaglio_accertamento" value="/WEB-INF/views/jsp/accertamenti/include/dettaglio_accertamento.jsp" />
+				<put-attribute name="ricerca_pagamenti" value="/WEB-INF/views/jsp/accertamenti/include/ricerca_pagamenti.jsp" />
+				<put-attribute name="dettaglio_pagamento" value="/WEB-INF/views/jsp/accertamenti/include/dettaglio_pagamento.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- DETTAGLIO ACCERTAMENTO -->
+	<definition name="dettaglioAccertamento" extends="baseLayout">
+		<put-attribute name="title" value="Dettaglio Accertamento" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/accertamenti/dettaglioAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+				<put-attribute name="dettaglio_accertamento" value="/WEB-INF/views/jsp/accertamenti/include/dettaglio_accertamento.jsp" />
+				<put-attribute name="ricerca_pagamenti" value="/WEB-INF/views/jsp/accertamenti/include/ricerca_pagamenti.jsp" />
+				<put-attribute name="dettaglio_pagamento" value="/WEB-INF/views/jsp/accertamenti/include/dettaglio_pagamento.jsp" />
+				<put-attribute name="popup_capitoli" value="/WEB-INF/views/jsp/accertamenti/include/popup_capitoli.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- ACCERTAMENTO - SCELTA UFFICIO/CAPITOLO -->
+	<definition name="sceltaUfficioCapitoloAccertamento" extends="baseLayout">
+		<put-attribute name="title" value="Scelta ufficio, capitolo e accertamento" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/accertamenti/sceltaUfficioCapitoloAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+				<put-attribute name="dettaglio_accertamento" value="/WEB-INF/views/jsp/accertamenti/include/dettaglio_accertamento.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+
+	<definition name="visualizzaFlussoTesoreria" extends="baseLayout">
+		<put-attribute name="title" value="Visualizzazione Flusso Tesoreria" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussi/visualizzaFlussoTesoreria.jsp" />
+	</definition>
+	
+	<definition name="espandiFlussoTesoreria" extends="baseLayout">
+		<put-attribute name="title" value="Espandi Flusso Tesoreria" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussi/espandiTesoreria.jsp" />
+	</definition>
+	
+	<definition name="visualizzaFlussoRendicontazione" extends="baseLayout">
+		<put-attribute name="title" value="Visualizzazione Flusso Rendicontazione" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussi/visualizzaFlussoRendicontazione.jsp" />
+	</definition>
+	
+	<definition name="visualizzaFlussoRicevuta" extends="baseLayout">
+		<put-attribute name="title" value="Visualizzazione Flusso Ricevuta" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/flussi/visualizzaFlussoRicevuta.jsp" />
+	</definition>
+
+	<!-- VISUALIZZA ANAGRAFICHE -->
+	<definition name="visualizzaAnagraficaUfficioCapitoloAccertamento" extends="baseLayout">
+		<put-attribute name="title" value="Anagrafica" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/anagrafiche/visualizzaAnagraficaUfficioCapitoloAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- DETTAGLIO ANAGRAFICA -->
+	<definition name="visualizzaDettaglioAnagrafica" extends="baseLayout">
+		<put-attribute name="title" value="Dettaglio Anagrafica" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/anagrafiche/dettaglioAnagraficaUfficioCapitoloAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- MODIFICA ANAGRAFICA -->
+	<definition name="modificaDettaglioAnagrafica" extends="baseLayout">
+		<put-attribute name="title" value="Modifica Anagrafica" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/anagrafiche/modificaAnagraficaUfficioCapitoloAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- NUOVA ANAGRAFICA -->
+	<definition name="nuovaAnagrafica" extends="baseLayout">
+		<put-attribute name="title" value="Nuova Anagrafica" />
+		<put-attribute name="body">
+			<definition template="/WEB-INF/views/jsp/anagrafiche/nuovaAnagraficaUfficioCapitoloAccertamento.jsp">
+				<put-attribute name="message" value="/WEB-INF/views/jsp/messages.jsp" />
+			</definition>
+		</put-attribute>
+	</definition>
+	
+	<!-- CRUSCOTTO INCASSI : Anno / Mese / Giorno -->
+	<definition name="totaliPerAnnoMeseGiorno" extends="baseLayout">
+ 		<put-attribute name="title" value="Totali per Anno/Mese/Giorno" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cruscottoIncassi/totaliPerAnnoMeseGiorno.jsp" />
+ 	</definition>
+ 	
+ 	<!-- CRUSCOTTO INCASSI : Totali Ripartiti Per Uffici -->
+	<definition name="totaliRipartitiPerUffici" extends="baseLayout">
+ 		<put-attribute name="title" value="Totali Ripartiti per Uffici" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cruscottoIncassi/totaliRipartitiPerUffici.jsp" />
+ 	</definition>
+ 	
+ 	<!-- CRUSCOTTO INCASSI : Totali Ripartiti Per Dovuti -->
+	<definition name="totaliRipartitiPerDovuti" extends="baseLayout">
+ 		<put-attribute name="title" value="Totali Ripartiti per Dovuti" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cruscottoIncassi/totaliRipartitiPerDovuti.jsp" />
+ 	</definition>
+ 	
+ 	<!-- CRUSCOTTO INCASSI : Totali Ripartiti Per Capitoli -->
+	<definition name="totaliRipartitiPerCapitoli" extends="baseLayout">
+ 		<put-attribute name="title" value="Totali Ripartiti per Capitoli" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cruscottoIncassi/totaliRipartitiPerCapitoli.jsp" />
+ 	</definition>
+ 	
+ 	<!-- CRUSCOTTO INCASSI : Totali Ripartiti Per Accertamenti -->
+	<definition name="totaliRipartitiPerAccertamenti" extends="baseLayout">
+ 		<put-attribute name="title" value="Totali Ripartiti per Accertamenti" />
+		<put-attribute name="body" value="/WEB-INF/views/jsp/cruscottoIncassi/totaliRipartitiPerAccertamenti.jsp" />
+ 	</definition>
+ 	
+</tiles-definitions>

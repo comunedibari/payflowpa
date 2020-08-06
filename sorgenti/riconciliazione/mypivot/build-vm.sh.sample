@@ -1,0 +1,10 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+ROOT_PATH=`pwd`
+
+JAVA_HOME="/opt/jdk-1.7.0"
+export JAVA_HOME
+
+"$M2_HOME"/bin/mvn -o -f "$ROOT_PATH"/pom.xml -P vm -DskipTests=true clean package

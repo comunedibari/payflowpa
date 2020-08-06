@@ -1,0 +1,29 @@
+	
+################################
+######                    ######
+######	SEQUENCES		  ######
+###### 					  ######
+################################
+	
+REPLACE ALL OCCURRENCIES OF
+
+name = "generator", 
+
+WITH
+
+name = "generator", allocationSize=1,
+
+################################
+######                    ######
+######	ENTITIES		  ######
+###### 					  ######
+################################
+REPLACE ALL OCCURRENCIES OF
+
+	@ManyToOne(fetch = FetchType.LAZY)
+
+WITH
+
+	@ManyToOne(fetch = FetchType.EAGER)
+
+	
