@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss xmlns="http://www.jboss.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss_5_0.xsd"
+	version="3.0">
+
+ 	<enterprise-beans>
+
+		<session>
+			<ejb-name>Corporateservice</ejb-name>
+			<jndi-name>iris/Corporateservice/remote</jndi-name>
+			<local-jndi-name>iris/Corporateservice/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>Operatorservice</ejb-name>
+			<jndi-name>iris/Operatorservice/remote</jndi-name>
+			<local-jndi-name>iris/Operatorservice/local</local-jndi-name>
+		</session>
+
+	</enterprise-beans>
+ 
+ </jboss>

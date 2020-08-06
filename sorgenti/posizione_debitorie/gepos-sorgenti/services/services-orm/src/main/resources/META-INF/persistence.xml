@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+			version="2.0">
+
+	<persistence-unit name="IrisPU" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- NOME DATASOURCE DI JBOSS6 -->
+ 		<jta-data-source>java:/jdbc/iris</jta-data-source>
+
+		<!-- NOME DATASOURCE DI JBOSS7 -->
+		<!--  <jta-data-source>java:jboss/datasources/jdbc/oracle</jta-data-source> -->
+
+
+		<mapping-file>addOnAPIPersistence.xml</mapping-file>
+		<mapping-file>addOnPersistence.xml</mapping-file>
+<!--	<class>it.tasgroup.addon.api.domain.TributoStrutturato</class> -->
+<!--	<class>it.tasgroup.addon.api.domain.DettaglioStrutturato</class> -->
+
+		<!-- ************************ -->
+		<!-- Inherited Domain Classes -->
+		<!-- ************************ -->
+
+		<class>it.nch.is.fo.enti.TipologiaEnti</class>
+		<!--  NO MATCH -->
+		<class>it.nch.is.fo.profilo.Applicazioni</class>
+		<class>it.nch.is.fo.profilo.Area</class>
+		<class>it.nch.is.fo.profilo.Enti</class>
+		<class>it.nch.is.fo.profilo.Funzioni</class>
+		<class>it.nch.is.fo.profilo.Funzioniintestatari</class>
+		<class>it.nch.is.fo.profilo.Funzionioperatori</class>
+		<class>it.nch.is.fo.profilo.ClassiAbilitazioni</class>
+		<class>it.nch.is.fo.profilo.Indirizzipostali</class>
+		<class>it.nch.is.fo.profilo.Intestatari</class>
+		<class>it.nch.is.fo.profilo.Intestatarioperatori</class>
+		<class>it.nch.is.fo.profilo.Operatori</class>
+		<class>it.nch.is.fo.profilo.IbanEnti</class>
+		<!-- NO MATCH  -->
+		<class>it.nch.is.fo.profilo.Password</class>
+		<!-- NO MATCH -->
+		<class>it.nch.is.fo.profilo.Servizi</class>
+
+		<class>it.nch.is.fo.sistemienti.SistemaEnte</class>
+
+		<class>it.nch.is.fo.tributi.CategoriaTributo</class>
+		<class>it.nch.is.fo.tributi.TributoEnte</class>
+		<class>it.nch.is.fo.tributi.CfgTributoEntePlugin</class>
+		<class>it.nch.is.fo.tributi.TributiOperatore</class>
+		<class>it.tasgroup.iris.domain.CfgNotificaPagamento</class>
+		<class>it.nch.erbweb.orm.Jltpref</class>
+
+		<!-- ******************* -->
+		<!-- GESTIONE RID ONLINE -->
+		<!-- ******************* -->
+		<class>it.tasgroup.iris.domain.Rid</class>
+		<class>it.tasgroup.iris.domain.AllineamentiElettroniciArchivi</class>
+		<!-- ******************* -->
+
+		<!-- ************************ -->
+		<!--       IRIS Classes       -->
+		<!-- ************************ -->
+		<class>it.tasgroup.iris.domain.CondizioneDocumento</class>
+		<class>it.tasgroup.iris.domain.CondizionePagamento</class>
+		<class>it.tasgroup.iris.domain.IUVPosizEnteMap</class>
+		<class>it.tasgroup.iris.domain.IUVPosizEnteMapPK</class>
+		<class>it.nch.is.fo.tributi.IUVSequencePK</class>
+		<class>it.nch.is.fo.tributi.IUVSequence</class>
+		<class>it.tasgroup.iris.domain.AllegatiPendenza</class>
+		<class>it.tasgroup.iris.domain.DocumentoDiPagamento</class>
+		<class>it.tasgroup.iris.domain.DocumentiRepository</class>
+		<class>it.tasgroup.iris.domain.MolteplicitaDDP</class>
+		<class>it.tasgroup.iris.domain.Pendenza</class>
+		<class>it.tasgroup.iris.domain.Pagamenti</class>
+		<class>it.tasgroup.iris.domain.GestioneFlussi</class>
+		<class>it.tasgroup.iris.domain.CanaliPagamento</class>
+		<class>it.tasgroup.iris.domain.SistemiPagamento</class>
+		<class>it.tasgroup.iris.domain.PagamentiOnline</class>
+		<class>it.nch.is.fo.pagamenti.Multe</class>
+		<class>it.tasgroup.iris.domain.DestinatariPendenza</class>
+		<class>it.tasgroup.iris.domain.ContoTecnico</class>
+		<class>it.tasgroup.iris.domain.Province</class>
+		<class>it.tasgroup.iris.domain.AnagraficaCorsiDottorato</class>
+		<class>it.tasgroup.iris.domain.NazioneCittadinanza</class>
+		<class>it.tasgroup.iris.domain.RevochePagamento</class>
+		<class>it.tasgroup.iris.domain.PrenotazioneAvvisiDigitali</class> 
+		<!-- DEMO Classes -->
+		<class>it.tasgroup.iris.domain.demo.VocePagamento</class>
+
+
+		<!-- ************************ -->
+		<!--    IRIS CFG PAGAMENTI    -->
+		<!-- ************************ -->
+		<class>it.tasgroup.iris.domain.CfgCanalePagamento</class>
+		<class>it.tasgroup.iris.domain.CfgCommissionePagamento</class>
+		<class>it.tasgroup.iris.domain.CfgDocumentoPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgFornitoreGateway</class>
+		<class>it.tasgroup.iris.domain.CfgGatewayPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgModalitaPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgStrumentoPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgTipoCommissione</class>
+		<class>it.tasgroup.iris.domain.CfgUtenteModalitaPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgTributiEntiGateway</class>
+		<class>it.tasgroup.iris.domain.CfgEntiLogo</class>
+		<class>it.tasgroup.iris.domain.CfgEntiTema</class>
+
+		<!-- ************************* -->
+		<!-- IRIS BACKOFFICE CRUSCOTTO e MONITORAGGIO-->
+		<!-- ************************* -->
+		<class>it.tasgroup.iris.domain.BonificiRiaccredito</class>
+		<class>it.tasgroup.iris.domain.CasellarioDispo</class>
+		<class>it.tasgroup.iris.domain.DistinteRiaccredito</class>
+		<class>it.tasgroup.iris.domain.BozzeBonificiRiaccredito</class>
+		<class>it.tasgroup.iris.domain.CasellarioInfo</class>
+		<class>it.tasgroup.iris.domain.Rendicontazioni</class>
+		<class>it.tasgroup.iris.domain.EsitiBonificiRiaccredito</class>
+
+		<class>it.tasgroup.iris.domain.EsitiBb</class>
+		<class>it.tasgroup.iris.domain.EsitiCbill</class>
+                <class>it.tasgroup.iris.domain.EsitiNdp</class>
+		<class>it.tasgroup.iris.domain.EsitiRct</class>
+		<class>it.tasgroup.iris.domain.IncassiBonificiRh</class>
+		
+		<class>it.tasgroup.iris.domain.StatistichePosizioniMese</class>
+		<class>it.tasgroup.iris.domain.StatistichePagamentiMese</class>
+
+		<!-- ************************* -->
+		<!-- IRIS GATEWAY			   -->
+		<!-- ************************* -->
+		<class>it.tasgroup.iris.domain.CarrelloGateway</class>
+		<class>it.tasgroup.iris.domain.SessioneGateway</class>
+		<class>it.tasgroup.iris.domain.CfgIrisGatewayClient</class>
+		<class>it.tasgroup.iris.domain.Sessione</class>
+		<class>it.tasgroup.iris.domain.IrisGatewayClientShopCart</class>
+		<class>it.tasgroup.iris.domain.Riversamento</class>
+		<class>it.tasgroup.iris.domain.MovimentiAccredito</class>
+		<!-- **************** -->
+		<!-- NOTIZIE HOME     -->
+		<!-- **************** -->
+		<class>it.tasgroup.iris.domain.BachecaNews</class>
+		<!-- TAVOLO OPERATIVO CART     -->
+		<!-- ************************* -->
+		<class>it.tasgroup.idp.domain.messaggi.ConfermeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriIdp</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriEsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotificheCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotifichePagamenti</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCart</class>
+
+		<!-- ************************* -->
+		<!-- IRIS SHOPPING CART		   -->
+		<!-- ************************* -->
+
+		<!-- *************************   -->
+		<!-- Export-situazione pagamenti -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.domain.Prenotazioni</class>
+		<class>it.tasgroup.iris.domain.InfoPrenotazioni</class>
+		<class>it.tasgroup.iris.domain.Esportazioni</class>
+		<class>it.tasgroup.iris.gev.Eventi</class>
+
+		<!-- *************************   -->
+		<!-- Giornale degli eventi       -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.gde.GiornaleEventi</class>
+		<class>it.tasgroup.iris.gde.GiornaleEventiDocumentiNDP</class>
+
+		<!-- *************************   -->
+		<!-- Registrazione Avvisatura    -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.domain.UtentiCanali</class>
+		<class>it.tasgroup.iris.domain.UtentiCanaliPK</class>
+		<class>it.tasgroup.iris.domain.Canali</class>
+		<class>it.tasgroup.iris.domain.TipoMessaggi</class>
+		<class>it.tasgroup.iris.gev.CfgEventi</class>
+		<class>it.tasgroup.iris.gev.CfgDestinatari</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cfg.xml"/>
+		</properties>
+		
+		<!-- ************   -->
+		<!-- Storico Dati   -->
+		<!-- ************   -->
+		<class>it.tasgroup.iris.domain.SveLog</class>
+		<class>it.tasgroup.iris.domain.SveStato</class>
+<!--
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+		</properties>
+ -->
+<!-- 	<properties>	 -->
+<!-- 		<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"/>  -->
+<!--  		<property name="hibernate.dialect" value="it.tasgroup.idp.enabler.OracleDialectExtended"/>   -->
+<!-- 		<property name="hibernate.show_sql" value="true"/>		 -->
+<!-- 		<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup"/> -->
+<!--         <property name="hibernate.format_sql" value="true" /> -->
+<!--         <property name="jboss.as.jpa.providerModule" value="org.hibernate:3" />                 -->
+<!--         <property name="jboss.as.jpa.managed" value="true" /> 	 -->
+<!--         <property name="hibernate.id.new_generator_mappings" value="false" />	          -->
+<!-- 	</properties> -->
+
+</persistence-unit>
+
+
+	<persistence-unit name="StoricoPU" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- NOME DATASOURCE DI JBOSS6 -->
+		<jta-data-source>java:/jdbc/storico</jta-data-source>
+		<!--<non-jta-data-source>java:/jdbc/storico</non-jta-data-source>-->
+
+		<!-- NOME DATASOURCE DI JBOSS7 -->
+		<!--  <jta-data-source>java:jboss/datasources/jdbc/oracle</jta-data-source> -->
+
+
+		<mapping-file>addOnAPIPersistence.xml</mapping-file>
+		<mapping-file>addOnPersistence.xml</mapping-file>
+<!-- 	<class>it.tasgroup.addon.api.domain.TributoStrutturato</class> -->
+<!-- 	<class>it.tasgroup.addon.api.domain.DettaglioStrutturato</class> -->
+
+		<!-- ************************ -->
+		<!-- Inherited Domain Classes -->
+		<!-- ************************ -->
+
+		<class>it.nch.is.fo.enti.TipologiaEnti</class>
+		<!--  NO MATCH -->
+		<class>it.nch.is.fo.profilo.Applicazioni</class>
+		<class>it.nch.is.fo.profilo.Area</class>
+		<class>it.nch.is.fo.profilo.Enti</class>
+		<class>it.nch.is.fo.profilo.Funzioni</class>
+		<class>it.nch.is.fo.profilo.Funzioniintestatari</class>
+		<class>it.nch.is.fo.profilo.Funzionioperatori</class>
+		<class>it.nch.is.fo.profilo.ClassiAbilitazioni</class>
+		<class>it.nch.is.fo.profilo.Indirizzipostali</class>
+		<class>it.nch.is.fo.profilo.Intestatari</class>
+		<class>it.nch.is.fo.profilo.Intestatarioperatori</class>
+		<class>it.nch.is.fo.profilo.Operatori</class>
+		<class>it.nch.is.fo.profilo.IbanEnti</class>
+		<!-- NO MATCH  -->
+		<class>it.nch.is.fo.profilo.Password</class>
+		<!-- NO MATCH -->
+		<class>it.nch.is.fo.profilo.Servizi</class>
+
+		<class>it.nch.is.fo.sistemienti.SistemaEnte</class>
+
+		<class>it.nch.is.fo.tributi.CategoriaTributo</class>
+		<class>it.nch.is.fo.tributi.TributoEnte</class>
+		<class>it.nch.is.fo.tributi.CfgTributoEntePlugin</class>
+		<class>it.nch.is.fo.tributi.TributiOperatore</class>
+		<class>it.tasgroup.iris.domain.CfgNotificaPagamento</class>
+		<class>it.nch.erbweb.orm.Jltpref</class>
+
+		<!-- ******************* -->
+		<!-- GESTIONE RID ONLINE -->
+		<!-- ******************* -->
+		<class>it.tasgroup.iris.domain.Rid</class>
+		<class>it.tasgroup.iris.domain.AllineamentiElettroniciArchivi</class>
+		<!-- ******************* -->
+
+		<!-- ************************ -->
+		<!--       IRIS Classes       -->
+		<!-- ************************ -->
+		<class>it.tasgroup.iris.domain.CondizioneDocumento</class>
+		<class>it.tasgroup.iris.domain.CondizionePagamento</class>
+		<class>it.tasgroup.iris.domain.IUVPosizEnteMap</class>
+		<class>it.tasgroup.iris.domain.IUVPosizEnteMapPK</class>
+		<class>it.nch.is.fo.tributi.IUVSequencePK</class>
+		<class>it.nch.is.fo.tributi.IUVSequence</class>
+		<class>it.tasgroup.iris.domain.AllegatiPendenza</class>
+		<class>it.tasgroup.iris.domain.DocumentoDiPagamento</class>
+		<class>it.tasgroup.iris.domain.DocumentiRepository</class>
+		<class>it.tasgroup.iris.domain.MolteplicitaDDP</class>
+		<class>it.tasgroup.iris.domain.Pendenza</class>
+		<class>it.tasgroup.iris.domain.Pagamenti</class>
+		<class>it.tasgroup.iris.domain.GestioneFlussi</class>
+		<class>it.tasgroup.iris.domain.CanaliPagamento</class>
+		<class>it.tasgroup.iris.domain.SistemiPagamento</class>
+		<class>it.tasgroup.iris.domain.PagamentiOnline</class>
+		<class>it.nch.is.fo.pagamenti.Multe</class>
+		<class>it.tasgroup.iris.domain.DestinatariPendenza</class>
+		<class>it.tasgroup.iris.domain.ContoTecnico</class>
+		<class>it.tasgroup.iris.domain.Province</class>
+		<class>it.tasgroup.iris.domain.AnagraficaCorsiDottorato</class>
+		<class>it.tasgroup.iris.domain.NazioneCittadinanza</class>
+		<class>it.tasgroup.iris.domain.RevochePagamento</class>
+		<class>it.tasgroup.iris.domain.PrenotazioneAvvisiDigitali</class>
+		<!-- DEMO Classes -->
+		<class>it.tasgroup.iris.domain.demo.VocePagamento</class>
+
+
+		<!-- ************************ -->
+		<!--    IRIS CFG PAGAMENTI    -->
+		<!-- ************************ -->
+		<class>it.tasgroup.iris.domain.CfgCanalePagamento</class>
+		<class>it.tasgroup.iris.domain.CfgCommissionePagamento</class>
+		<class>it.tasgroup.iris.domain.CfgDocumentoPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgFornitoreGateway</class>
+		<class>it.tasgroup.iris.domain.CfgGatewayPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgModalitaPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgStrumentoPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgTipoCommissione</class>
+		<class>it.tasgroup.iris.domain.CfgUtenteModalitaPagamento</class>
+		<class>it.tasgroup.iris.domain.CfgTributiEntiGateway</class>
+		<class>it.tasgroup.iris.domain.CfgEntiLogo</class>
+		<class>it.tasgroup.iris.domain.CfgEntiTema</class>
+
+		<!-- ************************* -->
+		<!-- IRIS BACKOFFICE CRUSCOTTO e MONITORAGGIO-->
+		<!-- ************************* -->
+		<class>it.tasgroup.iris.domain.BonificiRiaccredito</class>
+		<class>it.tasgroup.iris.domain.CasellarioDispo</class>
+		<class>it.tasgroup.iris.domain.DistinteRiaccredito</class>
+		<class>it.tasgroup.iris.domain.BozzeBonificiRiaccredito</class>
+		<class>it.tasgroup.iris.domain.CasellarioInfo</class>
+		<class>it.tasgroup.iris.domain.Rendicontazioni</class>
+		<class>it.tasgroup.iris.domain.EsitiBonificiRiaccredito</class>
+
+		<class>it.tasgroup.iris.domain.EsitiBb</class>
+		<class>it.tasgroup.iris.domain.EsitiCbill</class>
+		<class>it.tasgroup.iris.domain.EsitiNdp</class>
+		<class>it.tasgroup.iris.domain.EsitiRct</class>
+		<class>it.tasgroup.iris.domain.IncassiBonificiRh</class>
+
+		<class>it.tasgroup.iris.domain.StatistichePosizioniMese</class>
+		<class>it.tasgroup.iris.domain.StatistichePagamentiMese</class>
+
+		<!-- ************************* -->
+		<!-- IRIS GATEWAY			   -->
+		<!-- ************************* -->
+		<class>it.tasgroup.iris.domain.CarrelloGateway</class>
+		<class>it.tasgroup.iris.domain.SessioneGateway</class>
+		<class>it.tasgroup.iris.domain.CfgIrisGatewayClient</class>
+		<class>it.tasgroup.iris.domain.Sessione</class>
+		<class>it.tasgroup.iris.domain.IrisGatewayClientShopCart</class>
+		<class>it.tasgroup.iris.domain.Riversamento</class>
+		<class>it.tasgroup.iris.domain.MovimentiAccredito</class>
+		<!-- **************** -->
+		<!-- NOTIZIE HOME     -->
+		<!-- **************** -->
+		<class>it.tasgroup.iris.domain.BachecaNews</class>
+		<!-- TAVOLO OPERATIVO CART     -->
+		<!-- ************************* -->
+		<class>it.tasgroup.idp.domain.messaggi.ConfermeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriIdp</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriEsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotificheCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotifichePagamenti</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCart</class>
+
+		<!-- ************************* -->
+		<!-- IRIS SHOPPING CART		   -->
+		<!-- ************************* -->
+
+		<!-- *************************   -->
+		<!-- Export-situazione pagamenti -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.domain.Prenotazioni</class>
+		<class>it.tasgroup.iris.domain.InfoPrenotazioni</class>
+		<class>it.tasgroup.iris.domain.Esportazioni</class>
+		<class>it.tasgroup.iris.gev.Eventi</class>
+
+		<!-- *************************   -->
+		<!-- Giornale degli eventi       -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.gde.GiornaleEventi</class>
+		<class>it.tasgroup.iris.gde.GiornaleEventiDocumentiNDP</class>
+
+		<!-- *************************   -->
+		<!-- Registrazione Avvisatura    -->
+		<!-- *************************   -->
+		<class>it.tasgroup.iris.domain.UtentiCanali</class>
+		<class>it.tasgroup.iris.domain.UtentiCanaliPK</class>
+		<class>it.tasgroup.iris.domain.Canali</class>
+		<class>it.tasgroup.iris.domain.TipoMessaggi</class>
+
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cfg.xml"/>
+		</properties>
+		<!--
+                <properties>
+                    <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+                    <property name="hibernate.show_sql" value="true" />
+                    <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+                    <property name="hibernate.format_sql" value="true" />
+                    <property name="hibernate.id.new_generator_mappings" value="false" />
+                </properties>
+         -->
+		<!-- 	<properties>	 -->
+		<!-- 		<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle9iDialect"/>  -->
+		<!--  		<property name="hibernate.dialect" value="it.tasgroup.idp.enabler.OracleDialectExtended"/>   -->
+		<!-- 		<property name="hibernate.show_sql" value="true"/>		 -->
+		<!-- 		<property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup"/> -->
+		<!--         <property name="hibernate.format_sql" value="true" /> -->
+		<!--         <property name="jboss.as.jpa.providerModule" value="org.hibernate:3" />                 -->
+		<!--         <property name="jboss.as.jpa.managed" value="true" /> 	 -->
+		<!--         <property name="hibernate.id.new_generator_mappings" value="false" />	          -->
+		<!-- 	</properties> -->
+
+	</persistence-unit>
+
+</persistence>

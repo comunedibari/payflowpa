@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-internal-service</artifactId>
+	<name>ebWeb Internal Services</name>
+	<version>${services.release.version}</version>
+	<packaging>ejb</packaging>
+	<inceptionYear>2006</inceptionYear>
+	<dependencies>
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-ejb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-fe</artifactId>
+		</dependency>		
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-internal-service-interface</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-server-configuration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-business-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-business-form</artifactId>
+		</dependency>
+		<dependency>
+	      <groupId>it.tasgroup.iris.shared</groupId>
+		  <artifactId>shared-plugin</artifactId>
+	      <scope>provided</scope>
+	    </dependency>
+		<dependency>
+	      <groupId>it.tasgroup.iris.shared</groupId>
+		  <artifactId>shared-orm</artifactId>
+	      <scope>provided</scope>
+	    </dependency>
+ 		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+ 
+<!-- 
+		<dependency>
+			<groupId>it.nch.eb.common</groupId>
+			<artifactId>ctg-utility</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+ -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>			
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.beanlib</groupId>
+			<artifactId>beanlib</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>xstream</artifactId>
+					<groupId>xstream</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.beanlib</groupId>
+			<artifactId>beanlib-hibernate</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
+

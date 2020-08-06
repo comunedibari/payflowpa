@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>services</artifactId>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <version>0.1</version>
+  </parent>
+  <version>${services.release.version}</version>
+  <artifactId>services-business-ejb-client</artifactId>
+  <name> Iris Business EJB Client</name>
+  <description> Iris Business EJB Client New Framework</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>it.tasgroup.iris.services</groupId>
+  		<artifactId>services-orm</artifactId>
+  	</dependency>
+  	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+	</dependency>
+  	<dependency>
+  		<groupId>it.tasgroup.iris.services</groupId>
+  		<artifactId>services-dto</artifactId>
+  	</dependency>
+	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-dto</artifactId>
+  	</dependency>
+  </dependencies>
+
+</project>

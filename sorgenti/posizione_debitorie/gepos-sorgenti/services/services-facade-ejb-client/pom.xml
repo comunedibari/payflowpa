@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>services</artifactId>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <version>0.1</version>
+  </parent>
+  <version>${services.release.version}</version>
+  <artifactId>services-facade-ejb-client</artifactId>
+  <name>EJB Facade Client Iris Project</name>
+  <description>EJB Facade Client Iris Project New Framework</description>
+  <dependencies> 
+	    <dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+  			<groupId>it.tasgroup.iris.services</groupId>
+  			<artifactId>services-dto</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>it.tasgroup.iris.services</groupId>
+  			<artifactId>services-business-common</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>it.tasgroup.iris.fwk</groupId>
+  			<artifactId>framework-rt-corporate</artifactId>
+  		</dependency>
+  </dependencies>
+</project>

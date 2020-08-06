@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-business-common</artifactId>
+	<name>TAS Iris-FE Business Common Services</name>
+	<version>${services.release.version}</version>
+	<packaging>jar</packaging>
+	<inceptionYear>2011</inceptionYear>
+	
+	<dependencies>
+		<!-- Framework Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-be</artifactId>
+		</dependency>
+		<!-- Iris Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-util</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>${project.basedir}/src/generated-sources</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
+
+

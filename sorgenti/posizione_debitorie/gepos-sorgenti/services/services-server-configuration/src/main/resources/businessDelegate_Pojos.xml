@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+   - Forms context definition for "Business Delegate" and "Back-End".
+-->
+
+<beans>
+
+	<bean id="Applicazioni" class="it.nch.is.fo.profilo.Applicazioni" singleton="false">
+	</bean>
+	<bean id="Aree" class="it.nch.is.fo.profilo.Area" singleton="false">
+	</bean>
+	<bean id="ChangePwdVO" class="it.nch.is.fo.profilo.ChangePwdVOImpl" singleton="false">
+	</bean>
+	<bean id="CurrentCorporateVO" class="it.nch.is.fo.profilo.CurrentCorporateVOImpl" singleton="false">
+	</bean>
+	<bean id="Funzioni" class="it.nch.is.fo.profilo.Funzioni" singleton="false">
+	</bean>
+	<bean id="Funzionioperatori" class="it.nch.is.fo.profilo.Funzionioperatori" singleton="false">
+	</bean>
+	<bean id="FunzionioperatoriCollectionVO" class="it.nch.is.fo.profilo.FunzionioperatoriCollectionVOImpl" singleton="false">
+	</bean>
+	<bean id="FunzionioperatoriVO" class="it.nch.is.fo.profilo.FunzionioperatoriVOImpl" singleton="false">
+	</bean>
+	<bean id="Indirizzipostali" class="it.nch.is.fo.profilo.Indirizzipostali" singleton="false">
+	</bean>
+	<bean id="Intestatari" class="it.nch.is.fo.profilo.Intestatari" singleton="false">
+	</bean>
+	<bean id="Enti" class="it.nch.is.fo.profilo.Enti" singleton="false">
+	</bean>
+	<bean id="TipologiaEnti" class="it.nch.is.fo.enti.TipologiaEnti" singleton="false">
+	</bean>
+	<bean id="Intestatarioperatori" class="it.nch.is.fo.profilo.Intestatarioperatori" singleton="false">
+	</bean>
+	<bean id="Login" class="it.nch.is.fo.login.LoginImpl" singleton="false">
+	</bean>
+	<bean id="LoginRT" class="it.nch.is.fo.login.rt.LoginRTImpl" singleton="false">
+	</bean>
+	<bean id="Operatori" class="it.nch.is.fo.profilo.Operatori" singleton="false">
+	</bean>
+	<bean id="Password" class="it.nch.is.fo.profilo.Password" singleton="false">
+	</bean>
+	<bean id="Servizi" class="it.nch.is.fo.profilo.Servizi" singleton="false">
+	</bean>
+	<bean id="Funzioniintestatari" class="it.nch.is.fo.profilo.Funzioniintestatari" singleton="false">
+	</bean>
+	<bean id="TributoEnte" class="it.nch.is.fo.tributi.TributoEnte" singleton="false">
+	</bean>
+
+</beans>

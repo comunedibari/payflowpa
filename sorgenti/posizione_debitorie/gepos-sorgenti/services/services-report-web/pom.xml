@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-report-web</artifactId>
+	<name>ebWeb Web Report</name>
+	<version>${services.release.version}</version>
+	<packaging>jar</packaging>
+	<inceptionYear>2006</inceptionYear>
+
+	<dependencies>
+<!-- 
+		<dependency>
+			<groupId>javax.j2ee</groupId>
+			<artifactId>j2ee</artifactId>
+			<scope>provided</scope>
+		</dependency>
+-->	
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+	
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-report</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-report-utility</artifactId>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+</project>

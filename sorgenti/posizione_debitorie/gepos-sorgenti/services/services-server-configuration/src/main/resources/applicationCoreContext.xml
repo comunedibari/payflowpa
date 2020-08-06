@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:jee="http://www.springframework.org/schema/jee" 
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+       						http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+       						http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+		<!-- context:component-scan base-package="it.nch.is.fo.business.core.dao"/-->
+		
+		<!-- HIBERNATE -->
+		<!--  
+		<bean id="hibernateConfig" class="org.hibernate.cfg.Configuration" init-method="configure" />
+		<bean id="hibernateSessionFactory" factory-bean="hibernateConfig" factory-method="buildSessionFactory"/>
+		-->
+		<!-- HIBERNATE END -->
+		<!-- JPA START-->
+		<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+		
+		<bean id="jpaEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" >
+			<property name="persistenceUnitName" value="IrisPU"/>
+		</bean>
+		
+		<bean id="hibernateSessionFactory" factory-bean="jpaEntityManagerFactory" factory-method="getSessionFactory" />
+		<!-- JPA END -->
+		
+		<bean id="sessionManager" class="it.nch.fwk.fo.core.SessionManagerHibernate" scope="prototype"> 
+			<constructor-arg> <ref bean="hibernateSessionFactory" /> </constructor-arg> 
+		</bean>
+
+		<bean id="ProxyContextManager" class="it.nch.is.fo.IrisContextImpl" scope="prototype" />
+		
+		
+
+	</beans>

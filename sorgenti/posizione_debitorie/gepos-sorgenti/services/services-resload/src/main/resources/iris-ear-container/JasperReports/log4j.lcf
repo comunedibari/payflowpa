@@ -1,0 +1,13 @@
+# Print only messages of level WARN or above in the package it.tasgroup
+log4j.logger.it.tasgroup.report=${LEVEL_REPORT}, it.tasgroup.report
+log4j.additivity.it.tasgroup.report = false
+
+log4j.appender.it.tasgroup.report=org.apache.log4j.RollingFileAppender
+log4j.appender.it.tasgroup.report.File=${config.logs.dir}report${log.file.name.suffix}.log
+
+log4j.appender.it.tasgroup.report.MaxFileSize=10000KB
+# Keep one backup file
+log4j.appender.it.tasgroup.report.MaxBackupIndex=3
+
+log4j.appender.it.tasgroup.report.layout=org.apache.log4j.PatternLayout
+log4j.appender.it.tasgroup.report.layout.ConversionPattern=%d [%t] %-5p %c - %m%n

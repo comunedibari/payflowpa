@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:jee="http://www.springframework.org/schema/jee" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+       						http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+       						
+  <bean id="operatorserviceDaoDB" class="it.nch.is.fo.business.core.dao.OperatorserviceDaoDB">
+  </bean>
+
+ <bean id="operatorserviceBusiness" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+    <property name="proxyInterfaces"> 
+         <value>it.nch.is.fo.core.interfaces.OperatorserviceServiceLocal,it.nch.is.fo.core.interfaces.OperatorserviceInternalService</value>
+    </property>
+    <property name="interceptorNames">
+       <list>
+          <!-- (Temporarily) disabled ArgumentLoggingInterceptor because too heavy -->
+          <value>operatorserviceBusinessLoggerInterceptor</value>
+          <value>operatorservicePerformanceLoggingInterceptor</value>
+          <value>operatorserviceArgumentLoggingInterceptor</value>
+          <value>operatorserviceAuditLoggerInterceptor</value>
+       </list>
+    </property>
+    <property name="target">
+       <ref bean="operatorserviceBusinessTarget"/>
+    </property>
+ </bean>
+
+  <bean id="operatorserviceBusinessLoggerInterceptor" class="it.nch.is.fo.delegate.proxy.NchBusinessObjectInterceptor"/>
+
+  <bean id="operatorservicePerformanceLoggingInterceptor" class="it.nch.is.fo.delegate.proxy.LoggingInterceptor"/>
+
+  <bean id="operatorserviceArgumentLoggingInterceptor" class="it.nch.is.fo.delegate.proxy.ArgumentLoggingInterceptor"/>
+
+  <bean id="operatorserviceAuditLoggerInterceptor" class="it.nch.iris.business.custom.util.audit.AuditLoggerInterceptor"/>
+
+  <bean id="operatorserviceBusinessTarget" class="it.nch.is.fo.business.core.OperatorserviceImpl"> 
+      <constructor-arg><ref bean="operatorserviceDaoDB" /></constructor-arg>	
+  </bean>
+</beans>

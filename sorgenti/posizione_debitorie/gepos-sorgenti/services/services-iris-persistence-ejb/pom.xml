@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>services</artifactId>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<version>0.1</version>
+	</parent>
+	<artifactId>services-iris-persistence-ejb</artifactId>
+	<name>Iris Persistence EJB Project</name>
+	<version>${services.release.version}</version>
+	<description>Iris Persistence EJB Project New Framework</description>
+	<packaging>ejb</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-orm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-dto</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.shared</groupId>
+			<artifactId>shared-dto</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.shared</groupId>
+			<artifactId>shared-orm</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.shared</groupId>
+			<artifactId>shared-plugin</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>6.0-2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.openejb</groupId>
+			<artifactId>openejb-core-hibernate</artifactId>
+			<version>4.0.0-beta-1</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-terracotta</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> <version>1.6.4</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.2</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+</project>

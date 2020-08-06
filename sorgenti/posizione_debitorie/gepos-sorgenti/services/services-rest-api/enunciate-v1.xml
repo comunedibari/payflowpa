@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<enunciate label="full" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-1.31.xsd">
+    <api-classes>
+        <include pattern="it.tasgroup.idp.rs.endpoints.*"/>
+    </api-classes>
+
+    <api-import pattern="it.tasgroup.idp.rs.model.creditore.Pagamento*"/>
+    <api-import pattern="it.tasgroup.idp.rs.model.*"/>
+    <api-import pattern="it.tasgroup.idp.rs.enums.*"/>
+
+    <deployment context="/paytas-api"/>
+
+    <modules>
+        <swagger base="swdist.jar"></swagger>
+    </modules>
+</enunciate>

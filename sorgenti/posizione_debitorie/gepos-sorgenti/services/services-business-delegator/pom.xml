@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-business-delegator</artifactId>
+	<name>TAS Iris-FE Business Delegate Services</name>
+	<version>${services.release.version}</version>
+	<packaging>jar</packaging>
+	<inceptionYear>2011</inceptionYear>
+
+	<dependencies>
+		<!-- Framework Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-corporate</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-fe</artifactId>
+		</dependency>
+		<!-- Iris Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-client-configuration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-internal-service</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-internal-service-interface</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-util</artifactId>
+		</dependency>
+		<!-- JEE API -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
+

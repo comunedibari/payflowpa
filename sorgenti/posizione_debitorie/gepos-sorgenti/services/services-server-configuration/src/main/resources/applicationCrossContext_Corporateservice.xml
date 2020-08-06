@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+   - Application context definition for "eB.Web".
+-->
+
+<beans>
+  <bean id="corporateserviceDaoDB" class="it.nch.is.fo.business.core.dao.CorporateserviceDaoDB">
+  </bean>
+
+ <bean id="corporateserviceBusiness" class="org.springframework.aop.framework.ProxyFactoryBean"> 
+    <property name="proxyInterfaces"> 
+         <value>it.nch.is.fo.core.interfaces.CorporateserviceServiceLocal,it.nch.is.fo.core.interfaces.CorporateserviceInternalService</value>
+    </property>
+    <property name="interceptorNames">
+       <list>
+          <!-- (Temporarily) disabled ArgumentLoggingInterceptor because too heavy -->
+          <value>corporateserviceBusinessLoggerInterceptor</value>
+          <value>corporateservicePerformanceLoggingInterceptor</value>
+          <value>corporateserviceArgumentLoggingInterceptor</value>
+          <value>corporateserviceAuditLoggerInterceptor</value>
+       </list>
+    </property>
+    <property name="target">
+       <ref bean="corporateserviceBusinessTarget"/>
+    </property>
+ </bean>
+
+  <bean id="corporateserviceBusinessLoggerInterceptor" class="it.nch.is.fo.delegate.proxy.NchBusinessObjectInterceptor"/>
+
+  <bean id="corporateservicePerformanceLoggingInterceptor" class="it.nch.is.fo.delegate.proxy.LoggingInterceptor"/>
+
+  <bean id="corporateserviceArgumentLoggingInterceptor" class="it.nch.is.fo.delegate.proxy.ArgumentLoggingInterceptor"/>
+
+  <bean id="corporateserviceAuditLoggerInterceptor" class="it.nch.iris.business.custom.util.audit.AuditLoggerInterceptor"/>
+
+  <bean id="corporateserviceBusinessTarget" class="it.nch.is.fo.business.core.CorporateserviceImpl"> 
+      <constructor-arg><ref bean="corporateserviceDaoDB" /></constructor-arg>	
+  </bean>
+</beans>

@@ -1,0 +1,124 @@
+package it.nch.is.fo;
+
+public class BackEndMessage {
+	
+	public final static String BO_0001 = "BO_0001";
+	public final static String BO_0002 = "BO_0002";
+	public final static String BO_0003 = "BO_0003";
+	public final static String BO_0004 = "BO_0004";
+	public final static String BO_0005 = "BO_0005";
+	public final static String BO_0006 = "BO_0006";
+	public final static String BO_0007 = "BO_0007";
+	public final static String BO_0008 = "BO_0008";
+	public final static String BO_0009 = "BO_0009";
+	public final static String BO_0010 = "BO_0010";
+	public final static String BO_0011 = "BO_0011";
+	public final static String BO_0012 = "BO_0012";
+	public final static String BO_0013 = "BO_0013";
+	public final static String BO_0014 = "BO_0014";
+	public final static String BO_0015 = "BO_0015";
+	public final static String BO_0016 = "BO_0016";
+	public final static String BO_0017 = "BO_0017";
+	public final static String BO_0018 = "BO_0018";
+	public final static String BO_0019 = "BO_0019";
+	public final static String BO_0020 = "BO_0020";
+	public final static String BO_0021 = "BO_0021";	
+	public final static String BO_0022 = "BO_0022";		
+	public final static String BO_0023 = "BO_0023";
+	public final static String BO_0024 = "BO_0024";
+	public final static String BO_0025 = "BO_0025";
+	public final static String BO_0026 = "BO_0026";
+	public final static String BO_0027 = "BO_0027";
+	public final static String BO_0028 = "BO_0028";	
+	public final static String BO_0029 = "BO_0029";
+	public final static String BO_0030 = "BO_0030";	
+	public final static String BO_0031 = "BO_0031";
+	public final static String BO_0032 = "BO_0032";
+	public final static String BO_0033 = "BO_0033";
+	public final static String BO_0034 = "BO_0034";
+	public final static String BO_0035 = "BO_0035";
+	public final static String BO_0036 = "BO_0036";
+	public final static String BO_0037 = "BO_0037";
+	public final static String BO_0038 = "BO_0038";
+	public final static String BO_0039 = "BO_0039";
+	public final static String BO_0040 = "BO_0040";
+	public final static String BO_0041 = "BO_0041";
+	public final static String BO_0042 = "BO_0042";
+	public final static String BO_0043 = "BO_0043";
+	public final static String BO_0044 = "BO_0044";
+	public final static String BO_0045 = "BO_0045";
+	public final static String BO_0046 = "BO_0046";
+	public final static String BO_0047 = "BO_0047";
+	public final static String BO_0048 = "BO_0048";
+	public final static String BO_0049 = "BO_0049";
+	public final static String BO_0050 = "BO_0050";
+	public final static String BO_0051 = "BO_0051";
+	public final static String BO_0052 = "BO_0052";
+	public final static String BO_0053 = "BO_0053";
+	public final static String BO_0054 = "BO_0054";
+	public final static String BO_0055 = "BO_0055";	
+	public final static String BO_0056 = "BO_0056";
+	public final static String BO_0057 = "BO_0057";
+	public final static String BO_0058 = "BO_0058";
+	
+	public final static String BO_0100 = "BO_0100"; 
+	public final static String BO_0101 = "BO_0101";
+	public final static String BO_0102 = "BO_0102";	
+	public final static String BO_0103 = "BO_0103";
+	public final static String BO_0104 = "BO_0104";
+	public final static String BO_0105 = "BO_0105";
+	public final static String BO_0106 = "BO_0106";
+	public final static String BO_0107 = "BO_0107";
+	public final static String BO_0108 = "BO_0108";
+	public final static String BO_0109 = "BO_0109";
+	public final static String BO_0110 = "BO_0110";
+	public final static String BO_0111 = "BO_0111";				
+	public final static String BO_0112 = "BO_0112";
+	public final static String BO_0113 = "BO_0113";
+	public final static String BO_0114 = "BO_0114";
+	public final static String BO_0115 = "BO_0115";
+	public final static String BO_0116 = "BO_0116";
+	public final static String BO_0117 = "BO_0117";
+	public final static String BO_0118 = "BO_0118";
+	public final static String BO_0119 = "BO_0119";
+	public final static String BO_0120 = "BO_0120";
+	public final static String BO_0121 = "BO_0121";
+	public final static String BO_0122 = "BO_0122";
+	public final static String BO_0123 = "BO_0123";
+	public final static String BO_0124 = "BO_0124";
+	public final static String BO_0130 = "BO_0130";
+		
+	public final static String DAO_0001 = "DAO_0001";
+	public final static String DAO_0002 = "DAO_0002";
+	public final static String DAO_0003 = "DAO_0003";
+	public final static String DAO_0004 = "DAO_0004";
+	public final static String DAO_0005 = "DAO_0005";
+	public final static String DAO_0006 = "DAO_0006";
+	public final static String DAO_0007 = "DAO_0007";
+	public final static String DAO_0008 = "DAO_0008";
+	public final static String DAO_0009 = "DAO_0009";
+	public final static String DAO_0010 = "DAO_0010";
+	
+	
+	public final static String BI_0001 = "BI_0001";
+	public final static String BI_0002 = "BI_0002";
+	public final static String BI_0003 = "BI_0003";
+	public final static String BI_0004 = "BI_0004";
+	public final static String BI_0005 = "BI_0005";
+	public final static String BI_0006 = "BI_0006";
+	public final static String BI_0007 = "BI_0007";
+	public final static String BI_0008 = "BI_0008";
+	public final static String BI_0009 = "BI_0009";
+	public final static String BI_0010 = "BI_0010";
+	public final static String BI_0011 = "BI_0011";
+	public final static String BI_0012 = "BI_0012";
+	public final static String BI_0013 = "BI_0013";
+	public final static String BI_0014 = "BI_0014";
+	public final static String BI_0015 = "BI_0015";
+	
+	public final static String PAG_001 = "PAG_001";
+	public final static String PAG_002 = "PAG_002";
+	public final static String PAG_003 = "PAG_003";
+	
+	
+}

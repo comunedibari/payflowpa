@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ServiceProviderConfiguration>
+
+	<ServiceParameters>
+		<!-- keystore che contiene il certificato del servizio per la firma delle richieste -->
+		<keystorePath>${auth.plugin.keystorePath.path}</keystorePath>
+		<keystoreAlias>${auth.plugin.keystore.alias}</keystoreAlias>
+		<keystorePassword>${auth.plugin.keystore.pass}</keystorePassword>
+
+		<!-- Timeout sullo scaricamento dei metadati -->
+		<metadataConnectionTimeout>30000</metadataConnectionTimeout>
+
+		<!-- File contenente i metadati del servizio -->
+		<metadataFile>${auth.plugin.metadataFile.path}</metadataFile>
+		<metadataFileEncoding>utf-8</metadataFileEncoding>
+		
+		<!-- ID del servizio di default -->
+		<entityID>${idmras.entity.id}</entityID>
+		<language>it</language>
+		
+		<!-- Indirizzo metadati Autority registry -->
+		<authorityRegistryMetadataProviderURL>${idmras.authorityRegistryMetadataProviderURL}</authorityRegistryMetadataProviderURL>
+		<attributeQuerySubjectNameQualifier>${idmras.attributeQuerySubjectNameQualifier}</attributeQuerySubjectNameQualifier>
+
+		<returnBinding>HTTP-POST</returnBinding>
+
+		<!-- Indirizzo metadati Local Proxy -->
+		<localProxyMetadataProviderURL>${idmras.localProxyMetadataProviderURL}</localProxyMetadataProviderURL>
+
+		<!-- Numero di salti per arrivare all'IdP. Da portare a 2 quando verrà abilitata la Profile authority -->
+		<proxyCount>1</proxyCount>
+		
+		<transientNameIDFormat>true</transientNameIDFormat>
+		
+		<!-- Attributo contenente l'identificativo dell'utente -->
+		<identifyingAttribute>codiceFiscale</identifyingAttribute>
+		
+	</ServiceParameters>
+
+<!-- configurazione dei profili -->
+	<ServiceProfiles>
+		<ServiceProfile>
+			<Name>Pagamenti online - Comunas</Name>
+			<Description>Pagamenti online - Comunas</Description>
+		  	<URLPrefix>${idmras.URLPrefix}</URLPrefix>
+			<entityID>${idmras.entity.id}</entityID>
+		  	<AuthenticationMethodType>weak,strong</AuthenticationMethodType>
+		  	<!-- Url dell'assertion consumer service. Ricordarsi di inserire l'indirizzo così come è raggiungibile dal browser. -->
+			<!--  AssertionConsumerService>http://localhost:8080/pagaonline/AssertionConsumerService</AssertionConsumerService -->
+			<AssertionConsumerService>${idmras.assertion.consumer.url}</AssertionConsumerService>
+		</ServiceProfile>
+	</ServiceProfiles>
+	
+	<AuthenticationMethods>
+		<AuthenticationMethod>
+			<Type>moreweak</Type>
+			<Method>urn:oasis:names:tc:SAML:2.0:ac:classes:FirstPasswordProtectedTransport</Method>
+		</AuthenticationMethod>
+		<AuthenticationMethod>
+			<Type>weak</Type>
+			<Method>urn:oasis:names:tc:SAML:2.0:ac:classes:Password,urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</Method>
+		</AuthenticationMethod>
+		<AuthenticationMethod>
+			<Type>strong</Type>
+			<Method>urn:oasis:names:tc:SAML:2.0:ac:classes:SoftwarePKI,urn:oasis:names:tc:SAML:2.0:ac:classes:Smartcard</Method>
+		</AuthenticationMethod>
+  </AuthenticationMethods>
+</ServiceProviderConfiguration>

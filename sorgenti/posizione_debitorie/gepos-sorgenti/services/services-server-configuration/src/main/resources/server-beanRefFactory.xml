@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xmlns:jee="http://www.springframework.org/schema/jee" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+       						http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.0.xsd">
+
+  <bean id="it.nch.fwk.fo"
+     class="org.springframework.context.support.ClassPathXmlApplicationContext" lazy-init="false">
+     <constructor-arg>
+       <list>
+          <value>applicationCoreContext.xml</value>
+       </list>
+    </constructor-arg>
+  </bean>
+
+   <bean id="it.nch.business.cross"
+     class="org.springframework.context.support.ClassPathXmlApplicationContext" lazy-init="false">
+     <constructor-arg>
+       <list>
+                   <value>applicationCrossContext_Corporateservice.xml</value>
+                   <value>applicationCrossContext_Operatorservice.xml</value>
+       </list>
+    </constructor-arg>
+     <constructor-arg>
+          <ref bean="it.nch.fwk.fo"/>
+    </constructor-arg>
+  </bean>
+
+
+  <bean id="it.nch.business" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+    	       <list>
+                   <value>applicationContext_Server.xml</value>
+  		       </list>
+ 		</constructor-arg>
+     <constructor-arg>
+          <ref bean="it.nch.business.cross"/>
+    </constructor-arg>
+  </bean>
+
+  <bean id="it.nch.orm" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+ 		<constructor-arg>
+       			<list> 
+          			<value>businessDelegate_Forms.xml</value>  
+          			<value>businessDelegate_Pojos.xml</value> 
+      			</list>
+ 		</constructor-arg>
+ </bean>
+
+  <bean id="it.nch.business.erbweb" class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+    	       <list>
+    	       		<value>applicationContext_Server.xml</value>
+  		       </list>
+ 		</constructor-arg>
+     <constructor-arg>
+          <ref bean="it.nch.fwk.fo"/>
+    </constructor-arg>
+  </bean>
+ 
+ 
+</beans>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--
+   - Forms context definition for "Business Delegate" and "eB.Web".
+-->
+
+<beans>
+
+	<bean id="ApplicazioniForm" class="it.nch.is.fo.profilo.ApplicazioniFormImpl" singleton="false">
+	</bean>
+	<bean id="AreeForm" class="it.nch.is.fo.profilo.AreeFormImpl" singleton="false">
+	</bean>
+	<bean id="ChangePwdVOForm" class="it.nch.is.fo.profilo.ChangePwdVOFormImpl" singleton="false">
+	</bean>
+	<bean id="CurrentCorporateVOForm" class="it.nch.is.fo.profilo.CurrentCorporateVOFormImpl" singleton="false">
+	</bean>
+	<bean id="FunzioniForm" class="it.nch.is.fo.profilo.FunzioniFormImpl" singleton="false">
+	</bean>
+	<bean id="FunzionioperatoriForm" class="it.nch.is.fo.profilo.FunzionioperatoriFormImpl" singleton="false">
+	</bean>
+	<bean id="FunzionioperatoriCollectionVOForm" class="it.nch.is.fo.profilo.FunzionioperatoriCollectionVOFormImpl" singleton="false">
+	</bean>
+	<bean id="FunzionioperatoriVOForm" class="it.nch.is.fo.profilo.FunzionioperatoriVOFormImpl" singleton="false">
+	</bean>
+	<bean id="IndirizzipostaliForm" class="it.nch.is.fo.profilo.IndirizzipostaliFormImpl" singleton="false">
+	</bean>
+	<bean id="IntestatariForm" class="it.nch.is.fo.profilo.IntestatariFormImpl" singleton="false">
+	</bean>
+	<bean id="IntestatarioperatoriForm" class="it.nch.is.fo.profilo.IntestatarioperatoriFormImpl" singleton="false">
+	</bean>
+	<bean id="TributiOperatoriForm" class="it.nch.is.fo.profilo.TributiOperatoriFormImpl" singleton="false">
+	</bean>
+	<bean id="EntiForm" class="it.nch.is.fo.profilo.EntiFormImpl" singleton="false">
+	</bean>
+	<bean id="TipologiaEntiForm" class="it.nch.is.fo.enti.TipologiaEntiFormImpl" singleton="false">
+	</bean>
+	<bean id="LoginForm" class="it.nch.is.fo.login.LoginFormImpl" singleton="false">
+	</bean>
+	<bean id="LoginRTForm" class="it.nch.is.fo.login.rt.LoginRTFormImpl" singleton="false">
+	</bean>
+	<bean id="OperatoriForm" class="it.nch.is.fo.profilo.OperatoriFormImpl" singleton="false">
+	</bean>
+	<bean id="PasswordForm" class="it.nch.is.fo.profilo.PasswordFormImpl" singleton="false">
+	</bean>
+	<bean id="ServiziForm" class="it.nch.is.fo.profilo.ServiziFormImpl" singleton="false">
+	</bean>
+	<bean id="GatewayForm" class="it.nch.is.fo.configurazionePagamento.GatewayFormImpl" singleton="false">
+	</bean>
+	<bean id="TributoEnteForm" class="it.nch.is.fo.tributi.TributoEnteFormImpl" singleton="false">
+	</bean>
+</beans>

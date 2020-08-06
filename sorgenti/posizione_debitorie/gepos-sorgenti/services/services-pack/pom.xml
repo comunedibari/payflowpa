@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <artifactId>services</artifactId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>services-pack</artifactId>
+  <packaging>pom</packaging>
+  <name>Paytas Customer Packaging Builder</name>
+  <description>project packaging for paytas customers</description>
+  <properties>
+    <!--
+                Sovrascrivo la cartella di rilascio.
+                NUOVO STANDARD   <path_base>/fe/paytas-fe/<version>/<cutomer_id>
+                -->
+    <fe.release.folder>${outputRoot}/fe/paytas-fe/${services.release.version}</fe.release.folder>
+    <!-- =============================================================================== -->
+    <!--   framework - qui uso sempre la versione per jboss7 (compatibile hibernate 4)   -->
+    <!-- =============================================================================== -->
+    <framework.release.version>${frmwk.version.4jboss7}</framework.release.version>
+  </properties>
+  <modules>
+	<module>services-pack-gepos</module>
+  </modules>
+</project>

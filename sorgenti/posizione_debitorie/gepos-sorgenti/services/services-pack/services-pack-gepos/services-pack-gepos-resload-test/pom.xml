@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <artifactId>services-pack-gepos</artifactId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>services-pack-gepos-resload-test</artifactId>
+  <packaging>jar</packaging>
+  <name>- conf - gepos-test</name>
+  <description>gepos payflowpa configuration archive</description>
+  <properties>
+    <resload.archive.name>test</resload.archive.name>
+    <resload.filter.name>iris-resload-filter.gepos.test</resload.filter.name>
+    <resload.release.folder>${fe.release.folder}/gepos</resload.release.folder>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>resload-pack</id>
+            <phase>install</phase>
+            <configuration>
+              <tasks>
+                <echo>=====================</echo>
+                <echo>Producing resload</echo>
+                <echo>=====================</echo>
+                <mkdir dir="${resload.release.folder}" />
+                <tar basedir="target/classes/iris-ear-container"
+                     destfile="${resload.release.folder}/gepos-gpa-${resload.archive.name}-gpa.tar" />
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    <resources>
+      <resource>
+        <directory>${basedir}/../../../services-resload/src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+          <exclude>**/*.ttf</exclude>
+          <exclude>**/theme*.properties</exclude>
+          <exclude>*/SpBootstrap.properties</exclude>
+          <exclude>*/SpConfiguration.properties</exclude>
+          <exclude>**/FAQ*.properties</exclude>
+          <exclude>**/Ente*.properties</exclude>
+          <exclude>*/xsso-auth-user.properties</exclude>
+          <exclude>*/sp-config_pagamenti_comunas.xml</exclude>
+          <exclude>*/ras-plugin.properties</exclude>
+          <exclude>*/idmras.properties</exclude>
+          <exclude>*/federa.properties</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>${basedir}/../../../services-resload/src/main/resources</directory>
+        <filtering>false</filtering>
+        <includes>
+          <include>**/*.ttf</include>
+          <include>**/*tuscany*.properties</include>
+        </includes>
+      </resource>
+    </resources>
+    <filters>
+      <filter>${basedir}/../../../services-resload/src/main/filters/${resload.filter.name}.properties</filter>
+      <filter>${basedir}/../../../services-resload/src/main/filters/${resload.common.filter.name}.properties</filter>
+    </filters>
+  </build>
+</project>

@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-orm</artifactId>
+	<name>TAS Iris-FE Services ORM</name>
+	<version>${services.release.version}</version>
+	<packaging>jar</packaging>
+	<inceptionYear>2011</inceptionYear>
+		
+	<dependencies>
+		<!-- Framework Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-be</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-fe</artifactId>
+		</dependency>
+		<!-- Iris Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-business-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-business-form</artifactId>
+		</dependency>
+		<!-- JEE API -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>		
+		<!-- 3rd Parties -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>			
+		</dependency>	
+		<dependency>
+			<groupId>it.tasgroup.iris.shared</groupId>
+			<artifactId>shared-orm</artifactId>
+		</dependency>
+	</dependencies>
+</project>
+

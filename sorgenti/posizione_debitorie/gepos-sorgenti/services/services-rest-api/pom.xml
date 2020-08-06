@@ -1,0 +1,217 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>it.tasgroup.iris.services</groupId>
+        <artifactId>services</artifactId>
+        <version>0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>services-rest-api</artifactId>
+    <name>IRIS Rest API</name>
+    <version>${services.release.version}</version>
+    <packaging>war</packaging>
+    <inceptionYear>2015</inceptionYear>
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+    <dependency>
+		<groupId>it.tasgroup.iris.shared</groupId>
+		<artifactId>shared-util</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+      <groupId>it.tasgroup.iris.shared</groupId>
+      <artifactId>shared-facade-ejb-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+
+        <dependency>
+            <groupId>it.tasgroup.iris.services</groupId>
+            <artifactId>services-util-fe</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>it.tasgroup.iris.services</groupId>
+            <artifactId>services-facade-ejb-client</artifactId>
+            <scope>provided</scope>
+        </dependency>
+	  	<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>gateway-nodopagamentispc-ws-client</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>it.tasgroup.iris.services</groupId>
+    		<artifactId>services-comunication-ws-client</artifactId>
+    	</dependency>
+    
+        <dependency>
+            <groupId>it.tasgroup.iris.services</groupId>
+            <artifactId>services-dto</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>it.tasgroup.iris.services</groupId>
+            <artifactId>services-util-rest</artifactId>
+        </dependency>
+        
+        <dependency>
+        	<groupId>it.tasgroup.iris.services</groupId>
+        	<artifactId>services-authentication-service</artifactId>
+	</dependency>	
+<!--
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.8.5</version>
+            <scope>provided</scope>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>it.tasgroup.iris.shared</groupId>
+            <artifactId>shared-dto</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+	    <dependency>
+	    	<groupId>it.tasgroup.iris.services</groupId>
+	    	<artifactId>services-attualizzatore-ws-client</artifactId>
+	    </dependency>
+
+    </dependencies>
+
+
+    <build>
+ <!--       <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>-->
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <webResources>
+                        <resource>
+                            <directory>src/main/static-content</directory>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+
+<!--
+            <plugin>
+                <groupId>com.webcohesion.enunciate</groupId>
+                <artifactId>enunciate-maven-plugin</artifactId>
+                <version>2.0.0-RC.1</version>
+                <configuration>
+                    <buildDir>${project.build.directory}/docs</buildDir>
+                    &lt;!&ndash;<enunciateArtifactId>services-rest-api-docs</enunciateArtifactId>&ndash;&gt;
+                    <enunciateArtifactId/>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>assemble</goal>
+                        </goals>
+                        <configuration>
+                            <sourcepath-includes>
+                                <include>
+                                    &lt;!&ndash; configure Enunciate to look for the source jars for all dependencies in the "com.mycompany.domain" groupId.&ndash;&gt;
+                                    <groupId>it.tasgroup.iris.services</groupId>
+                                </include>
+                            </sourcepath-includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+-->
+
+            <plugin>
+                <groupId>org.codehaus.enunciate</groupId>
+                <artifactId>maven-enunciate-plugin</artifactId>
+                <version>1.31</version>
+                <executions>
+                        <execution>
+                            <goals>
+                                <goal>assemble</goal>
+                            </goals>
+                        </execution>
+                </executions>
+                <configuration>
+                    <!-- the directory where to put the docs -->
+                    <docsDir>${project.build.directory}/docs</docsDir>
+                    <configFile>enunciate-v1.xml</configFile>
+                    <enunciateArtifactId/>
+                    <moduleName/>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>jackson-databind</artifactId>
+                        <version>2.5.3</version>
+                    </dependency>
+
+                    <dependency>
+                        <groupId>org.codehaus.enunciate</groupId>
+                        <artifactId>enunciate-swagger</artifactId>
+                        <version>1.31</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+        </plugins>
+
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.codehaus.enunciate
+        								</groupId>
+        								<artifactId>
+        									maven-enunciate-plugin
+        								</artifactId>
+        								<versionRange>
+        									[1.31,)
+        								</versionRange>
+        								<goals>
+        									<goal>assemble</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
+    </build>
+
+
+</project>

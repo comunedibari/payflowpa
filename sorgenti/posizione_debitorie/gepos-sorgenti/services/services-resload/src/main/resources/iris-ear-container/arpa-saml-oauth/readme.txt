@@ -1,0 +1,1 @@
+i file di configurazione di ARPA, dopo il passaggio alla modalità shared non sono più gestiti nella singola applicazione.

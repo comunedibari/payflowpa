@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <artifactId>services-pack</artifactId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>services-pack-gepos</artifactId>
+  <packaging>pom</packaging>
+  <name>Custom Packaging for GePos PayFlowPA - JBoss EAP 6.3</name>
+  <description>project packaging for GePos PayFlowPA</description>
+  <properties>
+    <resload.common.filter.name>common-filter.gepos</resload.common.filter.name>
+  </properties>
+  <modules>
+    <module>services-pack-gepos-conf</module>
+    <module>services-pack-gepos-ear</module>
+    <module>services-pack-gepos-resload-test</module>
+  </modules>
+</project>

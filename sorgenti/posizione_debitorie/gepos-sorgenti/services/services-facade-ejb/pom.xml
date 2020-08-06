@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>services</artifactId>
+    <groupId>it.tasgroup.iris.services</groupId>
+    <version>0.1</version>
+  </parent>
+  <version>${services.release.version}</version>
+  <artifactId>services-facade-ejb</artifactId>
+  <name>Facade EJB Project</name>
+  <description>Facade EJB Project New Framework</description>
+  <inceptionYear>2011</inceptionYear>
+  <packaging>ejb</packaging>
+  <dependencies> 
+  
+    <dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
+
+  	<dependency>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services-facade-ejb-client</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>it.tasgroup.iris.shared</groupId>
+		<artifactId>shared-plugin</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>it.tasgroup.iris.shared</groupId>
+		<artifactId>shared-facade-ejb-client</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services-business-ejb-client</artifactId>
+	</dependency>	
+<!-- 
+	<dependency>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services-internal-service</artifactId>
+	</dependency>
+ -->
+	<dependency>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services-orm</artifactId>
+	</dependency>	
+	<dependency>
+		<groupId>it.tasgroup.iris.fwk</groupId>
+		<artifactId>framework-rt-corporate</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services-report</artifactId>
+	</dependency>
+	
+	</dependencies> 
+
+</project>

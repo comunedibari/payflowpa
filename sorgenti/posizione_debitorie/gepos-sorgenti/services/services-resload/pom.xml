@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.services</groupId>
+		<artifactId>services</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>services-resload</artifactId>
+	<name>ebWeb Services Properties Configuration</name>
+	<version>${services.release.version}</version>
+	<packaging>jar</packaging>
+	<inceptionYear>2006</inceptionYear>
+	<properties>
+		<resload.release.folder>${fe.release.folder}/local-dev</resload.release.folder>
+	</properties>
+	<build>
+	</build>
+</project>

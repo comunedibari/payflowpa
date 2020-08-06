@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.0.0-RC.1.xsd">
+
+    <api-classes>
+        <include pattern="it.tasgroup.idp.rs.endpoints.*"/>
+    </api-classes>
+
+
+    <modules>
+        <swagger basePath="/paytas-api/rest"/>
+        <docs defaultNamespace="paytas" />
+    </modules>
+</enunciate>

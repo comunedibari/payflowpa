@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss xmlns="http://www.jboss.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss_5_0.xsd"
+	version="3.0">
+
+ 	<enterprise-beans>
+		<session>
+			<ejb-name>DisposizioniRidBusiness</ejb-name>
+			<jndi-name>iris/DisposizioniRidBusiness/remote</jndi-name>
+			<local-jndi-name>iris/DisposizioniRidBusiness/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>DelegheRidBusiness</ejb-name>
+			<jndi-name>iris/DelegheRidBusiness/remote</jndi-name>
+			<local-jndi-name>iris/DelegheRidBusiness/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>DDPBusiness</ejb-name>
+			<jndi-name>iris/DDPBusiness/remote</jndi-name>
+			<local-jndi-name>iris/DDPBusiness/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>AnnullamentoBusiness</ejb-name>
+			<jndi-name>iris/AnnullamentoBusiness/remote</jndi-name>
+			<local-jndi-name>iris/AnnullamentoBusiness/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>AutorizzazioneBusiness</ejb-name>
+			<jndi-name>iris/AutorizzazioneBusiness/remote</jndi-name>
+			<local-jndi-name>iris/AutorizzazioneBusiness/local</local-jndi-name>
+		</session>	
+		<session>
+			<ejb-name>EstrattoContoDebitorioBusiness</ejb-name>
+			<jndi-name>iris/EstrattoContoDebitorioBusiness/remote</jndi-name>
+			<local-jndi-name>iris/EstrattoContoDebitorioBusiness/local</local-jndi-name>
+		</session>	
+		<session>
+			<ejb-name>NotificaPagamentoBusiness</ejb-name>
+			<jndi-name>iris/NotificaPagamentoBusiness/remote</jndi-name>
+			<local-jndi-name>iris/NotificaPagamentoBusiness/local</local-jndi-name>
+		</session>	
+		<session>
+			<ejb-name>StornoBusiness</ejb-name>
+			<jndi-name>iris/StornoBusiness/remote</jndi-name>
+			<local-jndi-name>iris/StornoBusiness/local</local-jndi-name>
+		</session>	
+		<session>
+			<ejb-name>GatewayAuthenticationBusiness</ejb-name>
+			<jndi-name>iris/GatewayAuthenticationBusiness/remote</jndi-name>
+			<local-jndi-name>iris/GatewayAuthenticationBusiness/local</local-jndi-name>
+		</session>	
+		<session>
+			<ejb-name>PendenzeBusiness</ejb-name>
+			<jndi-name>iris/PendenzeBusiness/remote</jndi-name>
+			<local-jndi-name>iris/PendenzeBusiness/local</local-jndi-name>
+		</session>
+		<session>
+			<ejb-name>GiornaleEventiBusiness</ejb-name>
+			<jndi-name>iris/GiornaleEventiBusiness/remote</jndi-name>
+			<local-jndi-name>iris/GiornaleEventiBusiness/local</local-jndi-name>
+		</session>
+	</enterprise-beans>
+ 
+ </jboss>

@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  	<parent>
+  		<groupId>it.tasgroup.iris.services</groupId>
+  		<artifactId>services</artifactId>
+  		<version>0.1</version>
+  	</parent>
+  	
+  	<modelVersion>4.0.0</modelVersion>
+    <artifactId>services-report</artifactId>
+    <name>ebWeb Service Report</name>
+    <version>${services.release.version}</version>
+    <packaging>jar</packaging>
+    <inceptionYear>2006</inceptionYear>
+    
+    <repositories>
+    <repository>
+      <id>fdvsolution.public</id>
+      <url>http://archiva.fdvs.com.ar/repository/public1/</url>
+    </repository>
+    </repositories>
+ 
+    <dependencies>
+<!-- 
+		<dependency>
+			<groupId>javax.j2ee</groupId>
+			<artifactId>j2ee</artifactId>
+			<scope>provided</scope>
+		</dependency>
+-->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.iris.services</groupId>
+			<artifactId>services-report-artifact</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+		</dependency>
+		<!--dependency>
+			<groupId>commons-javaflow</groupId>
+			<artifactId>commons-javaflow</artifactId>
+		</dependency-->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			 <exclusions>
+         		 <exclusion>
+            		<groupId>org.apache.xmlbeans</groupId>
+           			 <artifactId>xmlbeans</artifactId>
+          			</exclusion>
+        	</exclusions>
+		</dependency>
+                <dependency>
+                    <groupId>com.google.zxing</groupId>
+                    <artifactId>core</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>com.google.zxing</groupId>
+                    <artifactId>javase</artifactId>
+                </dependency>
+
+		<dependency>
+	 		<groupId>ar.com.fdvs</groupId>
+	 		<artifactId>DynamicJasper</artifactId>
+	 		<version>4.0.0</version>
+	 	</dependency>
+	 	<dependency>
+			<groupId>ar.com.fdvs</groupId>
+		    <artifactId>DynamicJasper-core-fonts</artifactId>
+		    <version>1.0</version>
+		</dependency>
+		<dependency>
+		  <groupId>net.sourceforge.jexcelapi</groupId>
+		  <artifactId>jxl</artifactId>
+		</dependency>	
+		<dependency>
+			<groupId>net.sourceforge.barbecue</groupId>
+			<artifactId>barbecue</artifactId>
+		</dependency>
+
+		<dependency>
+		  <groupId>org.apache.pdfbox</groupId>
+		  <artifactId>pdfbox</artifactId>
+		</dependency>		
+
+    </dependencies>
+</project>
