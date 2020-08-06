@@ -1,0 +1,275 @@
+group bonord_esiti_dbtr;
+
+templateRecord80(rec80) ::= <<
+<DPSR:UltmtDbtr>
+	<DPSR:Nm>$rec80.nm$</DPSR:Nm>
+	$if (rec80.showPstlAdr)$
+	<DPSR:PstlAdr>
+		$if (rec80.adrTp)$ <DPSR:AdrTp>$rec80.adrTp$</DPSR:AdrTp> $endif$
+		$if (rec80.adrLine1)$ <DPSR:AdrLine>$rec80.adrLine1$</DPSR:AdrLine> $endif$
+		$if (rec80.adrLine2)$ <DPSR:AdrLine>$rec80.adrLine2$</DPSR:AdrLine> $endif$
+		$if (rec80.strtNm)$ <DPSR:StrtNm>$rec80.strtNm$</DPSR:StrtNm> $endif$
+		$if (rec80.bldgNb)$ <DPSR:BldgNb>$rec80.bldgNb$</DPSR:BldgNb> $endif$
+		$if (rec80.pstCd)$ <DPSR:PstCd>$rec80.pstCd$</DPSR:PstCd> $endif$
+		$if (rec80.twnNm)$ <DPSR:TwnNm>$rec80.twnNm$</DPSR:TwnNm> $endif$
+		$if (rec80.ctrySubDvsn)$ <DPSR:CtrySubDvsn>$rec80.ctrySubDvsn$</DPSR:CtrySubDvsn> $endif$
+		$if (rec80.ctry)$ <DPSR:Ctry>$rec80.ctry$</DPSR:Ctry> $endif$
+	</DPSR:PstlAdr>
+	$endif$	
+</DPSR:UltmtDbtr>
+$if (rec80.showDbtr)$
+<DPSR:Dbtr>
+	$if (rec80.orgnlTxRef_Nm)$ <DPSR:Nm>$rec80.orgnlTxRef_Nm$</DPSR:Nm> $endif$
+	$if (rec80.showId)$
+	<DPSR:Id>
+		<DPSR:OrgId>
+			$if (rec80.orgnlTxRef_TaxIdNb)$ <DPSR:TaxIdNb>$rec80.orgnlTxRef_TaxIdNb$</DPSR:TaxIdNb> $endif$
+			<DPSR:PrtryId>
+				$if (rec80.orgnlTxRef_Id)$ <DPSR:Id>$rec80.orgnlTxRef_Id$</DPSR:Id> $endif$
+				$if (rec80.orgnlTxRef_Issr)$ <DPSR:Issr>$rec80.orgnlTxRef_Issr$</DPSR:Issr> $endif$
+			</DPSR:PrtryId>
+		</DPSR:OrgId>
+	</DPSR:Id>
+	$endif$
+</DPSR:Dbtr>
+$endif$
+$if (rec80.orgnlTxRef_Iban)$
+<DPSR:DbtrAcct>
+	<DPSR:Id>
+		<DPSR:IBAN>$rec80.orgnlTxRef_Iban$</DPSR:IBAN>
+	</DPSR:Id>
+</DPSR:DbtrAcct>
+$endif$
+>>
+
+templateRecord40_80(rec40, rec80) ::= <<
+<DPSR:OrgnlTxRef>
+	<DPSR:Amt Ccy="$rec40.ccy$">$rec40.amt$</DPSR:Amt>
+	$if (rec40.reqdExctnDt)$
+	<DPSR:ReqdExctnDt>$rec40.reqdExctnDt$</DPSR:ReqdExctnDt>
+	$endif$
+	$if (rec40.showPmtTpInf)$
+	<DPSR:PmtTpInf>
+		$if (rec40.svcLvl_prtry)$
+		<DPSR:SvcLvl>
+			<DPSR:Prtry>$rec40.svcLvl_prtry$</DPSR:Prtry>
+		</DPSR:SvcLvl>
+		$endif$
+		<DPSR:LclInstrm>
+			<DPSR:Prtry>$rec40.lclInstrm_prtry$</DPSR:Prtry>
+		</DPSR:LclInstrm>
+		<DPSR:CtgyPurp>$rec40.ctgyPurp$</DPSR:CtgyPurp>
+	</DPSR:PmtTpInf>
+	$endif$
+	$if (rec40.pmtMtd)$
+	<DPSR:PmtMtd>$rec40.pmtMtd$</DPSR:PmtMtd>
+	$endif$
+	$rec80:{ rc80 |
+		$rc80:templateRecord80()$
+	}$
+</DPSR:OrgnlTxRef>
+>>
+
+templateRecordRecord36(rec36) ::= <<
+<DPSR:ChrgsInf>
+	<DPSR:ChrgsAmt Ccy="$rec36.ccy$">$rec36.content$</DPSR:ChrgsAmt>
+</DPSR:ChrgsInf>
+>>
+
+templateRecord34(rec34) ::= "<DPSR:AddtlStsRsnInf>$rec34.content$</DPSR:AddtlStsRsnInf>"
+
+templateRecord30_80(block) ::= <<
+<DPSR:TxInfAndSts>
+	$if (block.record30.stsId)$
+	<DPSR:StsId>$block.record30.stsId$</DPSR:StsId>
+	$endif$
+	<DPSR:OrgnlInstrId>$block.record30.orgnlInstrId$</DPSR:OrgnlInstrId>
+	<DPSR:OrgnlEndToEndId>$block.record30.orgnlEndToEndId$</DPSR:OrgnlEndToEndId>
+	$if (block.record30.lclInstrm_Prtry)$
+	<DPSR:LclInstrm>
+		<DPSR:Prtry>$block.record30.lclInstrm_Prtry$</DPSR:Prtry>
+	</DPSR:LclInstrm>
+	$endif$
+	$block.record32:{ rec32 |
+		<DPSR:TRN>$rec32.content$</DPSR:TRN>
+	}$
+	$if (block.record30.ordValDt)$
+	<DPSR:OrdValDt>$block.record30.ordValDt$</DPSR:OrdValDt>
+	$endif$
+	$if (block.record30.benValDt)$
+	<DPSR:BenValDt>$block.record30.benValDt$</DPSR:BenValDt>
+	$endif$
+	<DPSR:TxSts>$block.record30.txSts$</DPSR:TxSts>
+	
+	$if (block.showStsRsnInf)$
+	<DPSR:StsRsnInf>
+		$if (block.record30.bic)$
+		<DPSR:StsOrgtr>
+			<DPSR:Id>
+				<DPSR:OrgId>
+					<DPSR:BIC>$block.record30.bic$</DPSR:BIC>
+				</DPSR:OrgId>
+			</DPSR:Id>
+		</DPSR:StsOrgtr>
+		$endif$
+		$if (block.record30.showStsRsn)$
+		<DPSR:StsRsn>
+			$if (block.record30.stsRsn_Cd)$
+				<DPSR:Cd>$block.record30.stsRsn_Cd$</DPSR:Cd>
+			$endif$
+			$if (block.record30.elmRfc)$<DPSR:ElmRfc>$block.record30.elmRfc$</DPSR:ElmRfc>$endif$
+		</DPSR:StsRsn>
+		$endif$
+		$block.record34:templateRecord34()$
+	</DPSR:StsRsnInf>
+	$endif$
+
+	$block.record36:templateRecordRecord36()$
+	$if (block.record30.showDpsrPurp)$
+	<DPSR:Purp>
+		$if (block.record30.purp_Prtry)$<DPSR:Prtry>$block.record30.purp_Prtry$</DPSR:Prtry> $endif$
+		$if (block.record30.purp_CD)$
+		<DPSR:Cd>$block.record30.purp_CD$</DPSR:Cd> 
+		$endif$
+	</DPSR:Purp>
+	$endif$
+	$if (block.record30.accptncDtTm)$
+	<DPSR:AccptncDtTm>$block.record30.accptncDtTm$</DPSR:AccptncDtTm>
+	$endif$
+	$templateRecord40_80(rec40=block.record40, rec80=block.record80)$
+</DPSR:TxInfAndSts>
+>>
+
+templateRecord20(rec20) ::= <<
+$if (rec20.bic)$ 
+<DPSR:StsOrgtr>
+	<DPSR:Id>
+		<DPSR:OrgId>
+			<DPSR:BIC>$rec20.bic$</DPSR:BIC>
+		</DPSR:OrgId>
+	</DPSR:Id>
+</DPSR:StsOrgtr>
+$endif$
+<DPSR:StsRsn>
+	$if (rec20.prtry)$<DPSR:Prtry>$rec20.prtry$</DPSR:Prtry>$endif$
+	$if (rec20.cd)$<DPSR:Cd>$rec20.cd$</DPSR:Cd>$endif$
+	$if (rec20.elmRfc)$<DPSR:ElmRfc>$rec20.elmRfc$</DPSR:ElmRfc>$endif$
+</DPSR:StsRsn>
+>>
+
+templateRecord20_22(block) ::= <<
+<DPSR:StsRsnInf>
+	$block.record20:templateRecord20()$
+	$block.record22:{ rec22 |
+		<DPSR:AddtlStsRsnInf>$rec22.content$</DPSR:AddtlStsRsnInf>
+	}$
+</DPSR:StsRsnInf>
+>>
+
+templateRecord01(rec01) ::= <<
+<DPSR:OrgnlGrpInfAndSts>
+	<DPSR:OrgnlMsgId>$rec01.orgnlMsgId$</DPSR:OrgnlMsgId>
+	<DPSR:OrgnlCreDtTm>$rec01.orgnlCreDtTm$</DPSR:OrgnlCreDtTm>
+	<DPSR:GrpSts>$rec01.grpSts$</DPSR:GrpSts>
+	$block.pmtReqDbtrTrxInfo:templateRecord20_22()$
+	$if (rec01.showNbOfTxsPerSts)$
+	<DPSR:NbOfTxsPerSts>
+		<DPSR:DtldNbOfTxs>$rec01.dtldNbOfTxs$</DPSR:DtldNbOfTxs>
+		<DPSR:DtldCtrlSum>$rec01.dtldCtrlSum$</DPSR:DtldCtrlSum>
+	</DPSR:NbOfTxsPerSts>
+	$endif$
+</DPSR:OrgnlGrpInfAndSts>
+>>
+
+templatePmtReqEnvelope(block) ::= <<
+$templateRecord01( rec01 = block.record01 )$
+$block.pmtReqDbtrStatusInfo:templateRecord30_80()$
+>>
+
+templateMain(model) ::= <<
+<CBIDbtrPmtStatusReportMsg xmlns="urn:CBI:xsd:CBIDbtrPmtStatusReportMsg.00.03.05" xmlns:BODY="urn:CBI:xsd:CBIBdyDbtrPmtStatusReport.00.03.05" xmlns:DPSR="urn:CBI:xsd:CBIDbtrPmtStatusReport.00.03.05" xmlns:HE2E="urn:CBI:xsd:CBIHdrSrv.001.07" xmlns:HTRT="urn:CBI:xsd:CBIHdrTrt.001.07" xmlns:SGNT="urn:CBI:xsd:CBISgnInf.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	$templateRecordTesta( rech = model.recorddiTesta )$
+	<CBIBdyDbtrPmtStatusReport>
+		<BODY:CBIEnvelDbtrPmtStatusReport>
+			<BODY:CBIDbtrPmtStatusReport>
+				$templateRecordTestaBody( rechb = model.recordTestaBody )$
+				$model.pmtReqDbtrEnvelope:templatePmtReqEnvelope()$
+			</BODY:CBIDbtrPmtStatusReport>
+		</BODY:CBIEnvelDbtrPmtStatusReport>
+	</CBIBdyDbtrPmtStatusReport>
+</CBIDbtrPmtStatusReportMsg>
+>>
+
+templateRecordTesta(rech) ::= <<
+<CBIHdrTrt>
+	<HTRT:IdCBISndrf>$rech.idCBISndrf$</HTRT:IdCBISndrf>
+	<HTRT:IdCBIRcvrf>$rech.idCBIRcvrf$</HTRT:IdCBIRcvrf>
+	<HTRT:SrvNm>$rech.srvNm$</HTRT:SrvNm>
+	<HTRT:IdMsgTrt>$rech.idMsgTrt$</HTRT:IdMsgTrt>
+	<HTRT:XMLCrtDt>$rech.xmlCrtDt$</HTRT:XMLCrtDt>
+	<HTRT:RtrnAddrl>$rech.rtrnAddrl$</HTRT:RtrnAddrl>
+</CBIHdrTrt>
+<CBIHdrSrv>
+	<HE2E:SrvInfo>
+		<HE2E:SrvNm>$rech.srvNm$</HE2E:SrvNm>
+		<HE2E:IdE2EMsg>$rech.idE2EMsg$</HE2E:IdE2EMsg>
+		<HE2E:XMLCrtDt>$rech.srvInfoXmlCrtDt$</HE2E:XMLCrtDt>
+	</HE2E:SrvInfo>
+	<HE2E:Sender>
+		<HE2E:IdCBISend>$rech.idCBISend$</HE2E:IdCBISend>
+		<HE2E:SendTyp>$rech.sendTyp$</HE2E:SendTyp>
+		<HE2E:CBIRefrSend>$rech.cBIRefrSend$</HE2E:CBIRefrSend>
+	</HE2E:Sender>
+	<HE2E:Receiver>
+		<HE2E:IdCBIRecv>$rech.idCBIRecv$</HE2E:IdCBIRecv>
+		<HE2E:RecvTyp>$rech.recvTyp$</HE2E:RecvTyp>
+		<HE2E:CBIRefrRecv>$rech.cBIRefrRecv$</HE2E:CBIRefrRecv>
+	</HE2E:Receiver>
+	<HE2E:DiagInfo>
+		<HE2E:UsrBnk>$rech.usrBnk$</HE2E:UsrBnk>
+		<HE2E:DiagVers>$rech.diagVers$</HE2E:DiagVers>
+		<HE2E:ChkSbj>$rech.chkSbj$</HE2E:ChkSbj>
+		<HE2E:ChkDt>$rech.chkDt$</HE2E:ChkDt>
+	</HE2E:DiagInfo>
+	<HE2E:CongrInfo>
+		<HE2E:SrvBdyNb>$rech.srvBdyNb$</HE2E:SrvBdyNb>
+	</HE2E:CongrInfo>
+</CBIHdrSrv>
+>>
+
+templateRecordTestaBody(rechb) ::= <<
+<DPSR:GrpHdr>
+	<DPSR:MsgId>$rechb.msgId$</DPSR:MsgId>
+	<DPSR:IdE2E>$rechb.idE2E$</DPSR:IdE2E>
+	<DPSR:MsgQual>$rechb.msgQual$</DPSR:MsgQual>
+	<DPSR:CreDtTm>$rechb.creDtTm$</DPSR:CreDtTm>
+	<DPSR:InitgPty>
+		$if (rechb.nm)$
+		<DPSR:Nm>$rechb.nm$</DPSR:Nm>
+		$endif$
+		<DPSR:Id>
+			<DPSR:OrgId>
+				$if (rechb.nm)$
+				<DPSR:TaxIdNb>$rechb.taxIdNb$</DPSR:TaxIdNb>
+				$endif$
+				<DPSR:PrtryId>
+					<DPSR:Id>$rechb.id$</DPSR:Id>
+					<DPSR:Issr>$rechb.issr$</DPSR:Issr>
+				</DPSR:PrtryId>
+			</DPSR:OrgId>
+		</DPSR:Id>
+	</DPSR:InitgPty>
+	$if (rechb.finInstnId)$
+	<DPSR:DbtrAgt>
+		<DPSR:FinInstnId>
+			$if (rechb.bic)$ <DPSR:BIC>$rechb.bic$</DPSR:BIC>$endif$
+			$if (rechb.prtry)$ 
+			<DPSR:ClrSysMmbId>
+				<DPSR:Prtry>$rechb.prtry$</DPSR:Prtry>
+			</DPSR:ClrSysMmbId>
+			$endif$
+		</DPSR:FinInstnId>
+	</DPSR:DbtrAgt>
+	$endif$
+</DPSR:GrpHdr>
+>>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>ndp_proxy_model</artifactId>
+	<name>ndp_proxy_model</name>
+	<description>Ndp Proxy Client</description>
+	<version>${releaseVersion}</version>
+
+	<build>
+		<plugins>
+			<!-- Questo plugin serve per avere javadoc in inglese cosi' da non dover committare classi generate che non differiscono realmente dalle preesistenti -->
+			<!-- https://stackoverflow.com/questions/22408673/jaxb-how-to-generate-english-javadoc -->
+<!-- 			<plugin> -->
+<!-- 			    <groupId>org.apache.maven.plugins</groupId> -->
+<!-- 			    <artifactId>maven-antrun-plugin</artifactId> -->
+<!-- 			    <version>1.8</version> -->
+<!-- 			    <executions> -->
+<!-- 			        <execution> -->
+<!-- 			            <id>setLocaleFixedToUS</id> -->
+<!-- 			            <phase>initialize</phase> -->
+<!-- 			            <goals> -->
+<!-- 			                <goal>run</goal> -->
+<!-- 			            </goals> -->
+<!-- 			        </execution> -->
+<!-- 			    </executions> -->
+<!-- 			    <configuration> -->
+<!-- 			        <target> -->
+<!-- 			            <scriptdef name="setLocaleFixedToUS" language="javascript"> -->
+<!-- 			                <![CDATA[ -->
+<!-- 			                    importClass(java.util.Locale); -->
+<!-- 			                    actualDefault = Locale.getDefault(); -->
+<!-- 			                    project.setProperty("actual-default-locale", actualDefault); -->
+<!-- 			                    Locale.setDefault(Locale.US); -->
+<!-- 			                ]]> -->
+<!-- 			            </scriptdef> -->
+<!-- 			            <setLocaleFixedToUS /> -->
+<!-- 			        </target> -->
+<!-- 			    </configuration> -->
+<!-- 			</plugin> -->
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.cxf</groupId> -->
+<!-- 				<artifactId>cxf-codegen-plugin</artifactId> -->
+<!-- 				<version>2.7.11</version> -->
+<!-- 				<configuration> -->
+<!-- 					<source>1.5</source> -->
+<!-- 					<target>1.5</target> -->
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<id>generate-sources</id> -->
+<!-- 						<phase>generate-sources</phase> -->
+<!-- 						<configuration> -->
+<!-- 							<sourceRoot>src/main/java</sourceRoot> -->
+<!-- 							<wsdlOptions> -->
+<!-- 								<wsdlOption> -->
+<!-- 									<frontEnd>jaxws21</frontEnd> -->
+<!-- 									<wsdl>src/main/resources/wsdl/NodoPerPa.wsdl</wsdl> -->
+<!-- 									<wsdlLocation>classpath:wsdl/NodoPerPa.wsdl</wsdlLocation> -->
+<!-- 									<bindingFiles> -->
+<!-- 										<bindingFile>src/main/resources/wsdl/NdpBindings.xml</bindingFile> -->
+<!-- 									</bindingFiles> -->
+<!-- 								</wsdlOption> -->
+<!-- 							</wsdlOptions> -->
+<!-- 						</configuration> -->
+<!-- 						<goals> -->
+<!-- 							<goal>wsdl2java</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>2.3.1</version>
+				<executions>
+					 
+					<execution>
+						<id>generate-catalogoDatiInformativi-1_0_12</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/resources/xsd/CatalogoDatiInformativi_1_0_12.xsd</source>
+							</sources>
+	       					<packageName>it.tasgroup.ndpmodel.nodopagamentispc.payloads.listainformativepsp.v1012</packageName>
+      					</configuration>
+					</execution>
+
+					<execution>
+						<id>generate-catalogoDatiInformativi-1_0_12_MYBK</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/resources/xsd/CatalogoDatiInformativi_1_0_12_MYBK.xsd</source>
+							</sources>
+	       					<packageName>it.tasgroup.ndpmodel.nodopagamentispc.payloads.listainformativepsp.v1012mybk</packageName>
+        					<clearOutputDir>false</clearOutputDir>
+      					</configuration>
+					</execution>
+					
+					<execution>
+						<id>generate-flussoRiversamento</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/resources/xsd/FlussoRiversamento_1_0_4.xsd</source>
+							</sources>
+	       					<packageName>it.tasgroup.ndpmodel.nodopagamentispc.payloads.flussoriversamento</packageName>
+        					<clearOutputDir>false</clearOutputDir>
+      					</configuration>
+					</execution>
+					
+ 				</executions>
+			</plugin>
+       
+
+
+		</plugins>
+	</build>
+</project>

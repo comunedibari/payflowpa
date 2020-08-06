@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="AllineamentiModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.model.AllineamentiModel" />
+		
+  <resultMap id="AllineamentiResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.model.AllineamentiModel">
+  	<result property="flusso" column="FLUSSO" /> 
+  	  	<result property="idAlpd" column="ID_ALPD" /> 
+  	  	<result property="utenteCreatore" column="UTENTECREATORE" /> 
+  	  	<result property="idMittente" column="ID_MITTENTE" /> 
+  	  	<result property="idSystem" column="ID_SYSTEM" /> 
+  	  	<result property="idPendenzaEnte" column="ID_PENDENZAENTE" /> 
+  	  	<result property="tipoOperazione" column="TIPOOPERAZIONE" /> 
+  	  	<result property="keyPendenza" column="KEYPENDENZA" /> 
+  	  	<result property="keyReplaced" column="KEYREPLACED" /> 
+  	  	<result property="idMittenteTrt" column="ID_MITTENTE_TRT" /> 
+  	  	<result property="idSystemTrt" column="ID_SYSTEM_TRT" /> 
+  	  	<result property="coVersione" column="CO_VERSIONE" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	
+  </resultMap>		
+
+<insert id="insertAllineamenti" parameterClass="AllineamentiModelType"><![CDATA[
+
+INSERT into ${ALLINEAMENTI} ( FLUSSO,ID_ALPD,UTENTECREATORE,ID_MITTENTE,ID_SYSTEM,ID_PENDENZAENTE,TIPOOPERAZIONE,KEYPENDENZA,KEYREPLACED,ID_MITTENTE_TRT,ID_SYSTEM_TRT,CO_VERSIONE,ST_RIGA,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO,OP_AGGIORNAMENTO,TS_AGGIORNAMENTO ) values
+(  #flusso:TIMESTAMP#, #idAlpd:VARCHAR#, #utenteCreatore:VARCHAR#, #idMittente:VARCHAR#, #idSystem:VARCHAR#, #idPendenzaEnte:VARCHAR#, #tipoOperazione:CHAR#, #keyPendenza:VARCHAR#, #keyReplaced:VARCHAR#, #idMittenteTrt:VARCHAR#, #idSystemTrt:VARCHAR#, #coVersione:VARCHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP# )
+
+]]></insert> 
+
+
+ 
+
+</sqlMap>

@@ -1,0 +1,5 @@
+Inserimento documento con 50000 pendenze(/eb-xml2sql/big-xmls/test-large.xml : oltre il 50% insert, il resto suddiviso tra update, replace,delete ),
+con activemq 5.2 e mysql 5.1. Un processo parsa l'xml, 8 processi consumano le pendenze, inserendo 50 pendenze alla volta.
+
+tempo totale (senza la scrittura sulla pendenze cart)
+1033364ms.

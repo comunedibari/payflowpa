@@ -1,0 +1,851 @@
+group bonord_esiti_cdtr;
+
+templateMain(model) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+<CBICdtrPmtStatusReportMsg 
+xmlns="urn:CBI:xsd:CBICdtrPmtStatusReportMsg.00.03.05" 
+xmlns:BODY="urn:CBI:xsd:CBIBdyCdtrPmtStatusReport.00.03.05" 
+xmlns:CPSR="urn:CBI:xsd:CBICdtrPmtStatusReport.00.03.05" 
+xmlns:HE2E="urn:CBI:xsd:CBIHdrSrv.001.07" 
+xmlns:HTRT="urn:CBI:xsd:CBIHdrTrt.001.07" 
+xmlns:SGNT="urn:CBI:xsd:CBISgnInf.001.04" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	$templateRecorddiTesta(rech = model.recorddiTesta)$
+
+	<CBIBdyCdtrPmtStatusReport>
+	 	$model.cdtrBody:templateRecordBody()$		
+	</CBIBdyCdtrPmtStatusReport>
+	
+</CBICdtrPmtStatusReportMsg>
+>>
+
+
+templateRecorddiTesta(rech) ::= <<
+	<CBIHdrTrt>
+		<HTRT:IdCBISndrf>$rech.idCBISndrf$</HTRT:IdCBISndrf>
+		<HTRT:IdCBIRcvrf>$rech.idCBIRcvrf$</HTRT:IdCBIRcvrf>
+		<HTRT:SrvNm>$rech.srvNm$</HTRT:SrvNm>
+		<HTRT:IdMsgTrt>$rech.idMsgTrt$</HTRT:IdMsgTrt>
+		<HTRT:XMLCrtDt>$rech.xmlCrtDt$</HTRT:XMLCrtDt>
+		<HTRT:RtrnAddrl>$rech.rtrnAddrl$</HTRT:RtrnAddrl>
+	</CBIHdrTrt>
+	<CBIHdrSrv>
+		<HE2E:SrvInfo>
+			<HE2E:SrvNm>$rech.srvNm$</HE2E:SrvNm>
+			<HE2E:IdE2EMsg>$rech.idE2EMsg$</HE2E:IdE2EMsg>
+			<HE2E:XMLCrtDt>$rech.srvInfoXmlCrtDt$</HE2E:XMLCrtDt>
+		</HE2E:SrvInfo>
+		<HE2E:Sender>
+			<HE2E:IdCBISend>$rech.idCBISend$</HE2E:IdCBISend>
+			<HE2E:SendTyp>$rech.sendTyp$</HE2E:SendTyp>
+			<HE2E:CBIRefrSend>$rech.cBIRefrSend$</HE2E:CBIRefrSend>
+		</HE2E:Sender>
+		<HE2E:Receiver>
+			<HE2E:IdCBIRecv>$rech.idCBIRecv$</HE2E:IdCBIRecv>
+			<HE2E:RecvTyp>$rech.recvTyp$</HE2E:RecvTyp>
+			<HE2E:CBIRefrRecv>$rech.cBIRefrRecv$</HE2E:CBIRefrRecv>
+		</HE2E:Receiver>
+		<HE2E:DiagInfo>
+			$if (rech.usrBnk)$
+			<HE2E:UsrBnk>$rech.usrBnk$</HE2E:UsrBnk>
+			$endif$
+			<HE2E:DiagVers>$rech.diagVers$</HE2E:DiagVers>
+			<HE2E:ChkSbj>$rech.chkSbj$</HE2E:ChkSbj>
+			<HE2E:ChkDt>$rech.chkDt$</HE2E:ChkDt>
+		</HE2E:DiagInfo>
+		<HE2E:CongrInfo>
+			<HE2E:SrvBdyNb>$rech.srvBdyNb$</HE2E:SrvBdyNb>
+		</HE2E:CongrInfo>
+	</CBIHdrSrv>
+>>
+
+
+templateRecordBody(recBody) ::= <<
+	<BODY:CBIEnvelCdtrPmtStatusReport>
+		<BODY:CBICdtrPmtStatusReport>
+			$templateRecordTestaBody(rech = recBody.recordTestaBody)$				
+			$templateRecord01(rec01 = recBody.record01)$
+			$recBody.xmlRecord30Model:templateRecord30()$
+		</BODY:CBICdtrPmtStatusReport>
+	</BODY:CBIEnvelCdtrPmtStatusReport>						
+>>
+
+
+templateRecord01(rec01) ::= <<
+	<CPSR:OrgnlGrpInfAndSts>
+		<CPSR:OrgnlMsgId>$rec01.orgnlMsgId$</CPSR:OrgnlMsgId>
+		<CPSR:OrgnlCreDtTm>$rec01.orgnlCreDtTm$</CPSR:OrgnlCreDtTm>
+	</CPSR:OrgnlGrpInfAndSts>
+>>
+
+
+templateRecordTestaBody(rech) ::= <<
+	<CPSR:GrpHdr>
+		<CPSR:MsgId>$rech.msgId$</CPSR:MsgId>
+		<CPSR:IdE2E>$rech.idE2E$</CPSR:IdE2E>
+		<CPSR:MsgQual>$rech.msgQual$</CPSR:MsgQual>
+		<CPSR:CreDtTm>$rech.creDtTm$</CPSR:CreDtTm>
+		<CPSR:InitgPty>
+			$if (rech.nm)$
+			<CPSR:Nm>$rech.nm$</CPSR:Nm>
+			$endif$
+			<CPSR:Id>
+				<CPSR:OrgId>
+					$if (rech.taxIdNb)$
+					<CPSR:TaxIdNb>$rech.taxIdNb$</CPSR:TaxIdNb>
+					$endif$
+					<CPSR:PrtryId>
+						<CPSR:Id>$rech.id$</CPSR:Id>
+						<CPSR:Issr>$rech.issr$</CPSR:Issr>
+					</CPSR:PrtryId>
+				</CPSR:OrgId>
+			</CPSR:Id>
+		</CPSR:InitgPty>
+		<CPSR:DbtrAgt>
+			<CPSR:FinInstnId>
+				$if (rech.bic)$
+				<CPSR:BIC>$rech.bic$</CPSR:BIC>
+				$endif$
+				<CPSR:ClrSysMmbId>
+					<CPSR:Prtry>$rech.prtry$</CPSR:Prtry>
+				</CPSR:ClrSysMmbId>
+			</CPSR:FinInstnId>
+		</CPSR:DbtrAgt>
+	</CPSR:GrpHdr>
+>>
+
+
+templateRecord30(xmlRec30m) ::= <<
+	<CPSR:TxInfAndSts>
+		$if (xmlRec30m.record30.stsId)$				
+		<CPSR:StsId>$xmlRec30m.record30.stsId$</CPSR:StsId>
+		$endif$
+		<CPSR:OrgnlInstrId>$xmlRec30m.record30.orgnlInstrId$</CPSR:OrgnlInstrId>
+		<CPSR:OrgnlEndToEndId>$xmlRec30m.record30.orgnlEndToEndId$</CPSR:OrgnlEndToEndId>
+		$if (xmlRec30m.record30.prtry)$
+		<CPSR:LclInstrm>
+			<CPSR:Prtry>$xmlRec30m.record30.prtry$</CPSR:Prtry>
+		</CPSR:LclInstrm>
+		$endif$
+		
+		$xmlRec30m.record32:templateRecord32()$
+		
+		$if (xmlRec30m.record30.benValDt)$
+		<CPSR:BenValDt>$xmlRec30m.record30.benValDt$</CPSR:BenValDt>
+		$endif$
+		<CPSR:TxSts>$xmlRec30m.record30.txSts$</CPSR:TxSts>
+		
+		$if (xmlRec30m.record30.bic)$
+		<CPSR:StsRsnInf>
+			<CPSR:StsOrgtr>
+				<CPSR:Id>
+					<CPSR:OrgId>
+						<CPSR:BIC>$xmlRec30m.record30.bic$</CPSR:BIC>
+					</CPSR:OrgId>
+				</CPSR:Id>
+			</CPSR:StsOrgtr>
+		</CPSR:StsRsnInf>
+		$endif$
+		
+		$if (xmlRec30m.record30.showPurp)$		
+		<CPSR:Purp>			
+			<CPSR:Cd>$xmlRec30m.record30.cd$</CPSR:Cd>
+			<CPSR:Prtry>$xmlRec30m.record30.prtry1$</CPSR:Prtry>
+		</CPSR:Purp>
+		$endif$
+		$if (xmlRec30m.record30.accptncDtTm)$
+		<CPSR:AccptncDtTm>$xmlRec30m.record30.accptncDtTm$</CPSR:AccptncDtTm>
+		$endif$
+		
+		<CPSR:OrgnlTxRef>
+			$templateRecord40(xmlRec40m = xmlRec30m.xmlRecord40Model)$
+		</CPSR:OrgnlTxRef>
+	</CPSR:TxInfAndSts>
+>>
+
+
+templateRecord32(rec32) ::= <<
+	$if (rec32.trn)$
+	<CPSR:TRN>$rec32.trn$</CPSR:TRN>
+	$endif$
+>>
+
+
+templateRecord40(xmlRec40m) ::= <<
+	<CPSR:Amt Ccy="$xmlRec40m.record40.ccy$">$xmlRec40m.record40.amt$</CPSR:Amt>
+	<CPSR:ReqdExctnDt>$xmlRec40m.record40.reqdExctnDt$</CPSR:ReqdExctnDt>
+	
+	$if(xmlRec40m.record40.showPmtTpInf)$
+	<CPSR:PmtTpInf>
+		$if(xmlRec40m.record40.prtry)$
+		<CPSR:SvcLvl>
+			<CPSR:Prtry>$xmlRec40m.record40.prtry$</CPSR:Prtry>
+		</CPSR:SvcLvl>
+		$endif$
+		$if(xmlRec40m.record40.prtry1)$
+		<CPSR:LclInstrm>
+			<CPSR:Prtry>$xmlRec40m.record40.prtry1$</CPSR:Prtry>
+		</CPSR:LclInstrm>
+		$endif$
+		$if (xmlRec40m.record40.ctgyPurp)$
+		<CPSR:CtgyPurp>$xmlRec40m.record40.ctgyPurp$</CPSR:CtgyPurp>
+		$endif$
+	</CPSR:PmtTpInf>
+	$endif$
+	
+	<CPSR:PmtMtd>$xmlRec40m.record40.pmtMtd$</CPSR:PmtMtd>
+	
+	$if (xmlRec40m.record40.showRltdRmtInf)$
+	<CPSR:RltdRmtInf>
+		$if (xmlRec40m.record40.rmtId)$
+		<CPSR:RmtId>$xmlRec40m.record40.rmtId$</CPSR:RmtId>
+		$endif$
+		$if (xmlRec40m.record40.rmtLctnMtd)$
+		<CPSR:RmtLctnMtd>$xmlRec40m.record40.rmtLctnMtd$</CPSR:RmtLctnMtd>
+		$endif$
+		$if (xmlRec40m.record40.rmtLctnElctrncAdr)$
+		<CPSR:RmtLctnElctrncAdr>$xmlRec40m.record40.rmtLctnElctrncAdr$</CPSR:RmtLctnElctrncAdr>
+		$endif$
+	</CPSR:RltdRmtInf>
+	$endif$
+	
+	$if (xmlRec40m.showRmtInf)$
+	<CPSR:RmtInf>
+		$xmlRec40m.record60:templateRecord60()$
+		$xmlRec40m.xmlRecord62Model:templateRecord62()$
+	</CPSR:RmtInf>
+	$endif$
+	
+	$templateRecord80(rec80 = xmlRec40m.record80)$
+	$templateRecord82(rec82 = xmlRec40m.record82)$
+	$templateRecord84(rec84 = xmlRec40m.record84)$
+	$templateRecord86(rec86 = xmlRec40m.record86)$
+>>
+
+
+templateRecord60(rec60) ::= <<
+	$if (rec60.ustrd)$
+	<CPSR:Ustrd>$rec60.ustrd$</CPSR:Ustrd>
+	$endif$
+>>
+
+
+templateRecord62(xmlRec62m) ::= <<	
+	<CPSR:Strd>
+		$if (xmlRec62m.record62.showRfrdDocInf)$
+		<CPSR:RfrdDocInf>
+			$if (xmlRec62m.showRfrdDocTp)$
+			<CPSR:RfrdDocTp>
+				$if (xmlRec62m.record62.cd)$
+				<CPSR:Cd>$xmlRec62m.record62.cd$</CPSR:Cd>
+				$endif$
+				$if (xmlRec62m.record62.issr)$
+				<CPSR:Issr>$xmlRec62m.record62.issr$</CPSR:Issr>
+				$endif$
+				$if (xmlRec62m.record62.prtry)$
+				<CPSR:Prtry>$xmlRec62m.record62.prtry$</CPSR:Prtry>
+				$endif$
+			</CPSR:RfrdDocTp>
+			$endif$
+			$if (xmlRec62m.record62.rfrdDocNb)$
+			<CPSR:RfrdDocNb>$xmlRec62m.record62.rfrdDocNb$</CPSR:RfrdDocNb>
+			$endif$
+		</CPSR:RfrdDocInf>
+		$endif$
+		
+		$if (xmlRec62m.record62.rfrdDocRltdDt)$
+		<CPSR:RfrdDocRltdDt>$xmlRec62m.record62.rfrdDocRltdDt$</CPSR:RfrdDocRltdDt>
+		$endif$
+		
+		$xmlRec62m.record65:templateRecord65()$
+		
+		$if (xmlRec62m.record62.showCdtrRefInf)$
+		<CPSR:CdtrRefInf>
+			$if (xmlRec62m.record62.showCdtrRefTp)$
+			<CPSR:CdtrRefTp>
+				$if (xmlRec62m.record62.cd1)$
+				<CPSR:Cd>$xmlRec62m.record62.cd1$</CPSR:Cd>
+				$endif$
+				$if (xmlRec62m.record62.issr1)$
+				<CPSR:Issr>$xmlRec62m.record62.issr1$</CPSR:Issr>
+				$endif$
+				$if (xmlRec62m.record62.prtry1)$
+				<CPSR:Prtry>$xmlRec62m.record62.prtry1$</CPSR:Prtry>
+				$endif$
+			</CPSR:CdtrRefTp>
+			$endif$
+			$if (xmlRec62m.record62.cdtrRef)$
+			<CPSR:CdtrRef>$xmlRec62m.record62.cdtrRef$</CPSR:CdtrRef>
+			$endif$
+		</CPSR:CdtrRefInf>
+		$endif$
+		$if (xmlRec62m.record62.addtlRmtInf)$
+		<CPSR:AddtlRmtInf>$xmlRec62m.record62.addtlRmtInf$</CPSR:AddtlRmtInf>
+		$endif$
+		
+		$if (xmlRec62m.showInvcr)$
+		$templateRecord66(xmlRec66m = xmlRec62m.xmlRecord66Model)$
+		$endif$
+		$if (xmlRec62m.showInvcee)$
+		$templateRecord68(xmlRec68m = xmlRec62m.xmlRecord68Model)$
+		$endif$
+
+	</CPSR:Strd>
+>>
+
+
+templateRecord65(rec65) ::= <<
+	$if(rec65.importo)$
+	<CPSR:RfrdDocAmt>
+		$if(rec65.tot)$
+		<CPSR:DuePyblAmt Ccy="$rec65.divisa$">"$rec65.importo$</CPSR:DuePyblAmt>
+		$endif$
+		$if(rec65.sct)$
+		<CPSR:DscntApldAmt Ccy="$rec65.divisa$">"$rec65.importo$</CPSR:DscntApldAmt>
+		$endif$
+		$if(rec65.pag)$
+		<CPSR:RmtdAmt Ccy="$rec65.divisa$">"$rec65.importo$</CPSR:RmtdAmt>
+		$endif$
+		$if(rec65.not)$
+		<CPSR:CdtNoteAmt Ccy="$rec65.divisa$">"$rec65.importo$</CPSR:CdtNoteAmt>
+		$endif$
+		$if(rec65.tax)$
+		<CPSR:TaxAmt Ccy="$rec65.divisa$">"$rec65.importo$</CPSR:TaxAmt>
+		$endif$
+	</CPSR:RfrdDocAmt>
+	$endif$
+>>
+
+
+templateRecord66(xmlRec66m) ::= <<
+	<CPSR:Invcr>
+		$if (xmlRec66m.record66.nm)$
+		<CPSR:Nm>$xmlRec66m.record66.nm$</CPSR:Nm>
+		$endif$
+		$if (xmlRec66m.record66.ctry)$
+		<CPSR:PstlAdr>
+			$if (xmlRec66m.record66.adrTp)$
+			<CPSR:AdrTp>$xmlRec66m.record66.adrTp$</CPSR:AdrTp>
+			$endif$
+			$if (xmlRec66m.record66.adrLine_1)$
+			<CPSR:AdrLine>$xmlRec66m.record66.adrLine_1$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec66m.record66.adrLine_2)$
+			<CPSR:AdrLine>$xmlRec66m.record66.adrLine_2$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec66m.record66.adrLine_3)$
+			<CPSR:AdrLine>$xmlRec66m.record66.adrLine_3$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec66m.record66.adrLine_4)$
+			<CPSR:AdrLine>$xmlRec66m.record66.adrLine_4$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec66m.record66.adrLine_5)$
+			<CPSR:AdrLine>$xmlRec66m.record66.adrLine_5$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec66m.record66.strtNm)$
+			<CPSR:StrtNm>$xmlRec66m.record66.strtNm$</CPSR:StrtNm>
+			$endif$
+			$if (xmlRec66m.record66.bldgNb)$
+			<CPSR:BldgNb>$xmlRec66m.record66.bldgNb$</CPSR:BldgNb>
+			$endif$
+			$if (xmlRec66m.record66.pstCd)$
+			<CPSR:PstCd>$xmlRec66m.record66.pstCd$</CPSR:PstCd>
+			$endif$
+			$if (xmlRec66m.record66.twnNm)$
+			<CPSR:TwnNm>$xmlRec66m.record66.twnNm$</CPSR:TwnNm>
+			$endif$
+			$if (xmlRec66m.record66.ctrySubDvsn)$
+			<CPSR:CtrySubDvsn>$xmlRec66m.record66.ctrySubDvsn$</CPSR:CtrySubDvsn>
+			$endif$
+			<CPSR:Ctry>$xmlRec66m.record66.ctry$</CPSR:Ctry>
+		</CPSR:PstlAdr>
+		$endif$
+		<CPSR:Id>
+	
+			$if (xmlRec66m.showPrvtId)$
+			$xmlRec66m.record67:templateRecord67()$
+			$endif$
+			
+			$if (xmlRec66m.showOrgId)$
+			<CPSR:OrgId>
+				$if (xmlRec66m.record66.bic)$
+				<CPSR:BIC>$xmlRec66m.record66.bic$</CPSR:BIC>
+				$endif$
+				$if (xmlRec66m.record66.ibei)$
+				<CPSR:IBEI>$xmlRec66m.record66.ibei$</CPSR:IBEI>
+				$endif$
+				$if (xmlRec66m.record66.bei)$
+				<CPSR:BEI>$xmlRec66m.record66.bei$</CPSR:BEI>
+				$endif$
+				$if (xmlRec66m.record66.eangln)$
+				<CPSR:EANGLN>$xmlRec66m.record66.eangln$</CPSR:EANGLN>
+				$endif$
+				$if (xmlRec66m.record66.uschu)$
+				<CPSR:USCHU>$xmlRec66m.record66.uschu$</CPSR:USCHU>
+				$endif$
+				$if (xmlRec66m.record66.duns)$
+				<CPSR:DUNS>$xmlRec66m.record66.duns$</CPSR:DUNS>
+				$endif$
+				$if (xmlRec66m.record66.bkPtyId)$
+				<CPSR:BkPtyId>$xmlRec66m.record66.bkPtyId$</CPSR:BkPtyId>
+				$endif$
+				$if (xmlRec66m.record66.taxIdNb)$
+				<CPSR:TaxIdNb>$xmlRec66m.record66.taxIdNb$</CPSR:TaxIdNb>
+				$endif$
+				$if (xmlRec66m.record66.id)$
+				<CPSR:PrtryId>
+					<CPSR:Id>$xmlRec66m.record66.id$</CPSR:Id>
+					$if (xmlRec66m.record66.issr)$
+					<CPSR:Issr>$xmlRec66m.record66.issr$</CPSR:Issr>
+					$endif$
+				</CPSR:PrtryId>
+				$endif$
+			</CPSR:OrgId>
+			$endif$
+		</CPSR:Id>
+		$if (xmlRec66m.record66.ctryOfRes)$
+		<CPSR:CtryOfRes>$xmlRec66m.record66.ctryOfRes$</CPSR:CtryOfRes>
+		$endif$
+	</CPSR:Invcr>
+>>
+
+
+templateRecord67(rec67) ::= <<
+	<CPSR:PrvtId>
+		$if (rec67.taxIdNb)$
+		<CPSR:TaxIdNb>$rec67.taxIdNb$</CPSR:TaxIdNb>
+		$endif$
+		$if (rec67.sclSctyNb)$
+		<CPSR:SclSctyNb>$rec67.sclSctyNb$</CPSR:SclSctyNb>
+		$endif$
+		$if (rec67.psptNb)$
+		<CPSR:PsptNb>$rec67.psptNb$</CPSR:PsptNb>
+		$endif$
+		$if (rec67.id)$
+		<CPSR:OthrId>
+			<CPSR:Id>$rec67.id$</CPSR:Id>
+			<CPSR:IdTp>$rec67.idTp$</CPSR:IdTp>
+		</CPSR:OthrId>
+		$endif$
+		$if (rec67.mplyrIdNb)$
+		<CPSR:MplyrIdNb>$rec67.mplyrIdNb$</CPSR:MplyrIdNb>
+		$endif$
+		$if (rec67.idntyCardNb)$
+		<CPSR:IdntyCardNb>$rec67.idntyCardNb$</CPSR:IdntyCardNb>
+		$endif$
+		$if (rec67.birthDt)$
+		<CPSR:DtAndPlcOfBirth>
+			<CPSR:BirthDt>$rec67.birthDt$</CPSR:BirthDt>
+			$if (rec67.prvcOfBirth)$
+			<CPSR:PrvcOfBirth>$rec67.prvcOfBirth$</CPSR:PrvcOfBirth>
+			$endif$
+			<CPSR:CityOfBirth>$rec67.cityOfBirth$</CPSR:CityOfBirth>
+			<CPSR:CtryOfBirth>$rec67.ctryOfBirth$</CPSR:CtryOfBirth>
+		</CPSR:DtAndPlcOfBirth>
+		$endif$
+		$if (rec67.drvrsLicNb)$
+		<CPSR:DrvrsLicNb>$rec67.drvrsLicNb$</CPSR:DrvrsLicNb>
+		$endif$
+		$if (rec67.cstmrNb)$
+		<CPSR:CstmrNb>$rec67.cstmrNb$</CPSR:CstmrNb>
+		$endif$
+		$if (rec67.alnRegnNb)$
+		<CPSR:AlnRegnNb>$rec67.alnRegnNb$</CPSR:AlnRegnNb>
+		$endif$
+		$if (rec67.issr)$
+		<CPSR:Issr>$rec67.issr$</CPSR:Issr>
+		$endif$
+	</CPSR:PrvtId>
+>>
+
+
+templateRecord68(xmlRec68m) ::= <<
+	<CPSR:Invcee>
+		$if (xmlRec68m.record68.nm)$
+		<CPSR:Nm>$xmlRec68m.record68.nm$</CPSR:Nm>
+		$endif$
+		$if (xmlRec68m.record68.ctry)$
+		<CPSR:PstlAdr>
+			$if (xmlRec68m.record68.adrTp)$
+			<CPSR:AdrTp>$xmlRec68m.record68.adrTp$</CPSR:AdrTp>
+			$endif$
+			$if (xmlRec68m.record68.adrLine_1)$
+			<CPSR:AdrLine>$xmlRec68m.record68.adrLine_1$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec68m.record68.adrLine_2)$
+			<CPSR:AdrLine>$xmlRec68m.record68.adrLine_2$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec68m.record68.adrLine_3)$
+			<CPSR:AdrLine>$xmlRec68m.record68.adrLine_3$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec68m.record68.adrLine_4)$
+			<CPSR:AdrLine>$xmlRec68m.record68.adrLine_4$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec68m.record68.adrLine_5)$
+			<CPSR:AdrLine>$xmlRec68m.record68.adrLine_5$</CPSR:AdrLine>
+			$endif$
+			$if (xmlRec68m.record68.strtNm)$
+			<CPSR:StrtNm>$xmlRec68m.record68.strtNm$</CPSR:StrtNm>
+			$endif$
+			$if (xmlRec68m.record68.bldgNb)$
+			<CPSR:BldgNb>$xmlRec68m.record68.bldgNb$</CPSR:BldgNb>
+			$endif$
+			$if (xmlRec68m.record68.pstCd)$
+			<CPSR:PstCd>$xmlRec68m.record68.pstCd$</CPSR:PstCd>
+			$endif$
+			$if (xmlRec68m.record68.twnNm)$
+			<CPSR:TwnNm>$xmlRec68m.record68.twnNm$</CPSR:TwnNm>
+			$endif$
+			$if (xmlRec68m.record68.ctrySubDvsn)$
+			<CPSR:CtrySubDvsn>$xmlRec68m.record68.ctrySubDvsn$</CPSR:CtrySubDvsn>
+			$endif$
+			<CPSR:Ctry>$xmlRec68m.record68.ctry$</CPSR:Ctry>
+		</CPSR:PstlAdr>
+		$endif$
+		<CPSR:Id>
+		
+			$if (xmlRec68m.showPrvtId)$
+			$xmlRec68m.record69:templateRecord69()$
+			$endif$
+			
+			$if (xmlRec68m.showOrgId)$
+			<CPSR:OrgId>
+				$if (xmlRec68m.record68.bic)$
+				<CPSR:BIC>$xmlRec68m.record68.bic$</CPSR:BIC>
+				$endif$
+				$if (xmlRec68m.record68.ibei)$
+				<CPSR:IBEI>$xmlRec68m.record68.ibei$</CPSR:IBEI>
+				$endif$
+				$if (xmlRec68m.record68.bei)$
+				<CPSR:BEI>$xmlRec68m.record68.bei$</CPSR:BEI>
+				$endif$
+				$if (xmlRec68m.record68.eangln)$
+				<CPSR:EANGLN>$xmlRec68m.record68.eangln$</CPSR:EANGLN>
+				$endif$
+				$if (xmlRec68m.record68.uschu)$
+				<CPSR:USCHU>$xmlRec68m.record68.uschu$</CPSR:USCHU>
+				$endif$
+				$if (xmlRec68m.record68.duns)$
+				<CPSR:DUNS>$xmlRec68m.record68.duns$</CPSR:DUNS>
+				$endif$
+				$if (xmlRec68m.record68.bkPtyId)$
+				<CPSR:BkPtyId>$xmlRec68m.record68.bkPtyId$</CPSR:BkPtyId>
+				$endif$
+				$if (xmlRec68m.record68.taxIdNb)$
+				<CPSR:TaxIdNb>$xmlRec68m.record68.taxIdNb$</CPSR:TaxIdNb>
+				$endif$
+				<CPSR:PrtryId>
+					<CPSR:Id>$xmlRec68m.record68.id$</CPSR:Id>
+					$if (xmlRec68m.record68.issr)$
+					<CPSR:Issr>$xmlRec68m.record68.issr$</CPSR:Issr>
+					$endif$
+				</CPSR:PrtryId>
+			</CPSR:OrgId>
+			$endif$
+		</CPSR:Id>
+		$if (xmlRec68m.record68.ctryOfRes)$
+		<CPSR:CtryOfRes>$xmlRec68m.record68.ctryOfRes$</CPSR:CtryOfRes>
+		$endif$
+	</CPSR:Invcee>
+>>
+
+
+templateRecord69(rec69) ::= <<
+	<CPSR:PrvtId>
+		$if (rec69.taxIdNb)$
+		<CPSR:TaxIdNb>$rec69.taxIdNb$</CPSR:TaxIdNb>
+		$endif$
+		$if (rec69.sclSctyNb)$
+		<CPSR:SclSctyNb>$rec69.sclSctyNb$</CPSR:SclSctyNb>
+		$endif$
+		$if (rec69.psptNb)$
+		<CPSR:PsptNb>$rec69.psptNb$</CPSR:PsptNb>
+		$endif$
+		$if (rec69.id)$
+		<CPSR:OthrId>
+			<CPSR:Id>$rec69.id$</CPSR:Id>
+			<CPSR:IdTp>$rec69.idTp$</CPSR:IdTp>
+		</CPSR:OthrId>
+		$endif$
+		$if (rec69.mplyrIdNb)$
+		<CPSR:MplyrIdNb>$rec69.mplyrIdNb$</CPSR:MplyrIdNb>
+		$endif$
+		$if (rec69.idntyCardNb)$
+		<CPSR:IdntyCardNb>$rec69.idntyCardNb$</CPSR:IdntyCardNb>
+		$endif$
+		$if (rec69.birthDt)$
+		<CPSR:DtAndPlcOfBirth>
+			<CPSR:BirthDt>$rec69.birthDt$</CPSR:BirthDt>
+			$if (rec69.prvcOfBirth)$
+			<CPSR:PrvcOfBirth>$rec69.prvcOfBirth$</CPSR:PrvcOfBirth>
+			$endif$
+			<CPSR:CityOfBirth>$rec69.cityOfBirth$</CPSR:CityOfBirth>
+			<CPSR:CtryOfBirth>$rec69.ctryOfBirth$</CPSR:CtryOfBirth>
+		</CPSR:DtAndPlcOfBirth>
+		$endif$
+		$if (rec69.drvrsLicNb)$
+		<CPSR:DrvrsLicNb>$rec69.drvrsLicNb$</CPSR:DrvrsLicNb>
+		$endif$
+		$if (rec69.cstmrNb)$
+		<CPSR:CstmrNb>$rec69.cstmrNb$</CPSR:CstmrNb>
+		$endif$
+		$if (rec69.alnRegnNb)$
+		<CPSR:AlnRegnNb>$rec69.alnRegnNb$</CPSR:AlnRegnNb>
+		$endif$
+		$if (rec69.issr)$
+		<CPSR:Issr>$rec69.issr$</CPSR:Issr>
+		$endif$
+	</CPSR:PrvtId>
+>>
+
+
+templateRecord80(rec80) ::= <<
+	$if (rec80.showUltmtDbtr)$
+	<CPSR:UltmtDbtr>
+		$if (rec80.nm)$
+		<CPSR:Nm>$rec80.nm$</CPSR:Nm>
+		$endif$
+		$if (rec80.ctry)$
+		<CPSR:PstlAdr>
+			$if (rec80.adrTp)$
+			<CPSR:AdrTp>$rec80.adrTp$</CPSR:AdrTp>
+			$endif$
+			$if (rec80.adrLine_1)$
+			<CPSR:AdrLine>$rec80.adrLine_1$</CPSR:AdrLine>
+			$endif$
+			$if (rec80.adrLine_2)$
+			<CPSR:AdrLine>$rec80.adrLine_2$</CPSR:AdrLine>
+			$endif$
+			$if (rec80.strtNm)$
+			<CPSR:StrtNm>$rec80.strtNm$</CPSR:StrtNm>
+			$endif$
+			$if (rec80.bldgNb)$
+			<CPSR:BldgNb>$rec80.bldgNb$</CPSR:BldgNb>
+			$endif$
+			$if (rec80.pstCd)$
+			<CPSR:PstCd>$rec80.pstCd$</CPSR:PstCd>
+			$endif$
+			$if (rec80.twnNm)$
+			<CPSR:TwnNm>$rec80.twnNm$</CPSR:TwnNm>
+			$endif$
+			$if (rec80.ctrySubDvsn)$
+			<CPSR:CtrySubDvsn>$rec80.ctrySubDvsn$</CPSR:CtrySubDvsn>
+			$endif$
+			<CPSR:Ctry>$rec80.ctry$</CPSR:Ctry>
+		</CPSR:PstlAdr>
+		$endif$
+	</CPSR:UltmtDbtr>
+	$endif$
+	
+	<CPSR:Dbtr>
+		<CPSR:Nm>$rec80.nm1$</CPSR:Nm>
+		$if (rec80.showId)$
+		<CPSR:Id>
+			<CPSR:OrgId>
+				$if (rec80.id)$
+				<CPSR:PrtryId>
+					<CPSR:Id>$rec80.id$</CPSR:Id>
+					<CPSR:Issr>$rec80.issr$</CPSR:Issr>
+				</CPSR:PrtryId>
+				$endif$
+				$if (rec80.taxIdNb)$
+				<CPSR:TaxIdNb>$rec80.taxIdNb$</CPSR:TaxIdNb>
+				$endif$
+			</CPSR:OrgId>
+		</CPSR:Id>
+		$endif$
+	</CPSR:Dbtr>
+	
+
+>>
+
+
+templateRecord82(rec82) ::= <<
+	$if (rec82.bic)$
+	<CPSR:CdtrAgt>
+		<CPSR:FinInstnId>
+			<CPSR:BIC>$rec82.bic$</CPSR	$if (rec80.prtry)$
+	<CPSR:DbtrAgt>
+		<CPSR:FinInstnId>
+			$if (rec80.bic)$
+			<CPSR:BIC>$rec80.bic$</CPSR:BIC>
+			$endif$
+			<CPSR:ClrSysMmbId>
+				<CPSR:Prtry>$rec80.prtry$</CPSR:Prtry>
+			</CPSR:ClrSysMmbId>
+		</CPSR:FinInstnId>
+	</CPSR:DbtrAgt>
+	$endif$:BIC>
+		</CPSR:FinInstnId>
+	</CPSR:CdtrAgt>
+	$endif$
+	
+	<CPSR:Cdtr>
+		<CPSR:Nm>$rec82.nm$</CPSR:Nm>
+		$if (rec82.ctry)$
+		<CPSR:PstlAdr>
+			$if (rec82.adrTp)$
+			<CPSR:AdrTp>$rec82.adrTp$</CPSR:AdrTp>
+			$endif$
+			$if (rec82.adrLine_1)$
+			<CPSR:AdrLine>$rec82.adrLine_1$</CPSR:AdrLine>
+			$endif$
+			$if (rec82.adrLine_2)$
+			<CPSR:AdrLine>$rec82.adrLine_2$</CPSR:AdrLine>
+			$endif$
+			$if (rec82.strtNm)$
+			<CPSR:StrtNm>$rec82.strtNm$</CPSR:StrtNm>
+			$endif$
+			$if (rec82.bldgNb)$
+			<CPSR:BldgNb>$rec82.bldgNb$</CPSR:BldgNb>
+			$endif$
+			$if (rec82.pstCd)$
+			<CPSR:PstCd>$rec82.pstCd$</CPSR:PstCd>
+			$endif$
+			$if (rec82.twnNm)$
+			<CPSR:TwnNm>$rec82.twnNm$</CPSR:TwnNm>
+			$endif$
+			$if (rec82.ctrySubDvsn)$
+			<CPSR:CtrySubDvsn>$rec82.ctrySubDvsn$</CPSR:CtrySubDvsn>
+			$endif$
+			<CPSR:Ctry>$rec82.ctry$</CPSR:Ctry>
+		</CPSR:PstlAdr>
+		$endif$
+		
+		$if (rec82.showId)$
+		<CPSR:Id>
+			$if (rec82.showOrgId)$
+			<CPSR:OrgId>
+				$if (rec82.bei)$
+				<CPSR:BEI>$rec82.bei$</CPSR:BEI>
+				$endif$
+				$if (rec82.taxIdNb)$
+				<CPSR:TaxIdNb>$rec82.taxIdNb$</CPSR:TaxIdNb>
+				$endif$
+				$if (rec82.id)$
+				<CPSR:PrtryId>
+					<CPSR:Id>$rec82.id$</CPSR:Id>
+					<CPSR:Issr>$rec82.issr$</CPSR:Issr>
+				</CPSR:PrtryId>
+				$endif$
+			</CPSR:OrgId>
+			$endif$
+			$if (rec82.showPrvtId)$
+			<CPSR:PrvtId>
+				$if (rec82.taxIdNb1)$
+				<CPSR:TaxIdNb>$rec82.taxIdNb1$</CPSR:TaxIdNb>
+				$endif$
+				$if (rec82.id1)$
+				<CPSR:OthrId>
+					<CPSR:Id>$rec82.id1$</CPSR:Id>
+					<CPSR:IdTp>$rec82.idTp$</CPSR:IdTp>
+				</CPSR:OthrId>
+				$endif$
+			</CPSR:PrvtId>
+			$endif$
+		</CPSR:Id>
+		$endif$
+	</CPSR:Cdtr>
+	$if (rec82.showCdtrAcct)$
+	<CPSR:CdtrAcct>
+		<CPSR:Id>
+			$if (rec82.iban)$
+			<CPSR:IBAN>$rec82.iban$</CPSR:IBAN>
+			$endif$
+			$if (rec82.bban)$
+			<CPSR:BBAN>$rec82.bban$</CPSR:BBAN>
+			$endif$
+		</CPSR:Id>
+	</CPSR:CdtrAcct>
+	$endif$
+>>
+
+
+templateRecord84(rec84) ::= <<
+	$if (rec84.nm)$
+	<CPSR:UltmtCdtr>
+		<CPSR:Nm>$rec84.nm$</CPSR:Nm>
+		$if (rec84.ctry)$
+		<CPSR:PstlAdr>
+			$if (rec84.adrTp)$
+			<CPSR:AdrTp>$rec84.adrTp$</CPSR:AdrTp>
+			$endif$
+			$if (rec84.adrLine_1)$
+			<CPSR:AdrLine>$rec84.adrLine_1$</CPSR:AdrLine>
+			$endif$
+			$if (rec84.adrLine_2)$
+			<CPSR:AdrLine>$rec84.adrLine_2$</CPSR:AdrLine>
+			$endif$
+			$if (rec84.strtNm)$
+			<CPSR:StrtNm>$rec84.strtNm$</CPSR:StrtNm>
+			$endif$
+			$if (rec84.bldgNb)$
+			<CPSR:BldgNb>$rec84.bldgNb$</CPSR:BldgNb>
+			$endif$
+			$if (rec84.pstCd)$
+			<CPSR:PstCd>$rec84.pstCd$</CPSR:PstCd>
+			$endif$
+			$if (rec84.twnNm)$
+			<CPSR:TwnNm>$rec84.twnNm$</CPSR:TwnNm>
+			$endif$
+			$if (rec84.ctrySubDvsn)$
+			<CPSR:CtrySubDvsn>$rec84.ctrySubDvsn$</CPSR:CtrySubDvsn>
+			$endif$
+			<CPSR:Ctry>$rec84.ctry$</CPSR:Ctry>
+		</CPSR:PstlAdr>
+		$endif$
+		$if (rec84.showId)$
+		<CPSR:Id>
+			$if (rec84.showOrgId)$
+			<CPSR:OrgId>
+				$if (rec84.bei)$
+				<CPSR:BEI>$rec84.bei$</CPSR:BEI>
+				$endif$
+				$if (rec84.taxIdNb)$
+				<CPSR:TaxIdNb>$rec84.taxIdNb$</CPSR:TaxIdNb>
+				$endif$
+				$if (rec84.id)$
+				<CPSR:PrtryId>
+					<CPSR:Id>$rec84.id$</CPSR:Id>
+					<CPSR:Issr>$rec84.issr$</CPSR:Issr>
+				</CPSR:PrtryId>
+				$endif$
+			</CPSR:OrgId>
+			$endif$
+			$if (rec84.showProvtId)$
+			<CPSR:ProvtId>
+				$if (rec84.taxIdNb1)$
+				<CPSR:TaxIdNb>$rec84.taxIdNb1$</CPSR:TaxIdNb>
+				$endif$
+				$if (rec84.id1)$
+				<CPSR:OthrId>
+					<CPSR:Id>$rec84.id1$</CPSR:Id>
+					<CPSR:IdTp>$rec84.idTp$</CPSR:IdTp>
+				</CPSR:OthrId>
+				$endif$
+			</CPSR:ProvtId>
+			$endif$					
+		</CPSR:Id>
+		$endif$
+	</CPSR:UltmtCdtr>
+	$endif$
+>>
+
+
+templateRecord86(rec86) ::= <<
+	<CPSR:DestCdtrRsp>
+		$if (rec86.nm)$
+			<CPSR:Nm>$rec86.nm$</CPSR:Nm>
+		$endif$
+		$if (rec86.id)$
+		<CPSR:Id>
+			<CPSR:OrgId>
+				<CPSR:PrtryId>
+					<CPSR:Id>$rec86.id$</CPSR:Id>
+					<CPSR:Issr>$rec86.issr$</CPSR:Issr>
+				</CPSR:PrtryId>
+			</CPSR:OrgId>
+		</CPSR:Id>
+		$endif$
+	</CPSR:DestCdtrRsp>
+>>

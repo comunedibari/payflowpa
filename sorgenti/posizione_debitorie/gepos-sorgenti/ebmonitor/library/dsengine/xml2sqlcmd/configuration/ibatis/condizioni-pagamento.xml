@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+	<typeAlias alias="CondizioniPagamentoModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.CondizioniPagamentoModel" />
+		
+  <resultMap id="CondizioniPagamentoResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.CondizioniPagamentoModel">
+  	<result property="idPendenza" column="ID_Pendenza" /> 
+  	  	<result property="idCondizione" column="ID_Condizione" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="tiPagamento" column="TI_Pagamento" /> 
+  	  	<result property="idEnte" column="ID_ENTE" /> 
+  	  	<result property="cdTrbEnte" column="CD_TRB_ENTE" /> 
+  	  	<result property="idPagamento" column="ID_Pagamento" /> 
+  	  	<result property="tiCip" column="TI_CIP" /> 
+  	  	<result property="coCip" column="CO_CIP" /> 
+  	  	<result property="dtScadenza" column="DT_Scadenza" /> 
+  	  	<result property="dtInizioValidita" column="DT_InizioValidita" /> 
+  	  	<result property="dtFineValidita" column="DT_FineValidita" /> 
+  	  	<result property="imTotale" column="IM_Totale" /> 
+  	  	<result property="stPagamento" column="ST_Pagamento" /> 
+  	  	<result property="dtPagamento" column="DT_PAGAMENTO" /> 
+  	  	<result property="deCanalepag" column="DE_CANALEPAG" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	<result property="opAnnullamento" column="OP_ANNULLAMENTO" /> 
+  	  	<result property="tsAnnullamento" column="TS_ANNULLAMENTO" /> 
+  	  	<result property="tsAnnullamentoMillis" column="TS_ANNULLAMENTO_MILLIS" /> 
+  	  	
+  </resultMap>	
+  
+  	<!-- 
+    <select id="selectCondizionePagamentoToUpdate" 
+    	resultMap="CondizioniPagamentoResultMap" 
+    	parameterClass="CondizioniPagamentoModelType">
+	    SELECT * FROM ${CONDIZIONI_PAGAMENTO} 
+	    WHERE ID_Pendenza = #idPendenza:VARCHAR# AND ID_Pagamento = #idPagamento:VARCHAR# AND ST_Riga = 'V' and TS_ANNULLAMENTO  is null
+	</select>
+	 -->
+	 
+	  <select id="selectCondizionePagamentoToUpdate" 
+    	resultMap="CondizioniPagamentoResultMap" 
+    	parameterClass="CondizioniPagamentoModelType">
+	    SELECT * FROM ${CONDIZIONI_PAGAMENTO} 
+	    where ID_PAGAMENTO = #idPagamento:VARCHAR# and ID_ENTE = #idEnte:VARCHAR# and CD_TRB_ENTE = #cdTrbEnte:VARCHAR# and ST_Riga = 'V' and TS_ANNULLAMENTO_MILLIS = 0
+	</select>
+	
+	<select id="selectCondizioniPagamentoToUpdate" 
+    	resultMap="CondizioniPagamentoResultMap" 
+    	parameterClass="java.lang.String">
+	    SELECT * FROM ${CONDIZIONI_PAGAMENTO} 
+	    WHERE ID_Pendenza = #value:VARCHAR# and ST_Riga = 'V' and TS_ANNULLAMENTO is null
+	</select>
+	
+	<select id="checkIdPagamentoExists" resultClass="java.lang.String" parameterClass="CondizioniPagamentoModelType">
+		select ID_PAGAMENTO  from ${CONDIZIONI_PAGAMENTO} 
+		where ID_PAGAMENTO = #idPagamento:VARCHAR# and ID_ENTE = #idEnte:VARCHAR# and CD_TRB_ENTE = #cdTrbEnte:VARCHAR# and ST_Riga = 'V' and TS_ANNULLAMENTO is null
+	</select>
+	
+	<select id="selectIdPendenza" resultClass="java.lang.String" parameterClass="CondizioniPagamentoModelType">
+		select id_pendenza from ${CONDIZIONI_PAGAMENTO}
+		where  id_ente = #idEnte:VARCHAR# and id_pagamento = #idPagamento:VARCHAR# and TS_ANNULLAMENTO  is null
+	</select>
+	   
+	<select id="selectPendenzeConPagamentoAssociato" resultClass="java.lang.Integer" parameterClass="PendenzeModelType">
+		select ID  from ${PAGAMENTI} 
+		where ID_PENDENZA = #idPendenza:VARCHAR# AND (ST_PAGAMENTO = 'EF' OR ST_PAGAMENTO = 'ES' OR ST_PAGAMENTO = 'IC')  
+	</select>	
+
+	<select id="selectCondizioniConPagamentoAssociato" resultClass="java.lang.Integer" parameterClass="CondizioniPagamentoModelType">
+		select ID  from ${PAGAMENTI} 
+		where ID_PENDENZA = #idPendenza:VARCHAR# AND ID_CONDIZIONE = #idCondizione:VARCHAR# AND (ST_PAGAMENTO = 'EF' OR ST_PAGAMENTO = 'ES' OR ST_PAGAMENTO = 'IC')  
+	</select>	
+	
+
+<!-- 	
+	<update id="invalidateCondizionePagamento" parameterClass="CondizioniPagamentoModelType">
+		update ${CONDIZIONI_PAGAMENTO} set TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP# where (ID_Condizione = #idCondizione:VARCHAR# AND ID_Pagamento = #idPagamento:VARCHAR#)
+	</update>
+	
+	<update id="uneraseCondizionePagamento" parameterClass="CondizioniPagamentoModelType"><![CDATA[
+
+	UPDATE ${CONDIZIONI_PAGAMENTO} SET TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP# 
+	where ID_Pendenza = #idPendenza:VARCHAR# AND ID_Condizione = #idCondizione:VARCHAR#
+
+	]]></update>
+ -->
+ 	
+</sqlMap>

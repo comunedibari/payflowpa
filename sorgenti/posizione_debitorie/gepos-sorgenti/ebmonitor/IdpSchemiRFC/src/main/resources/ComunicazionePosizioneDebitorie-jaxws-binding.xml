@@ -1,0 +1,9 @@
+<jaxws:bindings version="2.0" xsi:schemaLocation="http://java.sun.com/xml/ns/jaxws wsdl_customizationschema_2_0.xsd" xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"  xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<jaxws:package name="it.toscana.rete.cart.servizi.iris_1_1.ws.idpallineamentopendenze" />
+	<jaxws:enableWrapperStyle>true</jaxws:enableWrapperStyle>
+	<jaxws:bindings node="wsdl:definitions/wsdl:types/xsd:schema[@targetNamespace='http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy']">
+            <jaxb:schemaBindings>
+                <jaxb:package name="it.toscana.rete.cart.servizi.iris_1_1.ws.proxy.idpallineamentopendenze"/>
+            </jaxb:schemaBindings>
+    </jaxws:bindings>
+</jaxws:bindings>

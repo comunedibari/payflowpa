@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="catalogResolver" class="it.nch.fwk.xml.resolver.ExtendedXMLCatalogResolver">
+		<property name="preferPublic" value="true"></property>
+		<property name="catalogList" ref="catalogList"/>
+	</bean>
+	
+	<bean id="schemaValidator" class="it.nch.fwk.xml.validation.impl.JAXP13Validator">
+		<property name="resourceResolver" ref="catalogResolver"/>
+	</bean>
+	
+	<bean id="msvResolver" class="it.nch.fwk.xml.resolver.ExtendedGrammarController" parent="catalogResolver"/>
+	
+	<bean id="msvSchemaValidator" class="it.nch.fwk.xml.validation.impl.MSVValidator">
+		<property name="resourceResolver" ref="msvResolver"/>
+		<property name="grammarReaderController" ref="msvResolver"/>
+	</bean>
+</beans>

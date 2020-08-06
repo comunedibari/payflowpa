@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento"
+           xmlns:h="http://idp.tasgroup.it/xmlbillerservices/Header"
+           xmlns:i="http://idp.tasgroup.it/xmlbillerservices/Common"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento"
+           elementFormDefault="qualified">
+  <xs:import namespace="http://idp.tasgroup.it/xmlbillerservices/Header"
+             schemaLocation="Header.xsd" />
+  <xs:import namespace="http://idp.tasgroup.it/xmlbillerservices/Common"
+             schemaLocation="Common.xsd" />
+  <xs:element name="IdpInformativaPagamento"
+              type="IdpInformativaPagamento" />
+              
+  <xs:element name="IdpVerificaStatoPagamento">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IdpHeader" type="h:InboundIdpHeader" />
+        <xs:element name="IdpBody">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdPagamento"
+                          type="idPagamento"
+                          maxOccurs="unbounded">
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="Versione"
+                    type="Versione"
+                    use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="IdpEsitoNotifica" type="IdpEsitoNotifica"></xs:element>
+ 
+  <xs:complexType name="idPagamento">
+    <xs:simpleContent>
+      <xs:extension base="i:IdentificativoIdp">
+        <xs:attribute name="TipoDebito" type="i:Max50Text" use="required">
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+ <xs:complexType name="IdpInformativaPagamento">
+    <xs:sequence>
+      <xs:element name="IdpHeader" type="h:OutboundIdpHeader"/>
+      <xs:element name="IdpBody"
+                  type="IdpBody" />
+    </xs:sequence>
+    <xs:attribute name="Versione"
+                  type="Versione"
+                  use="required" />
+  </xs:complexType>
+  
+  <xs:simpleType name="Versione">
+    <xs:restriction base="i:Max15Text">
+      <xs:enumeration value="1.0" />
+      <xs:enumeration value="1.1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- BODY -->
+  <xs:complexType name="IdpBody">
+    <xs:sequence>
+      <xs:element name="Pagamento"
+                  type="Pagamento"
+                  maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Pagamento">
+    <xs:sequence>
+    	<xs:element name="TipoNotifica" type="TipoNotificaType" />
+    	<xs:element name="IdPagamento" type="i:IdentificativoIdp" />
+    	<xs:element name="IdDebito" type="i:IdentificativoIdp" />
+    	<xs:element name="TipoDebito" type="i:Max50Text" />
+    	<xs:element name="CausaleDebito" type="i:Max256Text" />
+    	<xs:element name="RiferimentoDebito" type="i:Max35Text" minOccurs="0"/> <!-- da versione 1.1 -->
+    	<xs:element name="CausalePagamento" type="xs:string" minOccurs="0"/>
+    	<xs:element name="NotePagamento" type="i:Max256Text" minOccurs="0"/> <!-- da versione 1.1 -->
+    	<xs:element name="DataScadenzaPagamento" type="i:IdPDateTime" />
+    	<xs:element name="Importo" type="i:Importo" />
+    	<xs:element name="Debitore" type="RiferimentoSoggetto" />
+    	<xs:element name="IdentificativoUnivocoVersamento" type="i:IdentificativoIdp" minOccurs="0" />
+    	<xs:element name="DataOraPagamento" type="i:IdPDateTime" />
+    	<xs:element name="Versante" type="RiferimentoSoggetto" minOccurs="0" />
+    	<xs:element name="Transazione" type="Transazione" minOccurs="0" />
+    	<xs:element name="RiferimentoIncasso" type="RiferimentoIncasso"
+    		maxOccurs="1" minOccurs="0">
+    	</xs:element>
+    	<xs:element name="NoteDebito" type="i:Max2000Text" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="TipoNotificaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ESEGUITO" />
+      <xs:enumeration value="REGOLATO" />
+      <xs:enumeration value="INCASSO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Definizione dei dati di "Transazione" -->
+  <xs:complexType name="Transazione">
+    <xs:sequence>
+    	<xs:element name="CanalePagamento" type="CanalePagamento" />
+    	<xs:element name="IdentificativoUnivocoRiscossione"
+    		type="i:Max35Text" />
+    	<xs:element name="DataOraTransazione" type="i:IdPDateTime" />
+
+    	<xs:element name="Importo" type="i:Importo" />
+    	<xs:element name="ImportoCommissioni" type="i:Importo"
+    		minOccurs="0" />
+    	<xs:element name="NumeroPagamenti" type="xs:long"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RiferimentoSoggetto">
+    <xs:sequence>
+      <xs:element name="IdFiscale"
+                  type="i:Max35Text"
+                  minOccurs="1" />
+    		<xs:element name="TipoSoggetto"	type="i:stTipoSoggetto" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Anagrafica" type="i:Max70Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="EMail" type="i:Max256Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Indirizzo" type="i:Max70Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="NumeroCivico" type="i:Max16Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Cap" type="i:Max16Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Localita" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Provincia" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+    		<xs:element name="Nazione" type="i:stNazione" maxOccurs="1" minOccurs="0"></xs:element>                  
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CanalePagamento">
+    <xs:sequence>
+      <xs:element name="IdentificativoPSP"
+                  type="i:Max35Text" />
+      <xs:element name="IdentificativoCanale"
+                  type="i:Max35Text" />   
+      <xs:element name="TipoVersamento"
+                  type="i:Max4Text" />    
+      <xs:element name="Descrizione" type="i:Max256Text" />
+    </xs:sequence>
+   </xs:complexType>
+    <xs:complexType name="RiferimentoIncasso">
+    	<xs:sequence>
+    		<xs:element name="IdentificativoPSP" type="i:Max35Text" maxOccurs="1" minOccurs="0"/>
+    		<xs:element name="IdentificativoUnivocoRegolamento" type="i:Max35Text" maxOccurs="1" minOccurs="0"/>
+    		<xs:element name="DataRegolamento" type="i:IdPDate"
+    			maxOccurs="1" minOccurs="0" />
+    		<xs:element name="TotaleTransazione" type="i:Importo" maxOccurs="1" minOccurs="0"/>		 
+            <xs:element name="IdentificativoFlusso" type="i:Max35Text" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+  <xs:element name="IdpEsitoVerifica">
+    <xs:complexType>
+      <xs:sequence>
+        <!--  <xs:element ref="h:IdpHeader" /> -->
+        <xs:element name="IdpBodyEsitoVerifica">
+          <xs:complexType>
+            <xs:sequence>
+               <xs:element name="InformazioniPagamento"
+                          type="InformazioniPagamentoType"
+                          minOccurs="0"
+                          maxOccurs="unbounded" />
+               <xs:element name="Esito" type="Esito" minOccurs="0"
+               	maxOccurs="1">
+               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="InformazioniPagamentoType">
+    <xs:sequence>
+      <xs:element name="IdPagamento"
+                  type="i:IdentificativoIdp" />
+      <xs:element name="TipoDebito"
+                  type="i:Max50Text" />
+      <xs:element name="Stato"
+                  type="VerificaStatoPagamentoDettagliato" />
+      <xs:element name="DescrizioneStato"
+                  type="i:Max256Text" />
+      <xs:element name="Pagamento"
+                  type="Pagamento"
+                  minOccurs="0"
+                  maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="VerificaStatoPagamentoDettagliato">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="POSIZIONE_NON_PRESENTE" />
+      <xs:enumeration value="POSIZIONE_NON_PAGATA" />
+      <xs:enumeration value="POSIZIONE_NON_PAGABILE" />
+      <xs:enumeration value="POSIZIONE_PAGATA" />
+      <xs:enumeration value="POSIZIONE_PAGATA_SBF" />
+      <xs:enumeration value="POSIZIONE_CON_PAG_IN_CORSO" />
+      <xs:enumeration value="POSIZIONE_CON_DOC_EMESSO" />
+    </xs:restriction>
+  </xs:simpleType>
+ 
+   <xs:complexType name="Esito">
+    <xs:sequence>
+    	<xs:element name="Stato" type="StatoMessaggio"></xs:element>
+    	<xs:element name="Codice" type="i:Max35Text" />
+    	<xs:element name="Descrizione" type="i:Max256Text" />
+    </xs:sequence>
+   </xs:complexType>
+    
+   <xs:simpleType name="StatoMessaggio">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ELABORATO_OK" />
+      <xs:enumeration value="ELABORATO_KO" />
+    </xs:restriction>
+  </xs:simpleType> 
+    
+ 	<xs:complexType name="IdpEsitoNotifica">
+		<xs:sequence>
+			<xs:element name="E2EMsgId" 
+			            type="h:MsgId" 
+						maxOccurs="1" 
+						minOccurs="1">
+			</xs:element>
+            <xs:element name="Stato" type="StatoMessaggio" />
+            <xs:element name="Codice" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Descrizione" type="i:Max256Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Note" type="i:Max2000Text" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>	  
+     
+</xs:schema>

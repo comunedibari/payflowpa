@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="listaInformativePSP" type="listaInformativePSPType"/>
+	<xs:complexType name="informativaMasterType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="dataPubblicazione"/>
+			<xs:element type="xs:string" name="dataInizioValidita"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="informativaDetailType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="identificativoIntermediario"/>
+			<xs:element type="xs:string" name="identificativoCanale"/>
+			<xs:element type="xs:string" name="tipoVersamento"/>
+			<xs:element type="xs:string" name="priorita"/>
+			<xs:element type="xs:string" name="disponibilitaServizio"/>
+			<xs:element type="xs:string" name="descrizioneServizio"/>
+			<xs:element type="xs:string" name="condizioniEconomicheMassime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="listaInformativaDetailType">
+		<xs:sequence>
+			<xs:element type="informativaDetailType" name="informativaDetail" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="informativaPSPType">
+		<xs:sequence>
+			<xs:element type="xs:string" name="identificativo"/>
+			<xs:element type="xs:string" name="ragioneSociale"/>
+			<xs:element type="informativaMasterType" name="informativaMaster"/>
+			<xs:element type="listaInformativaDetailType" name="listaInformativaDetail"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="listaInformativePSPType">
+		<xs:sequence>
+			<xs:element type="informativaPSPType" name="informativaPSP" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

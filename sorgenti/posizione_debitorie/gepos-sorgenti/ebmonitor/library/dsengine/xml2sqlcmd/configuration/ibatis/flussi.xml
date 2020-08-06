@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+	<typeAlias alias="FlussiModelType" type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.FlussiModel"/>
+
+	<resultMap id="FlussiResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.FlussiModel">
+		<result property="flusso" column="FLUSSO"/>
+		<result property="dataCreazione" column="DATACREAZIONE"/>
+		<result property="oraCreazione" column="ORACREAZIONE"/>
+		<result property="utenteCreatore" column="UTENTECREATORE"/>
+		<result property="nomeSupporto" column="NOMESUPPORTO"/>
+		<result property="quantSicurezza" column="QUANT_SICUREZZA"/>
+		<result property="numDisposizioni" column="NUM_DISPOSIZIONI"/>
+		<result property="totImportiPos" column="TOT_IMPORTI_POS"/>
+		<result property="totImportiNeg" column="TOT_IMPORTI_NEG"/>
+		<result property="dimFlussoFirmato" column="DIM_FLUSSO_FIRMATO"/>
+		<result property="firmatario1" column="FIRMATARIO_1"/>
+		<result property="firmatario2" column="FIRMATARIO_2"/>
+		<result property="mac" column="MAC"/>
+		<result property="anticipoIncassi" column="ANTICIPOINCASSI"/>
+		<result property="divisa" column="DIVISA"/>
+		<result property="segnoImpPresent" column="SEGNO_IMP_PRESENT"/>
+		<result property="tipoServizio" column="TIPOSERVIZIO"/>
+		<result property="tracciato" column="TRACCIATO"/>
+		<result property="siaMittente" column="SIA_MITTENTE"/>
+		<result property="abiRicevente" column="ABI_RICEVENTE"/>
+		<result property="adisposizTesta" column="ADISPOSIZ_TESTA"/>
+		<result property="adisposizCoda" column="ADISPOSIZ_CODA"/>
+		<result property="divisaContoOrd" column="DIVISA_CONTO_ORD"/>
+		<result property="partizionamento" column="PARTIZIONAMENTO"/>
+		<result property="soggVeic" column="SOGG_VEIC"/>
+		<result property="ccF24" column="CC_F24"/>
+		<result property="numRecord" column="NUM_RECORD"/>
+		<result property="abiAccentratore" column="ABI_ACCENTRATORE"/>
+		<result property="tipoIncassoRid" column="TIPO_INCASSO_RID"/>
+		<result property="prodotto" column="PRODOTTO"/>
+		<result property="cucRicevente" column="CUC_RICEVENTE"/>
+		<result property="cucBancamittente" column="CUC_BANCAMITTENTE"/>
+		<result property="msgid" column="MSGID"/>
+		<result property="ide2e" column="IDE2E"/>
+		<result property="qualifMsg" column="QUALIFMSG"/>
+		<result property="credtTm" column="CREDTTM"/>
+		<result property="bicRicevente" column="BIC_RICEVENTE"/>
+		<result property="orgnlMsgId" column="ORGNLMSGID"/>
+		<result property="orgnlCredtTm" column="ORGNLCREDTTM"/>
+		<result property="grpStatus" column="GRPSTATUS"/>
+		<result property="idMittente" column="ID_MITTENTE"/>
+		<result property="idSystem" column="ID_SYSTEM"/>
+		<result property="idMittenteTrt" column="ID_MITTENTE_TRT"/>
+		<result property="idSystemTrt" column="ID_SYSTEM_TRT"/>
+		<result property="coVersione" column="CO_VERSIONE"/>
+		<result property="stRiga" column="ST_RIGA"/>
+		<result property="prVersione" column="PR_VERSIONE"/>
+		<result property="opInserimento" column="OP_INSERIMENTO"/>
+		<result property="tsInserimento" column="TS_INSERIMENTO"/>
+		<result property="opAggiornamento" column="OP_AGGIORNAMENTO"/>
+		<result property="tsAggiornamento" column="TS_AGGIORNAMENTO"/>
+
+	</resultMap>
+
+	<select id="selectIdEnteFlusso" resultClass="java.lang.String" parameterClass="PendenzeModelType">
+		SELECT ID_ENTE FROM ${ENTI} WHERE CD_ENTE = #idMittente:CHAR# AND STATO = 'A'
+	</select>
+
+</sqlMap>

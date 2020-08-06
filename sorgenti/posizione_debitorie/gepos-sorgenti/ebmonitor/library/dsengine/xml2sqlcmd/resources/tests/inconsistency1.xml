@@ -1,0 +1,210 @@
+<n:IdpAllineamentoPendenze xmlns:n="urn:xsd:IdpAllineamentoPendenze" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Versione="01.03-00" xsi:schemaLocation="urn:xsd:IdpAllineamentoPendenze
+file:///D:/java/projects/flowmanager-svn/dsengine/xml2sqlcmd/docs/01.03-00/xsd/IdP.AllineamentoPendenze.xsd">
+	<IdpHeader>
+		<TRT>
+			<ServiceName>IdpAllineamentoPendenze</ServiceName>
+			<MsgId>idmsge2e001</MsgId>
+			<XMLCrtDt>2009-09-01T09:11:54.0Z</XMLCrtDt>
+			<Sender>
+				<SenderId>CFiglineVA</SenderId>
+				<SenderSys>SenderSys01</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>ReceiverId</ReceiverId>
+				<ReceiverSys>ReceiverSys01</ReceiverSys>
+			</Receiver>
+		</TRT>
+		<E2E>
+			<E2ESrvcNm>IdpAllineamentoPendenze</E2ESrvcNm>
+			<E2EMsgId>idmsge2e001</E2EMsgId>
+			<XMLCrtDt>2001-12-17T09:30:47.0Z</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>CFiglineVA</E2ESndrId>
+				<E2ESndrSys>SenderSys01</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>ReceiverId</E2ERcvrId>
+				<E2ERcvrSys>ReceiverSys01</E2ERcvrSys>
+			</Receiver>
+		</E2E>
+	</IdpHeader>
+	<IdpBody>
+		<Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+			<IdPendenza>extunknw02</IdPendenza>
+			<Mittente>
+				<Id>idUfficioMittente</Id>
+				<Descrizione>ufficio ente publico tc02</Descrizione>
+			</Mittente>
+			<Destinatari>
+				<Destinatario Tipo="Cittadino">
+					<Id>SCKMCH87L14A944K</Id>
+					<Descrizione>codice fiscale</Descrizione>
+				</Destinatario>
+				<Destinatario Tipo="Altro">
+					<Id>SSLNSA67S05L781M</Id>
+					<Descrizione>partita iva</Descrizione>
+				</Destinatario>
+			</Destinatari>
+			<Note>note note note</Note>
+			<Insert>
+				<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+				<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+				<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+				<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+				<AnnoRiferimento>2001</AnnoRiferimento>
+				<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+				<Stato>Chiusa</Stato>
+				<ImportoTotale>1270</ImportoTotale>
+				<Divisa>EUR</Divisa>
+				<InfoPagamento TipoPagamento="Pagamento a Rate">
+					<DettaglioPagamento>
+						<IdPagamento>pag001</IdPagamento>
+						<DataScadenza>1967-08-13</DataScadenza>
+						<DataInizioValidita>1967-08-13</DataInizioValidita>
+						<DataFineValidita>1967-08-13</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>300</Importo>
+						<DettaglioImporto>
+							<Voce Tipo="ImportoBase">
+								<Codice>B002</Codice>
+								<Descrizione>descrizione di B002</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+						</DettaglioImporto>
+						<Allegato Tipo="Documento">
+							<Titolo>PFD dettaglio 1di  TC02</Titolo>
+							<Codifica>PDF_</Codifica>
+							<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+							<IdAntifalsificazione>md05</IdAntifalsificazione>
+						</Allegato>
+					</DettaglioPagamento>
+					<DettaglioPagamento>
+						<IdPagamento>pag002</IdPagamento>
+						<DataScadenza>1967-08-13</DataScadenza>
+						<DataInizioValidita>1967-08-13</DataInizioValidita>
+						<DataFineValidita>1967-08-13</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>300</Importo>
+						<DettaglioImporto>
+							<Voce Tipo="ImportoBase">
+								<Codice>B002</Codice>
+								<Descrizione>descrizione di B002</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+						</DettaglioImporto>
+						<Allegato Tipo="Documento">
+							<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+							<Codifica>PDF_</Codifica>
+							<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+							<IdAntifalsificazione>md05</IdAntifalsificazione>
+						</Allegato>
+					</DettaglioPagamento>
+					<DettaglioPagamento>
+						<IdPagamento>pag003</IdPagamento>
+						<DataScadenza>1967-08-13</DataScadenza>
+						<DataInizioValidita>1967-08-13</DataInizioValidita>
+						<DataFineValidita>1967-08-13</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>310</Importo>
+						<DettaglioImporto>
+							<Voce Tipo="ImportoBase">
+								<Codice>B002</Codice>
+								<Descrizione>descrizione di B002</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Spese">
+								<Codice>B003</Codice>
+								<Descrizione>descrizione di B003</Descrizione>
+								<Importo>10</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+						</DettaglioImporto>
+						<Allegato Tipo="Documento">
+							<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+							<Codifica>PDF_</Codifica>
+							<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+							<IdAntifalsificazione>md05</IdAntifalsificazione>
+						</Allegato>
+					</DettaglioPagamento>
+					<DettaglioPagamento>
+						<IdPagamento>pag004</IdPagamento>
+						<DataScadenza>1967-08-13</DataScadenza>
+						<DataInizioValidita>1967-08-13</DataInizioValidita>
+						<DataFineValidita>1967-08-13</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>300</Importo>
+						<DettaglioImporto>
+							<Voce Tipo="ImportoBase">
+								<Codice>B002</Codice>
+								<Descrizione>descrizione di B002</Descrizione>
+								<Importo>240</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Spese">
+								<Codice>B003</Codice>
+								<Descrizione>descrizione di B003</Descrizione>
+								<Importo>10</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Mora">
+								<Codice>B004</Codice>
+								<Descrizione>descrizione di B004</Descrizione>
+								<Importo>50</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+						</DettaglioImporto>
+						<Allegato Tipo="Documento">
+							<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+							<Codifica>PDF_</Codifica>
+							<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+							<IdAntifalsificazione>md05</IdAntifalsificazione>
+						</Allegato>
+					</DettaglioPagamento>
+				</InfoPagamento>
+			</Insert>
+			<UpdateStatus>
+          <Stato>Chiusa</Stato>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag004</IdPagamento>
+              <Stato>Pagato</Stato>
+              <Allegato Tipo="Quietanza">
+                <Titolo>Quietanza</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>EEFF9090</Contenuto>
+              </Allegato>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </UpdateStatus>
+			<Replace>
+				<DescrizioneCausale>causale test integrazione TI 01 REPLACED</DescrizioneCausale>
+				<DataCreazione>2009-12-17T09:30:47.0Z</DataCreazione>
+				<DataEmissione>2009-12-17T09:30:47.0Z</DataEmissione>
+				<DataPrescrizione>2009-12-17T09:30:47.0Z</DataPrescrizione>
+				<AnnoRiferimento>2009</AnnoRiferimento>
+				<Stato>Aperta</Stato>
+				<ImportoTotale>100.99</ImportoTotale>
+				<Divisa>EUR</Divisa>
+				<InfoPagamento TipoPagamento="Pagamento Unico">
+					<DettaglioPagamento>
+						<IdPagamento>pag007</IdPagamento>
+						<DataScadenza>2010-03-11</DataScadenza>
+						<DataFineValidita>2010-03-11</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>300</Importo>
+					</DettaglioPagamento>
+				</InfoPagamento>
+			</Replace>
+		</Pendenza>
+	</IdpBody>
+</n:IdpAllineamentoPendenze>

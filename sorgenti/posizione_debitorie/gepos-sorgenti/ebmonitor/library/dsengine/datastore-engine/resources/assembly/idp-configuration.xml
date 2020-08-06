@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="storageDao" class="it.tasgroup.dse.dao.StorageDAO">
+		<constructor-arg>
+			<ref bean="dataSource"/>
+		</constructor-arg>
+	</bean>
+	
+	<!-- OGGETTO DA INVOCARE NELLO STEP DI  STORAGE -->
+	<bean id="pendenzeModelExecutionDispatcherFactory" 
+		  class="it.nch.eb.xsqlcmd.dbtrpos.dao.PendenzeModelExecutionDispatcherFactory" >
+	</bean>
+	
+	
+	<!-- OGGETTO DA INVOCARE NELLO STEP DI  STORAGE -->
+	<bean id="otfModelExecutionDispatcherFactory" 
+		  class="it.nch.eb.xsqlcmd.dbtrpos.dao.PendenzeModelExecutionDispatcherFactory" >
+	</bean>	
+
+</beans>

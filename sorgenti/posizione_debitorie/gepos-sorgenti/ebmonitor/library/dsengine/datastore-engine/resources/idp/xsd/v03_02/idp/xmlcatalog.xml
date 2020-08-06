@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog  PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+
+<!--  generated  -->
+<catalog xmlns='urn:oasis:names:tc:entity:xmlns:xml:catalog'>
+
+<uri name='http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude' uri='classpath:idp/xsd/v03_02/idp/xsd/IdP.Include.xsd' />
+<uri name='http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader' uri='classpath:idp/xsd/v03_02/idp/xsd/IdP.Header.xsd' />
+<uri name='http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze' uri='classpath:idp/xsd/v03_02/idp/xsd/IdP.AllineamentoPendenze.xsd' />
+
+</catalog>

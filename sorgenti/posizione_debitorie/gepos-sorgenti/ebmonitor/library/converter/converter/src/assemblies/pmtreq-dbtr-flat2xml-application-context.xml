@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="reverseConversions" class="it.nch.eb.common.converter.DefaultReverseConversions" />
+
+	<bean id="parsersFactory" class="it.nch.eb.common.converter.pmtreq.dbtr.parser.PaymentRequestDbtrParsersFactory" >
+		<constructor-arg>
+			<ref local="reverseConversions"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="converter" class="it.nch.eb.common.converter.FromFlatToXmlConverter" singleton="false">
+		<property name="parsersFactory" ref="parsersFactory" />
+		<property name="strict" value="false" />
+		<property name="templateClasspathLocation" value="it/nch/eb/common/converter/pmtreq/dbtr/parser/xml-esiti-dbtr.stg" />
+	</bean>
+	
+</beans>

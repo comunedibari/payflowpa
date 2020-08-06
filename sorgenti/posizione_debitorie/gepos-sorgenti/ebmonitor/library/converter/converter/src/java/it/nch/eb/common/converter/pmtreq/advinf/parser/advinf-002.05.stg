@@ -1,0 +1,250 @@
+group advinf;
+
+templateRecord01(rec01, rec02, rec03, rec04, rec05) ::= <<
+<ADIN:AdvInf>
+	<ADIN:Sndr>
+		<ADIN:BIC>$rec01.bic$</ADIN:BIC>
+		<ADIN:Nm>$rec01.nm$</ADIN:Nm>
+		$if (rec01.sndrRef)$  <ADIN:SndrRef>$rec01.sndrRef$</ADIN:SndrRef> $endif$		
+		$if (rec01.relRef)$  <ADIN:RelRef>$rec01.relRef$</ADIN:RelRef> $endif$
+	</ADIN:Sndr>
+	<ADIN:Dbtr>
+		<ADIN:NmAndAdr>$rec02.nmAndAdr$</ADIN:NmAndAdr>
+		$if (rec02.ctry)$  <ADIN:Ctry>$rec02.ctry$</ADIN:Ctry> $endif$				
+		$if (rec02.acctNb)$ <ADIN:AcctNb>$rec02.acctNb$</ADIN:AcctNb> 
+		$endif$
+	</ADIN:Dbtr>
+	$if (rec01.showDbtrAgt)$
+	<ADIN:DbtrAgt>
+		$if (rec01.desc)$ <ADIN:Desc>$rec01.desc$</ADIN:Desc> $endif$
+		$if (rec01.bic1)$ <ADIN:BIC>$rec01.bic1$</ADIN:BIC>  $endif$
+	</ADIN:DbtrAgt>
+	$endif$
+	<ADIN:InstdAmt $if (rec03.ccy)$ Ccy="$rec03.ccy$" $endif$>$rec03.instdAmt$</ADIN:InstdAmt>
+	$if (rec03.showEqvAmt)$
+		<ADIN:EqvtAmt>
+			$if (rec03.showAmt)$  <ADIN:Amt $if (rec03.ccy1)$ Ccy="$rec03.ccy1$" $endif$>$rec03.amt$</ADIN:Amt> $endif$
+			$if (rec03.showXcghRate)$  <ADIN:XcghRate>$rec03.xcghRate$</ADIN:XcghRate> $endif$
+		</ADIN:EqvtAmt>
+	$endif$
+	$if (rec03.chrgBr)$ <ADIN:ChrgBr>$rec03.chrgBr$</ADIN:ChrgBr>  $endif$
+	$rec04:{ r |
+		<ADIN:SndrChg $if (r.ccy)$ Ccy="$r.ccy$" $endif$>$r.sndrChg$</ADIN:SndrChg>
+	}$
+	$if (rec03.vlDt)$ <ADIN:VlDt>$rec03.vlDt$</ADIN:VlDt>  $endif$		
+	$if (rec03.rmtInf)$ <ADIN:RmtInf>$rec03.rmtInf$</ADIN:RmtInf> $endif$
+	$templateRecord05(rec05)$ 
+	$if (rec03.showTxDtls)$
+		<ADIN:TxDtls>
+			$if (rec03.cd)$ <ADIN:Cd>$rec03.cd$</ADIN:Cd> $endif$
+			$if (rec03.inf)$ <ADIN:Inf>$rec03.inf$</ADIN:Inf> $endif$
+		</ADIN:TxDtls>
+	$endif$
+</ADIN:AdvInf>
+>>
+
+templateRecord05(rec05) ::= <<
+<ADIN:Cdtr>
+	<ADIN:NmAndAdr>$rec05.nmAndAdr$</ADIN:NmAndAdr>
+	<ADIN:PrtryId>
+		<ADIN:Id>$rec05.id$</ADIN:Id>
+		<ADIN:Issr>$rec05.issr$</ADIN:Issr>
+	</ADIN:PrtryId>
+</ADIN:Cdtr>
+$if (rec05.showCdtrAcct)$
+<ADIN:CdtrAcct>
+	<ADIN:Id>
+		$if (rec05.iban)$ <ADIN:IBAN>$rec05.iban$</ADIN:IBAN> $endif$
+		$if (rec05.bban)$ <ADIN:BBAN>$rec05.bban$</ADIN:BBAN> $endif$
+		$if (rec05.id1)$ 
+		<ADIN:DmstAcct>
+			<ADIN:Id>
+			$rec05.id1$
+			</ADIN:Id>
+			$if (rec05.tp)$ <ADIN:Tp>$rec05.tp$</ADIN:Tp> $endif$
+		</ADIN:DmstAcct>		
+		$endif$
+	</ADIN:Id>
+</ADIN:CdtrAcct>
+$endif$
+>>				
+
+templateRecord06(rec06) ::= <<
+<ADIN:TxRefNb>String</ADIN:TxRefNb>
+>>
+
+templateRecord07(rec07) ::= <<
+<ADIN:CdtrAgt>
+	<ADIN:PrtryId>
+		<ADIN:Id>$rec07.id$</ADIN:Id>
+		<ADIN:Issr>$rec07.issr$</ADIN:Issr>
+	</ADIN:PrtryId>
+</ADIN:CdtrAgt>	
+>>
+
+templateRecord08(rec08) ::= <<
+<ADIN:CdtInstrs>
+	<ADIN:Id>
+		<ADIN:IBAN>$rec08.iban$</ADIN:IBAN>
+	</ADIN:Id>
+	<ADIN:Nm>$rec08.nm$</ADIN:Nm>
+	$if (rec08.showAssRate)$ 
+	<ADIN:CdtDesc>
+		<ADIN:AssRate>$rec08.assRate$</ADIN:AssRate>
+	</ADIN:CdtDesc>
+	$endif$
+	$if (rec08.showAssAmt)$ 
+	<ADIN:CdtDesc>
+		<ADIN:AssAmt Ccy="$rec08.ccy$">$rec08.assAmt$</ADIN:AssAmt>
+	</ADIN:CdtDesc>
+	$endif$	
+</ADIN:CdtInstrs>
+>>
+
+templateRecord09(rec09) ::= <<
+<ADIN:ChrgsAcct>
+	<ADIN:CdtrAgt>
+		<ADIN:PrtryId>
+			<ADIN:Id>$rec09.id$</ADIN:Id>
+			<ADIN:Issr>$rec09.issr$</ADIN:Issr>
+		</ADIN:PrtryId>
+	</ADIN:CdtrAgt>
+	$if (rec09.iban)$ 
+	<ADIN:Id>
+		<ADIN:IBAN>$rec09.iban$</ADIN:IBAN>
+	</ADIN:Id>
+	$endif$		
+	$if (rec09.nm)$	
+	<ADIN:Nm>$rec09.nm$</ADIN:Nm>
+	$endif$	
+</ADIN:ChrgsAcct>
+>>
+
+templateRecord10(rec10) ::= <<
+<ADIN:Oth>
+<ADIN:InstrDesc>$rec10.instrDesc$</ADIN:InstrDesc>
+</ADIN:Oth>
+>>
+
+templateRecord11(rec11) ::= <<
+<ADIN:RgltryRptg>
+	<ADIN:DbtCdtRptgInd>$rec11.dbtCdtRptgInd$</ADIN:DbtCdtRptgInd>
+	<ADIN:RgltryDtls>
+		<ADIN:Cd>$rec11.cd$</ADIN:Cd>
+		<ADIN:Amt $if (rec11.ccy)$ Ccy="$rec11.ccy$" $endif$>$rec11.amt$</ADIN:Amt>
+		<ADIN:Inf>$rec11.inf$</ADIN:Inf>
+	</ADIN:RgltryDtls>
+</ADIN:RgltryRptg>
+>>
+
+templateBody(body) ::= <<
+<BODY:CBIEnvelAdvInstr AdvInstrTId="$body.recordTestaBody.advInstrTId$">
+	<BODY:CBIAdvInstr>
+		$templateRecordTestaBody( rechb = body.recordTestaBody )$
+		
+		$templateRecord01(rec01 = body.record01, 
+							rec02 = body.record02, 
+							rec03 = body.record03, 
+							rec04 = body.record04, 
+							rec05 = body.record05)$
+		$if (body.showAdvInstrs)$
+		<ADIN:AdvInstrs>
+			<ADIN:TxRefNb>$body.record06.txRefNb$</ADIN:TxRefNb>			
+			<ADIN:CdtOnAcct>	
+			$if (body.record07)$ 		
+				$templateRecord07(rec07 = body.record07)$
+			$endif$				
+			$body.record08:{ r |
+				$templateRecord08(rec08 = r)$	
+			}$
+			</ADIN:CdtOnAcct>
+			$if (body.record09)$ 
+				$templateRecord09(rec09 = body.record09)$ 
+			$endif$
+			$if (body.record10)$ 
+				$templateRecord10(rec10 = body.record10)$
+			$endif$
+			$body.record11:{ r |
+				$templateRecord11(rec11 = r)$	
+			}$
+		</ADIN:AdvInstrs>
+		$endif$
+	</BODY:CBIAdvInstr>
+</BODY:CBIEnvelAdvInstr>
+>>
+
+templateMain(model) ::= <<
+<CBIAdvInstrMsg xmlns="urn:CBI:xsd:CBIAdvInstrMsg.002.05" 
+	xmlns:ADIN="urn:CBI:xsd:CBIAdvInstr.002.05" 
+	xmlns:BODY="urn:CBI:xsd:CBIBdyAdvInstr.002.05" 
+	xmlns:HE2E="urn:CBI:xsd:CBIHdrSrv.001.07" 
+	xmlns:HTRT="urn:CBI:xsd:CBIHdrTrt.001.07" 
+	xmlns:SGNT="urn:CBI:xsd:CBISgnInf.001.04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	$templateRecordTesta( rech = model.recorddiTesta )$
+	<CBIBdyAdvInstr>
+		$model.advinfBodyModel:{ advinfBody |
+			$templateBody( body=advinfBody )$
+		}$
+	</CBIBdyAdvInstr>
+</CBIAdvInstrMsg>
+>>
+
+templateRecordTesta(rech) ::= <<
+<CBIHdrTrt>
+	<HTRT:IdCBISndrf>$rech.idCBISndrf$</HTRT:IdCBISndrf>
+	<HTRT:IdCBIRcvrf>$rech.idCBIRcvrf$</HTRT:IdCBIRcvrf>
+	<HTRT:SrvNm>$rech.srvNm$</HTRT:SrvNm>
+	<HTRT:IdMsgTrt>$rech.idMsgTrt$</HTRT:IdMsgTrt>
+	<HTRT:XMLCrtDt>$rech.xMLCrtDt$</HTRT:XMLCrtDt>
+	<HTRT:RtrnAddrl>$rech.rtrnAddrl$</HTRT:RtrnAddrl>
+</CBIHdrTrt>
+<CBIHdrSrv>
+	<HE2E:SrvInfo>
+		<HE2E:SrvNm>$rech.srvNm$</HE2E:SrvNm>
+		<HE2E:IdE2EMsg>$rech.idE2EMsg$</HE2E:IdE2EMsg>
+		<HE2E:XMLCrtDt>$rech.xMLCrtDt1$</HE2E:XMLCrtDt>
+	</HE2E:SrvInfo>
+	<HE2E:Sender>
+		<HE2E:IdCBISend>$rech.idCBISend$</HE2E:IdCBISend>
+		<HE2E:SendTyp>$rech.sendTyp$</HE2E:SendTyp>
+		<HE2E:CBIRefrSend>$rech.cBIRefrSend$</HE2E:CBIRefrSend>
+	</HE2E:Sender>
+	<HE2E:Receiver>
+		<HE2E:IdCBIRecv>$rech.idCBIRecv$</HE2E:IdCBIRecv>
+		<HE2E:RecvTyp>$rech.recvTyp$</HE2E:RecvTyp>
+		<HE2E:CBIRefrRecv>$rech.cBIRefrRecv$</HE2E:CBIRefrRecv>
+	</HE2E:Receiver>
+	<HE2E:DiagInfo>
+		<HE2E:UsrBnk>$rech.idCBISend$</HE2E:UsrBnk> $! prima era $rech.usrBnk$ ora come da mail cim 090327-1602 !$
+		<HE2E:DiagVers>$rech.diagVers$</HE2E:DiagVers>
+		<HE2E:ChkSbj>$rech.idCBISndrf$</HE2E:ChkSbj> $! prima $rech.chkSbj$ ora come da mail cim 090327-1602 !$
+		<HE2E:ChkDt>$rech.chkDt$</HE2E:ChkDt>
+	</HE2E:DiagInfo>
+	<HE2E:CongrInfo>
+		<HE2E:SrvBdyNb>$rech.srvBdyNb$</HE2E:SrvBdyNb>
+	</HE2E:CongrInfo>
+</CBIHdrSrv>
+>>
+
+templateRecordTestaBody(rechb) ::= <<
+<ADIN:GrpHdr>
+	<ADIN:MsgId>$rechb.msgId$</ADIN:MsgId>
+	<ADIN:CreDtTm>$rechb.creDtTm$</ADIN:CreDtTm>
+	<ADIN:TxNb>$rechb.txNb$</ADIN:TxNb>
+	<ADIN:Rcpt>
+		<ADIN:PrtryId>
+			<ADIN:Id>$rechb.id$</ADIN:Id>
+			<ADIN:Issr>$rechb.issr$</ADIN:Issr>
+		</ADIN:PrtryId>
+		<ADIN:Nm>$rechb.nm$</ADIN:Nm>
+	</ADIN:Rcpt>
+	<ADIN:CdtrAgt>
+		<ADIN:PrtryId>
+			<ADIN:Id>$rechb.id1$</ADIN:Id>
+			<ADIN:Issr>$rechb.issr1$</ADIN:Issr>
+		</ADIN:PrtryId>
+		$if (rechb.bic)$ <ADIN:BIC>$rechb.bic$</ADIN:BIC>  $endif$
+		$if (rechb.clrSysMmbId)$ <ADIN:ClrSysMmbId>$rechb.clrSysMmbId$</ADIN:ClrSysMmbId>  $endif$				
+	</ADIN:CdtrAgt>
+</ADIN:GrpHdr>
+>>

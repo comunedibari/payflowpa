@@ -1,0 +1,36 @@
+group recordImpl;
+
+compilationUnit(pkgName, modelsPkgName, modelClassName, tipoRecord, recordSheet, interfaces) ::=<<
+package $pkgName$;
+
+$imports(modelsPkgName = modelsPkgName)$
+
+/**
+ * generated 
+ */
+public class $recordSheet.name$ extends CbiParserRecord implements 
+	BaseConverters, ConversionsConsts $if(interfaces)$ , $interfaces; separator=", "$  $endif$ {
+
+	private static final long serialVersionUID = 1L;
+	
+	public $recordSheet.name$() {
+		super(new NewInstanceObjectBuilder($modelsPkgName$.$modelClassName$.class), "$tipoRecord$");
+	}
+
+	$recordSheet.rows:singleConversion()$
+	
+}
+>>
+
+imports(modelsPkgName) ::=<<
+import it.nch.eb.common.converter.ConversionsConsts;
+import it.nch.eb.flatx.flatmodel.converters.BaseConverters;
+import it.nch.eb.flatx.bean.types.Converter;
+import it.nch.eb.flatx.flatmodel.flatfile.CbiParserRecord;
+import it.nch.eb.flatx.flatmodel.flatfile.NewInstanceObjectBuilder;
+>>
+
+singleConversion(row) ::=<<
+	public final Converter $row.name$ = create($row.type$);
+	
+>>

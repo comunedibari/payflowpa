@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <artifactId>eBMonitor</artifactId>
+        <groupId>it.tasgroup.idp</groupId>
+        <version>1.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>IdpCartJpa</artifactId>
+    <name>IdpCartJpa</name>
+    <version>${releaseVersion}</version>
+
+    <dependencies>       
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+        </dependency>
+        <!-- NOTA. CON QUESTO SU JB7 NON FUNZIONA !-->
+        <!-- QUESTO E' NECESSARIO SU JB5 -->
+        <dependency> 
+          <groupId>org.hibernate</groupId> 
+          <artifactId>hibernate-annotations</artifactId> 
+        </dependency> 
+        
+        <!-- IdpAppJap -->
+        <dependency>
+            <groupId>it.tasgroup.idp</groupId>
+            <artifactId>IdpAppJpa</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+    </dependencies>
+</project>
+

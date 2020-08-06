@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="FlussiModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.FlussiModel" />
+		
+  <resultMap id="FlussiResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.FlussiModel">
+  	<result property="flusso" column="FLUSSO" /> 
+  	  	<result property="dataCreazione" column="DATACREAZIONE" /> 
+  	  	<result property="oraCreazione" column="ORACREAZIONE" /> 
+  	  	<result property="utenteCreatore" column="UTENTECREATORE" /> 
+  	  	<result property="nomeSupporto" column="NOMESUPPORTO" /> 
+  	  	<result property="quantSicurezza" column="QUANT_SICUREZZA" /> 
+  	  	<result property="numDisposizioni" column="NUM_DISPOSIZIONI" /> 
+  	  	<result property="totImportiPos" column="TOT_IMPORTI_POS" /> 
+  	  	<result property="totImportiNeg" column="TOT_IMPORTI_NEG" /> 
+  	  	<result property="dimFlussoFirmato" column="DIM_FLUSSO_FIRMATO" /> 
+  	  	<result property="firmatario1" column="FIRMATARIO_1" /> 
+  	  	<result property="firmatario2" column="FIRMATARIO_2" /> 
+  	  	<result property="mac" column="MAC" /> 
+  	  	<result property="anticipoIncassi" column="ANTICIPOINCASSI" /> 
+  	  	<result property="divisa" column="DIVISA" /> 
+  	  	<result property="segnoImpPresent" column="SEGNO_IMP_PRESENT" /> 
+  	  	<result property="tipoServizio" column="TIPOSERVIZIO" /> 
+  	  	<result property="tracciato" column="TRACCIATO" /> 
+  	  	<result property="siaMittente" column="SIA_MITTENTE" /> 
+  	  	<result property="abiRicevente" column="ABI_RICEVENTE" /> 
+  	  	<result property="adisposizTesta" column="ADISPOSIZ_TESTA" /> 
+  	  	<result property="adisposizCoda" column="ADISPOSIZ_CODA" /> 
+  	  	<result property="divisaContoOrd" column="DIVISA_CONTO_ORD" /> 
+  	  	<result property="partizionamento" column="PARTIZIONAMENTO" /> 
+  	  	<result property="soggVeic" column="SOGG_VEIC" /> 
+  	  	<result property="ccF24" column="CC_F24" /> 
+  	  	<result property="numRecord" column="NUM_RECORD" /> 
+  	  	<result property="abiAccentratore" column="ABI_ACCENTRATORE" /> 
+  	  	<result property="tipoIncassoRid" column="TIPO_INCASSO_RID" /> 
+  	  	<result property="prodotto" column="PRODOTTO" /> 
+  	  	<result property="cucRicevente" column="CUC_RICEVENTE" /> 
+  	  	<result property="cucBancamittente" column="CUC_BANCAMITTENTE" /> 
+  	  	<result property="msgid" column="MSGID" /> 
+  	  	<result property="ide2e" column="IDE2E" /> 
+  	  	<result property="qualifMsg" column="QUALIFMSG" /> 
+  	  	<result property="credtTm" column="CREDTTM" /> 
+  	  	<result property="bicRicevente" column="BIC_RICEVENTE" /> 
+  	  	<result property="orgnlMsgId" column="ORGNLMSGID" /> 
+  	  	<result property="orgnlCredtTm" column="ORGNLCREDTTM" /> 
+  	  	<result property="grpStatus" column="GRPSTATUS" /> 
+  	  	<result property="idMittente" column="ID_MITTENTE" /> 
+  	  	<result property="idSystem" column="ID_SYSTEM" /> 
+  	  	<result property="idMittenteTrt" column="ID_MITTENTE_TRT" /> 
+  	  	<result property="idSystemTrt" column="ID_SYSTEM_TRT" /> 
+  	  	<result property="coVersione" column="CO_VERSIONE" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	
+  </resultMap>		
+
+<insert id="insertFlussi" parameterClass="FlussiModelType"><![CDATA[
+
+INSERT into ${FLUSSI} ( FLUSSO,DATACREAZIONE,ORACREAZIONE,UTENTECREATORE,NOMESUPPORTO,QUANT_SICUREZZA,NUM_DISPOSIZIONI,TOT_IMPORTI_POS,TOT_IMPORTI_NEG,DIM_FLUSSO_FIRMATO,FIRMATARIO_1,FIRMATARIO_2,MAC,ANTICIPOINCASSI,DIVISA,SEGNO_IMP_PRESENT,TIPOSERVIZIO,TRACCIATO,SIA_MITTENTE,ABI_RICEVENTE,ADISPOSIZ_TESTA,ADISPOSIZ_CODA,DIVISA_CONTO_ORD,PARTIZIONAMENTO,SOGG_VEIC,CC_F24,NUM_RECORD,ABI_ACCENTRATORE,TIPO_INCASSO_RID,PRODOTTO,CUC_RICEVENTE,CUC_BANCAMITTENTE,MSGID,IDE2E,QUALIFMSG,CREDTTM,BIC_RICEVENTE,ORGNLMSGID,ORGNLCREDTTM,GRPSTATUS,ID_MITTENTE,ID_SYSTEM,ID_MITTENTE_TRT,ID_SYSTEM_TRT,CO_VERSIONE,ST_RIGA,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO,OP_AGGIORNAMENTO,TS_AGGIORNAMENTO ) values
+(  #flusso:TIMESTAMP#, #dataCreazione:DATE#, #oraCreazione:TIME#, #utenteCreatore:VARCHAR#, #nomeSupporto:VARCHAR#, #quantSicurezza:VARCHAR#, #numDisposizioni:INTEGER#, #totImportiPos:VARCHAR#, #totImportiNeg:VARCHAR#, #dimFlussoFirmato:INTEGER#, #firmatario1:VARCHAR#, #firmatario2:VARCHAR#, #mac:VARCHAR#, #anticipoIncassi:VARCHAR#, #divisa:VARCHAR#, #segnoImpPresent:VARCHAR#, #tipoServizio:VARCHAR#, #tracciato:VARCHAR#, #siaMittente:VARCHAR#, #abiRicevente:VARCHAR#, #adisposizTesta:VARCHAR#, #adisposizCoda:VARCHAR#, #divisaContoOrd:VARCHAR#, #partizionamento:VARCHAR#, #soggVeic:VARCHAR#, #ccF24:VARCHAR#, #numRecord:INTEGER#, #abiAccentratore:VARCHAR#, #tipoIncassoRid:VARCHAR#, #prodotto:VARCHAR#, #cucRicevente:VARCHAR#, #cucBancamittente:VARCHAR#, #msgid:VARCHAR#, #ide2e:VARCHAR#, #qualifMsg:VARCHAR#, #credtTm:TIMESTAMP#, #bicRicevente:VARCHAR#, #orgnlMsgId:VARCHAR#, #orgnlCredtTm:TIMESTAMP#, #grpStatus:VARCHAR#, #idMittente:VARCHAR#, #idSystem:VARCHAR#, #idMittenteTrt:VARCHAR#, #idSystemTrt:VARCHAR#, #coVersione:VARCHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP# )
+
+]]></insert> 
+
+
+ 
+
+</sqlMap>

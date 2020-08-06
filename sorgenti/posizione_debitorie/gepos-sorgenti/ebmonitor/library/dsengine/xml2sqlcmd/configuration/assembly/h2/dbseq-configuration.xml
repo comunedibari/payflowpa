@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="tablesUidProvider" 
+		  class="it.nch.eb.xsqlcmd.dbtrpos.dao.BaseTablesUidProvider" >
+		<constructor-arg>
+				<bean class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTALPE_ID_ALLEGATO_seq</value>
+					</constructor-arg>
+				</bean>
+		</constructor-arg>
+		<constructor-arg>
+				<bean 
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTALPD_ID_ALPD_seq</value>
+					</constructor-arg>
+				</bean>
+		</constructor-arg>
+		<constructor-arg>
+				<bean 
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTCOPD_ID_CONDIZIONE_seq</value>
+					</constructor-arg>
+				</bean>		
+		</constructor-arg>
+		<constructor-arg>
+				<bean  
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTDEPD_ID_DESTINATARIO_seq</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>
+		
+		<constructor-arg>
+				<bean
+		  			 class="it.nch.eb.xsqlcmd.dao.TimeStampUidProvider"  >
+				</bean>				
+		</constructor-arg>
+		
+		<constructor-arg>
+				<bean 
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTPEND_ID_PENDENZA_seq</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>
+		<constructor-arg>
+				<bean 
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>JLTVOPD_ID_VOCE_seq</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>
+		<constructor-arg>
+				<bean  
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>ESITI_PENDENZA_Id_Esito_Pendenza_seq</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>	
+		<constructor-arg>
+				<bean  
+		  			 class="it.nch.eb.xsqlcmd.dao.H2SequenceUIdProvider"  >
+					<constructor-arg>
+						<value>ERRORI_ESITI_PENDENZA_id_errore_seq</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>		
+		<constructor-arg>
+				<bean  
+		  			 class="it.nch.eb.xsqlcmd.dao.DB2UidProvider" singleton="true" >
+					<constructor-arg>
+						<value>TRIBUTO_DETTAGLIO_SEQ</value>
+					</constructor-arg>
+				</bean>	
+		</constructor-arg>		
+
+	</bean>
+</beans>

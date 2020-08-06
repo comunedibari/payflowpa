@@ -1,0 +1,9 @@
+<error>
+	<condizioniPagamento>
+		<idPagamento>32323</idPagamento>
+		<importo>676</importo>
+	</condizioniPagamento>
+	<vociBilancio>
+		<sommaImporti>777</sommaImporti>
+	</vociBilancio>
+</error>

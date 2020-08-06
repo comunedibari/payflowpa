@@ -1,0 +1,10 @@
+group bonord_esiti_dbtr;
+
+cond(data) ::= <<
+	$if (data.ok)$ 
+		ok
+	$endif$
+	$if (data.value)$ 
+		value: $data.value$
+	$endif$
+>>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:include schemaLocation="ListaInformativePSP.xsd"/>
+	
+	<xsd:element name="nodoChiediInformativaPSP" type="nodoChiediInformativaPSPRisposta"/>
+	<xsd:complexType name="risposta">
+		<xsd:sequence>
+			<xsd:element name="fault" type="faultBean" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="faultBean">
+		<xsd:sequence>
+			<xsd:element name="faultCode" type="xsd:string" />
+			<xsd:element name="faultString" type="xsd:string" />
+			<xsd:element name="id" type="xsd:string" />
+			<xsd:element name="description" type="xsd:string"
+				minOccurs="0" />
+			<xsd:element name="serial" type="xsd:int" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="nodoChiediInformativaPSPRisposta">
+		<xsd:complexContent>
+			<xsd:extension base="risposta">
+				<xsd:sequence>
+					<!-- <xsd:element name="xmlInformativa" type="xsd:base64Binary"
+						minOccurs="0" xmime:expectedContentTypes="application/octet-stream"
+						xmlns:xmime="http://www.w3.org/2005/05/xmlmime" /> -->
+					<xsd:element name="listaInformativePSP" type="listaInformativePSPType"
+						minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+</xsd:schema>

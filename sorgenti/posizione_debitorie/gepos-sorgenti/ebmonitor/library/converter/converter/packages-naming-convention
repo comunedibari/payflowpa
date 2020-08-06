@@ -1,0 +1,8 @@
+src-folder
+- pkgprefix.records -> Record10, Record20, etc
+- pkgprefix.models -> modelli associati
+- pkgprefix.gen -> generatore 
+- pkgprefix.converters -> se fossero necessari dei converters
+- pkgprefix.objectconverters -> se fossero necessari dei specifici object converters
+- pkgprefix.verifiers -> verifiers
+- pkgprefix.parser -> ParsersFactory 

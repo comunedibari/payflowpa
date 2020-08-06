@@ -1,0 +1,77 @@
+<ns2:IdpAllineamentoPendenze
+	xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader"
+	xmlns:ns2="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze"
+	xmlns:ns3="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude"
+	xmlns:ns4="http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy"
+	xmlns:ns5="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito"
+	Versione="01.03-02">
+	<IdpHeader>
+		<TRT>
+			<ServiceName>IdpAllineamentoPendenze</ServiceName>
+			<MsgId>13690609547730006DEF</MsgId>
+			<XMLCrtDt>2013-05-20T16:42:34.0Z</XMLCrtDt>
+			<Sender>
+				<SenderId>RegioneToscana</SenderId>
+				<SenderSys>SIL_RTOSCANA_ITR</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>RTIRIS</ReceiverId>
+				<ReceiverSys>SIL_IRIS_ITR</ReceiverSys>
+			</Receiver>
+		</TRT>
+		<E2E>
+			<E2ESrvcNm>IdpAllineamentoPendenze</E2ESrvcNm>
+			<E2EMsgId>13690609547730006DEF</E2EMsgId>
+			<XMLCrtDt>2013-05-20T16:42:34.0Z</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>RegioneToscana</E2ESndrId>
+				<E2ESndrSys>SIL_RTOSCANA_ITR</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>RTIRIS</E2ERcvrId>
+				<E2ERcvrSys>SIL_IRIS_ITR</E2ERcvrSys>
+			</Receiver>
+		</E2E>
+	</IdpHeader>
+	<IdpOTF>
+		<URL_BACK>http://10.1.128.153:8081/otfsimulator/index.jsp</URL_BACK>
+		<URL_CANCEL>http://10.1.128.153:8081/otfsimulator/idpAllineamentoPendenzeEnteOTF.jsp
+		</URL_CANCEL>
+		<OFFLINE_PAYMENT_METHODS>false</OFFLINE_PAYMENT_METHODS>
+	</IdpOTF>
+	<ns2:IdpBody>
+		<ns2:Pendenza TipoOperazione="Insert" TipoPendenza="BOLLO_AUTO">
+			<ns2:IdPendenza>13690609547730006DEF</ns2:IdPendenza>
+			<ns2:Mittente>
+				<ns2:Id>WEB SIMUL OTF</ns2:Id>
+			</ns2:Mittente>
+			<ns2:Destinatari>
+				<ns2:Destinatario Tipo="Cittadino">
+					<ns2:Id>CCCCMN69R25L113H</ns2:Id>
+				</ns2:Destinatario>
+			</ns2:Destinatari>
+			<ns2:Note>nota bene nota bene</ns2:Note>
+			<ns2:Insert>
+				<ns2:DescrizioneCausale>TIPO=Lancia Y;TARGA=BP771AN
+				</ns2:DescrizioneCausale>
+				<ns2:DataCreazione>2013-05-20T16:42:34.0Z</ns2:DataCreazione>
+				<ns2:DataEmissione>2013-05-20T16:42:34.0Z</ns2:DataEmissione>
+				<ns2:DataPrescrizione>2013-05-20T16:42:34.0Z</ns2:DataPrescrizione>
+				<ns2:AnnoRiferimento>2013</ns2:AnnoRiferimento>
+				<ns2:Stato>Aperta</ns2:Stato>
+				<ns2:ImportoTotale>54.32</ns2:ImportoTotale>
+				<ns2:Divisa>EUR</ns2:Divisa>
+				<ns2:InfoPagamento TipoPagamento="Pagamento Unico">
+					<ns2:DettaglioPagamento>
+						<ns2:IdPagamento>13690609547730006DEF</ns2:IdPagamento>
+						<ns2:DataScadenza>2013-05-12</ns2:DataScadenza>
+						<ns2:DataInizioValidita>2013-05-01</ns2:DataInizioValidita>
+						<ns2:DataFineValidita>2013-06-29</ns2:DataFineValidita>
+						<ns2:Stato>Non Pagato</ns2:Stato>
+						<ns2:Importo>54.32</ns2:Importo>
+					</ns2:DettaglioPagamento>
+				</ns2:InfoPagamento>
+			</ns2:Insert>
+		</ns2:Pendenza>
+	</ns2:IdpBody>
+</ns2:IdpAllineamentoPendenze>

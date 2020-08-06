@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>it.nch.sebanc</groupId>
+		<artifactId>commons-deployer</artifactId>
+		<relativePath>../pom.xml</relativePath>
+		<version>0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>it.nch.sebanc</groupId>
+	<artifactId>eb-chkx</artifactId>
+	<version>${eb.chkx.version}</version>
+	<packaging>jar</packaging>
+	<name>validation errors utility project</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-common-utils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<sourceDirectory>src/main</sourceDirectory>
+	</build>
+	
+</project>

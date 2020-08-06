@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." >
+
+	<property file="build.properties" />
+
+	<!-- folder inside which xsds are included -->
+	<property name="gen.xsd-configuration.src.folder" value="src"/>
+
+	<!-- folder where .class of the eclipse project are included -->
+	<property name="build.classes.dir" location="./target/classes"/>
+	<property name="build.classes.dir1" location="./target/test-classes"/>
+	
+	<property name="eb-chkx"						location="${M2_REPO}/it/nch/sebanc/eb-chkx/0.1/eb-chkx-0.1.jar" />                
+	<property name="eb-common-utils"    location="${M2_REPO}/it/nch/sebanc/eb-common-utils/0.1/eb-common-utils-0.1.jar" />
+	<property name="eb-flatx"           location="${M2_REPO}/it/nch/sebanc/eb-flatx/0.2/eb-flatx-0.2.jar" />              
+	<property name="eb-tests-tool"      location="${M2_REPO}/it/nch/sebanc/eb-tests-tool/0.1/eb-tests-tool-0.1.jar" />    
+
+	<property name="ant"				location="${M2_REPO}/org/apache/ant/ant/1.7.1/ant-1.7.1.jar" />                  
+	<property name="ant-launcher"       location="${M2_REPO}/org/apache/ant/ant-launcher/1.7.1/ant-launcher-1.7.1.jar" />
+	<property name="antlr"              location="${M2_REPO}/antlr/antlr/2.7.7/antlr-2.7.7.jar" />                       
+	<property name="jcl-over-slf4j"     location="${M2_REPO}/org/slf4j/jcl-over-slf4j/1.5.2/jcl-over-slf4j-1.5.2.jar" /> 
+	<property name="jxl"                location="lib/jxl.jar" />                                                        
+	<property name="log4j"              location="${M2_REPO}/log4j/log4j/1.2.14/log4j-1.2.14.jar" />                     
+	<property name="slf4j-api"          location="${M2_REPO}/org/slf4j/slf4j-api/1.5.2/slf4j-api-1.5.2.jar" />           
+	<property name="slf4j-log4j12"      location="${M2_REPO}/org/slf4j/slf4j-log4j12/1.5.2/slf4j-log4j12-1.5.2.jar" />   
+	<property name="spring"             location="${M2_REPO}/org/springframework/spring/1.2.9/spring-1.2.9.jar" />       
+	<property name="stringtemplate"     location="${M2_REPO}/org/antlr/stringtemplate/3.2/stringtemplate-3.2.jar" />     
+
+	<path id="full.classpath">
+		<pathelement path="${build.classes.dir}"/>
+		<pathelement path="${build.classes.dir1}"/>
+		<pathelement path="${eb-chkx}" />
+		<pathelement path="${eb-common-utils}" />
+		<pathelement path="${eb-flatx}" />
+		<pathelement path="${ant}" />
+		<pathelement path="${ant-launcher}" />
+		<pathelement path="${antlr}" />
+		<pathelement path="${jcl-over-slf4j}" />
+		<pathelement path="${jxl}" />
+		<pathelement path="${log4j}" />
+		<pathelement path="${slf4j-api}" />
+		<pathelement path="${slf4j-log4j12}" />
+		<pathelement path="${spring}" />
+		<pathelement path="${stringtemplate}" />
+	</path>
+	
+	<target name="init-taks">
+		<taskdef resource="it/nch/eb/flatx/generator/ant/antlib.xml" >
+			<classpath refid="full.classpath" />
+		</taskdef>
+	</target>
+	
+	<target name="gen-advinf" description="generate advinf models" depends="init-taks">
+		<from-irecord-gen jarfile="target/eb-common-converter-0.5.jar" 
+			sourcefolder="src/java"
+			includeNames="RecordCoda;RecorddiTesta"
+			targetpackagename="it.nch.eb.common.converter.pmtreq.advinf.records.gen"
+			extendedinterfaces="it.nch.eb.common.converter.RecordCountIncTrigger; it.nch.eb.common.converter.TotalRecordsNumberProvider; it.nch.eb.flatx.flatmodel.FilePositionProvider "
+			recordspackage="it.nch.eb.common.converter.pmtreq.advinf.records"/>
+
+		<from-irecord-gen jarfile="target/eb-common-converter-0.5.jar" 
+			sourcefolder="src/java"
+			includeNames="RecordCodaBody;RecordTestaBody"
+			targetpackagename="it.nch.eb.common.converter.pmtreq.advinf.records.gen"
+			extendedinterfaces="it.nch.eb.common.converter.RecordCountIncTrigger; it.nch.eb.common.converter.BodyRecordsNumberProvider; it.nch.eb.common.converter.RecordCountProvider; it.nch.eb.flatx.flatmodel.FilePositionProvider"
+			recordspackage="it.nch.eb.common.converter.pmtreq.advinf.records"/>
+
+		<from-irecord-gen jarfile="target/eb-common-converter-0.5.jar" 
+			sourcefolder="src/java"
+			excludeNames="RecordCodaBody;RecordTestaBody;RecordCoda;RecorddiTesta"
+			targetpackagename="it.nch.eb.common.converter.pmtreq.advinf.records.gen"
+			extendedinterfaces="it.nch.eb.common.converter.RecordCountProvider; it.nch.eb.common.converter.RecordCountIncTrigger; it.nch.eb.flatx.flatmodel.FilePositionProvider "
+			recordspackage="it.nch.eb.common.converter.pmtreq.advinf.records"/>
+		
+		<from-irecord-gen jarfile="target/eb-common-converter-0.5.jar" 
+			sourcefolder="src/java"
+			excludePaserMethods="record20Parser;createRecordCodaParser;createRecordTestaParser"
+			targetpackagename="it.nch.eb.common.converter.pmtreq.advinf.records.gen"
+			extendedinterfaces="it.nch.eb.flatx.flatmodel.FilePositionProvider"
+			parserfactoryclass="it.nch.eb.common.converter.pmtreq.advinf.parser.AdvinfParserFactory"/>
+	</target>
+
+</project>

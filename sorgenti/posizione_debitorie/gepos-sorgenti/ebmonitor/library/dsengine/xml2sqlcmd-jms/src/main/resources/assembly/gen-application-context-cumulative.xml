@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<import resource="classpath:/assembly/h2/db-properties-context.xml"/>
+	<import resource="classpath:/assembly/h2/datasource.xml"/>
+	<import resource="classpath:/assembly/h2/dbseq-configuration.xml"/>
+	<import resource="classpath:/assembly/ibatis-application-context.xml" />
+                           
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="tcp://localhost:61616" />
+	</bean>
+	
+	<bean id="destinationFactory" class="it.nch.eb.xsqlcmd.jms.JmsTempQueueestinationFactory" />
+	
+	<bean id="executor" class="it.nch.eb.xsqlcmd.jms.JMSPendenzeListDispatcher">
+		<constructor-arg>
+			<ref bean="sqlMapClient"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="tablesUidProvider"/>
+		</constructor-arg>
+		<constructor-arg>
+			<value>50</value> <!-- number of pendenze processed by each consumer -->
+		</constructor-arg>
+		<constructor-arg>
+			<value>8</value> <!-- number  of consumers -->
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="connectionFactory"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="destinationFactory"/>
+		</constructor-arg>
+	</bean>
+
+</beans>

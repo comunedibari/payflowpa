@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+	<handler-chain>		
+		<!--  handler>
+			<handler-name>GenericWsHandlers</handler-name>
+			<handler-class>it.tasgroup.idp.handlers.GenericWsHandlers
+			</handler-class>
+		</handler>
+		
+		<handler>
+			<handler-name>SoapHandler</handler-name>
+			<handler-class>it.tasgroup.idp.handlers.SoapHandlers
+			</handler-class>
+		</handler> -->
+	</handler-chain>
+</handler-chains>

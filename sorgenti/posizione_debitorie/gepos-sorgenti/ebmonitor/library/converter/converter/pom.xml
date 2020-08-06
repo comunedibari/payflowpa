@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<parent>
+		<groupId>it.nch.sebanc</groupId>
+		<artifactId>converter-deployer</artifactId>
+		<version>0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<name>converter project</name>
+	<groupId>it.nch.sebanc</groupId>
+	<artifactId>eb-common-converter</artifactId>
+	<version>${eb.converter.version}</version>
+	<packaging>jar</packaging>
+
+	<build>
+		<sourceDirectory>src/java</sourceDirectory>
+	    <resources>
+			<resource>
+				<directory>src/java</directory>
+				<includes>
+					<include>**/*.stg</include>
+				</includes>
+			</resource>
+		</resources>
+		<testSourceDirectory>test/java</testSourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>test/resources</directory>
+			</testResource>
+			<testResource>
+				<directory>src/assemblies</directory>
+			</testResource>
+			<testResource>
+				<directory>resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>                                              
+				<executions>
+					<execution>
+						<id>add-test-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>test/stringtemplate/</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+      
+			
+		</plugins>
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-chkx</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-flatx</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-common-utils</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-tests-tool</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>flats-records-generator</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-mock</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>stringtemplate</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.ant</groupId>
+			<artifactId>ant</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+	</dependencies>
+
+</project>

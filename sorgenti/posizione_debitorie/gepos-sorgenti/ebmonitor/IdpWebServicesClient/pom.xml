@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>IdpWebServicesClient</artifactId>
+	<name>IdpWebServicesClient</name>
+	<description>IdpWebServicesClient</description>
+	<version>${releaseVersion}</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpUtil</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!-- cambio la posizione standard dei sorgenti per non modificare il repository preesistente -->
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+			</resource>
+		</resources>
+	</build>
+</project>

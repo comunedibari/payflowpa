@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="BolloAutoModelType"
+		type="it.tasgroup.idp.extensions.plugin.bolloauto.BolloAutoModel" />
+		
+<insert id="insertBolloAuto" parameterClass="BolloAutoModelType"><![CDATA[
+
+ INSERT into T_BOLLO_AUTO ( 
+ 	ID, 
+ 	ID_ENTE,
+ 	CF_SOGG_PASSIVO,
+	IMPORTO,
+	ANNO_RIF,
+ 	OP_INSERIMENTO,
+ 	TS_INSERIMENTO,
+ 	OP_AGGIORNAMENTO,
+ 	TS_AGGIORNAMENTO,
+ 	VERSION,
+ 	
+ 	TARGA,
+ 	TIPO_VEICOLO,
+ 	
+ 	MESI_VALIDITA,
+ 	DATA_DECORRENZA,
+ 	PAG_FRAZIONATO,
+ 	ST_RIGA
+ 	
+ 	
+ 	 ) 
+ 	
+ 	values (  
+ 	
+ 	#id:INTEGER#,
+    #idEnte:VARCHAR#,
+    #cfSoggettoPassivo:VARCHAR#,
+ 	#importo:DECIMAL#,
+	#annoRiferimento:INTEGER#,
+	#opInserimento:VARCHAR#,
+	#tsInserimento:TIMESTAMP#,
+	#opAggiornamento:VARCHAR#,
+	#tsAggiornamento:TIMESTAMP#,
+	#version:INTEGER#,
+	
+	#targa:VARCHAR#,
+	#tipoVeicolo:VARCHAR#,
+	
+	#intervalloValidita:INTEGER#,
+	#dataDecorrenza:DATE#,
+	#pagFrazionato:CHAR#,
+	'V'
+ 
+    )
+
+]]></insert> 
+
+
+<typeAlias alias="MultaModelType"
+		type="it.tasgroup.idp.extensions.plugin.multa.MultaModel" />
+		
+<insert id="insertMulta" parameterClass="MultaModelType"><![CDATA[
+
+ INSERT into T_MULTA ( 
+ 	ID, 
+ 	ID_ENTE,
+ 	CF_SOGG_PASSIVO,
+	IMPORTO,
+	ANNO_RIF,
+ 	OP_INSERIMENTO,
+ 	TS_INSERIMENTO,
+ 	OP_AGGIORNAMENTO,
+ 	TS_AGGIORNAMENTO,
+ 	VERSION,
+ 	
+ 	TARGA,
+ 	NUM_VERBALE,
+ 	DATA_VERBALE,
+ 	SERIE_VERBALE
+ 	
+ 	 ) 
+ 	
+ 	values (  
+ 	
+ 	#id:INTEGER#,
+    #idEnte:VARCHAR#,
+    #cfSoggettoPassivo:VARCHAR#,
+ 	#importo:DECIMAL#,
+	#annoRiferimento:INTEGER#,
+	#opInserimento:VARCHAR#,
+	#tsInserimento:TIMESTAMP#,
+	#opAggiornamento:VARCHAR#,
+	#tsAggiornamento:TIMESTAMP#,
+	#version:INTEGER#,
+	
+	#targa:VARCHAR#,
+	#numeroVerbale:VARCHAR#,
+	#dataVerbale:TIMESTAMP#,
+	#serieVerbale:VARCHAR#
+	 
+    )
+
+]]></insert> 
+
+
+</sqlMap>

@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>eBMonitor</artifactId>
+    <groupId>it.tasgroup.idp</groupId>
+    <version>1.0</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>EBM_eBMonitor_conf</artifactId>
+  <name>EBM_eBMonitor_conf</name>
+  <description>EBM_eBMonitor_conf - CONFIGURAZIONI</description>
+  <version>${releaseVersion}</version>
+  <packaging>jar</packaging>
+
+  <properties>
+    <outputDirectory>${outputRoot}/Backend</outputDirectory>
+
+    <be.release.folder>${outputRoot}/be/${releaseVersion}</be.release.folder>
+  </properties>
+  <build>
+    <!-- cambio la posizione standard dei sorgenti per non modificare il repository  preesistente -->
+    <resources>
+      <resource>
+        <directory>configuration</directory>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>configuration-pack</id>
+            <phase>install</phase>
+            <configuration>
+              <tasks>
+                <echo>=====================================</echo>
+                <echo>   Producing configuration archive   </echo>
+                <echo>=====================================</echo>
+                <!--
+                <delete failonerror="false">
+                   <fileset dir="${outputDirectory}" includes="*.tar"/>
+                </delete>
+                
+                <mkdir dir="${outputDirectory}" />
+				 -->
+                <!-- N.B. prendo i file dalla target per eventuale uso futuro dei filtri -->
+   
+               
+								
+				<!-- PayFlowPA -->				
+								<mkdir dir="${be.release.folder}/gepos" />
+								<tar basedir="target/classes/gepos-test"   destfile="${be.release.folder}/gepos/gepos-gpd-test.tar" />
+
+												
+
+
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

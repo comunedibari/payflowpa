@@ -1,0 +1,27 @@
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.1">
+  <!--  <bindings schemaLocation="wsdl/InvioNotificaPagamento.wsdl#types1">
+    <schemaBindings>
+      <package name="it.tasgroup.idp.ws.otf.rfc145"/>
+    </schemaBindings>
+  </bindings>-->
+  <bindings schemaLocation="./wsdl/IdP.InformativaPagamento.xsd">
+    <schemaBindings>
+      <package name="it.tasgroup.idp.ws.otf.rfc145"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="./wsdl/IdP.Esito.xsd">
+    <schemaBindings>
+      <package name="it.tasgroup.idp.ws.otf.common"/>
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="./wsdl/IdP.Header.xsd">
+    <schemaBindings>
+      <package name="it.tasgroup.idp.ws.otf.common"/>
+    </schemaBindings>
+  </bindings>  
+  <bindings schemaLocation="./wsdl/IdP.Include.xsd">
+    <schemaBindings>
+      <package name="it.tasgroup.idp.ws.otf.common"/>
+    </schemaBindings>
+  </bindings>
+</bindings>

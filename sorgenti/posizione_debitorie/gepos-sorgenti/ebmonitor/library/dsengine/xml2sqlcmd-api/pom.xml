@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.nch.sebanc</groupId>
+		<artifactId>dse-engine-deployer</artifactId>
+		<version>0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>it.nch.sebanc</groupId>
+	<artifactId>eb-xml2sql-api</artifactId>
+	<version>${eb.xml2sql-api.version}</version> 
+	<packaging>jar</packaging>
+	<name>xmlSqlCommand api</name>
+	
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

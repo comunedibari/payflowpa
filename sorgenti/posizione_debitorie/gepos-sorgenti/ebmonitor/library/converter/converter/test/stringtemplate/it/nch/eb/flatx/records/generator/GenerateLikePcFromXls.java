@@ -1,0 +1,66 @@
+/**
+ * Created on 20/mar/08
+ */
+package it.nch.eb.flatx.records.generator;
+
+import it.nch.eb.flatx.flatmodel.converters.BaseConverters;
+import it.nch.eb.flatx.generator.xls.XlsOrFactory;
+import it.nch.eb.flatx.generator.xls.recordimpl.RecordImplFromXlsGenarator;
+
+import java.io.File;
+
+import jxl.Sheet;
+import jxl.Workbook;
+
+
+/**
+ * @author gdefacci
+ */
+public class GenerateLikePcFromXls {
+
+	static final File srcFolder = new File("D:/java/projects/flattener/conversions-project/src/java");
+	static final String pkgName = "it.nch.eb.common.converter.pmtreq.likepc_1";
+	static final File workBookFile = new File("D:/java/projects/flattener/conversions-project/docs/Tracciato like PC.xls");
+	
+	public static void main_(String[] args) throws Exception {
+		Workbook workBoook = Workbook.getWorkbook(workBookFile);
+		RecordImplFromXlsGenarator generator = new RecordImplFromXlsGenarator(srcFolder, pkgName);
+		generator
+			.addType("datetime19", "dateTime19")
+			.addType("number13_2", "fd_number13_2")
+			.addTypesContainer(BaseConverters.class)
+			.addCustomGenerator("or", new XlsOrFactory())
+			.setIgnoreNamesColumn(true)
+			.skipSheet("Record 50-60")		// hand written
+			.skipSheet("Record EF");  		// generated and customized
+		generator.generate(workBoook);
+	}
+	
+	public static void main(String[] args) throws Exception {
+		try {
+			generate10();
+			System.out.println("flk");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public static void generate40() throws Exception {
+		Sheet sheet40 = Workbook.getWorkbook(workBookFile).getSheet("Record 40");
+		 RecordImplFromXlsGenarator generator = new RecordImplFromXlsGenarator(srcFolder, pkgName)
+			.setIgnoreNamesColumn(true).addCustomGenerator("or", new XlsOrFactory());
+		generator.generate(sheet40);
+	}
+	
+
+	public static void generate10() throws Exception {
+		Sheet sheet10 = Workbook.getWorkbook(workBookFile).getSheet("Record 10");
+		 RecordImplFromXlsGenarator generator = new RecordImplFromXlsGenarator(srcFolder, pkgName)
+			.addType("datetime19", "dateTime19")
+			.addType("number13_2", "fd_number13_2")
+			.addTypesContainer(BaseConverters.class)
+			.setIgnoreNamesColumn(true).addCustomGenerator("or", new XlsOrFactory());
+		generator.generate(sheet10);
+	}
+}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	name="RiconciliazioneFlussiContabili" targetNamespace="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/">
+	<wsdl:types>
+		<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/"
+			targetNamespace="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/"
+			version="1.0">
+
+			<xsd:element name="InvioFlussoContabileRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+						<xsd:element name="IdentificativoSupporto" type="tns:stText35" />
+						<xsd:element name="TipoFlusso" type="tns:TipoFlussoType" />
+						<xsd:element name="Flusso" type="xsd:base64Binary"
+							xmime:expectedContentTypes="application/octet-stream"
+							xmlns:xmime="http://www.w3.org/2005/05/xmlmime" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="InvioFlussoContabileResponse" type="tns:InvioFlussoContabileResponseType" />
+
+			<xsd:element name='InvioFlussoContabileResponseType'
+				type='tns:InvioFlussoContabileResponseType' />
+			<xsd:complexType name='InvioFlussoContabileResponseType'>
+				<xsd:complexContent>
+					<xsd:extension base="tns:ResponseBase">
+						<xsd:sequence>
+							<xsd:element minOccurs='0' name='Body'
+								type="tns:InvioFlussoContabileResponseBodyType" />
+						</xsd:sequence>
+					</xsd:extension>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name='InvioFlussoContabileResponseBodyType'>
+				<xsd:sequence>
+					<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+					<xsd:element name="IdentificativoSupporto" type="tns:stText35" />
+					<xsd:element name="TipoFlusso" type="tns:stText2" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name="RicezioneRapportoDiRiconciliazioneRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+						<xsd:element name="IdentificativoSupporto" type="tns:stText35" />
+						<xsd:element name="TipoFlusso" type="tns:TipoFlussoType" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="RicezioneRapportoDiRiconciliazioneResponse" type="tns:RicezioneRapportoDiRiconciliazioneResponseType" />
+
+			<xsd:element name='RicezioneRapportoDiRiconciliazioneResponseType' type='tns:RicezioneRapportoDiRiconciliazioneResponseType' />
+			<xsd:complexType name='RicezioneRapportoDiRiconciliazioneResponseType'>
+				<xsd:complexContent>
+					<xsd:extension base="tns:ResponseBase">
+						<xsd:sequence>
+							<xsd:element minOccurs='0' name='Body'
+								type="tns:RicezioneRapportoDiRiconciliazioneResponseBodyType" />
+						</xsd:sequence>
+					</xsd:extension>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name='RicezioneRapportoDiRiconciliazioneResponseBodyType'>
+				<xsd:sequence>
+					<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+					<xsd:element name="IdentificativoSupporto" type="tns:stText35" />
+					<xsd:element name="TipoFlusso" type="tns:stText2" />
+					<xsd:element name="RDR" type="xsd:base64Binary"
+						xmime:expectedContentTypes="application/octet-stream" 
+						xmlns:xmime="http://www.w3.org/2005/05/xmlmime" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name='ResponseBase'>
+				<xsd:sequence>
+					<xsd:element minOccurs='0' name='Fault' type='tns:FaultType' />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name='FaultType'>
+				<xsd:sequence>
+					<xsd:element name='FaultCode' type='tns:stText35' />
+					<xsd:element name='FaultString' type='tns:stText512' />
+					<xsd:element name='FaultDescription' type='tns:stText512' />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:simpleType name='TipoFlussoType'>
+				<xsd:restriction base="tns:stText2">
+					<xsd:enumeration value="RE" />
+					<xsd:enumeration value="GC" />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText2'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='2' />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText35'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='35' />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText512'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='512' />
+				</xsd:restriction>
+			</xsd:simpleType>
+
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="InvioFlussoContabileRequest">
+		<wsdl:part element="tns:InvioFlussoContabileRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="InvioFlussoContabileResponse">
+		<wsdl:part element="tns:InvioFlussoContabileResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="RicezioneRapportoDiRiconciliazioneRequest">
+		<wsdl:part element="tns:RicezioneRapportoDiRiconciliazioneRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="RicezioneRapportoDiRiconciliazioneResponse">
+		<wsdl:part element="tns:RicezioneRapportoDiRiconciliazioneResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:portType name="RiconciliazioneFlussiContabili">
+		<wsdl:operation name="InvioFlussoContabile">
+			<wsdl:input message="tns:InvioFlussoContabileRequest" />
+			<wsdl:output message="tns:InvioFlussoContabileResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="RicezioneRapportoDiRiconciliazione">
+			<wsdl:input message="tns:RicezioneRapportoDiRiconciliazioneRequest" />
+			<wsdl:output message="tns:RicezioneRapportoDiRiconciliazioneResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="RiconciliazioneFlussiContabiliSOAP"
+		type="tns:RiconciliazioneFlussiContabili">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="InvioFlussoContabile">
+			<soap:operation
+				soapAction="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/InvioFlussoContabile" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="RicezioneRapportoDiRiconciliazione">
+			<soap:operation
+				soapAction="http://idp.tasgroup.it/RiconciliazioneFlussiContabili/RicezioneRapportoDiRiconciliazione" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	
+	<wsdl:service name="RiconciliazioneFlussiContabili">
+		<wsdl:port binding="tns:RiconciliazioneFlussiContabiliSOAP"
+			name="RiconciliazioneFlussiContabiliSOAP">
+			<soap:address
+				location="http://idp.tasgroup.it/IdpBillerNdPServices/RiconciliazioneFlussiContabili" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

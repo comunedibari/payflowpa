@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.openspcoop2.org/core/diagnostica/management" name="MessaggioDiagnosticoService" targetNamespace="http://www.openspcoop2.org/core/diagnostica/management">
+  <wsdl:types>
+<xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.openspcoop2.org/core/diagnostica/management">
+			<xs:import namespace="http://www.openspcoop2.org/core/diagnostica/management" 
+			schemaLocation="MessaggioDiagnosticoSearch.xsd"
+			/>
+			
+<!-- 			<xs:import namespace="http://www.openspcoop2.org/core/diagnostica/management"  -->
+<!-- 			schemaLocation="http://159.213.227.156:8080/openspcoop2Diagnostica/MessaggioDiagnostico/Soap11?xsd=MessaggioDiagnosticoSearch.xsd" -->
+<!-- 			/> -->
+		</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="diagnostica-not-implemented-exception">
+    <wsdl:part element="tns:diagnostica-not-implemented-exception" name="diagnostica-not-implemented-exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="diagnostica-service-exception">
+    <wsdl:part element="tns:diagnostica-service-exception" name="diagnostica-service-exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllResponse">
+    <wsdl:part element="tns:findAllResponse" name="findAllResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="diagnostica-not-authorized-exception">
+    <wsdl:part element="tns:diagnostica-not-authorized-exception" name="diagnostica-not-authorized-exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="diagnostica-multiple-result-exception">
+    <wsdl:part element="tns:diagnostica-multiple-result-exception" name="diagnostica-multiple-result-exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="count">
+    <wsdl:part element="tns:count" name="count">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="diagnostica-not-found-exception">
+    <wsdl:part element="tns:diagnostica-not-found-exception" name="diagnostica-not-found-exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAll">
+    <wsdl:part element="tns:findAll" name="findAll">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="countResponse">
+    <wsdl:part element="tns:countResponse" name="countResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MessaggioDiagnostico">
+    <wsdl:operation name="findAll">
+      <wsdl:input message="tns:findAll" name="findAll">
+    </wsdl:input>
+      <wsdl:output message="tns:findAllResponse" name="findAllResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:diagnostica-not-authorized-exception" name="diagnostica-not-authorized-exception">
+    </wsdl:fault>
+      <wsdl:fault message="tns:diagnostica-not-implemented-exception" name="diagnostica-not-implemented-exception">
+    </wsdl:fault>
+      <wsdl:fault message="tns:diagnostica-service-exception" name="diagnostica-service-exception">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="count">
+      <wsdl:input message="tns:count" name="count">
+    </wsdl:input>
+      <wsdl:output message="tns:countResponse" name="countResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:diagnostica-not-authorized-exception" name="diagnostica-not-authorized-exception">
+    </wsdl:fault>
+      <wsdl:fault message="tns:diagnostica-not-implemented-exception" name="diagnostica-not-implemented-exception">
+    </wsdl:fault>
+      <wsdl:fault message="tns:diagnostica-service-exception" name="diagnostica-service-exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

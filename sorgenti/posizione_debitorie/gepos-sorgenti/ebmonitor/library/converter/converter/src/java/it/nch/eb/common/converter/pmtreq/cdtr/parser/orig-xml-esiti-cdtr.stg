@@ -1,0 +1,456 @@
+group bonord_esiti_cdtr;
+
+templateRecord86(rec86) ::= <<
+<CPSR:DestCdtrRsp>
+	<CPSR:Nm>$rec86.nm$</CPSR:Nm>
+	<CPSR:Id>
+		<CPSR:OrgId>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec86.id$</CPSR:Id>
+				<CPSR:Issr>$rec86.issr$</CPSR:Issr>
+			</CPSR:PrtryId>
+		</CPSR:OrgId>
+	</CPSR:Id>
+</CPSR:DestCdtrRsp>
+>>
+
+templateRecord84(rec84) ::= <<
+<CPSR:UltmtCdtr>
+	<CPSR:Nm>$rec84.cpsr_nm$</CPSR:Nm>
+	<CPSR:PstlAdr>
+		<CPSR:AdrTp>$rec84.adrTp$</CPSR:AdrTp>
+		<CPSR:AdrLine>$rec84.adrLine_1$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec84.adrLine_2$</CPSR:AdrLine>
+		<CPSR:StrtNm>$rec84.strtNm$</CPSR:StrtNm>
+		<CPSR:BldgNb>$rec84.bldgNb$</CPSR:BldgNb>
+		<CPSR:PstCd>$rec84.pstCd$</CPSR:PstCd>
+		<CPSR:TwnNm>$rec84.twnNm$</CPSR:TwnNm>
+		<CPSR:CtrySubDvsn>$rec84.ctrySubDvsn$</CPSR:CtrySubDvsn>
+		<CPSR:Ctry>$rec84.ctry$</CPSR:Ctry>
+	</CPSR:PstlAdr>
+	<CPSR:Id>
+		<CPSR:OrgId>
+			<CPSR:BEI>$rec84.bei$</CPSR:BEI>
+			<CPSR:TaxIdNb>$rec84.taxIdNb$</CPSR:TaxIdNb>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec84.id$</CPSR:Id>
+				<CPSR:Issr>$rec84.issr$</CPSR:Issr>
+				<CPSR:OthrId>
+					<CPSR:TaxIdNb>$rec84.taxIdNb1$</CPSR:TaxIdNb>
+					<CPSR:Id>$rec84.id1$</CPSR:Id>
+					<CPSR:IdTp>$rec84.idTp$</CPSR:IdTp>
+				</CPSR:OthrId>
+			</CPSR:PrtryId>
+		</CPSR:OrgId>
+	</CPSR:Id>
+</CPSR:UltmtCdtr>
+>>
+
+templateRecord80(rec80) ::= <<
+<CPSR:UltmtDbtr>
+	<CPSR:Nm>$rec80.nm$</CPSR:Nm>
+	<CPSR:PstlAdr>
+		<CPSR:AdrTp>$rec80.adrTp$</CPSR:AdrTp>
+		<CPSR:AdrLine>$rec80.adrLine_1$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec80.adrLine_2$</CPSR:AdrLine>
+		<CPSR:StrtNm>$rec80.strNm$</CPSR:StrtNm>
+		<CPSR:BldgNb>$rec80.bldgNb$</CPSR:BldgNb>
+		<CPSR:PstCd>$rec80.pstCd$</CPSR:PstCd>
+		<CPSR:TwnNm>$rec80.twnNm$</CPSR:TwnNm>
+		<CPSR:CtrySubDvsn>$rec80.ctrySubDvsn$</CPSR:CtrySubDvsn>
+		<CPSR:Ctry>$rec80.ctry$</CPSR:Ctry>
+	</CPSR:PstlAdr>
+</CPSR:UltmtDbtr>
+<CPSR:Dbtr>
+	<CPSR:Nm>$rec80.nm1$</CPSR:Nm>
+	<CPSR:Id>
+		<CPSR:OrgId>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec80.id$</CPSR:Id>
+				<CPSR:Issr>$rec80.issr$</CPSR:Issr>
+			</CPSR:PrtryId>
+			<CPSR:TaxIdNb>$rec80.taxIdNb$</CPSR:TaxIdNb>
+		</CPSR:OrgId>
+	</CPSR:Id>
+</CPSR:Dbtr>
+<CPSR:DbtrAgt>
+	<CPSR:FinInstnId>
+		<CPSR:BIC>$rec80.bic$</CPSR:BIC>
+		<CPSR:ClrSysMmbId>
+			<CPSR:Prtry>$rec80.prtry$</CPSR:Prtry>
+		</CPSR:ClrSysMmbId>
+	</CPSR:FinInstnId>
+</CPSR:DbtrAgt>
+>>
+
+templateRecord82(rec82) ::= <<
+<CPSR:CdtrAgt>
+	<CPSR:FinInstnId>
+		<CPSR:BIC>$rec82.bic$</CPSR:BIC>
+	</CPSR:FinInstnId>
+</CPSR:CdtrAgt>
+<CPSR:Cdtr>
+	<CPSR:Nm>$rec82.nm$</CPSR:Nm>
+	<CPSR:PstlAdr>
+		<CPSR:AdrTp>$rec82.adrTp$</CPSR:AdrTp>
+		<CPSR:AdrLine>$rec82.adrLine_1$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec82.adrLine_2$</CPSR:AdrLine>
+		<CPSR:StrtNm>$rec82.strtNm$</CPSR:StrtNm>
+		<CPSR:BldgNb>$rec82.bldgNb$</CPSR:BldgNb>
+		<CPSR:PstCd>$rec82.pstCd$</CPSR:PstCd>
+		<CPSR:TwnNm>$rec82.twnNm$</CPSR:TwnNm>
+		<CPSR:CtrySubDvsn>$rec82.ctrySubDvsn$</CPSR:CtrySubDvsn>
+		<CPSR:Ctry>$rec82.ctry$</CPSR:Ctry>
+	</CPSR:PstlAdr>
+	<CPSR:Id>
+		<CPSR:OrgId>
+			<CPSR:BEI>$rec82.bei$</CPSR:BEI>
+			<CPSR:TaxIdNb>$rec82.taxIdNb$</CPSR:TaxIdNb>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec82.id$</CPSR:Id>
+				<CPSR:Issr>$rec82.issr$</CPSR:Issr>
+			</CPSR:PrtryId>
+		</CPSR:OrgId>
+		<CPSR:PrvtId>
+			<CPSR:TaxIdNb>$rec82.taxIdNb1$</CPSR:TaxIdNb>
+			<CPSR:OthrId>
+				<CPSR:Id>$rec82.id1$</CPSR:Id>
+				<CPSR:IdTp>$rec82.idTp$</CPSR:IdTp>
+			</CPSR:OthrId>
+		</CPSR:PrvtId>
+	</CPSR:Id>
+</CPSR:Cdtr>
+<CPSR:CdtrAcct>
+	<CPSR:Id>
+		<CPSR:IBAN>$rec82.iban$</CPSR:IBAN>
+		<CPSR:BBAN>$rec82.bban$</CPSR:BBAN>
+	</CPSR:Id>
+</CPSR:CdtrAcct>
+>>
+
+templateRecord69(rec69) ::= <<
+<CPSR:PrvtId>
+	<CPSR:TaxIdNb>$rec69.taxIdNb$</CPSR:TaxIdNb>
+	<CPSR:SclSctyNb>$rec69.sclSctyNb$</CPSR:SclSctyNb>
+	<CPSR:PsptNb>$rec69.psptNb$</CPSR:PsptNb>
+	<CPSR:OthrId>
+		<CPSR:Id>$rec69.id$</CPSR:Id>
+		<CPSR:IdTp>$rec69.idTp$</CPSR:IdTp>
+	</CPSR:OthrId>
+	<CPSR:MplyrIdNb>$rec69.mplyrIdNb$</CPSR:MplyrIdNb>
+	<CPSR:IdntyCardNb>$rec69.idntyCardNb$</CPSR:IdntyCardNb>
+	<CPSR:DtAndPlcOfBirth>
+		<CPSR:BirthDt>$rec69.birthDt$</CPSR:BirthDt>
+		<CPSR:CityOfBirth>$rec69.cityOfBirth$</CPSR:CityOfBirth>
+		<CPSR:CtryOfBirth>$rec69.ctryOfBirth$</CPSR:CtryOfBirth>
+	</CPSR:DtAndPlcOfBirth>
+	<CPSR:DrvrsLicNb>$rec69.drvrsLicNb$</CPSR:DrvrsLicNb>
+	<CPSR:CstmrNb>$rec69.cstmrNb$</CPSR:CstmrNb>
+	<CPSR:AlnRegnNb>$rec69.alnRegnNb$</CPSR:AlnRegnNb>
+	<CPSR:Issr>$rec69.issr$</CPSR:Issr>
+	<CPSR:DrvrsLicNb>$rec69.drvrsLicNb$</CPSR:DrvrsLicNb>
+</CPSR:PrvtId>
+>>
+
+templateRecord68(rec68, rec69) ::= <<
+<CPSR:Invcee>
+	<CPSR:Nm>String</CPSR:Nm>
+	<CPSR:PstlAdr>
+		<CPSR:AdrTp>$rec68.adrTp$</CPSR:AdrTp>
+		<CPSR:AdrLine>$rec68.adrLine_1$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec68.adrLine_2$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec68.adrLine_3$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec68.adrLine_4$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec68.adrLine_5$</CPSR:AdrLine>
+		<CPSR:StrtNm>$rec68.strtNm$</CPSR:StrtNm>
+		<CPSR:BldgNb>$rec68.bldgNb$</CPSR:BldgNb>
+		<CPSR:PstCd>$rec68.pstCd$</CPSR:PstCd>
+		<CPSR:TwnNm>$rec68.twnNm$</CPSR:TwnNm>
+		<CPSR:CtrySubDvsn>$rec68.ctrySubDvsn$</CPSR:CtrySubDvsn>
+		<CPSR:Ctry>$rec68.ctry$</CPSR:Ctry>
+	</CPSR:PstlAdr>
+	<CPSR:Id>
+		$templateRecord69(rec69)$
+		<CPSR:OrgId>
+			<CPSR:BIC>$rec68.bic$</CPSR:BIC>
+			<CPSR:IBEI>$rec68.ibei$</CPSR:IBEI>
+			<CPSR:BEI>$rec68.bei$</CPSR:BEI>
+			<CPSR:EANGLN>$rec68.eangln$</CPSR:EANGLN>
+			<CPSR:USCHU>$rec68.uschu$</CPSR:USCHU>
+			<CPSR:DUNS>$rec68.duns$</CPSR:DUNS>
+			<CPSR:BkPtyId>$rec68.bkPtyId$</CPSR:BkPtyId>
+			<CPSR:TaxIdNb>$rec68.taxIdNb$</CPSR:TaxIdNb>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec68.id$</CPSR:Id>
+				<CPSR:Issr>$rec68.issr$</CPSR:Issr>
+			</CPSR:PrtryId>
+		</CPSR:OrgId>
+	</CPSR:Id>
+	<CPSR:CtryOfRes>$rec68.ctryOfRes$</CPSR:CtryOfRes>
+</CPSR:Invcee>
+>>
+
+templateRecord67(rec67) ::= <<
+<CPSR:PrvtId>
+	<CPSR:TaxIdNb>$rec67.taxIdNb$</CPSR:TaxIdNb>
+	<CPSR:SclSctyNb>$rec67.sclSctyNb$</CPSR:SclSctyNb>
+	<CPSR:PsptNb>$rec67.psptNb$</CPSR:PsptNb>
+	<CPSR:OthrId>
+		<CPSR:Id>$rec67.id$</CPSR:Id>
+		<CPSR:IdTp>$rec67.idTp$</CPSR:IdTp>
+	</CPSR:OthrId>
+	<CPSR:MplyrIdNb>$rec67.mplyrIdNb$</CPSR:MplyrIdNb>
+	<CPSR:IdntyCardNb>$rec67.idntyCardNb$</CPSR:IdntyCardNb>
+	<CPSR:DtAndPlcOfBirth>
+		<CPSR:BirthDt>$rec67.birthDt$</CPSR:BirthDt>
+		<CPSR:CityOfBirth>$rec67.cityOfBirth$</CPSR:CityOfBirth>
+		<CPSR:CtryOfBirth>$rec67.ctryOfBirth$</CPSR:CtryOfBirth>
+	</CPSR:DtAndPlcOfBirth>
+	<CPSR:DrvrsLicNb>$rec67.drvrsLicNb$</CPSR:DrvrsLicNb>
+	<CPSR:CstmrNb>$rec67.cstmrNb$</CPSR:CstmrNb>
+	<CPSR:AlnRegnNb>$rec67.alnRegnNb$</CPSR:AlnRegnNb>
+	<CPSR:Issr>$rec67.issr$</CPSR:Issr>
+	<CPSR:DrvrsLicNb>$rec67.drvrsLicNb$</CPSR:DrvrsLicNb>
+</CPSR:PrvtId>
+>>
+
+templateRecord66(rec66, rec67) ::= <<
+<CPSR:Invcr>
+	<CPSR:Nm>$rec66.nm$</CPSR:Nm>
+	<CPSR:PstlAdr>
+		<CPSR:AdrTp>$rec66.adrTp$</CPSR:AdrTp>
+		<CPSR:AdrLine>$rec66.adrLine_1$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec66.adrLine_2$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec66.adrLine_3$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec66.adrLine_4$</CPSR:AdrLine>
+		<CPSR:AdrLine>$rec66.adrLine_5$</CPSR:AdrLine>
+		<CPSR:StrtNm>$rec66.strtNm$</CPSR:StrtNm>
+		<CPSR:BldgNb>$rec66.bldgNb$</CPSR:BldgNb>
+		<CPSR:PstCd>$rec66.pstCd$</CPSR:PstCd>
+		<CPSR:TwnNm>$rec66.twnNm$</CPSR:TwnNm>
+		<CPSR:CtrySubDvsn>$rec66.ctrySubDvsn$</CPSR:CtrySubDvsn>
+		<CPSR:Ctry>$rec66.ctry$</CPSR:Ctry>
+	</CPSR:PstlAdr>
+	<CPSR:Id>
+		$templateRecord67(rec67)$
+		<CPSR:OrgId>
+			<CPSR:BIC>$rec66.bic$</CPSR:BIC>
+			<CPSR:IBEI>$rec66.ibei$</CPSR:IBEI>
+			<CPSR:BEI>$rec66.bei$</CPSR:BEI>
+			<CPSR:EANGLN>$rec66.eangln$</CPSR:EANGLN>
+			<CPSR:USCHU>$rec66.uschu$</CPSR:USCHU>
+			<CPSR:DUNS>$rec66.duns$</CPSR:DUNS>
+			<CPSR:BkPtyId>$rec66.bkPtyId$</CPSR:BkPtyId>
+			<CPSR:TaxIdNb>$rec66.taxIdNb$</CPSR:TaxIdNb>
+			<CPSR:PrtryId>
+				<CPSR:Id>$rec66.id$</CPSR:Id>
+				<CPSR:Issr>$rec66.issr$</CPSR:Issr>
+			</CPSR:PrtryId>
+		</CPSR:OrgId>
+	</CPSR:Id>
+	<CPSR:CtryOfRes>$rec66.ctryOfRes$</CPSR:CtryOfRes>
+</CPSR:Invcr>
+>>
+
+templateRecord62(rec60s) ::= <<
+<CPSR:RmtInf>
+	$templateRecord60(rec60s.record60)$
+	<CPSR:Strd>
+		<CPSR:RfrdDocInf>
+			<CPSR:RfrdDocTp>
+				<CPSR:Cd>$rec60s.record62.cd$</CPSR:Cd>
+				<CPSR:Issr>$rec60s.record62.issr$</CPSR:Issr>
+				<CPSR:Prtry>$rec60s.record62.prtry$</CPSR:Prtry>
+			</CPSR:RfrdDocTp>
+			<CPSR:RfrdDocNb>$rec60s.record62.rfrdDocNb$</CPSR:RfrdDocNb>
+		</CPSR:RfrdDocInf>
+		<CPSR:RfrdDocRltdDt>$rec60s.record62.rfrdDocRltdDt$</CPSR:RfrdDocRltdDt>
+		$templateRecord65(rec65 = rec60s.record65)$
+		<CPSR:CdtrRefInf>
+			<CPSR:CdtrRefTp>
+				<CPSR:Cd>$rec60s.record62.cd1$</CPSR:Cd>
+				<CPSR:Issr>$rec60s.record62.issr1$</CPSR:Issr>
+				<CPSR:Prtry>$rec60s.record62.prtry1$</CPSR:Prtry>
+			</CPSR:CdtrRefTp>
+			<CPSR:CdtrRef>String</CPSR:CdtrRef>
+		</CPSR:CdtrRefInf>
+		$templateRecord66(rec66 = rec60s.record66 , rec67 = rec60s.record67)$
+		$templateRecord68(rec68 = rec60s.record68, rec69 = rec60s.record69)$
+		<CPSR:AddtlRmtInf>$rec60s.record62.addtlRmtInf$</CPSR:AddtlRmtInf>
+	</CPSR:Strd>
+</CPSR:RmtInf>
+>>
+
+templateRecord65(rec65) ::= <<
+<CPSR:RfrdDocAmt>
+	<CPSR:DuePyblAmt Ccy="$rec65.divisa$">$rec65.importo$</CPSR:DuePyblAmt>
+</CPSR:RfrdDocAmt>
+>>
+templateRecord60(rec60) ::= <<
+<CPSR:Ustrd>$rec60.ustrd$</CPSR:Ustrd>
+>>
+
+templateRecord40(rec40) ::= <<
+<CPSR:Amt Ccy="$rec40.amt$">$rec40.amt$</CPSR:Amt>
+<CPSR:ReqdExctnDt>$rec40.reqdExctnDt$</CPSR:ReqdExctnDt>
+<CPSR:PmtTpInf>
+	<CPSR:SvcLvl>
+		<CPSR:Prtry>$rec40.prtry$</CPSR:Prtry>
+	</CPSR:SvcLvl>
+	<CPSR:LclInstrm>
+		<CPSR:Prtry>$rec40.prtry$</CPSR:Prtry>
+	</CPSR:LclInstrm>
+	<CPSR:CtgyPurp>$rec40.ctgyPurp$</CPSR:CtgyPurp>
+</CPSR:PmtTpInf>
+<CPSR:PmtMtd>$rec40.pmtMtd$</CPSR:PmtMtd>
+<CPSR:RltdRmtInf>
+	<CPSR:RmtId>$rec40.rmtId$</CPSR:RmtId>
+	<CPSR:RmtLctnMtd>$rec40.rmtLctnMtd$</CPSR:RmtLctnMtd>
+	<CPSR:RmtLctnElctrncAdr>$rec40.rmtLctnElctrncAdr$</CPSR:RmtLctnElctrncAdr>
+</CPSR:RltdRmtInf>
+>>
+
+templateRecord30(rec30s) ::= <<
+	<CPSR:StsId>$rec30s.record30.stsId$</CPSR:StsId>
+	<CPSR:OrgnlInstrId>$rec30s.record30.orgnlInstrId$</CPSR:OrgnlInstrId>
+	<CPSR:OrgnlEndToEndId>$rec30s.record30.orgnlEndToEndId$</CPSR:OrgnlEndToEndId>
+	<CPSR:LclInstrm>
+		<CPSR:Prtry>$rec30s.record30.prtry$</CPSR:Prtry>
+	</CPSR:LclInstrm>
+	
+	$templateRecord32( rec32 = rec30s.record32)$
+	
+	<CPSR:BenValDt>$rec30s.record30.benValDt$</CPSR:BenValDt>
+	<CPSR:TxSts>$rec30s.record30.txSts$</CPSR:TxSts>
+	<CPSR:StsRsnInf>
+		<CPSR:StsOrgtr>
+			<CPSR:Id>
+				<CPSR:OrgId>
+					<CPSR:BIC>$rec30s.record30.bic$</CPSR:BIC>
+				</CPSR:OrgId>
+			</CPSR:Id>
+		</CPSR:StsOrgtr>
+		<CPSR:StsRsn>
+			<CPSR:Cd>$rec30s.record30.cd$</CPSR:Cd>
+			<CPSR:Prtry>$rec30s.record30.prtry$</CPSR:Prtry>
+			<CPSR:ElmRfc>$rec30s.record30.elmRfc$</CPSR:ElmRfc>
+		</CPSR:StsRsn>
+		
+		$templateRecord34(rec34 = rec30s.record34)$
+	</CPSR:StsRsnInf>
+	<CPSR:Purp>
+		<CPSR:Cd>$rec30s.record30.cd1$</CPSR:Cd>
+		<CPSR:Prtry>$rec30s.record30.prtry2$</CPSR:Prtry>
+	</CPSR:Purp>
+	<CPSR:AccptncDtTm>$rec30s.record30.accptncDtTm$</CPSR:AccptncDtTm>
+	<CPSR:OrgnlTxRef>
+		$templateRecord40( rec40 = rec30s.record40 )$
+		$templateRecord62( rec60s = rec30s.records60s )$
+		$templateRecord80( rec80 = rec30s.record80 )$
+		$templateRecord82( rec82 = rec30s.record82 )$
+		$templateRecord84( rec84 = rec30s.record84 )$
+		$templateRecord86( rec86 = rec30s.record86 )$
+	</CPSR:OrgnlTxRef>
+>>
+
+templateRecord34(rec34) ::= <<
+<CPSR:AddtlStsRsnInf>$rec34.addtlStsRsnInf$</CPSR:AddtlStsRsnInf>
+>>
+
+templateRecord32(rec32) ::= <<
+<CPSR:TRN>$rec32.trn$</CPSR:TRN>
+>>
+
+templateMain(model) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+<MSG:CBICdtrPmtStatusReportMsg 
+xmlns:MSG="urn:CBI:xsd:CBICdtrPmtStatusReportMsg.00.03.00" 
+xmlns:BODY="urn:CBI:xsd:CBIBdyCdtrPmtStatusReport.00.03.00" 
+xmlns:CPSR="urn:CBI:xsd:CBICdtrPmtStatusReport.00.03.00" 
+xmlns:HE2E="urn:CBI:xsd:CBIHdrSrv.001.07" 
+xmlns:HTRT="urn:CBI:xsd:CBIHdrTrt.001.07" 
+xmlns:SGNT="urn:CBI:xsd:CBISgnInf.001.04" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+	$templateRecordTesta(rech = model.recordTesta)$
+	
+	<MSG:CBIBdyCdtrPmtStatusReport>
+		<BODY:CBIEnvelCdtrPmtStatusReport>
+			<BODY:CBICdtrPmtStatusReport>
+				$templateRecordTestaBody(rech = model.recordTestaBody)$				
+				<CPSR:OrgnlGrpInfAndSts>
+					<CPSR:OrgnlMsgId>$model.record01.orgnlMsgId$</CPSR:OrgnlMsgId>
+					<CPSR:OrgnlCreDtTm>$model.record01.orgnlCreDtTm$</CPSR:OrgnlCreDtTm>
+				</CPSR:OrgnlGrpInfAndSts>
+				
+				$templateRecord30(rec30s = model.records30s)$
+				                                       
+		</BODY:CBICdtrPmtStatusReport>   		
+	</BODY:CBIEnvelCdtrPmtStatusReport>  
+</MSG:CBIBdyCdtrPmtStatusReport>       
+>>
+
+templateRecordTestaBody(rech) ::= <<
+<CPSR:GrpHdr>
+	<CPSR:MsgId>$rech.msgId$</CPSR:MsgId>
+	<CPSR:IdE2E>$rech.idE2E$</CPSR:IdE2E>
+	<CPSR:MsgQual>$rech.msgQual$</CPSR:MsgQual>
+	<CPSR:CreDtTm>$rech.creDtTm$</CPSR:CreDtTm>
+	<CPSR:InitgPty>
+		<CPSR:Nm>$rech.nm$</CPSR:Nm>
+		<CPSR:Id>
+			<CPSR:OrgId>
+				<CPSR:TaxIdNb>$rech.taxIdNb$</CPSR:TaxIdNb>
+				<CPSR:PrtryId>
+					<CPSR:Id>$rech.id$</CPSR:Id>
+					<CPSR:Issr>$rech.Issr$</CPSR:Issr>
+				</CPSR:PrtryId>
+			</CPSR:OrgId>
+		</CPSR:Id>
+	</CPSR:InitgPty>
+	<CPSR:DbtrAgt>
+		<CPSR:FinInstnId>
+			<CPSR:BIC>$rech.bic$</CPSR:BIC>
+			<CPSR:ClrSysMmbId>
+				<CPSR:Prtry>$rech.prtry$</CPSR:Prtry>
+			</CPSR:ClrSysMmbId>
+		</CPSR:FinInstnId>
+	</CPSR:DbtrAgt>
+</CPSR:GrpHdr>
+>>
+
+templateRecordTesta(rech) ::= <<
+<CBIHdrTrt>
+	<HTRT:IdCBISndrf>$rech.idCBISndrf$</HTRT:IdCBISndrf>
+	<HTRT:IdCBIRcvrf>$rech.idCBIRcvrf$</HTRT:IdCBIRcvrf>
+	<HTRT:SrvNm>$rech.srvNm$</HTRT:SrvNm>
+	<HTRT:IdMsgTrt>$rech.idMsgTrt$</HTRT:IdMsgTrt>
+	<HTRT:XMLCrtDt>$rech.xmlCrtDt$</HTRT:XMLCrtDt>
+	<HTRT:RtrnAddrl>$rech.rtrnAddrl$</HTRT:RtrnAddrl>
+</CBIHdrTrt>
+<CBIHdrSrv>
+	<HE2E:SrvInfo>
+		<HE2E:SrvNm>$rech.srvNm$</HE2E:SrvNm>
+		<HE2E:IdE2EMsg>$rech.idE2EMsg$</HE2E:IdE2EMsg>
+		<HE2E:XMLCrtDt>$rech.srvInfoXmlCrtDt$</HE2E:XMLCrtDt>
+	</HE2E:SrvInfo>
+	<HE2E:Sender>
+		<HE2E:IdCBISend>$rech.idCBISend$</HE2E:IdCBISend>
+		<HE2E:SendTyp>$rech.sendTyp$</HE2E:SendTyp>
+		<HE2E:CBIRefrSend>$rech.cBIRefrSend$</HE2E:CBIRefrSend>
+	</HE2E:Sender>
+	<HE2E:Receiver>
+		<HE2E:IdCBIRecv>$rech.idCBIRecv$</HE2E:IdCBIRecv>
+		<HE2E:RecvTyp>$rech.recvTyp$</HE2E:RecvTyp>
+		<HE2E:CBIRefrRecv>$rech.cBIRefrRecv$</HE2E:CBIRefrRecv>
+	</HE2E:Receiver>
+	<HE2E:DiagInfo>
+		<HE2E:UsrBnk>$rech.usrBnk$</HE2E:UsrBnk>
+		<HE2E:DiagVers>$rech.diagVers$</HE2E:DiagVers>
+		<HE2E:ChkSbj>$rech.chkSbj$</HE2E:ChkSbj>
+		<HE2E:ChkDt>$rech.chkDt$</HE2E:ChkDt>
+	</HE2E:DiagInfo>
+	<HE2E:CongrInfo>
+		<HE2E:SrvBdyNb>$rech.srvBdyNb$</HE2E:SrvBdyNb>
+	</HE2E:CongrInfo>
+</CBIHdrSrv>
+>>

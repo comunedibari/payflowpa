@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="TributoStrutturatoModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.TributoStrutturatoModel" />
+		
+<insert id="insertTributoStrutturato" parameterClass="TributoStrutturatoModelType">
+
+<![CDATA[
+
+ INSERT into ${TRIBUTO_STRUTTURATO} ( 
+ 	ID, 
+ 	TIPO_TRIBUTO,
+ 	ID_PENDENZA,
+ 	CF_SOGG_VERSANTE,
+ 	NOTE_VERSANTE,
+ 	OP_INSERIMENTO,
+ 	TS_INSERIMENTO,
+ 	OP_AGGIORNAMENTO,
+ 	TS_AGGIORNAMENTO,
+ 	VERSION ) 
+ 	
+ 	values (  
+ 	
+ 	#id:INTEGER#,
+    #tipoTributo:VARCHAR#,
+    #idPendenza:VARCHAR#,
+ 	#cfSoggettoVersante:VARCHAR#,
+	#noteVersante:VARCHAR#,
+	#opInserimento:VARCHAR#,
+	#tsInserimento:TIMESTAMP#,
+	#opAggiornamento:VARCHAR#,
+	#tsAggiornamento:TIMESTAMP#,
+	#version:INTEGER#
+ 
+    )
+
+]]></insert> 
+
+<insert id="insertTributoStrutturatoMySql" parameterClass="TributoStrutturatoModelType">
+
+<selectKey resultClass="int" type="post" keyProperty="id">
+	SELECT LAST_INSERT_ID() AS VALUE
+</selectKey>
+
+<![CDATA[
+
+ INSERT into ${TRIBUTO_STRUTTURATO} ( 
+ 	ID, 
+ 	TIPO_TRIBUTO,
+ 	ID_PENDENZA,
+ 	CF_SOGG_VERSANTE,
+ 	NOTE_VERSANTE,
+ 	OP_INSERIMENTO,
+ 	TS_INSERIMENTO,
+ 	OP_AGGIORNAMENTO,
+ 	TS_AGGIORNAMENTO,
+ 	VERSION ) 
+ 	
+ 	values (  
+ 	
+ 	#id:INTEGER#,
+    #tipoTributo:VARCHAR#,
+    #idPendenza:VARCHAR#,
+ 	#cfSoggettoVersante:VARCHAR#,
+	#noteVersante:VARCHAR#,
+	#opInserimento:VARCHAR#,
+	#tsInserimento:TIMESTAMP#,
+	#opAggiornamento:VARCHAR#,
+	#tsAggiornamento:TIMESTAMP#,
+	#version:INTEGER#
+ 
+    )
+
+]]></insert> 
+
+<insert id="insertTributoStrutturatoDB2" parameterClass="TributoStrutturatoModelType">
+
+<selectKey resultClass="int" type="post" keyProperty="id">
+	SELECT IDENTITY_VAL_LOCAL() as ID FROM SYSIBM.SYSDUMMY1
+</selectKey>
+
+<![CDATA[
+
+ INSERT into ${TRIBUTO_STRUTTURATO} ( 
+ 	TIPO_TRIBUTO,
+ 	ID_PENDENZA,
+ 	CF_SOGG_VERSANTE,
+ 	NOTE_VERSANTE,
+ 	OP_INSERIMENTO,
+ 	TS_INSERIMENTO,
+ 	OP_AGGIORNAMENTO,
+ 	TS_AGGIORNAMENTO,
+ 	VERSION ) 
+ 	
+ 	values (  
+    #tipoTributo:VARCHAR#,
+    #idPendenza:VARCHAR#,
+ 	#cfSoggettoVersante:VARCHAR#,
+	#noteVersante:VARCHAR#,
+	#opInserimento:VARCHAR#,
+	#tsInserimento:TIMESTAMP#,
+	#opAggiornamento:VARCHAR#,
+	#tsAggiornamento:TIMESTAMP#,
+	#version:INTEGER#
+ 
+    )
+
+]]></insert> 
+
+</sqlMap>

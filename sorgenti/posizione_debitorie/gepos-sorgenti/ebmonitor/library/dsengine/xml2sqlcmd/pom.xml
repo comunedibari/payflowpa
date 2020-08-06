@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>                                                                  
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">      
+                                                                                                        
+	<parent>                                                                                              
+		<groupId>it.nch.sebanc</groupId>                                                                    
+		<artifactId>dse-engine-deployer</artifactId>                                                        
+		<version>0.1</version>                                                                              
+	</parent>                                                                                             
+                                                                                                        
+	<modelVersion>4.0.0</modelVersion>                                                                    
+	<groupId>it.nch.sebanc</groupId>                                                                      
+	<artifactId>eb-xml2sql</artifactId>                                                                   
+	<version>${eb.xml2sql.version}</version>                                                              
+	<packaging>jar</packaging>                                                                            
+	<name>xml to sql commands</name>                                                                      
+                                                                                                        
+	<build>                                                                                               
+		<sourceDirectory>src/java</sourceDirectory>                                                         
+		<testSourceDirectory>src/test</testSourceDirectory>                                                 
+		<!-- uncomment                                                                                      
+		<testResources>                                                                                     
+			<testResource>                                                                                    
+				<directory>resources</directory>                                                                
+			</testResource>                                                                                   
+		</testResources>                                                                                    
+		 -->                                                                                                
+		<resources>                                                                                         
+			<resource>                                                                                        
+				<directory>configuration</directory>                                                            
+			</resource>                                                                                       
+			<!-- test purpose -->                                                                             
+			<resource>                                                                                        
+				<directory>resources</directory>                                                                
+			</resource>                                                                                       
+		</resources>     
+		<plugins>
+			<plugin>                                                                                          
+				<groupId>org.codehaus.mojo</groupId>                                                            
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.9.1</version>                                              
+				<executions>                                                                                    
+					<execution>                                                                                   
+						<id>add-test-source</id>                                                                    
+						<phase>generate-sources</phase>                                                             
+						<goals>                                                                                     
+							<goal>add-test-source</goal>                                                              
+						</goals>                                                                                    
+						<configuration>                                                                             
+							<sources>                                                                                 
+								<source>src/generators/</source>                                                        
+							</sources>                                                                                
+						</configuration>                                                                            
+					</execution>                                                                                  
+				</executions>                                                                                   
+			</plugin>     
+			<!--                                                                                              
+			<plugin>                                                                                          
+				<groupId>org.apache.maven.plugins</groupId>                                                     
+				<artifactId>maven-dependency-plugin</artifactId>                                                
+				<executions>                                                                                    
+				<execution>                                                                                     
+					<id>copy to output folder</id>                                                                
+					<phase>package</phase>                                                                        
+					<goals>                                                                                       
+						<goal>copy-dependencies</goal>                                                              
+					</goals>                                                                                      
+					<configuration>                                                                               
+						<outputDirectory>${output.folder}</outputDirectory>                                         
+					</configuration>                                                                              
+				</execution>                                                                                    
+				</executions>                                                                                   
+			</plugin>                                                                                         
+			 -->                                                                                              
+		</plugins>                                                                                          
+	</build>                                                                                              
+                                                                                                        
+	<dependencies>                                                                                        
+
+		<dependency>                                                                                        
+			<groupId>it.nch.sebanc</groupId>                                                                  
+			<artifactId>eb-xml2sql-api</artifactId>                                                                 
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>it.nch.sebanc</groupId>                                                                  
+			<artifactId>eb-flatx</artifactId>                                                                 
+		</dependency>                                                                                       
+
+		<dependency>                                                                                        
+			<groupId>it.nch.sebanc</groupId>                                                                  
+			<artifactId>eb-common-utils</artifactId>                                                          
+		</dependency>                                                                                       
+		                                                                                                    
+		<dependency>                                                                                        
+			<groupId>it.nch.sebanc</groupId>                                                                  
+			<artifactId>flats-records-generator</artifactId>                                                  
+			<optional>true</optional>                                                                         
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>org.springframework</groupId>                                                            
+			<artifactId>spring</artifactId>                                                                   
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>junit</groupId>                                                                          
+			<artifactId>junit</artifactId>                                                                    
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>org.antlr</groupId>                                                                      
+			<artifactId>stringtemplate</artifactId>                                                           
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>org.slf4j</groupId>                                                                      
+			<artifactId>slf4j-log4j12</artifactId>                                                            
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>org.slf4j</groupId>                                                                      
+			<artifactId>jcl-over-slf4j</artifactId>                                                           
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>org.slf4j</groupId>                                                                      
+			<artifactId>slf4j-api</artifactId>                                                                
+		</dependency>                                                                                       
+		                                                                                                    
+		<dependency>                                                                                        
+			<groupId>log4j</groupId>                                                                          
+			<artifactId>log4j</artifactId>                                                                    
+		</dependency>                                                                                       
+                                                                                                        
+		<!-- ibatis dependencies -->                                                                        
+		                                                                                                    
+		<dependency>                                                                                        
+			<groupId>org.apache.ibatis</groupId>                                                              
+			<artifactId>ibatis-sqlmap</artifactId>                                                            
+		</dependency>                                                                                       
+                                                                                                        
+		<!-- test dependencies -->                                                                          
+		                                                                                                    
+		<!-- needed in tests to support dtds -->                                                            
+		<dependency>                                                                                        
+			<groupId>it.nch.sebanc</groupId>                                                                  
+			<artifactId>eb-xml-schema-utils</artifactId>                                                      
+			<optional>true</optional>                                                                         
+		</dependency>                                                                                       
+		                                                                                                    
+		                                                                                                    
+		<!-- in production enviroments usually the connection pool is a db service (not a java one)-->      
+		<dependency>                                                                                        
+			<groupId>commons-dbcp</groupId>                                                                   
+			<artifactId>commons-dbcp</artifactId>                                                             
+			<scope>test</scope>                                                                               
+		</dependency>                                                                                       
+                                                                                                        
+		<dependency>                                                                                        
+			<groupId>commons-pool</groupId>                                                                   
+			<artifactId>commons-pool</artifactId>                                                             
+			<scope>test</scope>                                                                               
+		</dependency>                                                                                       
+                                                                                                        
+		<!--  test db -->		                                                                                
+		<dependency>                                                                                        
+    		<groupId>com.h2database</groupId>                                                               
+    		<artifactId>h2</artifactId>                                                                     
+    		<scope>test</scope>                                                                             
+		</dependency>                                                                                       
+		                                                                                                    
+		<dependency>                                                                                        
+			<groupId>org.dbunit</groupId>                                                                     
+			<artifactId>dbunit</artifactId>                                                                   
+			<scope>test</scope>                                                                               
+		</dependency>                                                                                       
+		                                                                                                    
+		<!-- optional generation from xls -->          
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<optional>true</optional>
+		</dependency>
+		                                                                            
+	</dependencies>                                                                                       
+                                                                                                        
+</project>                                                                                              

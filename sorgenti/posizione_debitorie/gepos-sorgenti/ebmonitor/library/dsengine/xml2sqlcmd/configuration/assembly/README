@@ -1,0 +1,4 @@
+application contexts that are common to all environments.
+Artifacts under this location should be referenced using:
+
+<import "classpath:/assembly/common-context.xml" />

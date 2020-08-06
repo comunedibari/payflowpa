@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<groupId>it.nch.sebanc</groupId>
+	<artifactId>deployer</artifactId>
+	<packaging>pom</packaging>
+	<version>0.1</version>
+	<name>root sebanc pom</name>
+
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.0.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test-compile</id>
+						<goals>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.0.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagBase>https://trac.tasgroup.it/svn/eb_flowmanager/sw/tags</tagBase>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+		<module>commons</module>
+		<module>converter</module>
+		<module>dsengine</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring</artifactId>
+				<version>${springframework.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>javax.mail</groupId>
+						<artifactId>mail</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-mock</artifactId>
+				<version>${springframework.version}</version>
+				<scope>test</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>commons-logging</groupId>
+						<artifactId>commons-logging</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.antlr</groupId>
+				<artifactId>stringtemplate</artifactId>
+				<version>${stringtemplate.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.freemarker</groupId>
+				<artifactId>freemarker</artifactId>
+				<version>${freemarker.version}</version>
+				<optional>true</optional>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.xmlbeans</groupId>
+				<artifactId>xmlbeans</artifactId>
+				<version>${xmlbeans.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>xmlbeans</groupId>
+				<artifactId>xmlbeans</artifactId>
+				<version>${xmlbeans.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>xom</groupId>
+				<artifactId>xom</artifactId>
+				<version>1.1</version>
+				<exclusions>
+					<exclusion>
+						<groupId>xerces</groupId>
+						<artifactId>xercesImpl</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>xerces</groupId>
+						<artifactId>xmlParserAPIs</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>xalan</groupId>
+						<artifactId>xalan</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-jdk14</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>jcl-over-slf4j</artifactId>				
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant</artifactId>
+				<version>${ant.version}</version>
+			</dependency>
+
+
+
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-xmlutils</artifactId>
+				<version>${eb.xml-utils.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-xml-schema-utils</artifactId>
+				<version>${eb.schema-utils.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-tests-tool</artifactId>
+				<version>${eb.eb-test-tool.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-xsd-configuration</artifactId>
+				<version>${eb.fm-xsd-configuration.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-stream-services</artifactId>
+				<version>${eb.fm-stream-services.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-functional-tests</artifactId>
+				<version>${eb.fm-functional-tests.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-ejb21</artifactId>
+				<version>${eb.fm-ejb2.1.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-data-model-generator</artifactId>
+				<version>${eb.fm-datamodel-generator.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flowmanager-common-configuration</artifactId>
+				<version>${eb.fm-common-configuration.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-flatx</artifactId>
+				<version>${eb.flatx.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-common-utils</artifactId>
+				<version>${eb.common-utils.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-common-converter</artifactId>
+				<version>${eb.converter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc.conversions</groupId>
+				<artifactId>eb-converter-pmtreq.00.03.06</artifactId>
+				<version>${eb.converter.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-chkx</artifactId>
+				<version>${eb.chkx.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-xml2sql</artifactId>
+				<version>${eb.xml2sql.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-xml2sql-jms</artifactId>
+				<version>${eb.xml2sql-jms.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-xml2sql-api</artifactId>
+				<version>${eb.xml2sql-api.version}</version>
+			</dependency>
+
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>eb-datastore-engine</artifactId>
+				<version>${eb.datastore-engine.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>it.nch.sebanc</groupId>
+				<artifactId>flats-records-generator</artifactId>
+				<version>${flats-records-generator.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.ibatis</groupId>
+				<artifactId>ibatis-sqlmap</artifactId>
+				<version>${ibatis.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>net.sourceforge.jexcelapi</groupId>
+				<artifactId>jxl</artifactId>
+				<version>${jxl.version}</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+
+	<properties>
+		<!-- libraryReleaseVersion>2.11.0.0</libraryReleaseVersion -->
+
+		<maven.test.skip>true</maven.test.skip>
+		<!-- maven.test.skip.exec>true</maven.test.skip.exec -->
+
+		<springframework.version>1.2.9</springframework.version>
+		<junit.version>3.8.2</junit.version>
+		<freemarker.version>2.3.10</freemarker.version>
+		<stringtemplate.version>3.2</stringtemplate.version>
+		<log4j.version>1.2.14</log4j.version>
+		<xmlbeans.version>2.3.0</xmlbeans.version>
+		<slf4j.version>1.5.2</slf4j.version>
+		<ant.version>1.7.1</ant.version>
+		<ibatis.version>2.3.4.726</ibatis.version>
+		<jxl.version>2.6.8</jxl.version>
+
+		<eb.chkx.version>${libraryReleaseVersion}</eb.chkx.version>
+		<eb.common-utils.version>${libraryReleaseVersion}</eb.common-utils.version>
+		<eb.eb-test-tool.version>${libraryReleaseVersion}</eb.eb-test-tool.version>
+		<eb.schema-utils.version>${libraryReleaseVersion}</eb.schema-utils.version>
+		<eb.xml-utils.version>${libraryReleaseVersion}</eb.xml-utils.version>
+		<eb.converter.version>${libraryReleaseVersion}</eb.converter.version>
+		<eb.flatx.version>${libraryReleaseVersion}</eb.flatx.version>
+		<eb.fm-common-configuration.version>${libraryReleaseVersion}</eb.fm-common-configuration.version>
+		<eb.fm-datamodel-generator.version>${libraryReleaseVersion}</eb.fm-datamodel-generator.version>
+		<eb.fm-ejb2.1.version>${libraryReleaseVersion}</eb.fm-ejb2.1.version>
+		<eb.fm-functional-tests.version>${libraryReleaseVersion}</eb.fm-functional-tests.version>
+		<eb.fm-stream-services.version>${libraryReleaseVersion}</eb.fm-stream-services.version>
+		<eb.fm-xsd-configuration.version>${libraryReleaseVersion}</eb.fm-xsd-configuration.version>
+
+		<flats-records-generator.version>${libraryReleaseVersion}</flats-records-generator.version>
+		<eb.xml2sql.version>${libraryReleaseVersion}</eb.xml2sql.version>
+		<eb.xml2sql-jms.version>${libraryReleaseVersion}</eb.xml2sql-jms.version>
+		<eb.xml2sql-api.version>${libraryReleaseVersion}</eb.xml2sql-api.version>
+		<eb.datastore-engine.version>${libraryReleaseVersion}</eb.datastore-engine.version>
+
+		<deploy.outputFolder>${outputRoot}/backendLibrary</deploy.outputFolder>
+	</properties>
+
+</project>

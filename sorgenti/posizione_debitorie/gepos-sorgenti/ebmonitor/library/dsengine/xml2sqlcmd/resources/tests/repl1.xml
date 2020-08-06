@@ -1,0 +1,65 @@
+
+<n:IdpAllineamentoPendenze xmlns:n="urn:xsd:IdpAllineamentoPendenze" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Versione="01.03-00" xsi:schemaLocation="urn:xsd:IdpAllineamentoPendenze
+file:///D:/java/projects/flowmanager-svn/dsengine/xml2sqlcmd/docs/01.03-00/xsd/IdP.AllineamentoPendenze.xsd">
+	<IdpHeader>
+		<TRT>
+			<ServiceName>IdpAllineamentoPendenze</ServiceName>
+			<MsgId>idmsge2e001</MsgId>
+			<XMLCrtDt>2009-09-01T09:11:54.0Z</XMLCrtDt>
+			<Sender>
+				<SenderId>CFiglineVA</SenderId>
+				<SenderSys>SenderSys01</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>ReceiverId</ReceiverId>
+				<ReceiverSys>ReceiverSys01</ReceiverSys>
+			</Receiver>
+		</TRT>
+
+		<E2E>
+			<E2ESrvcNm>IdpAllineamentoPendenze</E2ESrvcNm>
+			<E2EMsgId>idmsge2e001</E2EMsgId>
+			<XMLCrtDt>2001-12-17T09:30:47.0Z</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>CFiglineVA</E2ESndrId>
+				<E2ESndrSys>SenderSys01</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>ReceiverId</E2ERcvrId>
+				<E2ERcvrSys>ReceiverSys01</E2ERcvrSys>
+			</Receiver>
+		</E2E>
+	</IdpHeader>
+	<IdpBody>
+		<Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+			<IdPendenza>extunknw02</IdPendenza>
+			<Mittente>
+				<Id>idUfficioMittente</Id>
+			</Mittente>
+			<Destinatari>
+				<Destinatario Tipo="Cittadino">
+					<Id>TSTMRA08A01E432T</Id>
+				</Destinatario>
+			</Destinatari>
+			<Replace>
+				<DescrizioneCausale>causale test integrazione TI 01 REPLACED</DescrizioneCausale>
+				<DataCreazione>2009-12-17T09:30:47.0Z</DataCreazione>
+				<DataEmissione>2009-12-17T09:30:47.0Z</DataEmissione>
+				<DataPrescrizione>2009-12-17T09:30:47.0Z</DataPrescrizione>
+				<AnnoRiferimento>2009</AnnoRiferimento>
+				<Stato>Aperta</Stato>
+				<ImportoTotale>100.99</ImportoTotale>
+				<Divisa>EUR</Divisa>
+				<InfoPagamento TipoPagamento="Pagamento Unico">
+					<DettaglioPagamento>
+						<IdPagamento>pag007</IdPagamento>
+						<DataScadenza>2010-03-11</DataScadenza>
+						<DataFineValidita>2010-03-11</DataFineValidita>
+						<Stato>Pagato</Stato>
+						<Importo>300</Importo>
+					</DettaglioPagamento>
+				</InfoPagamento>
+			</Replace>
+		</Pendenza>
+	</IdpBody>
+</n:IdpAllineamentoPendenze>

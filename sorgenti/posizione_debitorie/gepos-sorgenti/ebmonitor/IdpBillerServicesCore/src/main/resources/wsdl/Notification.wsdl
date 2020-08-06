@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Notification" targetNamespace="http://idp.tasgroup.it/Notification/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://idp.tasgroup.it/Notification/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://idp.tasgroup.it/Notification/">     
+     <xsd:simpleType name="stText35">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="35" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	   <xsd:simpleType name="stText512">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="512" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	 <xsd:simpleType name="esitoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="OK"></xsd:enumeration>
+			<xsd:enumeration value="KO"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FaultType">
+		<xsd:sequence>
+			<xsd:element name="FaultCode" type="tns:stText35"></xsd:element>
+			<xsd:element name="FaultString" type="tns:stText512"></xsd:element>
+			<xsd:element name="FaultDescription" type="tns:stText512"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:element name="listaNotificheRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+				<xsd:element name="senderSys" type="tns:stText35"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="tipoDebito" type="tns:stText35"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="tipoNotifica"
+					type="tns:tipoNotificaType" maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="dataCreazione"
+					type="tns:dataCreazioneFilterType" maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="offset" type="xsd:int" maxOccurs="1"
+					minOccurs="0">
+				</xsd:element>
+				<xsd:element name="limit" type="xsd:int" maxOccurs="1"
+					minOccurs="0">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="listaNotificheResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="OK"></xsd:enumeration>
+							<xsd:enumeration value="KO"></xsd:enumeration>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="notifiche" type="tns:notificaType"
+					maxOccurs="unbounded" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="fault" type="tns:FaultType"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="countNotificheRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+				<xsd:element name="senderSys" type="tns:stText35"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="tipoDebito" type="tns:stText35"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="tipoNotifica"
+					type="tns:tipoNotificaType" maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="dataCreazione"
+					type="tns:dataCreazioneFilterType" maxOccurs="1" minOccurs="0">
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>	
+	</xsd:element>
+	<xsd:element name="countNotificheResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:enumeration value="OK"></xsd:enumeration>
+							<xsd:enumeration value="KO"></xsd:enumeration>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="fault" type="tns:FaultType"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="numNotifiche" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFileNotificaRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+					<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+					<xsd:element name="senderSys" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="msgId" type="tns:stText35"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getFileNotificaResponse">
+		<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="result"
+						type="tns:downloadReportResultType">
+					</xsd:element>
+					<xsd:element name="fault" type="tns:FaultType"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+					<xsd:element name="file" type="xsd:base64Binary"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>
+				</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ackFileRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+					<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+					<xsd:element name="senderSys" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="msgId" type="tns:stText35"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ackFileResponse">
+		<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="result"
+						type="tns:esitoType">
+					</xsd:element>
+					<xsd:element name="fault" type="tns:FaultType"
+						maxOccurs="1" minOccurs="0">
+					</xsd:element>					
+				</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+    
+        
+	<xsd:simpleType name="downloadReportResultType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="IN_CORSO"></xsd:enumeration>
+			<xsd:enumeration value="DISPONIBILE"></xsd:enumeration>
+			<xsd:enumeration value="IN_ERRORE"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+            <xsd:complexType name="dataCreazioneFilterType">
+            	<xsd:sequence>
+	            	<xsd:element name="dataCreazioneDa" type="xsd:date"></xsd:element>
+					<xsd:element name="dataCreazioneA" type="xsd:date"></xsd:element>
+				</xsd:sequence>
+            </xsd:complexType>
+        
+            <xsd:simpleType name="tipoNotificaType">
+            	<xsd:restriction base="xsd:string">
+            		<xsd:enumeration value="ESEGUITO"></xsd:enumeration>
+            		<xsd:enumeration value="REGOLATO"></xsd:enumeration>
+            		<xsd:enumeration value="INCASSO"></xsd:enumeration>
+            	</xsd:restriction>
+            </xsd:simpleType>
+    
+            <xsd:complexType name="notificaType">
+            	<xsd:sequence>
+            		<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+
+            		<xsd:element name="senderSys" type="tns:stText35"></xsd:element>
+            		<xsd:element name="timestampCreazione" type="xsd:dateTime"></xsd:element>
+            		<xsd:element name="msgId" type="tns:stText35"
+            			maxOccurs="1" minOccurs="0">
+
+            		</xsd:element>
+            		<xsd:element name="tipoNotifica"
+            			type="tns:tipoNotificaType">
+            		</xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    
+            <xsd:complexType name="transazioneAccreditoFilterType">
+            	<xsd:sequence>
+            		<xsd:element name="idOrdinante"
+            			type="tns:stText35" maxOccurs="1" minOccurs="0">
+            		</xsd:element>
+            		<xsd:element name="idFlusso" type="tns:stText35"></xsd:element>
+            		<xsd:element name="trn" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+    </xsd:schema></wsdl:types>
+    <wsdl:message name="listaNotificheRequest">
+    	<wsdl:part name="parameters" element="tns:listaNotificheRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listaNotificheResponse">
+    	<wsdl:part name="parameters" element="tns:listaNotificheResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="countNotificheRequest">
+    	<wsdl:part name="parameters" element="tns:countNotificheRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="countNotificheResponse">
+    	<wsdl:part name="parameters" element="tns:countNotificheResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="downloadRicevutaRequest">
+    	<wsdl:part name="parameters" element="tns:downloadRicevutaRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="downloadRicevutaResponse">
+    	<wsdl:part name="parameters" element="tns:downloadRicevutaResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFileNotificaRequest">
+    	<wsdl:part name="parameters" element="tns:getFileNotificaRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFileNotificaResponse">
+    	<wsdl:part name="parameters" element="tns:getFileNotificaResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ackFileRequest">
+    	<wsdl:part name="parameters" element="tns:ackFileRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ackFileResponse">
+    	<wsdl:part name="parameters" element="tns:ackFileResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="NotificationService">
+    	<wsdl:operation name="listaNotifiche">
+    		<wsdl:input message="tns:listaNotificheRequest"></wsdl:input>
+    		<wsdl:output message="tns:listaNotificheResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="countNotifiche">
+    		<wsdl:input message="tns:countNotificheRequest"></wsdl:input>
+    		<wsdl:output message="tns:countNotificheResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getFileNotifica">
+    		<wsdl:input message="tns:getFileNotificaRequest"></wsdl:input>
+    		<wsdl:output message="tns:getFileNotificaResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="ackFileNotifica">
+    		<wsdl:input message="tns:ackFileRequest"></wsdl:input>
+    		<wsdl:output message="tns:ackFileResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="NotificationBinding"
+    	type="tns:NotificationService">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="listaNotifiche">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Notification/listaNotifiche" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="countNotifiche">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Notification/countNotifiche" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getFileNotifica">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Notification/getFileNotifica" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Notification">
+		<wsdl:port name="notificationPort" binding="tns:NotificationBinding">
+			<soap:address location="http://idp.tasgroup.it/" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

@@ -1,0 +1,89 @@
+group recordImpl;
+
+compilationUnit(pkgName, tipoRecord, recordSheet, interfaces) ::=<<
+package $pkgName$;
+
+$imports()$
+
+/**
+ * generated 
+ */
+public class $recordSheet.name$ extends ConversionRecord implements 
+	BaseConverters, ConversionsConsts $if(interfaces)$ , $interfaces; separator=", "$  $endif$ {
+
+	private static final long serialVersionUID = 1L;
+	
+	public $recordSheet.name$() {
+		super("$recordSheet.basePath$", "$tipoRecord$");
+	}
+
+	$recordSheet.rows:singleConversion()$
+	
+	
+}
+>>
+
+imports(row) ::=<<
+import it.nch.eb.common.converter.ConversionRecord;
+import it.nch.eb.common.converter.ConversionsConsts;
+import it.nch.eb.flatx.bean.types.Converter;
+import it.nch.eb.flatx.flatmodel.converters.BaseConverters;
+>>
+
+singleConversion(row) ::=<<
+$if(row.fullElement)$
+	$fullElementContent(row)$
+$elseif(row.xPath)$
+	$xpathRow(row)$
+$elseif(row.symbol)$
+	$symbolRow(row)$
+$elseif(row.literal)$
+	$literalRow(row)$
+$elseif(row.void)$
+	$voidRow(row)$	
+$elseif(row.custom)$
+	$customRow(row)$	
+$endif$
+>>
+
+xpathRow(row) ::=<<
+	$if(row.optional)$
+	public final Converter $row.name$ = createXPath($row.type$, "$row.expression.value$", true);
+	$else$
+	public final Converter $row.name$ = createXPath($row.type$, "$row.expression.value$");
+	$endif$
+>>
+
+symbolRow(row) ::=<<
+	public final Converter $row.name$ = createGetBindingValue($row.type$, $row.expression.value$);
+>>
+
+customRow(row) ::=<<
+	public final Converter $row.name$ = $row.expression.value$;
+>>
+
+voidRow(row) ::=<<
+	public final Converter $row.name$ = createVoid($row.expression.size$);
+>>
+
+fullElementContent(row) ::=<<
+	public final Converter $row.name$ = createGetCurrentElementContent($row.type$);
+>>
+
+orExpressions(type, exprs) ::= <<
+create( $type$, or( new String[] {
+	$exprs:doubleQuotedSequence()$
+}))
+>>
+
+doubleQuotedSequence(expr) ::= <<
+"$expr$",
+>>
+
+literalRow(row) ::=<<
+	$if(row.type)$
+		public final Converter $row.name$ = createFixedValue($row.type$, "$row.expression.value$");
+	$else$
+		public final Converter $row.name$ = createFixedValue("$row.expression.value$");
+	$endif$	
+>>

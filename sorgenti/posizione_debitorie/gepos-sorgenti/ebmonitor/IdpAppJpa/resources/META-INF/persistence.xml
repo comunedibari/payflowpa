@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="dscmtXa" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- JBOSS5 DS NAME -->
+		<jta-data-source>java:/dscmtXa</jta-data-source>
+
+		<class>it.tasgroup.cbill.domain.CasellarioInfoBlocchi</class>
+		<class>it.tasgroup.cbill.domain.EsitiCbill</class>
+		<class>it.tasgroup.cbill.domain.RipartenzeCasellarioInfo</class>
+		<class>it.tasgroup.ge.CfgDestinatari</class>
+		<class>it.tasgroup.ge.CfgEventi</class>
+		<class>it.tasgroup.ge.Eventi</class>
+		<class>it.tasgroup.ge.IntestatariOperatori</class>
+		<class>it.tasgroup.idp.domain.bonifici.Intestatari</class>
+		<class>it.tasgroup.idp.domain.enti.ConfigNotifiche</class>
+		<class>it.tasgroup.idp.domain.enti.Enti</class>
+		<class>it.tasgroup.idp.domain.enti.Sil</class>
+		<class>it.tasgroup.idp.domain.enti.Tributi</class>
+		<class>it.tasgroup.idp.domain.enti.TributiEnti</class>
+		<class>it.tasgroup.idp.domain.enti.TipologiaEnti</class>
+		<class>it.tasgroup.idp.domain.messaggi.ConfermeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriEsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriIdp</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotificheCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotifichePagamenti</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCartMessage</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.AllegatiPendenza</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.CondizioniPagamento</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.DestinatariPendenze</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.Pendenze</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.VociPagamento</class>
+		<class>it.tasgroup.idp.domain.riversamenti.Riversamenti</class>
+		<class>it.tasgroup.idp.domain.Iban</class>
+		<class>it.tasgroup.gde.GiornaleEventi</class>
+		<class>it.tasgroup.gde.GiornaleEventiDocumentiNDP</class>
+		<class>it.tasgroup.idp.domain.PropertiesIris</class>
+		<class>it.tasgroup.idp.domain.TimersIris</class>
+		<class>it.tasgroup.idp.gateway.CfgCanalePagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgCommissionePagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgDocumentoPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgFornitoreGateway</class>
+		<class>it.tasgroup.idp.gateway.CfgGatewayPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgModalitaPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgStrumentoPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgTipoCommissione</class>
+		<class>it.tasgroup.idp.gateway.Contotecnico</class>
+		<class>it.tasgroup.idp.gateway.EsitiNdp</class>
+		<class>it.tasgroup.idp.gateway.FlussiNdp</class>
+		<class>it.tasgroup.iris.domain.CarrelloGateway</class>
+		<class>it.tasgroup.iris.domain.CfgIrisGatewayClient</class>
+		<class>it.tasgroup.iris.domain.SessioneGateway</class>
+		<class>it.tasgroup.iris2.pagamenti.Aea</class>
+		<class>it.tasgroup.iris2.pagamenti.BonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.BozzeBonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.CasellarioDispo</class>
+		<class>it.tasgroup.iris2.pagamenti.CasellarioInfo</class>
+		<class>it.tasgroup.iris2.pagamenti.CondizioniDocumento</class>
+		<class>it.tasgroup.iris2.pagamenti.DistintePagamento</class>
+		<class>it.tasgroup.iris2.pagamenti.DistinteRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.DocumentiPagamento</class>
+		<class>it.tasgroup.iris2.pagamenti.DocumentiRepository</class>
+		<class>it.tasgroup.iris2.pagamenti.ErrorDLQ</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiBb</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiBonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiRct</class>
+		<class>it.tasgroup.iris2.pagamenti.IncassiBonificiRh</class>
+		<class>it.tasgroup.iris2.pagamenti.MovimentiAccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.Pagamenti</class>
+		<class>it.tasgroup.iris2.pagamenti.PagamentiOnline</class>
+		<class>it.tasgroup.iris2.pagamenti.Rendicontazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.Rid</class>
+		<class>it.tasgroup.iris2.pagamenti.RevochePagamento</class> 
+        <class>it.tasgroup.idp.avvisi.digitali.PrenotazioneAvvisiDigitali</class> 
+ 		<class>it.tasgroup.idp.avvisi.digitali.FileInvioAvvisiDigitali</class> 
+        <class>it.tasgroup.idp.avvisi.digitali.FileRicezioneEsitiAvvisiDigitali</class> 
+
+		<class>it.tasgroup.iris2.pagamenti.Esportazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.Prenotazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.InfoPrenotazioni</class>
+		
+		<class>it.tasgroup.iris2.pagamenti.StatistichePagamentiMese</class>
+		<class>it.tasgroup.iris2.pagamenti.StatistichePosizioniMese</class>
+		<class>it.tasgroup.iris2.pagamenti.LogElaborazioneBatch</class>
+		
+		<class>it.tasgroup.idp.anagrafica.Canali</class>
+		<class>it.tasgroup.idp.anagrafica.Indirizzipostali</class>
+		<class>it.tasgroup.idp.anagrafica.Operatori</class>
+		<class>it.tasgroup.idp.anagrafica.UtentiCanali</class>
+		<class>it.tasgroup.idp.anagrafica.UtentiCanaliPK</class>
+		
+		 <!-- IUV Generator -->
+        <class>it.tasgroup.idp.domain.iuv.IUVPosizEnteMap</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVPosizEnteMapPK</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVSequence</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVSequencePK</class>
+        
+        <class>it.tasgroup.iris2.pagamenti.EccezioniCausaliBT</class>
+        
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<!-- <property name="hibernate.ejb.cfgfile" value="/${it.tasgroup.monitor.conf.location}/custom.hibernate.cfg.xml"/> -->
+			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cfg.xml" />
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="dscmt" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- JBOSS5 DS NAME -->
+		<jta-data-source>java:/dscmt</jta-data-source>
+
+		<class>it.tasgroup.cbill.domain.CasellarioInfoBlocchi</class>
+		<class>it.tasgroup.cbill.domain.EsitiCbill</class>
+		<class>it.tasgroup.cbill.domain.RipartenzeCasellarioInfo</class>
+		<class>it.tasgroup.ge.CfgDestinatari</class>
+		<class>it.tasgroup.ge.CfgEventi</class>
+		<class>it.tasgroup.ge.Eventi</class>
+		<class>it.tasgroup.ge.IntestatariOperatori</class>
+		<class>it.tasgroup.idp.domain.bonifici.Intestatari</class>
+		<class>it.tasgroup.idp.domain.enti.ConfigNotifiche</class>
+		<class>it.tasgroup.idp.domain.enti.Enti</class>
+		<class>it.tasgroup.idp.domain.enti.Sil</class>
+		<class>it.tasgroup.idp.domain.enti.Tributi</class>
+		<class>it.tasgroup.idp.domain.enti.TributiEnti</class>
+		<class>it.tasgroup.idp.domain.enti.TipologiaEnti</class>
+		<class>it.tasgroup.idp.domain.messaggi.ConfermeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriEsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.ErroriIdp</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.EsitiPendenza</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotificheCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.NotifichePagamenti</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCart</class>
+		<class>it.tasgroup.idp.domain.messaggi.PendenzeCartMessage</class>		
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.AllegatiPendenza</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.CondizioniPagamento</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.DestinatariPendenze</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.Pendenze</class>
+		<class>it.tasgroup.idp.domain.posizioneDebitoria.VociPagamento</class>
+		<class>it.tasgroup.idp.domain.riversamenti.Riversamenti</class>
+		<class>it.tasgroup.idp.domain.Iban</class>
+		<class>it.tasgroup.gde.GiornaleEventi</class>
+		<class>it.tasgroup.gde.GiornaleEventiDocumentiNDP</class>
+		<class>it.tasgroup.idp.domain.PropertiesIris</class>
+		<class>it.tasgroup.idp.domain.TimersIris</class>
+		<class>it.tasgroup.idp.gateway.CfgCanalePagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgCommissionePagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgDocumentoPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgFornitoreGateway</class>
+		<class>it.tasgroup.idp.gateway.CfgGatewayPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgModalitaPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgStrumentoPagamento</class>
+		<class>it.tasgroup.idp.gateway.CfgTipoCommissione</class>
+		<class>it.tasgroup.idp.gateway.Contotecnico</class>
+		<class>it.tasgroup.idp.gateway.EsitiNdp</class>
+		<class>it.tasgroup.idp.gateway.FlussiNdp</class>
+		<class>it.tasgroup.iris.domain.CarrelloGateway</class>
+		<class>it.tasgroup.iris.domain.CfgIrisGatewayClient</class>
+		<class>it.tasgroup.iris.domain.SessioneGateway</class>
+		<class>it.tasgroup.iris2.pagamenti.Aea</class>
+		<class>it.tasgroup.iris2.pagamenti.BonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.BozzeBonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.CasellarioDispo</class>
+		<class>it.tasgroup.iris2.pagamenti.CasellarioInfo</class>
+		<class>it.tasgroup.iris2.pagamenti.CondizioniDocumento</class>
+		<class>it.tasgroup.iris2.pagamenti.DistintePagamento</class>
+		<class>it.tasgroup.iris2.pagamenti.DistinteRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.DocumentiPagamento</class>
+		<class>it.tasgroup.iris2.pagamenti.DocumentiRepository</class>
+		<class>it.tasgroup.iris2.pagamenti.ErrorDLQ</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiBb</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiBonificiRiaccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.EsitiRct</class>
+		<class>it.tasgroup.iris2.pagamenti.IncassiBonificiRh</class>
+		<class>it.tasgroup.iris2.pagamenti.MovimentiAccredito</class>
+		<class>it.tasgroup.iris2.pagamenti.Pagamenti</class>
+		<class>it.tasgroup.iris2.pagamenti.PagamentiOnline</class>
+		<class>it.tasgroup.iris2.pagamenti.Rendicontazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.Rid</class>
+        <class>it.tasgroup.iris2.pagamenti.RevochePagamento</class> 
+        <class>it.tasgroup.idp.avvisi.digitali.PrenotazioneAvvisiDigitali</class> 
+ 		<class>it.tasgroup.idp.avvisi.digitali.FileInvioAvvisiDigitali</class> 
+        <class>it.tasgroup.idp.avvisi.digitali.FileRicezioneEsitiAvvisiDigitali</class> 
+        
+		<class>it.tasgroup.iris2.pagamenti.Esportazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.Prenotazioni</class>
+		<class>it.tasgroup.iris2.pagamenti.InfoPrenotazioni</class>
+
+		<class>it.tasgroup.iris2.pagamenti.StatistichePagamentiMese</class>
+		<class>it.tasgroup.iris2.pagamenti.StatistichePosizioniMese</class>
+		<class>it.tasgroup.iris2.pagamenti.LogElaborazioneBatch</class>
+
+		<class>it.tasgroup.idp.anagrafica.Canali</class>
+		<class>it.tasgroup.idp.anagrafica.Indirizzipostali</class>
+		<class>it.tasgroup.idp.anagrafica.Operatori</class>
+		<class>it.tasgroup.idp.anagrafica.UtentiCanali</class>
+		<class>it.tasgroup.idp.anagrafica.UtentiCanaliPK</class>
+		
+
+		<class>it.tasgroup.idp.domain.enti.ConfigNotifiche</class>
+
+        <!-- IUV Generator -->
+        <class>it.tasgroup.idp.domain.iuv.IUVPosizEnteMap</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVPosizEnteMapPK</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVSequence</class>
+        <class>it.tasgroup.idp.domain.iuv.IUVSequencePK</class>
+        
+        <class>it.tasgroup.iris2.pagamenti.EccezioniCausaliBT</class>
+        
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<!-- <property name="hibernate.ejb.cfgfile" value="/${it.tasgroup.monitor.conf.location}/custom.hibernate.cfg.xml"/> -->
+			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cfg.xml" />
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+		</properties>
+
+	</persistence-unit>
+
+
+</persistence>

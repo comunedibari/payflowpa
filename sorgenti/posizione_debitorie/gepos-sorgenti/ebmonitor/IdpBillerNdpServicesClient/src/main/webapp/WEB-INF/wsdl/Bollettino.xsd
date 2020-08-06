@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://paytas.tasgroup.it/bollettinoservice/Bollettini"
+           xmlns:i="http://paytas.tasgroup.it/bollettinoservice/Common"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://paytas.tasgroup.it/bollettinoservice/Bollettini"
+           elementFormDefault="qualified">
+  <xs:import namespace="http://paytas.tasgroup.it/bollettinoservice/Common"
+             schemaLocation="CommonDef.xsd" />
+
+
+  <xs:element name="BollettinoPagamentoRequest">
+    <xs:complexType>
+      <xs:sequence>
+      <xs:element name="creditore" type="enteCreditore" />
+      <xs:element name="debitore" type="informazioniDebitore" />
+      <xs:element name="dettaglioPagamento" type="informazioniPagamento" />
+      <xs:element name="locale" type="LocaleConfig" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence> 
+      <xs:attribute name="Versione"
+                    type="Versione"
+                    use="required" />
+    </xs:complexType>
+  </xs:element>
+
+   <xs:simpleType name="Versione">
+    <xs:restriction base="i:Max15Text">
+      <xs:enumeration value="1.0" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <xs:element name="BollettinoPagamentoResponse">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="Esito" type="Esito"/>
+			<xs:element name="fileBollettino" type="xs:base64Binary" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+  </xs:element> 
+ 
+   <xs:complexType name="enteCreditore">
+    <xs:sequence>
+    	<xs:element name="anagrafica"        type="i:Max70Text"  />
+    	<xs:element name="cap"               type="i:Max16Text"  minOccurs="0" maxOccurs="1" />
+    	<xs:element name="codEnte"           type="i:Max50Text"  />
+    	<xs:element name="codiceFiscale"     type="i:Max35Text"  />
+    	<xs:element name="GLN"               type="i:Max16Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="indirizzo"         type="i:Max70Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="localita"          type="i:Max70Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="provincia"         type="i:Max2Text"   minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="siaFormatted"      type="i:Max50Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="idEnte"            type="i:Max50Text"  />
+    	<xs:element name="ibanCCP"           type="i:Max50Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="uoaCompetente"     type="i:Max50Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="infoTributo"       type="i:Max100Text" minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="autorizzStampaDDP" type="i:Max100Text" minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="intestazioneCCP"   type="i:Max256Text" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+   </xs:complexType>
+   
+   <xs:complexType name="informazioniDebitore">
+    <xs:sequence>
+    	<xs:element name="anagrafica"    type="i:Max70Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="cap"           type="i:Max16Text"  minOccurs="0" maxOccurs="1"/>    	
+    	<xs:element name="codiceFiscale" type="i:Max35Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="indirizzo"     type="i:Max70Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="localita"      type="i:Max70Text"  minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="provincia"     type="i:Max2Text"   minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+   </xs:complexType>
+   
+   <xs:complexType name="informazioniPagamento">
+    <xs:sequence>
+    	<xs:element name="barCode"           type="i:Max100Text" minOccurs="0" maxOccurs="1" />
+    	<xs:element name="causali"           type="i:Max256Text" minOccurs="0" maxOccurs="1" />
+    	<xs:element name="codiceAvviso"      type="i:Max35Text"  />
+    	<xs:element name="formattedID"       type="i:Max35Text"  />
+    	<xs:element name="importo"           type="i:Importo"    />
+    	<xs:element name="iuv"               type="i:Max35Text"  />
+    	<xs:element name="qrCode"            type="i:Max140Text" minOccurs="0" maxOccurs="1" />
+    	<xs:element name="scadenza"          type="i:IdPDate"    minOccurs="0" maxOccurs="1" />
+    	<xs:element name="stringaBarCode"    type="i:Max140Text" minOccurs="0" maxOccurs="1" />
+    	<xs:element name="oggettoPagamento"  type="i:Max60Text"  minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+   </xs:complexType>
+  	
+ 
+   <xs:complexType name="Esito">
+    <xs:sequence>
+    	<xs:element name="Stato" type="StatoMessaggio" />
+    	<xs:element name="Codice" type="i:Max35Text" />
+    	<xs:element name="Descrizione" type="i:Max256Text" />
+    </xs:sequence>
+   </xs:complexType>
+   
+    <xs:complexType name="LocaleConfig">
+    <xs:sequence>
+    	<xs:element name="language" type="i:Max2Text" />
+    	<xs:element name="country"  type="i:Max2Text"   minOccurs="0" maxOccurs="1"/>
+    	<xs:element name="variant"  type="i:Max20Text"  minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+   </xs:complexType>
+    
+   <xs:simpleType name="StatoMessaggio">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ELABORATO_OK" />
+      <xs:enumeration value="ELABORATO_KO" />
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>              

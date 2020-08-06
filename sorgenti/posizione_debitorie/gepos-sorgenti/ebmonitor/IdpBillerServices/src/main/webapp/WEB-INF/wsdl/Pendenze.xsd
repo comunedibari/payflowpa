@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://idp.tasgroup.it/xmlbillerservices/Pendenze" 
+           xmlns:h="http://idp.tasgroup.it/xmlbillerservices/Header" 
+           xmlns:i="http://idp.tasgroup.it/xmlbillerservices/Common" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://idp.tasgroup.it/xmlbillerservices/Pendenze" 
+           elementFormDefault="qualified">
+           
+	<xs:import namespace="http://idp.tasgroup.it/xmlbillerservices/Header" schemaLocation="Header.xsd"/>
+	<xs:import namespace="http://idp.tasgroup.it/xmlbillerservices/Common" schemaLocation="Common.xsd"/>
+    <xs:complexType name="IdpAllineamentoPendenzeMultiOTFElementType">
+    	<xs:sequence>
+            <xs:element name="E2EMsgId" type="h:MsgId" />
+            <xs:element name="E2ESender" type="h:E2ESender" />
+    		<xs:element name="IdpBody" type="IdpBody" />
+    	</xs:sequence>
+    </xs:complexType>
+	<xs:element name="IdpAllineamentoPendenzeMultiOTF">
+		<xs:complexType> 
+			<xs:sequence>
+				<xs:element name="HeaderTRT"
+					type="h:InboundHeaderTRT">
+				</xs:element>
+				<xs:element ref="h:IdpOTF" maxOccurs="1" />
+				<xs:element name="Parametri"
+					type="IdpAllineamentoPendenzeMultiOTFParametriType" maxOccurs="1"
+					minOccurs="0">
+				</xs:element>
+				<xs:element name="IdpAllineamentoPendenzeOTF"
+					type="IdpAllineamentoPendenzeMultiOTFElementType"
+					maxOccurs="unbounded" minOccurs="1">
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Versione" type="Versione" use="required"/>
+		</xs:complexType>
+	</xs:element>	
+	<xs:simpleType name="Versione">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.0"/>			
+			<xs:enumeration value="1.1"/> <!-- Introduzione pagamento MBD -->
+			<xs:enumeration value="1.2"/> <!-- Introduzione pagamento bollettini pre caricati by IUV -->
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="IdpBody">
+		<xs:sequence>
+			<xs:element name="Pendenza" type="Pendenza" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Pendenza">
+		<xs:sequence>
+			<xs:element name="IdDebito" type="i:IdentificativoIdp"/>
+			<xs:element name="DatiMBD" type="i:DatiMBD" minOccurs="0"/> 		    <!-- da versione 1.1 -->
+			<xs:element name="Mittente" type="Mittente"/>
+			<xs:element name="Debitori" type="Debitori"/>
+			<xs:element name="RiferimentoDebito" type="i:Max35Text" minOccurs="0"/> <!-- da versione 1.1 -->
+			<xs:element name="NoteDebito" type="i:Max2000Text" minOccurs="0"/>		
+			<xs:element name="CausaleDebito" type="i:Max512Text"/>
+			<!--  <xs:element name="Riscossore" type="Riscossore" minOccurs="0"/> -->
+			<xs:element name="DataCreazione" type="i:IdPDateTime"/>
+			<xs:element name="DataEmissione" type="i:IdPDateTime"/>
+			<!--  <xs:element name="DataPrescrizione" type="i:IdPDateTime"/> -->
+			<xs:element name="AnnoRiferimento" type="xs:gYear"/>
+			<!-- <xs:element name="DataModificaEnte" type="i:IdPDateTime" minOccurs="0"/>  -->
+			<!-- <xs:element name="Stato" type="i:StatoPendenza"/> -->
+			<xs:element name="ImportoTotale" type="i:Importo"/>
+			<xs:element name="Divisa" type="i:Divisa"/>
+			<xs:element name="InfoPagamento">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="CondizionePagamento" type="CondizionePagamento" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+			</xs:element>
+			<!-- PER USI FUTURI  <xs:element name="Allegato" type="i:Allegato" minOccurs="0" /> -->
+		</xs:sequence>
+		<xs:attribute name="TipoDebito" type="i:Max50Text" use="required"/>
+		<xs:attribute name="TipoOperazione" type="i:TipoOperazione" use="required"/>	
+	</xs:complexType>
+	
+	<xs:complexType name="CondizionePagamento">
+		<xs:sequence>
+			<xs:element name="IdPagamento" type="i:IdentificativoIdp"/>
+			<!--  <xs:element name="CIP" type="i:CIP" minOccurs="0"/> -->
+			<xs:element name="DataScadenza" type="i:IdPDate"/>
+			<xs:element name="DataInizioValidita" type="i:IdPDate"/>
+			<xs:element name="DataFineValidita" type="i:IdPDate"/>
+			<xs:element name="ImportoPagamento" type="i:Importo"/>
+            <xs:element name="CausalePagamento" type="i:Max256Text" minOccurs="0" />
+            <xs:element name="VociPagamento" type="VociPagamento" minOccurs="0"/>
+			<!-- PER USI FUTURI <xs:element name="DettaglioTransazione" type="DettaglioTransazione" minOccurs="0"/> -->
+			<!-- PER USI FUTURI <xs:element name="Allegato" type="i:Allegato" minOccurs="0" maxOccurs="unbounded"/>  -->
+			<!-- PER USI FUTURI <xs:element name="AccreditoPagamento" type="i:CoordinateBancarie" minOccurs="0"/> -->
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Mittente">
+		<xs:sequence>
+			<xs:element name="Id" type="i:IdentificativoIdp"/>
+			<xs:element name="Descrizione" type="i:Max70Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Debitori">
+		<xs:sequence>
+			<xs:element name="Debitore" type="Debitore" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Debitore">
+		<xs:sequence>
+			<xs:element name="IdFiscale" type="i:IdentificativoIdp" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="TipoSoggetto" type="i:stTipoSoggetto" maxOccurs="1" minOccurs="1"></xs:element>
+            <xs:element name="Anagrafica" type="i:Max70Text"
+				minOccurs="0" />
+            <xs:element name="EMail" type="i:Max256Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Indirizzo" type="i:Max70Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="NumeroCivico" type="i:Max16Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Cap" type="i:Max16Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Localita" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Provincia" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+            <xs:element name="Nazione" type="i:stNazione" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="IdentificativoAlternativo"
+				type="i:Max50Text" maxOccurs="1" minOccurs="0">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+<!-- PER USI FUTURI  <xs:complexType name="DettaglioTransazione">
+		<xs:sequence>
+			<xs:element name="DataPagamento" type="i:IdPDateTime"/>
+			<xs:element name="CanalePagamento" type="i:Max35Text"/>
+			<xs:element name="MezzoPagamento" type="i:Max35Text" minOccurs="0"/>
+			<xs:element name="ImportoPagamento" type="i:Importo" minOccurs="0"/>
+			<xs:element name="NotePagamento" type="i:Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType> 
+-->
+	<xs:complexType name="VociPagamento">
+		<xs:sequence>
+			<xs:element name="Voce" type="VoceImporto" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="VoceImporto">
+		<xs:sequence>
+			<xs:element name="Codice" type="i:Max35Text"/>
+			<xs:element name="Descrizione" type="i:Max256Text"/>
+			<xs:element name="Importo" type="i:Importo"/>
+			<xs:element name="CapitoloBilancio" type="i:Max35Text" minOccurs="0"/>
+			<xs:element name="CodiceAccertamento" type="i:Max35Text" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Tipo" type="i:Max35Text" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType 
+		name="IdpAllineamentoPendenzeMultiOTFParametriType">
+		<xs:sequence>
+			<xs:element name="AnnullaPagamentiInCorso"
+				type="xs:boolean" maxOccurs="1" minOccurs="0">
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+		<xs:element name="IdpMultiEsitoOTF" 
+				type="IdpMultiEsitoOTF"/>
+	<xs:complexType name="IdpMultiEsitoOTF">
+		<xs:sequence>
+			<xs:element name="IdpOTF" 
+			            type="IdpOTFType" 
+						minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Presente solo in caso di esito positivo</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IdpEsitoOTF" 
+			            type="IdpMultiEsitoOTFElement" 
+						minOccurs="1" 
+						maxOccurs="1">
+			<xs:annotation>
+				<xs:documentation>Presente solo in caso di esito negativo</xs:documentation>
+			</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<!--  <xs:attribute name="Versione" 
+		              type="Versione" 
+					  use="required"/> -->
+	</xs:complexType> 
+	<xs:complexType name="IdpMultiEsitoOTFElement">
+		<xs:sequence>
+			<xs:element name="MsgId" 
+			            type="h:MsgId" 
+						maxOccurs="1" 
+						minOccurs="1">
+			</xs:element>
+            <xs:element name="InfoMessaggio" type="InfoMessaggio" />
+            <xs:element name="InfoDettaglio" type="InfoDettaglio" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>	
+  
+   <xs:complexType name="IdpOTFType">
+    <xs:sequence>
+      <xs:element name="IdSessioneGW" type="i:Max35Text">
+
+      </xs:element>
+      <xs:element name="UrlGW"
+                  type="xs:anyURI">
+      </xs:element>
+    </xs:sequence>
+   </xs:complexType>
+
+	<xs:complexType name="InfoMessaggio">    
+	    <xs:sequence>
+	    	<xs:element name="Stato" type="StatoMessaggio" />
+	    	<xs:element name="Codice" type="i:Max35Text"></xs:element>
+	    	<xs:element name="Descrizione" type="i:Max256Text"></xs:element>
+	    </xs:sequence>
+	</xs:complexType>	
+	
+	  <xs:complexType name="InfoDettaglio">
+    <xs:sequence>
+      <xs:element name="Dettaglio"
+                  type="Dettaglio"
+                  maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Dettaglio">
+    <xs:sequence>
+    	<xs:element name="E2EMsgId" type="i:Max35Text"></xs:element>
+    	<xs:element name="IdDebito" type="i:Max35Text" maxOccurs="1"
+    		minOccurs="0" />
+    	<xs:element name="IdPagamento" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+    	<xs:element name="Stato" type="StatoDettaglio" />
+    	<xs:element name="Codice" type="i:Max35Text" maxOccurs="1" minOccurs="0"></xs:element>
+    	<xs:element name="Descrizione" type="i:Max256Text" maxOccurs="1"
+    		minOccurs="0">
+    	</xs:element>
+    	
+    	<xs:element name="Note" type="i:Max2000Text" minOccurs="0" />
+    	<xs:element name="IdentificativoUnivocoVersamento"
+    		type="i:Max35Text" minOccurs="0">
+    	</xs:element>
+    </xs:sequence>
+  </xs:complexType>
+		
+  <xs:simpleType name="StatoMessaggio">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ELABORATO_OK" />
+      <xs:enumeration value="ELABORATO_KO" />
+    </xs:restriction>
+  </xs:simpleType>	
+	
+  <xs:simpleType name="StatoDettaglio">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="WARN" />
+      <xs:enumeration value="KO" />
+    </xs:restriction>
+  </xs:simpleType>
+		
+</xs:schema>

@@ -1,0 +1,1964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IdpAllineamentoPendenzeEnte xmlns="urn:Idp:xsd:IdpAllineamentoPendenzeEnte.01.02.00"
+xmlns:HE2E="urn:Idp:xsd:IdpHeaderE2E.01.02.00"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+<IdpHeaderE2E>
+		<HE2E:Service>
+			<HE2E:ServiceName>IdpAllineamentoPendenze</HE2E:ServiceName>
+			<HE2E:E2EMsgId>idmsge2e001</HE2E:E2EMsgId>
+			<HE2E:XMLCrtDt>2001-12-17T09:30:47.0Z</HE2E:XMLCrtDt>    
+		</HE2E:Service>                                            
+		<HE2E:Sender>                                              
+			<HE2E:SenderId>ENTE001</HE2E:SenderId>                  
+			<HE2E:SenderSys>SenderSys01</HE2E:SenderSys>             
+		</HE2E:Sender>                                             
+		<HE2E:Receiver>                                            
+			<HE2E:ReceiverId>ReceiverId</HE2E:ReceiverId>            
+			<HE2E:ReceiverSys>ReceiverSys01</HE2E:ReceiverSys>       
+		</HE2E:Receiver>                                           
+		<HE2E:Reference>                                           
+			<HE2E:E2EMsgId>idmsge2e002</HE2E:E2EMsgId>               
+			<HE2E:XMLCrtDt>2001-06-06T06:06:47.0Z</HE2E:XMLCrtDt>    
+		</HE2E:Reference>                                          
+	</IdpHeaderE2E>                                              
+	<IdpBody>                                                    
+<Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB001-001">
+	<IdPendenza>extgen67</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB005-001">
+	<IdPendenza>extgen68</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB006-001">
+	<IdPendenza>extgen69</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB002-001">
+	<IdPendenza>extgen70</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoPendenza="TITRIB001-001" TipoOperazione="Replace">
+	<IdPendenza>extgen67</IdPendenza>
+	<Mittente>
+		<Id>UfficioCacciaPesca</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Altro">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+	<Replace>
+		<DescrizioneCausale>pippo</DescrizioneCausale>
+		<DataCreazione>2006-06-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2003-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>1666</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Aperta</Stato>
+		<ImportoTotale>166.66</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<InfoPagamento TipoPagamento="Pagamento Unico">
+			<DettaglioPagamento>
+				<IdPagamento>pag006</IdPagamento>
+				<DataScadenza>1983-08-13</DataScadenza>
+				<DataFineValidita>1987-08-13</DataFineValidita>
+				<Importo>166.66</Importo>
+				<Stato>Non Pagato</Stato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Replace>
+</Pendenza><Pendenza TipoPendenza="TITRIB002-001" TipoOperazione="Delete">
+	<IdPendenza>extgen70</IdPendenza>
+	<Mittente>
+		<Id>UfficioAnalisi</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB002-001">
+	<IdPendenza>extgen71</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoPendenza="TITRIB001-001" TipoOperazione="Delete">
+	<IdPendenza>extgen67</IdPendenza>
+	<Mittente>
+		<Id>UfficioAnalisi</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+</Pendenza><Pendenza TipoPendenza="TITRIB002-001" TipoOperazione="Delete">
+	<IdPendenza>extgen71</IdPendenza>
+	<Mittente>
+		<Id>UfficioAnalisi</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB005-001">
+	<IdPendenza>extgen72</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoPendenza="TITRIB006-001" TipoOperazione="Delete">
+	<IdPendenza>extgen69</IdPendenza>
+	<Mittente>
+		<Id>UfficioAnalisi</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+</Pendenza><Pendenza TipoPendenza="TITRIB005-001" TipoOperazione="UpdateStatus">
+	<IdPendenza>extgen68</IdPendenza>
+	<Mittente>
+		<Id>UfficioCacciaPesca</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Altro">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+	<UpdateStatus>
+		<DataModificaEnte>2001-12-17T09:31:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<InfoPagamento TipoPagamento="Pagamento Unico">
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<Stato>Pagato</Stato>
+				<DataPagamento>2009-03-11</DataPagamento>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</UpdateStatus>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB002-001">
+	<IdPendenza>extgen73</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB006-001">
+	<IdPendenza>extgen74</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoPendenza="TITRIB006-001" TipoOperazione="UpdateStatus">
+	<IdPendenza>extgen74</IdPendenza>
+	<Mittente>
+		<Id>UfficioCacciaPesca</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Altro">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+	<UpdateStatus>
+		<DataModificaEnte>2001-12-17T09:31:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<InfoPagamento TipoPagamento="Pagamento Unico">
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<Stato>Pagato</Stato>
+				<DataPagamento>2009-03-11</DataPagamento>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</UpdateStatus>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB005-001">
+	<IdPendenza>extgen75</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB001-001">
+	<IdPendenza>extgen76</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoPendenza="TITRIB001-001" TipoOperazione="Replace">
+	<IdPendenza>extgen76</IdPendenza>
+	<Mittente>
+		<Id>UfficioCacciaPesca</Id>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Altro">
+			<Id>xxCODICEFISCALEx</Id>
+		</Destinatario>
+	</Destinatari>
+	<Note>prova</Note>
+	<Replace>
+		<DescrizioneCausale>pippo</DescrizioneCausale>
+		<DataCreazione>2006-06-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2003-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>1666</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Aperta</Stato>
+		<ImportoTotale>166.66</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<InfoPagamento TipoPagamento="Pagamento Unico">
+			<DettaglioPagamento>
+				<IdPagamento>pag006</IdPagamento>
+				<DataScadenza>1983-08-13</DataScadenza>
+				<DataFineValidita>1987-08-13</DataFineValidita>
+				<Importo>166.66</Importo>
+				<Stato>Non Pagato</Stato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Replace>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB001-001">
+	<IdPendenza>extgen77</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza><Pendenza TipoOperazione="Insert" TipoPendenza="TITRIB006-001">
+	<IdPendenza>extgen78</IdPendenza>
+	<Mittente>
+		<Id>idUfficioMittente</Id>
+		<Descrizione>ufficio ente publico tc02</Descrizione>
+	</Mittente>
+	<Destinatari>
+		<Destinatario Tipo="Cittadino">
+			<Id>TSTMRA08A01E432T</Id>
+			<Descrizione>codice fiscale</Descrizione>
+		</Destinatario>
+		<Destinatario Tipo="Altro">
+			<Id>03490130287</Id>
+			<Descrizione>partita iva</Descrizione>
+		</Destinatario>
+	</Destinatari>
+	<Note>note note note</Note>
+	<Insert>
+		<DescrizioneCausale>causale test integrazione TI 02</DescrizioneCausale>
+		<Riferimento>riferimento</Riferimento>
+		<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+		<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+		<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+		<AnnoRiferimento>2001</AnnoRiferimento>
+		<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+		<Stato>Chiusa</Stato>
+		<ImportoTotale>1270</ImportoTotale>
+		<Divisa>EUR</Divisa>
+		<Allegato Tipo="Documento">
+			<Titolo>titolo allegato TC02</Titolo>
+			<Codifica>PDFA</Codifica>
+			<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+			<IdAntifalsificazione>md05</IdAntifalsificazione>
+		</Allegato>
+		<InfoPagamento TipoPagamento="Pagamento a Rate">
+			<DettaglioPagamento>
+				<IdPagamento>pag001</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 1di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag002</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 2 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag003</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 3 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+			<DettaglioPagamento>
+				<IdPagamento>pag004</IdPagamento>
+				<DataScadenza>1967-08-13</DataScadenza>
+				<DataInizioValidita>1967-08-13</DataInizioValidita>
+				<DataFineValidita>1967-08-13</DataFineValidita>
+				<Importo>300</Importo>
+				<Stato>Non Pagato</Stato>
+				<DataPagamento>1967-08-13</DataPagamento>
+				<CanalePagamento>IdpWeb</CanalePagamento>
+				<DettaglioImporto>
+					<Voce Tipo="ImportoBase">
+						<Codice>B002</Codice>
+						<Descrizione>descrizione di B002</Descrizione>
+						<Importo>300</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Spese">
+						<Codice>B003</Codice>
+						<Descrizione>descrizione di B003</Descrizione>
+						<Importo>10</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+					<Voce Tipo="Mora">
+						<Codice>B004</Codice>
+						<Descrizione>descrizione di B004</Descrizione>
+						<Importo>50</Importo>
+						<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+						<Accertamento>codice accertamento</Accertamento>
+					</Voce>
+				</DettaglioImporto>
+				<Allegato Tipo="Documento">
+					<Titolo>PFD dettaglio 4 di  TC02</Titolo>
+					<Codifica>PDFA</Codifica>
+					<Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+			</DettaglioPagamento>
+		</InfoPagamento>
+	</Insert>
+</Pendenza>	</IdpBody>                                                   
+</IdpAllineamentoPendenzeEnte>                                

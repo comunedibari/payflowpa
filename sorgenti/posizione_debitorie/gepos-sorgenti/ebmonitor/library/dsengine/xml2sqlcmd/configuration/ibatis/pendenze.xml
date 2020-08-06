@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="PendenzeModelType" type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PendenzeModel" />		
+		
+  <resultMap id="PendenzeResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PendenzeModel">
+  	<result property="idPendenza" column="ID_Pendenza" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="cdTrbEnte" column="CD_TRB_ENTE" /> 
+  	  	<result property="idTributo" column="ID_TRIBUTO" /> 
+  	  	<result property="idEnte" column="ID_ENTE" /> 
+  	  	<result property="idSystem" column="ID_SYSTEM" /> 
+  	  	<result property="idMittente" column="ID_Mittente" /> 
+  	  	<result property="deMittente" column="DE_Mittente" /> 
+  	  	<result property="idPendenzaEnte" column="ID_PendenzaEnte" /> 
+  	  	<result property="note" column="Note" /> 
+  	  	<result property="deCausale" column="DE_Causale" /> 
+  	  	<result property="coRiscossore" column="CO_RISCOSSORE" /> 
+  	  	<result property="riferimento" column="RIFERIMENTO" /> 
+  	  	<result property="tsCreazioneEnte" column="TS_CreazioneEnte" /> 
+  	  	<result property="tsEmissioneEnte" column="TS_EmissioneEnte" /> 
+  	  	<result property="tsPrescrizione" column="TS_Prescrizione" /> 
+  	  	<result property="annoRiferimento" column="Anno_Riferimento" /> 
+  	  	<result property="tsModificaEnte" column="TS_ModificaEnte" /> 
+  	  	<result property="stPendenza" column="ST_Pendenza" /> 
+  	  	<result property="imTotale" column="IM_Totale" /> 
+  	  	<result property="dvRiferimento" column="DV_Riferimento" /> 
+  	  	<result property="coAbi" column="CO_ABI" /> 
+  	  	<result property="flModPagamento" column="FL_Mod_Pagamento" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" />  	  	
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	<result property="opAnnullamento" column="OP_Annullamento" /> 
+  	  	<result property="tsAnnullamento" column="TS_Annullamento" />
+  	  	<result property="tsAnnullamentoMillis" column="TS_ANNULLAMENTO_MILLIS" />
+		<result property="idTributoStrutturato" column="ID_TRIBUTO_STRUTTURATO" />    	  	 
+  	  	
+  </resultMap>	
+  
+  <resultMap id="CondizioniPagamentoResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.CondizioniPagamentoModel">
+  	<result property="idPendenza" column="ID_Pendenza" /> 
+  	  	<result property="idCondizione" column="ID_Condizione" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="tiPagamento" column="TI_Pagamento" /> 
+  	  	<result property="idEnte" column="ID_ENTE" /> 
+  	  	<result property="cdTrbEnte" column="CD_TRB_ENTE" />
+  	  	<result property="idPagamento" column="ID_Pagamento" /> 
+  	  	<result property="tiCip" column="TI_CIP" /> 
+  	  	<result property="coCip" column="CO_CIP" /> 
+  	  	<result property="dtScadenza" column="DT_Scadenza" /> 
+  	  	<result property="dtInizioValidita" column="DT_InizioValidita" /> 
+  	  	<result property="dtFineValidita" column="DT_FineValidita" /> 
+  	  	<result property="imTotale" column="IM_Totale" /> 
+  	  	<result property="stPagamento" column="ST_Pagamento" /> 
+  	  	<result property="dtPagamento" column="DT_PAGAMENTO" /> 
+  	  	<result property="deCanalepag" column="DE_CANALEPAG" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	<result property="opAnnullamento" column="OP_ANNULLAMENTO" /> 
+  	  	<result property="tsAnnullamento" column="TS_ANNULLAMENTO" /> 
+  	  	<result property="tsAnnullamentoMillis" column="TS_ANNULLAMENTO_MILLIS" />
+  	  	
+  </resultMap>	
+
+
+	  <resultMap id="ConfigurazioneTributoResultMap" class="it.nch.eb.xsqlcmd.model.ConfigurazioneTributoEnteModel">
+	  	<result property="idTributo" column="ID_TRIBUTO" /> 
+	  	<result property="flagIniziativa" column="FL_INIZIATIVA" /> 
+	  </resultMap>
+	
+
+<!--      <select id="selectIdTributo" resultClass="java.lang.String" parameterClass="PendenzeModelType">
+	    SELECT ID_TRIBUTO FROM ${TRIBUTIENTI} WHERE ID_ENTE =  #idEnte:VARCHAR# AND CD_TRB_ENTE = #cdTrbEnte# AND STATO = 'A'
+	</select>
+	-->
+
+	<select id="selectConfigTributo" resultClass="java.lang.String" parameterClass="PendenzeModelType" resultMap="ConfigurazioneTributoResultMap" >
+	    SELECT ID_TRIBUTO,FL_INIZIATIVA FROM ${TRIBUTIENTI} WHERE ID_ENTE =  #idEnte:VARCHAR# AND CD_TRB_ENTE = #cdTrbEnte# AND ID_SYSTEM = #idSystem# AND STATO = 'A'
+	</select>
+	
+    <select id="selectIdEnte" resultClass="java.lang.String" parameterClass="PendenzeModelType">
+	    SELECT ID_ENTE FROM ${ENTI} WHERE CD_ENTE =  #idEnte:CHAR# AND STATO = 'A'
+	</select>
+	
+	<select id="checkPendenzaExists" parameterClass="PendenzeModelType" resultClass="java.lang.String">
+		SELECT  ID_Pendenza FROM ${PENDENZE} 
+		WHERE  ID_PendenzaEnte = #idPendenzaEnte:VARCHAR# AND CD_TRB_ENTE= #cdTrbEnte:VARCHAR# AND ID_ENTE = #idEnte:VARCHAR# AND ST_RIGA = 'V'
+	</select>
+	
+	<select id="selectPendenzaForUpdate" parameterClass="PendenzeModelType" resultMap="PendenzeResultMap">
+		SELECT  * FROM ${PENDENZE} 
+		WHERE  ID_ENTE = #idEnte:VARCHAR#  AND CD_TRB_ENTE= #cdTrbEnte:VARCHAR# AND ID_PendenzaEnte = #idPendenzaEnte:VARCHAR# AND ST_RIGA = 'V'
+	</select>
+
+	<update id="invalidateCondizioniPagamento" parameterClass="PendenzeModelType">
+		update ${CONDIZIONI_PAGAMENTO} set TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#, TS_ANNULLAMENTO_MILLIS = #tsAnnullamentoMillis:INTEGER#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# and
+				CD_TRB_ENTE= #cdTrbEnte:VARCHAR# and 
+				ID_ENTE = #idEnte:VARCHAR# AND ST_RIGA = 'V' and   
+				TS_ANNULLAMENTO is null
+	</update>
+
+	<update id="invalidateDestinatari" parameterClass="PendenzeModelType">
+		update ${DESTINATARI} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+				AND ST_RIGA = 'V' 
+	</update>
+	
+	<update id="invalidateAllegati" parameterClass="PendenzeModelType">
+		update ${ALLEGATO} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+				AND ST_RIGA = 'V' 
+	</update>
+	
+	<update id="invalidateAllegatiTipoRicevuta" parameterClass="PendenzeModelType">
+		update ${ALLEGATO} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+				AND ST_RIGA = 'V'   
+				AND TI_ALLEGATO = 'Ricevuta' 
+	</update>		
+	
+	<update id="invalidateVoci" parameterClass="PendenzeModelType">
+		update ${VOCI_BILANCIO} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+				AND ST_RIGA = 'V' 
+	</update>
+	
+
+	<update id="invalidateTributoStrutturato" parameterClass="PendenzeModelType">
+		update ${TRIBUTO_STRUTTURATO} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, VERSION = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+	</update>	
+	
+	
+	<update id="invalidateBolloAuto" parameterClass="PendenzeModelType">
+		update ${BOLLO_AUTO} set TS_AGGIORNAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, VERSION = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAnnullamento:VARCHAR# 
+		where 	id = #idTributoStrutturato:INTEGER#  
+	</update>
+
+<!--  DA ATTIVARE SOLO DOPO AVER CREATO LE NUOVE COLONNE
+      TS_ANNULLAMENTO , OP_ANNULLAMENTO	
+	<update id="invalidateDestinari" parameterClass="PendenzeModelType">
+		update ${DESTINATARI} set TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# and
+				AND ST_RIGA = 'V' and   
+				TS_ANNULLAMENTO is null
+	</update>
+	
+	<update id="invalidateAllegati" parameterClass="PendenzeModelType">
+		update ${ALLEGATO} set TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# and
+				AND ST_RIGA = 'V' and   
+				TS_ANNULLAMENTO is null
+	</update>
+	
+	<update id="invalidateAllegatiTipoRicevuta" parameterClass="PendenzeModelType">
+		update ${ALLEGATO} set TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR# 
+		where 	id_pendenza = #idPendenza:VARCHAR# 
+				AND ST_RIGA = 'V'   
+				AND TIPO_RICEVUTA = 'Ricevuta' and 
+				TS_ANNULLAMENTO is null
+	</update>			
+-->
+	
+	<!-- 
+	<select id="selectCondizioniPagamento" 
+    	resultMap="CondizioniPagamentoResultMap" 
+    	parameterClass="PendenzeModelType">
+	    SELECT * FROM ${CONDIZIONI_PAGAMENTO} 
+	    WHERE ID_Pendenza = #idPendenza:VARCHAR# AND TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#
+	</select>
+	 -->
+		
+</sqlMap>

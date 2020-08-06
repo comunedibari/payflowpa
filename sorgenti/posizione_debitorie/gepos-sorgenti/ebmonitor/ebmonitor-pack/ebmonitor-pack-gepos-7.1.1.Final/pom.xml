@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>it.tasgroup.idp</groupId>
+    <artifactId>ebmonitor-pack</artifactId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>ebmonitor-pack-gepos-7.1.1.Final</artifactId>
+  <packaging>pom</packaging>
+  <name>Custom Packaging for GePos PayFlowPA - JBoss EAP 6.3</name>
+  <description>project packaging for GePos PayFlowPA</description>
+  <modules>
+    <module>ebmonitor-pack-gepos-ear</module>
+    <module>ebmonitor-pack-gepos-conf</module>
+  </modules>
+</project>

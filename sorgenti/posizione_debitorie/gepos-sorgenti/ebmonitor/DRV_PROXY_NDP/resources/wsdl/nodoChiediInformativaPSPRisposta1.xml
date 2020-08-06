@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nodoChiediInformativaPSP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nodoChiediInformativaPSPRisposta.xsd">
+  <fault>
+    <faultCode>faultCode</faultCode>
+    <faultString>faultString</faultString>
+    <id>id</id>
+    <description>description</description>
+    <serial>0</serial>
+  </fault>
+  <listaInformativePSP>
+    <informativaPSP>
+      <identificativo>identificativo</identificativo>
+      <ragioneSociale>ragioneSociale</ragioneSociale>
+      <informativaMaster>
+        <dataPubblicazione>dataPubblicazione</dataPubblicazione>
+        <dataInizioValidita>dataInizioValidita</dataInizioValidita>
+      </informativaMaster>
+      <listaInformativaDetail/>
+    </informativaPSP>
+  </listaInformativePSP>
+</nodoChiediInformativaPSP>

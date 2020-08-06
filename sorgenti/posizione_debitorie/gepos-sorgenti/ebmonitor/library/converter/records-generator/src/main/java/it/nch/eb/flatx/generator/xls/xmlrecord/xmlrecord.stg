@@ -1,0 +1,55 @@
+group recordImpl;
+
+compilationUnit(pkgName, recordSheet) ::=<<
+package $pkgName$;
+
+$imports()$
+
+/**
+ * generated 
+ */
+public class $recordSheet.name$ extends $recordSheet.xmlRecordClass$  
+	implements ObjectConverters, XmlBaseConverters, BaseConverters 
+	$if(recordSheet.interfaces)$ , $recordSheet.interfaces; separator=", "$  $endif$ {
+
+	private static final long	serialVersionUID	= -666L;
+		
+	public $recordSheet.name$ () {
+		$if(recordSheet.childPath)$
+		this("$recordSheet.basePath$", "$recordSheet.childPath$");
+		$else$
+		this("$recordSheet.basePath$");
+		$endif$
+	}
+	
+	public $recordSheet.name$ (String xpath) {
+		$if(recordSheet.childPath)$
+		this("$recordSheet.basePath$", xpath);
+		$else$
+		super(xpath);
+		$endif$
+	}
+	
+	$if(recordSheet.childPath)$
+	public $recordSheet.name$ (String base, String chldXPath) {
+		super(base, chldXPath);
+	}
+	$endif$
+
+	$recordSheet.rows:singleConversion()$
+	
+}
+>>
+
+imports(row) ::=<<
+//import it.nch.eb.flatx.flatmodel.XmlRecord;
+import it.nch.eb.flatx.flatmodel.conversioninfo.IXPathToObjectConversionInfo;
+import it.nch.eb.flatx.flatmodel.converters.BaseConverters;
+import it.nch.eb.flatx.flatmodel.objectconverters.ObjectConverters;
+import it.nch.eb.flatx.xmlrecord.XmlBaseConverters;
+>>
+
+singleConversion(row) ::=<<
+  public final IXPathToObjectConversionInfo $row.name$ = builder.create( $row.argumentsString$ );
+  
+>>

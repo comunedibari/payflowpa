@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="DestinatariModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.DestinatariModel" />
+		
+  <resultMap id="DestinatariResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.DestinatariModel">
+  	<result property="idPendenza" column="ID_PENDENZA" /> 
+  	  	<result property="idDestinatario" column="ID_DESTINATARIO" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="tiDestinatario" column="TI_DESTINATARIO" /> 
+  	  	<result property="coDestinatario" column="CO_DESTINATARIO" /> 
+  	  	<result property="deDestinatario" column="DE_DESTINATARIO" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	<result property="tipoSoggettoDestinatario" column="TIPO_SOGGETTO_DEST" />
+  	  	<result property="anagraficaDestinatario" column="ANAGRAFICA_SOGGETTO_DEST" />
+  	  	<result property="emailDestinatario" column="EMAIL_DEST" /> 
+  	  	<result property="indirizzoDestinatario" column="INDIRIZZO_DEST" /> 
+  	  	<result property="numCivicoDestinatario" column="NUMERO_CIVICO_DEST" /> 
+  	  	<result property="capDestinatario" column="CAP_DEST" /> 
+  	  	<result property="localitaDestinatario" column="LOCALITA_DEST" /> 
+  	  	<result property="provinciaDestinatario" column="PROVINCIA_DEST" /> 
+  	  	<result property="nazioneDestinatario" column="NAZIONE_DEST" />
+  	  	<result property="dataNascitaDestinatario" column="DATA_NASCITA_DEST" />
+  	  	<result property="luogoNascitaDestinatario" column="LUOGO_NASCITA_DEST" /> 
+  	  	 	
+  	  	
+  </resultMap>		
+  
+
+<insert id="insertDestinatari" parameterClass="DestinatariModelType"><![CDATA[
+
+INSERT into ${DESTINATARI} ( ID_PENDENZA,ID_DESTINATARIO,TS_DECORRENZA,TI_DESTINATARIO,CO_DESTINATARIO,DE_DESTINATARIO,ST_RIGA,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO,OP_AGGIORNAMENTO,TS_AGGIORNAMENTO,
+TIPO_SOGGETTO_DEST, ANAGRAFICA_SOGGETTO_DEST, EMAIL_DEST,INDIRIZZO_DEST,NUMERO_CIVICO_DEST,CAP_DEST,LOCALITA_DEST,PROVINCIA_DEST,NAZIONE_DEST ) values
+(  #idPendenza:VARCHAR#, #idDestinatario:VARCHAR#, #tsDecorrenza:TIMESTAMP#, #tiDestinatario:CHAR#, #coDestinatario:VARCHAR#, #deDestinatario:VARCHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP#,
+   #tipoSoggettoDestinatario:CHAR#,  #anagraficaDestinatario:VARCHAR#, #emailDestinatario:VARCHAR#, #indirizzoDestinatario:VARCHAR#, #numCivicoDestinatario:VARCHAR#, #capDestinatario:VARCHAR#, #localitaDestinatario:VARCHAR#, #provinciaDestinatario:VARCHAR#, #nazioneDestinatario:VARCHAR#
+ )
+
+]]></insert> 
+
+
+</sqlMap>

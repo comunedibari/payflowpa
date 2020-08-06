@@ -1,0 +1,102 @@
+group notifichePagamento;
+
+templateNotificaPagamento(notificaPagamentoModel) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- templateNotificaPagamento -->
+<IdpInformativaPagamento Versione="01.03-00" 
+	xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInformativaPagamento"
+	xmlns:h="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInformativaPagamento Idp.InformativaPagamento.xsd">
+	
+	<IdpHeader xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader">	
+		<TRT>
+			<ServiceName>IdpInformativaPagamento</ServiceName>
+			<MsgId>$notificaPagamentoModel.e2emsgid$</MsgId>
+			<XMLCrtDt>$notificaPagamentoModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<SenderId>$notificaPagamentoModel.senderId$</SenderId>
+				<SenderSys>$notificaPagamentoModel.senderSys$</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>$notificaPagamentoModel.trtReceiverId$</ReceiverId>
+				<ReceiverSys>$notificaPagamentoModel.trtReceiverSys$</ReceiverSys>
+			</Receiver>
+		</TRT>		
+		<E2E>
+			<E2ESrvcNm>IdpInformativaPagamento</E2ESrvcNm>
+			<E2EMsgId>$notificaPagamentoModel.e2emsgid$</E2EMsgId>
+			<XMLCrtDt>$notificaPagamentoModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>$notificaPagamentoModel.senderId$</E2ESndrId>
+				<E2ESndrSys>$notificaPagamentoModel.senderSys$</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>$notificaPagamentoModel.receiverId$</E2ERcvrId>
+				<E2ERcvrSys>$notificaPagamentoModel.receiverSys$</E2ERcvrSys>
+			</Receiver>			
+		</E2E>
+	</IdpHeader>
+  <IdpBody>
+      
+    $templateListaPagamenti(notificaPagamentoModel.listaPagamenti)$
+    
+  </IdpBody>
+</IdpInformativaPagamento>
+>>
+			
+templateListaPagamenti(listaPagamenti)  ::= <<
+$listaPagamenti:{ pagamentoModel |
+		<Pagamento>
+			<RiferimentoPagamento TipoPagamento="Pagamento Unico">
+				<IdPagamento>$pagamentoModel.idPagamento$</IdPagamento>
+			</RiferimentoPagamento>
+			
+			<DataOraPagamento>$pagamentoModel.dataOraPagamento$</DataOraPagamento>
+			<DataScadenzaPagamento>$pagamentoModel.dataScadenzaPagamento$</DataScadenzaPagamento>
+			
+			<Importo>$pagamentoModel.importo$</Importo>
+			<RiferimentoDebitore>$pagamentoModel.idPagante$</RiferimentoDebitore>
+			
+			<Esito>$pagamentoModel.esito$</Esito>		
+			
+			<Pagante Tipo="CodiceFiscale">
+				<IdPagante>$pagamentoModel.idPagante$</IdPagante>
+				<Descrizione>$pagamentoModel.idPagante$</Descrizione>
+			</Pagante>		
+			
+			<Transazione>			
+				<CanalePagamento Tipo="Web"></CanalePagamento>
+				<MezzoPagamento Tipo="$pagamentoModel.mezzoPagamento$"></MezzoPagamento>				
+							
+				<IdTransazione>$pagamentoModel.idTransazione$</IdTransazione>
+				
+				<DataOraTransazione>$pagamentoModel.dataOraTransazione$</DataOraTransazione>							
+				<DataOraAutorizzazione>$pagamentoModel.dataOraAutorizzazione$</DataOraAutorizzazione>
+				
+				<ImportoTransato>$pagamentoModel.importoTransato$</ImportoTransato>				
+				<DettaglioImportoTransato>
+					<Voce Tipo="ImportoTransato">
+						<Descrizione>Importo Transato</Descrizione>
+						<Importo>$pagamentoModel.importoVoce$</Importo>
+					</Voce>
+					<Voce Tipo="ImportoCommissioni">
+						<Descrizione>Importo Commissioni</Descrizione>
+						<Importo>$pagamentoModel.importoVoceCommissioni$</Importo>
+					</Voce>					
+				</DettaglioImportoTransato>				
+			</Transazione>
+			
+			$if (pagamentoModel.note)$
+				<Note>$pagamentoModel.note$</Note>
+			$endif$
+
+			<RiferimentoDebito TipoDebito="$pagamentoModel.tipoDebito$">
+				<Pendenza>$pagamentoModel.idPendenzaEnte$</Pendenza>
+			</RiferimentoDebito>
+							
+			
+		</Pagamento>
+}$
+>>

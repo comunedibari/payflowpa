@@ -1,0 +1,8 @@
+group recordImpl;
+
+compilationUnit(packageName, className) ::=<<
+package $packageName$;
+
+public class $className$ {
+}
+>>

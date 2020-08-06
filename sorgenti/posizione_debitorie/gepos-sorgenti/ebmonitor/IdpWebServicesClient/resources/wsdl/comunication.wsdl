@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ComunicazioneServiceImplService" targetNamespace="http://impl.ws.comunication.iris.tasgroup.it/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.ws.comunication.iris.tasgroup.it/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://impl.ws.comunication.iris.tasgroup.it/" version="1.0" xmlns:tns="http://impl.ws.comunication.iris.tasgroup.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="elencoLogMessaggi" type="tns:elencoLogMessaggi"/>
+<xs:element name="elencoLogMessaggiResponse" type="tns:elencoLogMessaggiResponse"/>
+<xs:element name="getCanaliComunicazione" type="tns:getCanaliComunicazione"/>
+<xs:element name="getCanaliComunicazioneResponse" type="tns:getCanaliComunicazioneResponse"/>
+<xs:element name="getCanaliConfigurazione" type="tns:getCanaliConfigurazione"/>
+<xs:element name="getCanaliConfigurazioneResponse" type="tns:getCanaliConfigurazioneResponse"/>
+<xs:element name="getTipoMessaggio" type="tns:getTipoMessaggio"/>
+<xs:element name="getTipoMessaggioResponse" type="tns:getTipoMessaggioResponse"/>
+<xs:element name="sendMessage" type="tns:sendMessage"/>
+<xs:element name="sendMessageAgain" type="tns:sendMessageAgain"/>
+<xs:element name="sendMessageAgainResponse" type="tns:sendMessageAgainResponse"/>
+<xs:element name="sendMessageResponse" type="tns:sendMessageResponse"/>
+<xs:element name="subscribeCanali" type="tns:subscribeCanali"/>
+<xs:element name="subscribeCanaliResponse" type="tns:subscribeCanaliResponse"/>
+<xs:element name="unsubscribeCanali" type="tns:subscribeCanali"/>
+<xs:element name="unsubscribeCanaliResponse" type="tns:subscribeCanaliResponse"/>
+<xs:element name="updateCanaliComunicazione" type="tns:updateCanaliComunicazione"/>
+<xs:element name="updateCanaliComunicazioneResponse" type="tns:updateCanaliComunicazioneResponse"/>
+<xs:element name="updateTipoMessaggio" type="tns:updateTipoMessaggio"/>
+<xs:element name="updateTipoMessaggioResponse" type="tns:updateTipoMessaggioResponse"/>
+<xs:element name="validaConfigurazioneCanale" type="tns:validaConfigurazioneCanale"/>
+<xs:element name="validaConfigurazioneCanaleResponse" type="tns:validaConfigurazioneCanaleResponse"/>
+<xs:element name="validaConfigurazioneUtenteCanale" type="tns:validaConfigurazioneUtenteCanale"/>
+<xs:element name="validaConfigurazioneUtenteCanaleResponse" type="tns:validaConfigurazioneUtenteCanaleResponse"/>
+<xs:complexType name="getCanaliComunicazione">
+<xs:sequence>
+<xs:element minOccurs="0" name="Utente" type="tns:UtenteType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UtenteType">
+<xs:sequence>
+<xs:element name="id_utente" type="xs:string"/>
+<xs:element name="is_anonymous" type="xs:boolean"/>
+<xs:element minOccurs="0" name="scopo_messaggio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getCanaliComunicazioneResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="UtenteCanaleResponse" type="tns:UtenteCanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="UtenteCanaleType">
+<xs:sequence>
+<xs:element name="id_utente" type="xs:string"/>
+<xs:element name="canale" type="tns:CanaleType"/>
+<xs:element name="is_anonymous" type="xs:boolean"/>
+<xs:element minOccurs="0" name="stato" type="xs:string"/>
+<xs:element minOccurs="0" name="configurazione" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CanaleType">
+<xs:sequence>
+<xs:element name="id" type="xs:integer"/>
+<xs:element minOccurs="0" name="stato" type="tns:StatoCanaleType"/>
+<xs:element minOccurs="0" name="denominazione" type="xs:string"/>
+<xs:element minOccurs="0" name="num_tentativi" type="xs:integer"/>
+<xs:element minOccurs="0" name="tempo_retry" type="xs:integer"/>
+<xs:element minOccurs="0" name="configurazione" type="xs:string"/>
+<xs:element minOccurs="0" name="sortingField" type="xs:string"/>
+<xs:element minOccurs="0" name="sortingDir" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendMessageAgain">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Messaggio" type="tns:MessaggioType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="MessaggioType">
+<xs:sequence>
+<xs:element name="id" type="xs:integer"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendMessageAgainResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="subscribeCanali">
+<xs:sequence>
+<xs:element name="Subscriber" type="tns:UtenteType"/>
+<xs:element name="TipoCanaleResponse" type="tns:TipoCanaleType"/>
+<xs:element name="ParametroCanale" type="tns:ParametroCanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ParametroCanaleType">
+<xs:sequence>
+<xs:element name="parametro" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="subscribeCanaliResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getCanaliConfigurazione">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getCanaliConfigurazioneResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="CanaleResponse" type="tns:CanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateTipoMessaggio">
+<xs:sequence>
+<xs:element name="TipoMessaggio" type="tns:TipoMessaggioType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="TipoMessaggioType">
+<xs:sequence>
+<xs:element minOccurs="0" name="id" type="xs:integer"/>
+<xs:element minOccurs="0" name="stato" type="tns:StatoTipoMessaggioType"/>
+<xs:element minOccurs="0" name="denominazione" type="xs:string"/>
+<xs:element minOccurs="0" name="sortingField" type="xs:string"/>
+<xs:element minOccurs="0" name="sortingDir" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateTipoMessaggioResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getTipoMessaggio">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getTipoMessaggioResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="TipoMessaggioResponse" type="tns:TipoMessaggioType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="validaConfigurazioneCanale">
+<xs:sequence>
+<xs:element minOccurs="0" name="Canale" type="tns:CanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="validaConfigurazioneCanaleResponse">
+<xs:sequence>
+<xs:element name="ValidoResponse" type="tns:ValidoType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ValidoType">
+<xs:sequence>
+<xs:element name="is_valid" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="elencoLogMessaggi">
+<xs:sequence>
+<xs:element minOccurs="0" name="searchLogMessaggi" type="tns:SearchLogMessaggiType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="SearchLogMessaggiType">
+<xs:sequence>
+<xs:element minOccurs="0" name="canale" type="tns:CanaleType"/>
+<xs:element minOccurs="0" name="stato" type="tns:StatoMessaggioType"/>
+<xs:element minOccurs="0" name="dataDa" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="dataA" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="utente" type="xs:string"/>
+<xs:element minOccurs="0" name="tipoMessaggio" type="tns:TipoMessaggioType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="elencoLogMessaggiResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="LogMessaggiResponse" type="tns:LogMessaggioType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LogMessaggioType">
+<xs:sequence>
+<xs:element name="id" type="xs:integer"/>
+<xs:element minOccurs="0" name="data" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="stato" type="tns:StatoMessaggioType"/>
+<xs:element minOccurs="0" name="Canale" type="tns:CanaleType"/>
+<xs:element minOccurs="0" name="Utente" type="tns:UtenteType"/>
+<xs:element minOccurs="0" name="MessaggioLogico" type="tns:MessaggioLogicoType"/>
+<xs:element minOccurs="0" name="sortingField" type="xs:string"/>
+<xs:element minOccurs="0" name="sortingDir" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="MessaggioLogicoType">
+<xs:sequence>
+<xs:element name="id" type="xs:integer"/>
+<xs:element name="tipo_messaggio" type="tns:TipoMessaggioType"/>
+<xs:element name="mittente" type="xs:string"/>
+<xs:element name="timestamp" type="xs:dateTime"/>
+<xs:element name="severity" type="xs:string"/>
+<xs:element name="oggetto" type="xs:string"/>
+<xs:element name="messaggio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateCanaliComunicazione">
+<xs:sequence>
+<xs:element name="Canale" type="tns:CanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateCanaliComunicazioneResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="sendMessage">
+<xs:sequence>
+<xs:element name="MessaggioLogico" type="tns:MessaggioLogicoType"/>
+<xs:element maxOccurs="unbounded" name="Utenti" type="tns:UtenteType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="sendMessageResponse">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="validaConfigurazioneUtenteCanale">
+<xs:sequence>
+<xs:element minOccurs="0" name="UtenteCanale" type="tns:UtenteCanaleType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="validaConfigurazioneUtenteCanaleResponse">
+<xs:sequence>
+<xs:element name="ValidoResponse" type="tns:ValidoType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="StatoCanaleType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ATTIVO"/>
+<xs:enumeration value="DISATTIVO"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TipoCanaleType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="E-MAIL"/>
+<xs:enumeration value="BACHECA"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="StatoTipoMessaggioType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ATTIVO"/>
+<xs:enumeration value="DISATTIVO"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="StatoMessaggioType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="INVIATO"/>
+<xs:enumeration value="ERRORE"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="elencoLogMessaggiResponse">
+    <wsdl:part element="tns:elencoLogMessaggiResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCanaliConfigurazione">
+    <wsdl:part element="tns:getCanaliConfigurazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTipoMessaggioResponse">
+    <wsdl:part element="tns:updateTipoMessaggioResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTipoMessaggio">
+    <wsdl:part element="tns:getTipoMessaggio" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateTipoMessaggio">
+    <wsdl:part element="tns:updateTipoMessaggio" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCanaliConfigurazioneResponse">
+    <wsdl:part element="tns:getCanaliConfigurazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCanaliComunicazioneResponse">
+    <wsdl:part element="tns:getCanaliComunicazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subscribeCanali">
+    <wsdl:part element="tns:subscribeCanali" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCanaliComunicazione">
+    <wsdl:part element="tns:updateCanaliComunicazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCanaliComunicazione">
+    <wsdl:part element="tns:getCanaliComunicazione" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMessageAgain">
+    <wsdl:part element="tns:sendMessageAgain" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMessageAgainResponse">
+    <wsdl:part element="tns:sendMessageAgainResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unsubscribeCanali">
+    <wsdl:part element="tns:unsubscribeCanali" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validaConfigurazioneCanale">
+    <wsdl:part element="tns:validaConfigurazioneCanale" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="unsubscribeCanaliResponse">
+    <wsdl:part element="tns:unsubscribeCanaliResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validaConfigurazioneCanaleResponse">
+    <wsdl:part element="tns:validaConfigurazioneCanaleResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateCanaliComunicazioneResponse">
+    <wsdl:part element="tns:updateCanaliComunicazioneResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMessageResponse">
+    <wsdl:part element="tns:sendMessageResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMessage">
+    <wsdl:part element="tns:sendMessage" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTipoMessaggioResponse">
+    <wsdl:part element="tns:getTipoMessaggioResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="elencoLogMessaggi">
+    <wsdl:part element="tns:elencoLogMessaggi" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="subscribeCanaliResponse">
+    <wsdl:part element="tns:subscribeCanaliResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ComunicationPortType">
+    <wsdl:operation name="getCanaliComunicazione">
+      <wsdl:input message="tns:getCanaliComunicazione" name="getCanaliComunicazione">
+    </wsdl:input>
+      <wsdl:output message="tns:getCanaliComunicazioneResponse" name="getCanaliComunicazioneResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageAgain">
+      <wsdl:input message="tns:sendMessageAgain" name="sendMessageAgain">
+    </wsdl:input>
+      <wsdl:output message="tns:sendMessageAgainResponse" name="sendMessageAgainResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subscribeCanali">
+      <wsdl:input message="tns:subscribeCanali" name="subscribeCanali">
+    </wsdl:input>
+      <wsdl:output message="tns:subscribeCanaliResponse" name="subscribeCanaliResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanaliConfigurazione">
+      <wsdl:input message="tns:getCanaliConfigurazione" name="getCanaliConfigurazione">
+    </wsdl:input>
+      <wsdl:output message="tns:getCanaliConfigurazioneResponse" name="getCanaliConfigurazioneResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTipoMessaggio">
+      <wsdl:input message="tns:updateTipoMessaggio" name="updateTipoMessaggio">
+    </wsdl:input>
+      <wsdl:output message="tns:updateTipoMessaggioResponse" name="updateTipoMessaggioResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoMessaggio">
+      <wsdl:input message="tns:getTipoMessaggio" name="getTipoMessaggio">
+    </wsdl:input>
+      <wsdl:output message="tns:getTipoMessaggioResponse" name="getTipoMessaggioResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaConfigurazioneCanale">
+      <wsdl:input message="tns:validaConfigurazioneCanale" name="validaConfigurazioneCanale">
+    </wsdl:input>
+      <wsdl:output message="tns:validaConfigurazioneCanaleResponse" name="validaConfigurazioneCanaleResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="elencoLogMessaggi">
+      <wsdl:input message="tns:elencoLogMessaggi" name="elencoLogMessaggi">
+    </wsdl:input>
+      <wsdl:output message="tns:elencoLogMessaggiResponse" name="elencoLogMessaggiResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsubscribeCanali">
+      <wsdl:input message="tns:unsubscribeCanali" name="unsubscribeCanali">
+    </wsdl:input>
+      <wsdl:output message="tns:unsubscribeCanaliResponse" name="unsubscribeCanaliResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCanaliComunicazione">
+      <wsdl:input message="tns:updateCanaliComunicazione" name="updateCanaliComunicazione">
+    </wsdl:input>
+      <wsdl:output message="tns:updateCanaliComunicazioneResponse" name="updateCanaliComunicazioneResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <wsdl:input message="tns:sendMessage" name="sendMessage">
+    </wsdl:input>
+      <wsdl:output message="tns:sendMessageResponse" name="sendMessageResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComunicazioneServiceImplServiceSoapBinding" type="tns:ComunicationPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCanaliComunicazione">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/getCanaliComunicazione" style="document"/>
+      <wsdl:input name="getCanaliComunicazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCanaliComunicazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessageAgain">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/sendMessageAgain" style="document"/>
+      <wsdl:input name="sendMessageAgain">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendMessageAgainResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCanaliConfigurazione">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/getCanaliConfigurazione" style="document"/>
+      <wsdl:input name="getCanaliConfigurazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCanaliConfigurazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="subscribeCanali">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/subscribeCanali" style="document"/>
+      <wsdl:input name="subscribeCanali">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="subscribeCanaliResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTipoMessaggio">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/getTipoMessaggio" style="document"/>
+      <wsdl:input name="getTipoMessaggio">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTipoMessaggioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateTipoMessaggio">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/updateTipoMessaggio" style="document"/>
+      <wsdl:input name="updateTipoMessaggio">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateTipoMessaggioResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="elencoLogMessaggi">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/elencoLogMessaggi" style="document"/>
+      <wsdl:input name="elencoLogMessaggi">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="elencoLogMessaggiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validaConfigurazioneCanale">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/validaConfigurazioneCanale" style="document"/>
+      <wsdl:input name="validaConfigurazioneCanale">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validaConfigurazioneCanaleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="unsubscribeCanali">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/unsubscribeCanali" style="document"/>
+      <wsdl:input name="unsubscribeCanali">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="unsubscribeCanaliResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateCanaliComunicazione">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/updateCanaliComunicazione" style="document"/>
+      <wsdl:input name="updateCanaliComunicazione">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateCanaliComunicazioneResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendMessage">
+      <soap:operation soapAction="http://localhost:8080/comunicationws/services/sendMessage" style="document"/>
+      <wsdl:input name="sendMessage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendMessageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComunicazioneServiceImplService">
+    <wsdl:port binding="tns:ComunicazioneServiceImplServiceSoapBinding" name="ComunicazioneServiceImplPort">
+      <soap:address location="http://srviris.int.master.lan:8280/comunicationws/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

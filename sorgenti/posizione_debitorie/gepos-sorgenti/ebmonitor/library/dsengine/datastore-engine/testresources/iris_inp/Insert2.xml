@@ -1,0 +1,140 @@
+<n:IdpAllineamentoPendenze xmlns:n="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Versione="01.03-00" xsi:schemaLocation="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze
+  file:///D:/Projects/RT_IDP/ebmonitor3/ebmonitor/DRV_CART_TEST/resources/TEST-TAS/IdP.AllineamentoPendenze.xsd" >
+<IdpHeader>
+<TRT><ServiceName>IdpAllineamentoPendenze</ServiceName><MsgId>idmsge2e001</MsgId><XMLCrtDt>2009-09-01T09:11:54.0Z</XMLCrtDt><Sender><SenderId>CFiglineVA</SenderId><SenderSys>SenderSys01</SenderSys></Sender><Receiver><ReceiverId>ReceiverId</ReceiverId><ReceiverSys>ReceiverSys01</ReceiverSys></Receiver></TRT>
+
+    <E2E>
+        <E2ESrvcNm>IdpAllineamentoPendenze</E2ESrvcNm>
+        <E2EMsgId>aa</E2EMsgId>
+        <XMLCrtDt>2001-12-17T09:30:47.0Z</XMLCrtDt>
+      <Sender>
+        <E2ESndrId>CFiglineVA</E2ESndrId>
+        <E2ESndrSys>a</E2ESndrSys></Sender>
+      <Receiver>
+        <E2ERcvrId>b</E2ERcvrId>
+        <E2ERcvrSys>b</E2ERcvrSys></Receiver></E2E></IdpHeader>
+
+	<IdpBody>
+		<Pendenza TipoOperazione="Insert" TipoPendenza="Ici">
+			<IdPendenza>Change1</IdPendenza>
+			<Mittente>
+				<Id>idUfficioMittente</Id>
+				<Descrizione>ufficio ente publico tc03</Descrizione>
+			</Mittente>
+			<Destinatari>
+				<Destinatario Tipo="Cittadino">
+					<Id>TSTMRA08A01E432T</Id>
+					<Descrizione>codice fiscale</Descrizione>
+				</Destinatario>
+			</Destinatari>
+			<Note>note note note</Note>
+			<Insert>
+				<DescrizioneCausale>causale test integrazione TI 03</DescrizioneCausale>
+				<DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+				<DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+				<DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+				<AnnoRiferimento>2001</AnnoRiferimento>
+				<DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+				<Stato>Chiusa</Stato>
+				<ImportoTotale>1270</ImportoTotale>
+				<Divisa>EUR</Divisa>
+				<InfoPagamento TipoPagamento="Pagamento Unico">
+					<DettaglioPagamento>
+						<IdPagamento>IdPagamento1</IdPagamento>
+						<DataScadenza>1967-08-13</DataScadenza>
+						<DataInizioValidita>1967-08-13</DataInizioValidita>
+						<DataFineValidita>1967-08-13</DataFineValidita>
+						<Stato>Non Pagato</Stato>						
+						<Importo>3000</Importo>						
+						<DettaglioImporto>
+							<Voce Tipo="ImportoBase">
+								<Codice>B002</Codice>
+								<Descrizione>descrizione di B002</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Spese">
+								<Codice>B003</Codice>
+								<Descrizione>descrizione di B003</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Mora">
+								<Codice>B004</Codice>
+								<Descrizione>descrizione di B004</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="ImportoBase">
+								<Codice>B005</Codice>
+								<Descrizione>descrizione di B005</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Spese">
+								<Codice>B006</Codice>
+								<Descrizione>descrizione di B006</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Mora">
+								<Codice>B007</Codice>
+								<Descrizione>descrizione di B007</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="ImportoBase">
+								<Codice>B008</Codice>
+								<Descrizione>descrizione di B008</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Spese">
+								<Codice>B009</Codice>
+								<Descrizione>descrizione di B009</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Mora">
+								<Codice>B001</Codice>
+								<Descrizione>descrizione di B001</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+							<Voce Tipo="Mora">
+								<Codice>B000</Codice>
+								<Descrizione>descrizione di B000</Descrizione>
+								<Importo>300</Importo>
+								<CapitoloBilancio>codice bilancio</CapitoloBilancio>
+								<Accertamento>codice accertamento</Accertamento>
+							</Voce>
+						</DettaglioImporto>
+						<DettaglioTransazione>				
+							<DataPagamento>1967-08-13T09:30:47.0Z</DataPagamento>
+							<CanalePagamento>IdpWeb</CanalePagamento>
+						</DettaglioTransazione>							
+					</DettaglioPagamento>
+				</InfoPagamento>
+				<Allegato Tipo="Documento">
+					<Titolo>JPG di  TC03</Titolo>
+					<Codifica>JPEG</Codifica>
+					<Contenuto>/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAJRBFEDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA</Contenuto>
+					<IdAntifalsificazione>md05</IdAntifalsificazione>
+				</Allegato>
+				
+			</Insert>
+		</Pendenza>
+	</IdpBody>
+</n:IdpAllineamentoPendenze>

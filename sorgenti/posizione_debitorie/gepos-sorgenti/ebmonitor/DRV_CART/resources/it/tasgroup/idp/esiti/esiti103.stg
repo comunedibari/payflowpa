@@ -1,0 +1,122 @@
+group esiti103;
+
+templateEsiti(errorModel) ::= <<
+$templateEsitiHeader(errorModel)$
+	<IdpBody>
+		<InfoMessaggio>
+			<Stato>Elaborato Correttamente</Stato>
+		</InfoMessaggio>
+	</IdpBody>
+</IdpEsito>
+>>
+
+templateEsitiKO(errorModel) ::= <<
+$templateEsitiHeader(errorModel)$
+	<IdpBody>
+		<InfoMessaggio>
+			<Stato>Elaborato con Errori</Stato>
+			<Note>String</Note>
+		</InfoMessaggio>
+		$templatePendenze(errorModel.pendenze)$
+	</IdpBody>
+</IdpEsito>
+>>
+
+templateEsitiMassivoKO(errorModel) ::= <<
+$templateEsitiHeader(errorModel)$
+	<IdpBody>
+		<InfoMessaggio>
+			<Stato>Elaborato con Errori</Stato>
+		</InfoMessaggio>
+	</IdpBody>
+</IdpEsito>
+>>
+
+templatePendenze(pendenzeList)  ::= <<
+<InfoDettaglio>
+$pendenzeList:{ pendenza |
+			<Dettaglio>
+				<Id>$pendenza.IdPendenzaEnte$</Id>
+				<Stato>Scartato</Stato>
+				<Esiti>
+					$templatePendenzeEsitiErrati(pendenza.listErroriEsiti)$
+				</Esiti>
+			</Dettaglio>
+}$
+</InfoDettaglio>
+>>
+
+templateEsitiKOGlobale(errorModel) ::= <<
+$templateEsitiHeader(errorModel)$
+	<IdpBody>
+		<InfoMessaggio>
+			<Stato>Elaborato con Errori</Stato>
+			<Esiti>
+				$templateEsitoErrato(errorModel.erroriValidazione)$
+			</Esiti>
+		</InfoMessaggio>
+	</IdpBody>
+</IdpEsito>
+>>
+
+
+templateEsitoErrato(erroriList)  ::= <<
+$erroriList:{ errore |
+	<Esito>
+		<Codice>$errore.errorId$</Codice>
+		<Descrizione>$errore.errorDetail$</Descrizione>
+		<Elemento>String</Elemento>
+	</Esito>
+}$
+>>
+
+
+templatePendenzeEsitiErrati(listErroriEsiti)  ::= <<
+$listErroriEsiti:{ errore |
+	<Esito>
+		<Codice>$errore.codice$</Codice>
+		<Descrizione>$errore.descrizione$</Descrizione>
+	</Esito>
+}$
+>>
+
+
+
+
+
+templateEsitiHeader(errorModel) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+<IdpEsito
+	xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito
+	IdP.Esito.xsd" Versione="01.03-00">
+	<IdpHeader xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader">
+		<TRT>
+			<ServiceName>IdpAllineamentoPendenze</ServiceName>
+			<MsgId>$errorModel.e2emsgid$</MsgId>
+			<XMLCrtDt>$errorModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<SenderId>$errorModel.receiverId$</SenderId>
+				<SenderSys>$errorModel.receiverSys$</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>$errorModel.trtSenderId$</ReceiverId>
+				<ReceiverSys>$errorModel.trtSenderSys$</ReceiverSys>
+			</Receiver>
+		</TRT>
+		<E2E>
+			<E2ESrvcNm>$errorModel.serviceNameType$</E2ESrvcNm>
+			<E2EMsgId>$errorModel.e2emsgid$</E2EMsgId>
+			<XMLCrtDt>$errorModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>$errorModel.receiverId$</E2ESndrId>
+				<E2ESndrSys>$errorModel.receiverSys$</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>$errorModel.senderId$</E2ERcvrId>
+				<E2ERcvrSys>$errorModel.senderSys$</E2ERcvrSys>
+			</Receiver>
+		</E2E>
+	</IdpHeader>
+>>

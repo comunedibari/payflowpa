@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+
+	 <settings
+        useStatementNamespaces="true"
+        lazyLoadingEnabled="true"
+        enhancementEnabled="true"
+        statementCachingEnabled="false" />
+ 
+
+<!-- 
+	<transactionManager type="JDBC" commitRequired="true">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver" />
+			<property name="JDBC.ConnectionURL"
+				value="jdbc:mysql://localhost:3306/idp?dumpQueriesOnException=true" />
+			<property name="JDBC.Username" value="guest" />
+			<property name="JDBC.DefaultAutoCommit" value="false" />
+			<property name="JDBC.Password" value="" />
+	
+		</dataSource>
+	</transactionManager>
+
+ -->
+
+	<sqlMap resource="ibatis/gen/allegato.xml" />
+	<sqlMap resource="ibatis/gen/condizioni-pagamento.xml" />
+	<sqlMap resource="ibatis/gen/prenotazione-avvisi.xml" />
+	<sqlMap resource="ibatis/gen/destinatari.xml" />
+	<sqlMap resource="ibatis/gen/pendenze.xml" />
+	<sqlMap resource="ibatis/gen/voci-bilancio.xml" />
+	<sqlMap resource="ibatis/gen/flussi.xml" /> 
+	<sqlMap resource="ibatis/gen/tributo-strutturato.xml" />
+
+	<sqlMap resource="ibatis/pendenze.xml" />
+	<sqlMap resource="ibatis/allineamenti.xml" />
+	<sqlMap resource="ibatis/condizioni-pagamento.xml" />
+	<sqlMap resource="ibatis/esiti.xml" />
+	<sqlMap resource="ibatis/flussi.xml" /> 
+	
+	<!-- 
+		N.B. questo file (addon.xml) deve essere contenuto nel jar del plugin che si vuole utilizzare
+		     se non si vogliono plugin allora nel classpath deve esserci IdpPluginExtensions-empty
+	 -->
+	<sqlMap resource="addon/addon.xml" /> 
+	
+	
+
+</sqlMapConfig>

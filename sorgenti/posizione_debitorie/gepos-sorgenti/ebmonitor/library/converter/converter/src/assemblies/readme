@@ -1,0 +1,22 @@
+application contextes naming convention rule
+============================================
+
+glia application context files devono essere nominati secondo la seguente regola: 
+
+${service-name}-${service-type}-application-context.xml
+
+dove service-type attualmente puo' assumere soltanto 2 valori:
+
+xml2flat
+
+oppure
+
+flat2xml.
+
+Service name e' un (arbitrario) nome di business che identifica il servizio.
+
+esempio:
+per il servizio sepa2000 sara possibile avere 2 application context con i nomi:
+
+sepa2000-xml2flat-application-context.xml
+sepa2000-flat2xml-application-context.xml

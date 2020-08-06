@@ -1,0 +1,76 @@
+group esiti_idp;
+
+templateEsiti(esitoPendenza) ::= <<
+	<?xml version="1.0" encoding="UTF-8"?>
+<IdpAllineamentoPendenzeEnte.Esito xmlns="urn:Idp:xsd:IdpAllineamentoPendenzeEnte.Esito.00.06.02" 
+	                                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	                                 xsi:schemaLocation="urn:Idp:xsd:IdpAllineamentoPendenzeEnte.Esito.00.06.02
+	                                 IdP.AP01.AllineamentoPendenzeEnte.Esito.00.06.02.xsd">
+	<IdpHdrE2E>
+		<ServiceName>IdpAllineamentoPendenze</ServiceName>
+		<E2EMsgId>$esitoPendenza.id_messaggio$</E2EMsgId>
+		<XMLCrtDt>2001-12-17T09:30:47.0Z</XMLCrtDt>
+		<SenderId>a</SenderId>
+		<ReceiverId>a</ReceiverId>
+	</IdpHdrE2E>
+	<IdpBody>
+		<EsitoMessaggio>
+			<Stato>Elaborato Correttamente</Stato>
+			<Esito>
+				<Codice>String</Codice>
+				<Descrizione>$esitoPendenza.esito$</Descrizione>
+			</Esito>
+		</EsitoMessaggio>
+		<Note>String</Note>
+	</IdpBody>
+</IdpAllineamentoPendenzeEnte.Esito>
+>>
+
+templateEsitiKO(errorModel) ::= <<
+
+<?xml version="1.0" encoding="UTF-8"?>
+<IdpAllineamentoPendenzeEnte.Esito xmlns="urn:Idp:xsd:IdpAllineamentoPendenzeEnte.Esito.00.06.02" 
+	                                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	                                 xsi:schemaLocation="urn:Idp:xsd:IdpAllineamentoPendenzeEnte.Esito.00.06.02
+	                                 IdP.AP01.AllineamentoPendenzeEnte.Esito.00.06.02.xsd">
+	<IdpHdrE2E>
+		<ServiceName>IdpAllineamentoPendenze</ServiceName>
+		<E2EMsgId>$errorModel.idMessaggio$</E2EMsgId>
+		<XMLCrtDt>2001-12-17T09:30:47.0Z</XMLCrtDt>
+		<SenderId>a</SenderId>
+		<ReceiverId>a</ReceiverId>
+	</IdpHdrE2E>
+	<IdpBody>
+		<EsitoMessaggio>
+			<Stato>Elaborato con Errori</Stato>
+			<Esito>
+				<Codice>String</Codice>
+				<Descrizione>String</Descrizione>
+			</Esito>
+		</EsitoMessaggio>
+		<Note>String</Note>
+		$templatePendenze(errorModel.pendenze)$
+    </IdpBody>
+</IdpAllineamentoPendenzeEnte.Esito>
+
+>>
+
+templatePendenze(pendenzeList)  ::= <<
+$pendenzeList:{ pendenza |
+	<Pendenza TipoPendenza="String" TipoOperazione="Insert">
+		<IdMittente>a</IdMittente>
+		<IdDestinatario TipoId="CF">
+			<Id>a</Id>
+		</IdDestinatario>
+		<IdPendenza>$pendenza.IdPendenza$</IdPendenza>
+		<EsitoPendenza>
+			<Stato>Scartata</Stato>
+			<Esito>
+				<Codice>$pendenza.esito$</Codice>
+				<Descrizione>String</Descrizione>
+			</Esito>
+		</EsitoPendenza>
+		<Note>String</Note>
+	</Pendenza>
+}$
+>>

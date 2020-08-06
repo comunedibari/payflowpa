@@ -1,0 +1,97 @@
+
+package it.toscana.rete.cart.servizi.iris_1_1.idpesito;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * <p>Java class for PagamentoType complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="PagamentoType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="EsitoErrore" type="{http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito}Esito" minOccurs="0"/>
+ *         &lt;element name="StatoPagamento" type="{http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito}StatoPagamentoType" maxOccurs="unbounded"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "PagamentoType", propOrder = {
+    "esitoErrore",
+    "statoPagamento"
+})
+public class PagamentoType {
+
+    @XmlElement(name = "EsitoErrore")
+    protected Esito esitoErrore;
+    @XmlElement(name = "StatoPagamento", required = true)
+    protected List<StatoPagamentoType> statoPagamento;
+
+    /**
+     * Gets the value of the esitoErrore property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Esito }
+     *     
+     */
+    public Esito getEsitoErrore() {
+        return esitoErrore;
+    }
+
+    /**
+     * Sets the value of the esitoErrore property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Esito }
+     *     
+     */
+    public void setEsitoErrore(Esito value) {
+        this.esitoErrore = value;
+    }
+
+    /**
+     * Gets the value of the statoPagamento property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the statoPagamento property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getStatoPagamento().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link StatoPagamentoType }
+     * 
+     * 
+     */
+    public List<StatoPagamentoType> getStatoPagamento() {
+        if (statoPagamento == null) {
+            statoPagamento = new ArrayList<StatoPagamentoType>();
+        }
+        return this.statoPagamento;
+    }
+
+}

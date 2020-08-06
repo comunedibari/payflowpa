@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>IdpCartJms</artifactId>
+	<name>IdpCartJms</name>
+	<description>IdpCartJms</description>
+	<version>${releaseVersion}</version>
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!-- internal -->
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpAppJpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpEjbCommon</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpUtil</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>DRV_CART</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpCartEjb</artifactId>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.cart.rete.toscana.it/servizi/iris/smartproxy/services/rest/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cart.rete.toscana.it/servizi/iris/smartproxy/services/rest/xsd" elementFormDefault="qualified">
+	<xs:element name="InformativaPagamenti">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="IdTrasmissione" type="xs:long"></xs:element>
+				<xs:element name="SystemId" type="xs:string"></xs:element>
+				<xs:element name="SystemSys" type="xs:string"></xs:element>
+				<xs:element name="MsgId" type="xs:string"></xs:element>
+				<xs:element name="Esitato" type="xs:boolean"></xs:element>
+				<xs:element name="UltimoPrelievo" type="xs:dateTime"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="InformativaPagamentiList">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="InformativaPagamenti" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VerificaPagamento" 
+				  targetNamespace="http://idp.tasgroup.it/xmlbillerservices/ws/VerificaPagamento" 
+				  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+				  xmlns:tns="http://idp.tasgroup.it/xmlbillerservices/ws/VerificaPagamento" 
+				  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+				  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    			  xmlns:idpIPP="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento"> 
+    <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    			targetNamespace="http://idp.tasgroup.it/xmlbillerservices/ws/VerificaPagamento">
+	<xsd:import namespace="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento" 
+				schemaLocation="InformativaPagamento.xsd"/> 
+	
+	<xsd:element name="VerificaPagamento">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpIPP:IdpVerificaStatoPagamento"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="VerificaPagamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpIPP:IdpEsitoVerifica"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema>
+	</wsdl:types>
+	
+     <wsdl:message name="VerificaPagamentoRequest">
+    	<wsdl:part name="request" element="tns:VerificaPagamento"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="VerificaPagamentoResponse">
+    	<wsdl:part name="response" element="tns:VerificaPagamentoResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="VerificaPagamentoPortType">
+    	<wsdl:operation name="VerificaPagamento">
+    		<wsdl:input message="tns:VerificaPagamentoRequest"></wsdl:input>
+    		<wsdl:output message="tns:VerificaPagamentoResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="VerificaPagamentoBinding"
+    	type="tns:VerificaPagamentoPortType">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="VerificaPagamento">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/xmlbillerservices/ws/VerificaPagamento/VerificaStatoPagamento" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="VerificaPagamentoService">
+		<wsdl:port name="VerificaPagamentoPort" binding="tns:VerificaPagamentoBinding">
+			<soap:address location="http://idp.tasgroup.it/xmlbillerservices/ws/VerificaPagamentoService" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

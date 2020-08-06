@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>GestoreEventi</artifactId>
+	<name>GestoreEventi</name>
+	<description>GestoreEventi</description>
+	<version>${releaseVersion}</version>
+	<build>
+		<!-- cambio la posizione standard dei sorgenti per non modificare il repository 
+			preesistente -->
+		<sourceDirectory>ejbModule</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpUtil</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpAppJpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpEjbCommon</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpWebServicesClient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+		<dependency>
+      		<groupId>org.apache.httpcomponents</groupId>
+      		<artifactId>httpclient</artifactId>
+      		<version>4.3.3</version>
+   		</dependency> 
+
+	</dependencies>
+
+</project>

@@ -1,0 +1,65 @@
+<definitions name='NuovoPagamentoWSService' targetNamespace='http://pagamento.ws.gtart.aci.it/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://pagamento.ws.gtart.aci.it/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://pagamento.ws.gtart.aci.it/' version='1.0' xmlns:tns='http://pagamento.ws.gtart.aci.it/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='nuovoPagamento' type='tns:nuovoPagamento'/>
+   <xs:element name='nuovoPagamentoResponse' type='tns:nuovoPagamentoResponse'/>
+   <xs:complexType name='nuovoPagamento'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='tipoIntermediario' type='xs:string'/>
+     <xs:element minOccurs='0' name='IDIntermediario' type='xs:string'/>
+     <xs:element minOccurs='0' name='MSGID' type='xs:string'/>
+     <xs:element minOccurs='0' name='idBollo' type='xs:string'/>
+     <xs:element minOccurs='0' name='IUV' type='xs:string'/>
+     <xs:element minOccurs='0' name='TipoVeicolo' type='xs:int'/>
+     <xs:element minOccurs='0' name='Targa' type='xs:string'/>
+     <xs:element minOccurs='0' name='decorrenza' type='xs:string'/>
+     <xs:element minOccurs='0' name='mesiValidita' type='xs:int'/>
+     <xs:element minOccurs='0' name='dataPagamento' type='xs:dateTime'/>
+     <xs:element minOccurs='0' name='tassa' type='xs:decimal'/>
+     <xs:element minOccurs='0' name='sanzioni' type='xs:decimal'/>
+     <xs:element minOccurs='0' name='interessi' type='xs:decimal'/>
+     <xs:element minOccurs='0' name='totale' type='xs:decimal'/>
+     <xs:element minOccurs='0' name='RegBeneficiaria' type='xs:int'/>
+     <xs:element minOccurs='0' name='RegVersamento' type='xs:int'/>
+     <xs:element minOccurs='0' name='codiceFiscale' type='xs:string'/>
+     <xs:element minOccurs='0' name='ModPagamento' type='xs:int'/>
+     <xs:element minOccurs='0' name='Note' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='nuovoPagamentoResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='xs:int'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='NuovoPagamentoWS_nuovoPagamentoResponse'>
+  <part element='tns:nuovoPagamentoResponse' name='nuovoPagamentoResponse'></part>
+ </message>
+ <message name='NuovoPagamentoWS_nuovoPagamento'>
+  <part element='tns:nuovoPagamento' name='nuovoPagamento'></part>
+ </message>
+ <portType name='NuovoPagamentoWS'>
+  <operation name='nuovoPagamento' parameterOrder='nuovoPagamento'>
+   <input message='tns:NuovoPagamentoWS_nuovoPagamento'></input>
+   <output message='tns:NuovoPagamentoWS_nuovoPagamentoResponse'></output>
+  </operation>
+ </portType>
+ <binding name='NuovoPagamentoWSBinding' type='tns:NuovoPagamentoWS'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='nuovoPagamento'>
+   <soap:operation soapAction='Inserisce un nuovo pagamento'/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+  </operation>
+ </binding>
+ <service name='NuovoPagamentoWSService'>
+  <port binding='tns:NuovoPagamentoWSBinding' name='NuovoPagamentoWSPort'>
+   <soap:address location='http://172.16.20.52:8080/gtart-ws/NuovoPagamentoWS'/>
+  </port>
+ </service>
+</definitions>

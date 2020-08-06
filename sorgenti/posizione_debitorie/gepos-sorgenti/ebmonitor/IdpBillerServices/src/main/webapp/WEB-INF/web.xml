@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">  
+  <display-name>IdpBillerServices</display-name>
+  <servlet>
+	  <display-name>LoaderService</display-name>
+	  <servlet-name>LoaderService</servlet-name>
+	  <servlet-class>it.tasgroup.idp.billerservices.ws.LoaderServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	   <servlet-name>LoaderService</servlet-name>
+	   <url-pattern>/loaderService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	  <display-name>NotificationService</display-name>
+	  <servlet-name>NotificationService</servlet-name>
+	  <servlet-class>it.tasgroup.idp.billerservices.ws.NotificationServiceImpl</servlet-class>
+  </servlet> 
+  <servlet-mapping>
+	   <servlet-name>NotificationService</servlet-name>
+	   <url-pattern>/notificationService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	  <display-name>RichiestaPagamentoService</display-name>
+	  <servlet-name>RichiestaPagamentoService</servlet-name>
+	  <servlet-class>it.tasgroup.idp.xmlbillerservices.ws.RichiestaPagamentoServiceImpl</servlet-class>
+  </servlet> 
+  <servlet-mapping>
+	   <servlet-name>RichiestaPagamentoService</servlet-name>
+	   <url-pattern>/RichiestaPagamentoService</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	  <display-name>VerificaPagamentoService</display-name>
+	  <servlet-name>VerificaPagamentoService</servlet-name>
+	  <servlet-class>it.tasgroup.idp.xmlbillerservices.ws.VerificaPagamentoServiceImpl</servlet-class>
+  </servlet> 
+  <servlet-mapping>
+	   <servlet-name>VerificaPagamentoService</servlet-name>
+	   <url-pattern>/VerificaPagamentoService</url-pattern>
+  </servlet-mapping>  
+  
+</web-app>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - FREE Community Edition 7.1.4.1284 (http://www.liquid-technologies.com) -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - **** 
+	TAS S.p.A. **** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+	- - - - **** **** Project. . : IRIS **** **** Nome . . . : IdpHeader **** 
+	Versione . : 01.03-00 Draft 01 **** **** Descrizione: Header Standard **** 
+	**** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<xs:schema xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader"
+	xmlns:i="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader">
+
+	<xs:import schemaLocation="IdP.Include.xsd"
+		namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude" />
+
+	<xs:element name="IdpHeader" type="IdpHeader" />
+	<!-- Definizione dell'Header -->
+	<xs:complexType name="IdpHeader">
+		<xs:sequence>
+			<xs:element name="TRT" type="HeaderTRT" />
+			<xs:element name="E2E" type="HeaderE2E" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Definizione dell'Header di Tratta -->
+	<xs:complexType name="HeaderTRT">
+		<xs:sequence>
+			<xs:element name="ServiceName" type="ServiceName" />
+			<xs:element name="MsgId" type="MsgId" />
+			<xs:element name="XMLCrtDt" type="i:IdPDateTime" />
+			<xs:element name="Sender" type="TRTSender" />
+			<xs:element name="Receiver" type="TRTReceiver" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TRTSender">
+		<xs:sequence>
+			<xs:element name="SenderId" type="i:Max35Text" />
+			<xs:element name="SenderSys" type="i:Max35Text" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TRTReceiver">
+		<xs:sequence>
+			<xs:element name="ReceiverId" type="i:Max35Text" />
+			<xs:element name="ReceiverSys" type="i:Max35Text" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Definizione dell'Header End to End -->
+	<xs:complexType name="HeaderE2E">
+		<xs:sequence>
+			<xs:element name="E2ESrvcNm" type="i:Max60Text" />
+			<xs:element name="E2EMsgId" type="MsgId" />
+			<xs:element name="XMLCrtDt" type="i:IdPDateTime" />
+			<xs:element name="Sender" type="E2ESender" />
+			<xs:element name="Receiver" type="E2EReceiver" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="E2ESender">
+		<xs:sequence>
+			<xs:element name="E2ESndrId" type="i:Max35Text" />
+			<xs:element name="E2ESndrSys" type="i:Max35Text" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="E2EReceiver">
+		<xs:sequence>
+			<xs:element name="E2ERcvrId" type="i:Max35Text" />
+			<xs:element name="E2ERcvrSys" type="i:Max35Text" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="MsgId">
+		<xs:restriction base="i:Max44Text">
+			<xs:pattern value="[a-zA-Z0-9._]{1,44}" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ServiceName">
+		<xs:restriction base="i:Max60Text">
+			<xs:enumeration value="IdpAllineamentoPendenze" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

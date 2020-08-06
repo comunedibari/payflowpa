@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="nss" class="it.nch.fwk.core.NamespacesInfos">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value></value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze</value>
+				</entry>
+				<entry>
+					<key><value>h</value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader</value>
+				</entry>
+				<entry>
+					<key><value>i</value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude</value>
+				</entry>						
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean id="catalogList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>classpath:/idp/xsd/v03_03/idp/xmlcatalog.xml</value>
+			</list>
+		</constructor-arg>
+	</bean>	
+
+	<bean id="parserErrorsFactory" class="it.nch.fwk.checks.errors.ParserErrorsFactory">
+		<constructor-arg>
+			<value>idp/xsd/messages/XMLSchemaMessages.properties</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- 
+	<bean id="idpXsdValidator"
+		class="it.nch.fwk.xml.validation.XsdValidationServiceNoCat">
+		<constructor-arg>
+			<value>urn:xsd:IdpAllineamentoPendenze</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="idpValidationFactory" />
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value>urn:xsd:IdpAllineamentoPendenze</value></key>
+					<value>idp/xsd/v0/idp/xsd/idp-all.xsd</value> 
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	 -->
+	
+	<bean id="idpXsdValidator"
+		class="it.nch.fwk.xml.validation.XsdValidationService">
+		<constructor-arg>
+			<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="idpValidationFactory"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="catalogList" />
+		</constructor-arg>
+	</bean>
+
+	<bean id="idpValidationFactory"
+		class="it.nch.eb.validator.idp.IdpXsdValidationFactory">
+		<constructor-arg>
+			<ref bean="parserErrorsFactory" />
+		</constructor-arg>
+	</bean>
+	
+</beans>

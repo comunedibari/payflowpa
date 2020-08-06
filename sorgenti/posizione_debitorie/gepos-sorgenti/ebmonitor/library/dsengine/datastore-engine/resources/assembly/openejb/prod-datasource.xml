@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="originaldataSource" class="org.springframework.jndi.JndiObjectFactoryBean"
+		lazy-init="true">
+		<property name="jndiTemplate">
+			<ref bean="jndiTemplate" />
+		</property>
+		<property name="jndiName">
+			<value>${DefaultDataSourceLocalRefName}</value>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="it.nch.eb.xsqlcmd.utils.SetAutocommitDatasource"
+		lazy-init="true">
+		<constructor-arg>
+			<ref bean="originaldataSource" />
+		</constructor-arg>
+		<constructor-arg>
+			<value>false</value>
+		</constructor-arg>
+	</bean>
+		 
+</beans>

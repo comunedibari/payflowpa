@@ -1,0 +1,51 @@
+/**
+ * 
+ */
+package it.nch.eb.flatx.generator.xls.xmlrecord;
+
+/**
+ * @author gdefacci
+ * XPathConversionInfoDecl
+ */
+public class ChildRelativeXPathConversionInfoDecl_Old extends XPathConversionInfoDecl implements Xml2SqlConversionInfoDecl {
+
+	private static final String DQ = "\"";
+
+	public ChildRelativeXPathConversionInfoDecl_Old(
+			String name, 
+			String xpath, 
+			String dbType, 
+			String converterName,
+			String toObjectConcverterName, 
+			boolean optional) {
+		super(name, xpath, dbType, converterName, toObjectConcverterName, optional);
+		
+		if (name==null) throw new IllegalStateException("cant have a empty name");
+		if (xpath==null) throw new IllegalStateException("cant have a empty xpath");
+	}
+	
+	public String getArgumentsString() {
+		StringBuffer sb = new StringBuffer();
+		if (getConverterName()!=null) {
+			sb.append(getConverterName());
+			sb.append(",");
+		} 
+		if (getToObjectConcverterName()!=null) {
+			sb.append(getToObjectConcverterName());
+			sb.append(",");
+		}
+		
+		sb.append("childRelative(");
+		sb.append(DQ);
+		sb.append(getXpath());
+		sb.append(DQ);
+		sb.append(")");
+		
+		if (getOptional()) {
+			sb.append(", ");
+			sb.append("true");
+		}
+		return sb.toString();
+	}
+
+}

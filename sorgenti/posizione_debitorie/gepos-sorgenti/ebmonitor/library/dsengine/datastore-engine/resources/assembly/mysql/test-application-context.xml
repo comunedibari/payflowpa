@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<import resource="files-configuration.xml"/>
+
+    <import resource="classpath:/assembly/idp-dse-validation-context.xml"  />
+	<import resource="datasource.xml"/>
+	<import resource="dbseq-configuration.xml"/>
+	<import resource="classpath:/assembly/ibatis-application-context.xml" />
+		
+	<import resource="classpath:/assembly/idp-configuration.xml"		  />
+	<import resource="classpath:/assembly/jms-activemq-configuration.xml"           />
+	<import resource="classpath:/assembly/jms-common-configuration.xml"           />
+
+</beans>

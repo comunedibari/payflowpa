@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://idp.tasgroup.it/GenerazioneIUV/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="GenerazioneIUV"
+	targetNamespace="http://idp.tasgroup.it/GenerazioneIUV/">
+	<wsdl:types>
+		<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://idp.tasgroup.it/GenerazioneIUV/" targetNamespace="http://idp.tasgroup.it/GenerazioneIUV/"
+			version="1.0">
+
+			<xsd:element name="GeneraIUVRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+						<xsd:element name="TipoDebito" type="tns:stText50" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GeneraIUVResponse" type="tns:GeneraIUVResponseType" />
+
+			<xsd:element name="GeneraLottoIUVRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+						<xsd:element name="TipoDebito" type="tns:stText50" />
+						<xsd:element name="DimensioneLotto" type="xsd:int" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="GeneraLottoIUVResponse" type="tns:GeneraLottoIUVResponseType" />
+
+			<xsd:element name='GeneraIUVResponseType' type='tns:GeneraIUVResponseType' />
+			<xsd:complexType name='GeneraIUVResponseType'>
+				<xsd:complexContent>
+					<xsd:extension base="tns:ResponseBase">
+						<xsd:sequence>
+							<xsd:element minOccurs='0' name='Body'
+								type="tns:GeneraIUVResponseBodyType" />
+						</xsd:sequence>
+					</xsd:extension>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name='GeneraIUVResponseBodyType'>
+				<xsd:sequence>
+					<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+					<xsd:element name="TipoDebito" type="tns:stText50" />
+					<xsd:element name="ElencoIdentificativi" type="tns:ElencoIdentificativiType"
+						minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name='GeneraLottoIUVResponseType' type='tns:GeneraLottoIUVResponseType' />
+			<xsd:complexType name='GeneraLottoIUVResponseType'>
+				<xsd:complexContent>
+					<xsd:extension base="tns:ResponseBase">
+						<xsd:sequence>
+							<xsd:element minOccurs='0' name='Body'
+								type="tns:GeneraLottoIUVResponseBodyType" />
+						</xsd:sequence>
+					</xsd:extension>
+				</xsd:complexContent>
+			</xsd:complexType>
+			<xsd:complexType name='GeneraLottoIUVResponseBodyType'>
+				<xsd:sequence>
+					<xsd:element name="IdentificativoDominio" type="tns:stText35" />
+					<xsd:element name="TipoDebito" type="tns:stText50" />
+					<xsd:element name="DimensioneLotto" type="xsd:int" />
+					<xsd:element name="ElencoIdentificativi" type="tns:ElencoIdentificativiType"
+						maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name="ElencoIdentificativiType" type="tns:ElencoIdentificativiType" />
+			<xsd:complexType name="ElencoIdentificativiType">
+				<xsd:sequence>
+					<xsd:element name="IdentificativoUnivocoVersamento"
+						type="tns:stText35" />
+					<xsd:element name="NumeroAvviso" type="tns:stText18" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name='ResponseBase'>
+				<xsd:sequence>
+					<xsd:element minOccurs='0' name='Fault' type='tns:FaultType' />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name='FaultType'>
+				<xsd:sequence>
+					<xsd:element name='FaultCode' type='tns:stText35' />
+					<xsd:element name='FaultString' type='tns:stText512' />
+					<xsd:element name='FaultDescription' type='tns:stText512' />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:simpleType name='stText18'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='18' />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText35'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='35' />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText50'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='50' />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType name='stText512'>
+				<xsd:restriction base='xsd:string'>
+					<xsd:minLength value='1' />
+					<xsd:maxLength value='512' />
+				</xsd:restriction>
+			</xsd:simpleType>
+
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="GeneraIUVRequest">
+		<wsdl:part element="tns:GeneraIUVRequest" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GeneraIUVResponse">
+		<wsdl:part element="tns:GeneraIUVResponse" name="parameters" />
+	</wsdl:message>
+	<wsdl:message name="GeneraLottoIUVRequest">
+		<wsdl:part name="parameters" element="tns:GeneraLottoIUVRequest"></wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="GeneraLottoIUVResponse">
+		<wsdl:part name="parameters" element="tns:GeneraLottoIUVResponse"></wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="GenerazioneIUV">
+		<wsdl:operation name="GeneraIUV">
+			<wsdl:input message="tns:GeneraIUVRequest" />
+			<wsdl:output message="tns:GeneraIUVResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="GeneraLottoIUV">
+			<wsdl:input message="tns:GeneraLottoIUVRequest"></wsdl:input>
+			<wsdl:output message="tns:GeneraLottoIUVResponse"></wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GenerazioneIUVSOAP" type="tns:GenerazioneIUV">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GeneraIUV">
+			<soap:operation soapAction="http://idp.tasgroup.it/GenerazioneIUV/GeneraIUV" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GeneraLottoIUV">
+			<soap:operation
+				soapAction="http://idp.tasgroup.it/GenerazioneIUV/GeneraLottoIUV" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GenerazioneIUV">
+		<wsdl:port binding="tns:GenerazioneIUVSOAP" name="GenerazioneIUVSOAP">
+			<soap:address location="http://idp.tasgroup.it/IdpBillerNdpServices/GenerazioneIUV" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

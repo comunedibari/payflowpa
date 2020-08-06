@@ -1,0 +1,106 @@
+group notifichePagamento;
+
+templateRendicontazioneEnti(rendicontoEntiModel) ::= <<
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- templateRendicontazioneEnti -->
+<IdpRendicontazioneEnti 
+xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpRendicontazioneEnti" 
+xmlns:h="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader" 
+xmlns:i="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpRendicontazioneEnti
+IdP.RendicontazioneEnti.xsd" Versione="01.01-00">	
+	
+	<IdpHeader xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader">	
+		<TRT>
+			<ServiceName>IdpRendicontazioneEnti</ServiceName>
+			<MsgId>$rendicontoEntiModel.e2emsgid$</MsgId>
+			<XMLCrtDt>$rendicontoEntiModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<SenderId>$rendicontoEntiModel.senderId$</SenderId>
+				<SenderSys>$rendicontoEntiModel.senderSys$</SenderSys>
+			</Sender>
+			<Receiver>
+				<ReceiverId>$rendicontoEntiModel.receiverId$</ReceiverId>
+				<ReceiverSys>$rendicontoEntiModel.receiverSys$</ReceiverSys>
+			</Receiver>
+		</TRT>		
+		<E2E>
+			<E2ESrvcNm>IdpRendicontazioneEnti</E2ESrvcNm>
+			<E2EMsgId>$rendicontoEntiModel.e2emsgid$</E2EMsgId>
+			<XMLCrtDt>$rendicontoEntiModel.dataOraCreazioneEsito$</XMLCrtDt>
+			<Sender>
+				<E2ESndrId>$rendicontoEntiModel.senderId$</E2ESndrId>
+				<E2ESndrSys>$rendicontoEntiModel.senderSys$</E2ESndrSys>
+			</Sender>
+			<Receiver>
+				<E2ERcvrId>$rendicontoEntiModel.receiverId$</E2ERcvrId>
+				<E2ERcvrSys>$rendicontoEntiModel.receiverSys$</E2ERcvrSys>
+			</Receiver>			
+		</E2E>
+	</IdpHeader>
+  <IdpBody>
+  
+	<Rendicontazione>
+		<ImportoTotale>$rendicontoContoModel.importoTotale$</ImportoTotale>
+		<DataInizioPeriodo>$rendicontoContoModel.dataInizioPeriodo$</DataInizioPeriodo>
+		<DataFinePeriodo>$rendicontoContoModel.dataFinePeriodo$</DataFinePeriodo>
+      
+	    $templateListaRendicontiConto(rendicontoEntiModel.listaRendicontiConto)$
+	    
+	</Rendicontazione>	    
+    
+  </IdpBody>
+</IdpRendicontazioneEnti>
+>>
+			
+templateListaRendicontiConto(listaRendicontiConto)  ::= <<
+$listaRendicontiConto:{ rendicontoContoModel |
+	<RendicontazioneConto>
+		<IbanAccredito DescrizioneIbanAccredito="Conto principale presso BT">
+			<IbanAccredito>$rendicontoContoModel.ibanAccredito$</IbanAccredito>
+		</IbanAccredito>
+		<ImportoTotaleAccredito>$rendicontoContoModel.importoTotaleAccredito$</ImportoTotaleAccredito>
+		<DettaglioImportoTotaleAccredito>
+			<Voce>
+				<Importo>$rendicontoContoModel.importoVoceAccredito$</Importo>
+				<CapitoloBilancio>$rendicontoContoModel.capitoloBilancio$</CapitoloBilancio>
+			</Voce>
+		</DettaglioImportoTotaleAccredito>
+		<AccreditoPagamento>
+			<TipoPendenza>$rendicontoContoModel.tipoPendenza$</TipoPendenza>
+			<IdPendenza>$rendicontoContoModel.idPendenza$</IdPendenza>
+			<RiferimentoPagamento TipoPagamento="Pagamento a Rate">
+				<IdPagamento>$rendicontoContoModel.idPagamento$</IdPagamento>
+			</RiferimentoPagamento>
+			<CanalePagamento Tipo="ATM">
+				<Descrizione>$rendicontoContoModel.descrizioneCanale$</Descrizione>
+			</CanalePagamento>
+			<Destinatario Tipo="Cittadino">
+				<IdDestinatario>$rendicontoContoModel.idDestinatario$</IdDestinatario>
+				<Descrizione>$rendicontoContoModel.descrizioneDestinatario$</Descrizione>
+			</Destinatario>
+			<Pagante Tipo="CodiceFiscale">
+				<IdPagante>$rendicontoContoModel.idPagante$</IdPagante>
+				<Descrizione>$rendicontoContoModel.descrizionePagante$</Descrizione>
+			</Pagante>
+			<RiferimentoAccredito>
+				<DataOperazione>$rendicontoContoModel.dataOperazione$</DataOperazione>
+				<DataValuta>$rendicontoContoModel.dataValuta$</DataValuta>
+				<Causale>String</Causale>
+				<RiferimentoBanca>$rendicontoContoModel.riferimentoBanca$</RiferimentoBanca>
+			</RiferimentoAccredito>
+			<Importo>$rendicontoContoModel.importoRendicontoConto$</Importo>
+			<DettaglioImporto>
+				<Voce Tipo="ImportoTransato">
+					<Codice>$rendicontoContoModel.codiceVoce$</Codice>
+					<Descrizione>$rendicontoContoModel.descrizioneVoce$</Descrizione>
+					<Importo>$rendicontoContoModel.importoVoce$</Importo>
+					<CapitoloBilancio>$rendicontoContoModel.capitoloBilancioVoce$</CapitoloBilancio>
+					<Accertamento>$rendicontoContoModel.accertamentoVoce$</Accertamento>
+				</Voce>
+			</DettaglioImporto>
+		</AccreditoPagamento>
+	</RendicontazioneConto>
+}$
+>>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Administrator (EMBRACE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:TRBN="urn:CBI:xsd:CBITrfBonLogMsg.00.01.01" xmlns="urn:CBI:xsd:CBIInfTrfReqLogMsg.00.01.01" targetNamespace="urn:CBI:xsd:CBIInfTrfReqLogMsg.00.01.01" elementFormDefault="qualified">
+	<xs:import namespace="urn:CBI:xsd:CBITrfBonLogMsg.00.01.01" schemaLocation="CBITrfBonLogMsg.00.01.01.xsd"/>
+	<xs:element name="CBIInfTrfReqLogMsg" type="CBIInfTrfReqLogMsg.00.01.01"/>
+	<!-- Definizione della struttura del singolo messaggio logico veicolato sulla rete CBI 
+	     Può essere considerata come l'evoluzione del supporto logico per i servizi Porting.
+	     Nel caso in cui per il servizio in oggetto sia prevista l'applicazione della firma digitale,
+	     rappresenta il blocco da firmare -->
+	<xs:complexType name="CBIInfTrfReqLogMsg.00.01.01">
+		<xs:choice>
+			<xs:element name="CBITrfBonLogMsg" type="TRBN:CBITrfBonLogMsg.00.01.01">
+				<xs:annotation>
+					<xs:documentation>1.3.2.1.1.
+Messaggio logico di trasferibilità bonifici. Al momento è l'unico disponibile</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

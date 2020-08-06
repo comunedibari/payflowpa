@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Loader" 
+    targetNamespace="http://idp.tasgroup.it/Loader/" 
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+    xmlns:tns="http://idp.tasgroup.it/Loader/" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+   <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://idp.tasgroup.it/Loader/">
+    
+    <xsd:simpleType name="stText35">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="35" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	   <xsd:simpleType name="stText512">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="512" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="FaultType">
+		<xsd:sequence>
+			<xsd:element name="FaultCode" type="tns:stText35"></xsd:element>
+			<xsd:element name="FaultString" type="tns:stText512"></xsd:element>
+			<xsd:element name="FaultDescription" type="tns:stText512"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	 <xsd:simpleType name="statoEsitoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DA_ELABORARE"></xsd:enumeration>
+			<xsd:enumeration value="VALIDATO"></xsd:enumeration>
+			<xsd:enumeration value="VALIDATO_KO"></xsd:enumeration>
+			<xsd:enumeration value="ELABORATO_OK"></xsd:enumeration>
+			<xsd:enumeration value="ELABORATO_KO"></xsd:enumeration>
+			<xsd:enumeration value="ELABORATO_OK_PARZIALE"></xsd:enumeration>
+			<xsd:enumeration value="SCONOSCIUTO"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+		
+	<xsd:element name="AllineamentoPendenzeRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+				<xsd:element name="senderSys" type="tns:stText35"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="msgId" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element name="processSpecification"
+					type="tns:processSpecificationType">
+				</xsd:element>
+				<xsd:element name="file" type="tns:fileType" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AllineamentoPendenzeResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="result" type="tns:statoEsitoType">
+				</xsd:element>
+				<xsd:element name="msgId" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element name="fault" type="tns:FaultType" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getStatoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+				<xsd:element name="senderSys" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element name="msgId" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getStatoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="statoEsito"
+					type="tns:statoEsitoType">
+				</xsd:element>
+				<xsd:element name="numPagamenti" type="xsd:int">
+				</xsd:element>
+				<xsd:element name="numPagamentiElaborati" type="xsd:int"></xsd:element>
+				<xsd:element name="numPagamentiOk" type="xsd:int"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getEsitoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="senderId" type="tns:stText35"></xsd:element>
+				<xsd:element name="senderSys" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element name="msgId" type="tns:stText35" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getEsitoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="statoEsito"
+					type="tns:statoEsitoType">
+				</xsd:element>
+				<xsd:element name="numPagamenti"
+					type="xsd:int">
+				</xsd:element>
+				<xsd:element name="numPagamentiOk" type="xsd:int"></xsd:element>
+				<xsd:element name="esito" type="xsd:base64Binary" maxOccurs="1" minOccurs="0"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="fileType">
+		<xsd:choice>
+			<xsd:element name="base64File" type="xsd:base64Binary"></xsd:element>
+			<xsd:element name="textFile" type="xsd:string"></xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+	
+            <xsd:complexType name="processSpecificationType">
+            	<xsd:sequence>
+            		<xsd:element name="fileType" type="tns:stText35">
+            		</xsd:element>
+            		<xsd:element name="smartReplace"
+            			type="xsd:boolean">
+            		</xsd:element>
+            		<xsd:element name="generatedIdPagamento" type="xsd:boolean" maxOccurs="1" minOccurs="0"></xsd:element>
+            	</xsd:sequence>
+            </xsd:complexType>
+            
+            <xsd:element name="countTrasmissioniRequest">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="senderId"
+            				type="tns:stText35">
+            			</xsd:element>
+            			<xsd:element name="senderSys"
+            				type="tns:stText35" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="countTrasmissioniResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="result"
+            				type="tns:statoEsitoType">
+            			</xsd:element>
+            			<xsd:element name="fault"
+            				type="tns:FaultType" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            			<xsd:element name="numTrasmissioni"
+            				type="xsd:int" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="listaTrasmissioniRequest">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="senderId"
+            				type="tns:stText35">
+            			</xsd:element>
+            			<xsd:element name="senderSys"
+            				type="tns:stText35" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            			<xsd:element name="offset" type="xsd:int" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            			<xsd:element name="limit" type="xsd:int" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            
+            <xsd:element name="listaTrasmissioniResponse">
+             	<xsd:complexType>
+             		<xsd:sequence>
+             			<xsd:element name="result"
+             				type="tns:statoEsitoType">
+             			</xsd:element>
+             			<xsd:element name="fault" type="tns:FaultType"
+             				maxOccurs="1" minOccurs="0">
+             			</xsd:element>
+             			<xsd:element name="trasmissioni"
+             				type="tns:trasmissioneType" maxOccurs="unbounded"
+             				minOccurs="0">
+             			</xsd:element>
+             		</xsd:sequence>
+             	</xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="getFileTrasmissioneRequest">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="senderId"
+            				type="tns:stText35">
+            			</xsd:element>
+            			<xsd:element name="senderSys"
+            				type="tns:stText35" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            			<xsd:element name="msgId"
+            				type="tns:stText35" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+            <xsd:element name="getFileTrasmissioneResponse">
+            	<xsd:complexType>
+            		<xsd:sequence>
+            			<xsd:element name="result"
+            				type="tns:statoEsitoType">
+            			</xsd:element>
+            			<xsd:element name="fault"
+            				type="tns:FaultType" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            			<xsd:element name="file"
+            				type="xsd:base64Binary" maxOccurs="1" minOccurs="0">
+            			</xsd:element>
+            		</xsd:sequence>
+            	</xsd:complexType>
+            </xsd:element>
+
+
+            
+            
+             <xsd:complexType name="trasmissioneType">
+         		<xsd:sequence>
+         			<xsd:element name="senderId" type="tns:stText35">
+         			</xsd:element>
+         			<xsd:element name="senderSys"
+         				type="tns:stText35">
+         			</xsd:element>
+         			<xsd:element name="msgId" type="tns:stText35">
+         			</xsd:element>
+         			<xsd:element name="timestampRicezione" type="xsd:dateTime"></xsd:element>
+         			<xsd:element name="statoEsito"
+         				type="tns:statoEsitoType">
+         			</xsd:element>
+         			<xsd:element name="numPagamenti" type="xsd:int">
+         			</xsd:element>
+         			<xsd:element name="numPagamentiElaborati"
+         				type="xsd:int">
+         			</xsd:element>
+         			<xsd:element name="numPagamentiOk"
+         				type="xsd:int">
+         			</xsd:element>
+         		</xsd:sequence>
+             </xsd:complexType>
+            
+        </xsd:schema></wsdl:types>
+    <wsdl:message name="AllineamentoPendenzeRequest">
+    	<wsdl:part name="parameters" element="tns:AllineamentoPendenzeRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="AllineamentoPendenzeResponse">
+    	<wsdl:part name="parameters" element="tns:AllineamentoPendenzeResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getStatoRequest">
+    	<wsdl:part name="parameters" element="tns:getStatoRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getStatoResponse">
+    	<wsdl:part name="parameters" element="tns:getStatoResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEsitoRequest">
+    	<wsdl:part name="parameters" element="tns:getEsitoRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getEsitoResponse">
+    	<wsdl:part name="parameters" element="tns:getEsitoResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="countTrasmissioniRequest">
+    	<wsdl:part name="parameters" element="tns:countTrasmissioniRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="countTrasmissioniResponse">
+    	<wsdl:part name="parameters" element="tns:countTrasmissioniResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listaTrasmissioniRequest">
+    	<wsdl:part name="parameters" element="tns:listaTrasmissioniRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="listaTrasmissioniResponse">
+    	<wsdl:part name="parameters" element="tns:listaTrasmissioniResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFileTrasmissioneRequest">
+    	<wsdl:part name="parameters" element="tns:getFileTrasmissioneRequest"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFileTrasmissioneResponse">
+    	<wsdl:part name="parameters" element="tns:getFileTrasmissioneResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="NewOperationRequest">
+    	<wsdl:part name="parameters" element="tns:NewOperation"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="NewOperationResponse">
+    	<wsdl:part name="parameters" element="tns:NewOperationResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="LoaderService">
+    	<wsdl:operation name="AllineamentoPendenze">
+    		<wsdl:input message="tns:AllineamentoPendenzeRequest"></wsdl:input>
+    		<wsdl:output message="tns:AllineamentoPendenzeResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getStato">
+    		<wsdl:input message="tns:getStatoRequest"></wsdl:input>
+    		<wsdl:output message="tns:getStatoResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getEsito">
+    		<wsdl:input message="tns:getEsitoRequest"></wsdl:input>
+    		<wsdl:output message="tns:getEsitoResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="countTrasmissioni">
+    		<wsdl:input message="tns:countTrasmissioniRequest"></wsdl:input>
+    		<wsdl:output message="tns:countTrasmissioniResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="listaTrasmissioni">
+    		<wsdl:input message="tns:listaTrasmissioniRequest"></wsdl:input>
+    		<wsdl:output message="tns:listaTrasmissioniResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getFileTrasmissione">
+    		<wsdl:input message="tns:getFileTrasmissioneRequest"></wsdl:input>
+    		<wsdl:output message="tns:getFileTrasmissioneResponse"></wsdl:output>
+    	</wsdl:operation> 
+    </wsdl:portType>
+    <wsdl:binding name="LoaderBinding" type="tns:LoaderService">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="AllineamentoPendenze">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/AllineamentoPendenze" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getStato">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/getStato" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getEsito">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/getEsito" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="countTrasmissioni">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/countTrasmissioni" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="listaTrasmissioni">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/listaTrasmissioni" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="getFileTrasmissione">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/Loader/getFileTrasmissione" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="Loader">
+		<wsdl:port name="loaderPort" binding="tns:LoaderBinding">
+			<soap:address location="http://idp.tasgroup.it/" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

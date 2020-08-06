@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<aElement>
+		<number>10</number>
+	</aElement>
+	<aElement>
+		<number>20</number>
+	</aElement>
+	<aElement>
+		<number>30</number>
+	</aElement>
+</root>

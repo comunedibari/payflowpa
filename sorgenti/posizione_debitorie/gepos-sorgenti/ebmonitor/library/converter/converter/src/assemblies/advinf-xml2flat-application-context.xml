@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="countConverter" class="it.nch.streaming.services.impl.TotalLineNumberPrevisitToFlatConversion" singleton="false">
+		<constructor-arg>
+			<ref local="converter"/>
+		</constructor-arg>
+	</bean>
+
+	<bean id="converter" class="it.nch.streaming.services.impl.exp.AdvinfToFlatConversionServiceNew" singleton="false">
+		<constructor-arg>
+			<value>&#xD;&#xA;</value>
+		</constructor-arg>
+		<constructor-arg>
+			<ref local="namespacesInfos"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="namespacesInfos"
+		class="it.nch.fwk.core.NamespacesInfos">
+		<constructor-arg>
+			<map>
+				<entry key="MSG">
+					<value>urn:CBI:xsd:CBIAdvInstrMsg.002.04</value>
+				</entry>
+				<entry key="BODY">
+					<value>urn:CBI:xsd:CBIBdyAdvInstr.002.04</value>
+				</entry>
+				<entry key="HTRT">
+					<value>urn:CBI:xsd:CBIHdrTrt.001.07</value>
+				</entry>
+				<entry key="HE2E">
+					<value>urn:CBI:xsd:CBIHdrSrv.001.07</value>
+				</entry>
+				<entry key="ADIN">
+					<value>urn:CBI:xsd:CBIAdvInstr.002.04</value>
+				</entry>
+				<entry key="SGNT">
+					<value>urn:CBI:xsd:CBISgnInf.001.04</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+</beans>

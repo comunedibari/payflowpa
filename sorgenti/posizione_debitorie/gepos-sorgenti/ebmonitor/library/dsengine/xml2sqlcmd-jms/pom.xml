@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.nch.sebanc</groupId>
+		<artifactId>dse-engine-deployer</artifactId>
+		<version>0.1</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>it.nch.sebanc</groupId>
+	<artifactId>eb-xml2sql-jms</artifactId>
+	<version>${eb.xml2sql-jms.version}</version> 
+	<packaging>jar</packaging>
+	<name>xmlSqlCommand jms</name>
+	
+	<build>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+			</testResource>
+		</testResources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-flatx</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-common-utils</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>flats-records-generator</artifactId>
+			<optional>true</optional>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.nch.sebanc</groupId>
+			<artifactId>eb-xml2sql</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>5.2.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+		</dependency>
+		
+		
+		<!-- in production enviroments usually the connection pool is a db service (not a java one)-->
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<optional>true</optional> 
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope> 
+		</dependency>
+	</dependencies>
+</project>

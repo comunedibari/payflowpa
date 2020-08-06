@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<wsdl:definitions name="NotificaPagamento" 
+					  targetNamespace="http://idp.tasgroup.it/xmlbillerservices/ws/NotificaPagamento/" 
+					  xmlns:idpIPP="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento" 
+					  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+					  xmlns:tns="http://idp.tasgroup.it/xmlbillerservices/ws/NotificaPagamento/" 
+					  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+					  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    			targetNamespace="http://idp.tasgroup.it/xmlbillerservices/ws/NotificaPagamento/">
+			    <xsd:import namespace="http://idp.tasgroup.it/xmlbillerservices/InformativaPagamento" schemaLocation="InformativaPagamento.xsd"/> 			    			
+	
+	<xsd:element name="NotificaPagamento">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element ref="idpIPP:IdpInformativaPagamento"/>
+            </xsd:sequence>
+        </xsd:complexType>
+	</xsd:element>
+	<xsd:element name="NotificaPagamentoResponse">
+		<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="Esito" type="idpIPP:IdpEsitoNotifica">
+      			</xsd:element>
+      		</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	</xsd:schema>
+	</wsdl:types>
+    <wsdl:message name="NotificaPagamentoRequest">
+    	<wsdl:part name="request" element="tns:NotificaPagamento"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="NotificaPagamentoResponse">
+    	<wsdl:part name="response" element="tns:NotificaPagamentoResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="NotificaPagamentoPortType">
+    	<wsdl:operation name="NotificaPagamento">
+    		<wsdl:input message="tns:NotificaPagamentoRequest"></wsdl:input>
+    		<wsdl:output message="tns:NotificaPagamentoResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="NotificaPagamentoBinding"
+    	type="tns:NotificaPagamentoPortType">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="NotificaPagamento">
+    		<soap:operation
+    			soapAction="http://idp.tasgroup.it/xmlbillerservices/ws/NotificaPagamento/NotificaPagamento" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="NotificaPagamento">
+		<wsdl:port name="NotificaPagamentoPort" binding="tns:NotificaPagamentoBinding">
+			<soap:address location="http://idp.tasgroup.it/xmlbillerservices/ws/NotificaPagamentoService" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

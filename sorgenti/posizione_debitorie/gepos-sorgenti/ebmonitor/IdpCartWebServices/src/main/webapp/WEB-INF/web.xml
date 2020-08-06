@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <display-name>IdpCartWebServices</display-name>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    
+   	<servlet>
+		<servlet-name>AllineamentoPendenze</servlet-name>
+		<servlet-class>it.tasgroup.idp.cart.ws.servlet.AllineamentoPendenzeServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AllineamentoPendenze</servlet-name>
+		<url-pattern>/allineamentopendenze</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InformativaPagamentoEsito</servlet-name>
+		<servlet-class>it.tasgroup.idp.cart.ws.servlet.InformativaPagamentoEsitoServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InformativaPagamentoEsito</servlet-name>
+		<url-pattern>/informativapagamentoesito</url-pattern>
+	</servlet-mapping>
+	
+	   	<servlet>
+		<servlet-name>AllineamentoPendenzeOTF</servlet-name>
+		<servlet-class>it.tasgroup.idp.cart.ws.servlet.AllineamentoPendenzeOTFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AllineamentoPendenzeOTF</servlet-name>
+		<url-pattern>/allineamentopendenzeOTF</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>InformativaPagamentoOTF</servlet-name>
+		<servlet-class>it.tasgroup.idp.cart.ws.servlet.InformativaPagamentoOTFServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InformativaPagamentoOTF</servlet-name>
+		<url-pattern>/informativapagamentoOTF</url-pattern>
+	</servlet-mapping>
+</web-app>

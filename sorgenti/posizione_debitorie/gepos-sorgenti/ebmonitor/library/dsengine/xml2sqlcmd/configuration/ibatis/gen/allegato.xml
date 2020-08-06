@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="AllegatoModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.AllegatoModel" />
+		
+  <resultMap id="AllegatoResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.AllegatoModel">
+  	<result property="idPendenza" column="ID_Pendenza" /> 
+  	  	<result property="idAllegato" column="ID_Allegato" /> 
+  	  	<result property="tsDecorrenza" column="TS_Decorrenza" /> 
+  	  	<result property="flContesto" column="FL_Contesto" /> 
+  	  	<result property="idCondizione" column="ID_Condizione" /> 
+  	  	<result property="tiAllegato" column="TI_Allegato" /> 
+  	  	<result property="titolo" column="Titolo" /> 
+  	  	<result property="tiCodificaBody" column="TI_Codifica_Body" /> 
+  	  	<result property="datiBody" column="Dati_Body" /> 
+  	  	<result property="idAntifalsific" column="ID_ANTIFALSIFIC" /> 
+  	  	<result property="stRiga" column="ST_Riga" /> 
+  	  	<result property="prVersione" column="PR_Versione" /> 
+  	  	<result property="opInserimento" column="OP_Inserimento" /> 
+  	  	<result property="tsInserimento" column="TS_Inserimento" /> 
+  	  	<result property="opAggiornamento" column="OP_Aggiornamento" /> 
+  	  	<result property="tsAggiornamento" column="TS_Aggiornamento" /> 
+  	  	
+  </resultMap>		
+
+<insert id="insertAllegato" parameterClass="AllegatoModelType"><![CDATA[
+
+INSERT into ${ALLEGATO} ( ID_Pendenza,ID_Allegato,TS_Decorrenza,FL_Contesto,ID_Condizione,TI_Allegato,Titolo,TI_Codifica_Body,Dati_Body,ID_ANTIFALSIFIC,ST_Riga,PR_Versione,OP_Inserimento,TS_Inserimento,OP_Aggiornamento,TS_Aggiornamento ) values
+(  #idPendenza:VARCHAR#, #idAllegato:VARCHAR#, #tsDecorrenza:TIMESTAMP#, #flContesto:VARCHAR#, #idCondizione:VARCHAR#, #tiAllegato:CHAR#, #titolo:VARCHAR#, #tiCodificaBody:VARCHAR#, #datiBody:BLOB#, #idAntifalsific:VARCHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP# )
+
+]]></insert> 
+
+
+ 
+
+</sqlMap>

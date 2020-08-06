@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jboss-deployment-structure>
+  <deployment>
+    <dependencies>
+      <module name="org.jboss.remote-naming"
+              export="true" />
+      <module name="org.antlr"
+              export="true" />
+      <module name="org.apache.xerces"
+              export="true" />
+      <module name="org.apache.xml-resolver"
+              export="true" />
+      <module name="org.jboss.as.clustering.service"
+              export="true" />
+      <module name="org.jboss.as.clustering.singleton"
+              export="true" />
+      <module name="org.jboss.msc"
+              export="true" />
+    </dependencies>
+  </deployment>
+ 
+</jboss-deployment-structure>

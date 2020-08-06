@@ -1,0 +1,121 @@
+<wsdl:definitions
+   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:idpCE="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazione"
+   xmlns:idpE="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito"
+   targetNamespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy"
+   xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy">
+
+   <!-- import degli schemi XSD -->
+   <wsdl:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazione"
+           location="IdP.Configurazione.xsd"/>
+   <wsdl:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito"
+           location="IdP.Esito.xsd"/>
+
+   <!-- schema dei messaggi per gli asincroni simmetrici -->
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy">
+
+        <xsd:element name="IdpConfigurazioneEnte">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element ref="idpCE:IdpConfigurazioneEnte"/>
+               </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="IdpConfigurazioneTributi">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element ref="idpCE:IdpConfigurazioneTributi"/>
+               </xsd:sequence>
+            </xsd:complexType>
+        </xsd:element>
+		
+        <xsd:element name="IdpConfigurazioneEnte.Esito">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element ref="idpE:IdpEsito"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>	
+		 
+        <xsd:element name="IdpConfigurazioneTributi.Esito">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element ref="idpE:IdpEsito"/>
+               </xsd:sequence>
+            </xsd:complexType>
+         </xsd:element>			 
+      </xsd:schema>
+   </wsdl:types>
+	
+   <!-- Definizione dei messaggi scambiati -->
+   <wsdl:message name="IdpConfigurazioneEnteMessage">
+      <wsdl:part name="IdpConfigurazioneEnte" element="IdpConfigurazioneEnte"/>
+   </wsdl:message>
+
+   <wsdl:message name="IdpConfigurazioneTributiMessage">
+      <wsdl:part name="IdpConfigurazioneTributi" element="IdpConfigurazioneTributi"/>
+   </wsdl:message>
+
+   <wsdl:message name="IdpConfigurazioneEnte.EsitoMessage">
+      <wsdl:part name="IdpConfigurazioneEnte.Esito" element="IdpConfigurazioneEnte.Esito"/>
+   </wsdl:message>
+
+   <wsdl:message name="IdpConfigurazioneTributi.EsitoMessage">
+      <wsdl:part name="IdpConfigurazioneTribut.Esito" element="IdpConfigurazioneTributi.Esito"/>
+   </wsdl:message>
+
+   <wsdl:portType name="ConfigurazioneEnteEsito">
+      <wsdl:operation name="IdpConfigurazioneEnte.Esito">
+         <wsdl:input message="IdpConfigurazioneEnte.EsitoMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+
+   <wsdl:portType name="ConfigurazioneTributiEsito">
+      <wsdl:operation name="IdpConfigurazioneTributi.Esito">
+         <wsdl:input message="IdpConfigurazioneTributi.EsitoMessage"/>
+      </wsdl:operation>
+   </wsdl:portType>
+
+   <wsdl:portType name="ConfigurazioneIDP">
+      <wsdl:operation name="IdpConfigurazioneEnte">
+         <wsdl:input message="IdpConfigurazioneEnteMessage"/>
+         <wsdl:output name="IdpConfigurazioneEnte.EsitoMessage" message="IdpConfigurazioneEnte.EsitoMessage"/>
+      </wsdl:operation>
+      <wsdl:operation name="IdpConfigurazioneTributi">
+         <wsdl:input message="IdpConfigurazioneTributiMessage"/>
+         <wsdl:output name="IdpConfigurazioneTributi.EsitoMessage" message="IdpConfigurazioneTributi.EsitoMessage"/>
+      </wsdl:operation>	  
+   </wsdl:portType>
+   
+   <wsdl:binding name="ConfigurazioneIDPBinding" type="ConfigurazioneIDP">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="IdpConfigurazioneEnte">
+			<soap:operation soapAction="IdpConfigurazioneEnte" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="IdpConfigurazioneTributi">
+			<soap:operation soapAction="IdpConfigurazioneTributi" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>		
+	</wsdl:binding>
+	<wsdl:service name="ConfigurazioneIDPService">
+		<wsdl:port name="ConfigurazioneIDPPort" binding="ConfigurazioneIDPBinding">
+			<soap:address location="http://idp.tasgroup.it/IdpConfigurazioneEnteWebServices/Configurazione"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+

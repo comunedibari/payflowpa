@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="BollettinoPagamento" 
+	targetNamespace="http://paytas.tasgroup.it/bollettinoservice/ws/BollettinoPagamento" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:tns="http://paytas.tasgroup.it/bollettinoservice/ws/BollettinoPagamento" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:avp="http://paytas.tasgroup.it/bollettinoservice/Bollettini">
+    <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    	targetNamespace="http://paytas.tasgroup.it/bollettinoservice/ws/BollettinoPagamento" >
+	<xsd:import namespace="http://paytas.tasgroup.it/bollettinoservice/Bollettini" 
+				schemaLocation="Bollettino.xsd"/> 
+	<xsd:element name="getBollettino">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="avp:BollettinoPagamentoRequest"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="getBollettinoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="avp:BollettinoPagamentoResponse"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	</xsd:schema>
+	</wsdl:types>
+    <wsdl:message name="getBollettinoRequest">
+    	<wsdl:part name="parameters" element="tns:getBollettino"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getBollettinoResponse">
+    	<wsdl:part name="parameters" element="tns:getBollettinoResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="BollettinoPagamentoPortType">
+    	<wsdl:operation name="getBollettino">
+    		<wsdl:input message="tns:getBollettinoRequest"></wsdl:input>
+    		<wsdl:output message="tns:getBollettinoResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="BollettinoPagamentoBinding"
+    	type="tns:BollettinoPagamentoPortType">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http" />
+    	<wsdl:operation name="getBollettino">
+    		<soap:operation
+    			soapAction="http://paytas.tasgroup.it/bollettinoservice/ws/BollettinoPagamento/getBollettino" />
+    		<wsdl:input>
+    			<soap:body use="literal" />
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal" />
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="BollettinoPagamentoService">
+		<wsdl:port name="BollettinoPagamentoPort" binding="tns:BollettinoPagamentoBinding">
+			<soap:address location="http://paytas.tasgroup.it/bollettinoservice/ws/BollettinoPagamentoService" />
+		</wsdl:port>
+	</wsdl:service></wsdl:definitions>

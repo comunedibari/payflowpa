@@ -1,0 +1,13 @@
+group bonord_esiti_dbtr;
+
+templateProp(propName) ::= <<
+propertyName:	$propName$
+>>
+
+templateProp2(propName) ::= <<
+propertyName222:	$propName$
+>>
+
+templateSimple(errId) ::= <<
+errId:	$errId$
+>>

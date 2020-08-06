@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="EsitoPendenzaModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.model.EsitoPendenzaModel" />
+		
+  <resultMap id="EsitoPendenzaResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.model.EsitoPendenzaModel">
+  	<result property="e2emsgid" column="E2EMSGID" /> 
+  	  	<result property="senderId" column="SenderId" /> 
+  	  	<result property="senderSys" column="SenderSys" /> 
+  	  	<result property="idEsitoPendenza" column="Id_Esito_Pendenza" /> 
+  	  	<result property="esitoPendenza" column="Esito_Pendenza" /> 
+  	  	<result property="descrizioneEsito" column="Descrizione_Esito" /> 
+  	  	<result property="stato" column="Stato" /> 
+  	  	<result property="idPendenza" column="Id_Pendenza" /> 
+  	  	<result property="idPendenzaEnte" column="Id_Pendenza_Ente" /> 
+  	  	<result property="prVersione" column="PR_Versione" /> 
+  	  	<result property="opInserimento" column="OP_Inserimento" /> 
+  	  	<result property="tsInserimento" column="TS_Inserimento" /> 
+  </resultMap>		
+  
+  <insert id="insertEsitoPendenza" parameterClass="EsitoPendenzaModelType"><![CDATA[
+
+INSERT into ${ESITI_PENDENZA} ( E2EMSGID,SenderId,SenderSys,Id_Esito_Pendenza,Esito_Pendenza,Descrizione_Esito,Stato,Id_Pendenza,Id_Pendenza_Ente,PR_Versione,OP_Inserimento,TS_Inserimento ) values
+(  #e2emsgid:VARCHAR#, #senderId:VARCHAR#, #senderSys:VARCHAR#, #idEsitoPendenza:VARCHAR#, #esitoPendenza:VARCHAR#, #descrizioneEsito:VARCHAR#, #stato:VARCHAR#, #idPendenza:VARCHAR#, #idPendenzaEnte:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP# )
+
+]]></insert> 
+
+<typeAlias alias="ErroriEsitiPendenzaModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.model.ErroriEsitiPendenzaModel" />
+		
+  <resultMap id="ErroriEsitiPendenzaResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.model.ErroriEsitiPendenzaModel">
+  	<result property="idEsitoPendenza" column="ID_esito_pendenza" /> 
+  	  	<result property="idPendenza" column="ID_pendenza" /> 
+  	  	<result property="idErrore" column="id_errore" /> 
+  	  	<result property="codice" column="codice" /> 
+  	  	<result property="idPendenzaEnte" column="ID_PENDENZA_ENTE" /> 
+  	  	<result property="descrizioneErrore" column="DESCRIZIONE_ERRORE" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	
+  </resultMap>		
+
+<insert id="insertErroriEsitiPendenza" parameterClass="ErroriEsitiPendenzaModelType"><![CDATA[
+
+INSERT into ${ERRORI_ESITI_PENDENZA} ( ID_esito_pendenza,ID_pendenza,id_errore,codice,ID_PENDENZA_ENTE,DESCRIZIONE_ERRORE,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO ) values
+(  #idEsitoPendenza:VARCHAR#, #idPendenza:VARCHAR#, #idErrore:VARCHAR#, #codice:VARCHAR#, #idPendenzaEnte:VARCHAR#, #descrizioneErrore:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#)
+
+]]></insert> 
+
+</sqlMap>

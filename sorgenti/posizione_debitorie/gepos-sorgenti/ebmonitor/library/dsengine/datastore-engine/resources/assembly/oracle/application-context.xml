@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate" lazy-init="true">
+		<property name="environment">
+			<props>
+				<prop key="java.naming.factory.initial">${DefaultInitialContextFactory}</prop>
+				<prop key="java.naming.provider.url">${DefaultProviderUrl}</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<import resource="files-configuration.xml"/>
+
+	<import resource="prod-datasource.xml"/>
+	<import resource="oracleseq-configuration.xml"/>
+	<import resource="classpath:/assembly/ibatis-application-context.xml" />
+	<import resource="classpath:/assembly/idp-configuration.xml"		  />
+	<import resource="classpath:/assembly/idp-dse-validation-context.xml"  />
+	<import resource="classpath:/assembly/jms-configuration.xml"           />
+	<import resource="classpath:/assembly/jms-common-configuration.xml"           />
+
+</beans>

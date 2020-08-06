@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<antlib>
+	<taskdef name="from-irecord-gen" classname="it.nch.eb.flatx.generator.ant.IRecordModelsGeneratorTask" />
+</antlib>

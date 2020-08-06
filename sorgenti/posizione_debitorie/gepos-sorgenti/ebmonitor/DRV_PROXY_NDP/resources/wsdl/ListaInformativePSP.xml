@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaInformativePSP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ListaInformativePSP.xsd">
+  <informativaPSP>
+    <identificativo>identificativo</identificativo>
+    <ragioneSociale>ragioneSociale</ragioneSociale>
+    <informativaMaster>
+      <dataPubblicazione>dataPubblicazione</dataPubblicazione>
+      <dataInizioValidita>dataInizioValidita</dataInizioValidita>
+    </informativaMaster>
+    <listaInformativaDetail>
+      <informativaDetail>
+        <identificativoIntermediario>identificativoIntermediario</identificativoIntermediario>
+        <identificativoCanale>identificativoCanale</identificativoCanale>
+        <tipoVersamento>tipoVersamento</tipoVersamento>
+        <priorita>priorita</priorita>
+        <disponibilitaServizio>disponibilitaServizio</disponibilitaServizio>
+        <descrizioneServizio>descrizioneServizio</descrizioneServizio>
+        <condizioniEconomicheMassime>condizioniEconomicheMassime</condizioniEconomicheMassime>
+      </informativaDetail>
+    </listaInformativaDetail>
+  </informativaPSP>
+</listaInformativePSP>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 rel. 3 sp1 (http://www.altova.com) by AAAAAAAA (BBBBBBBBB) -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+****                          TAS S.p.A.
+**** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+****
+**** Project. . : IRIS
+****
+**** Nome . . . : IdpConfigurazioneEnte
+**** Versione . : 01.00-00 Draft 01
+****
+**** Descrizione: Invio da Ente a IRIS dati anagrafici Ente, SIL, Operatori, Tributi, Rapporti
+****
+**** - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<xs:schema xmlns="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazioneEnte" xmlns:h="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader" xmlns:i="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazioneEnte" elementFormDefault="qualified">
+	<xs:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader" schemaLocation="IdP.Header.xsd"/>
+	<xs:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude" schemaLocation="IdP.Include.xsd"/>
+	<xs:element name="IdpConfigurazioneEnte" type="IdpConfigurazioneEnte"/>
+	<xs:complexType name="IdpConfigurazioneEnte">
+		<xs:sequence>
+			<xs:element ref="h:IdpHeader"/>
+			<xs:element name="IdpBody" type="IdpBody"/>
+		</xs:sequence>
+		<xs:attribute name="Versione" type="Versione" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="Versione">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="01.00-00"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definizione del Body   -->
+	<xs:complexType name="IdpBody">
+		<xs:sequence>
+			<xs:element name="ConfigurazioneEnte" type="ConfigurazioneEnte"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione della Configurazione Ente -->
+	<xs:complexType name="ConfigurazioneEnte">
+		<xs:sequence>
+			<xs:element name="DatiAnagraficiEnte" type="DatiAnagraficiEnte"/>
+			<xs:element name="Operatori" type="Operatori" maxOccurs="unbounded"/>
+			<xs:element name="Rapporti" type="Rapporti" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="Tributi" type="Tributi" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Dati Anagrafici Ente -->
+	<xs:complexType name="DatiAnagraficiEnte">
+		<xs:sequence>
+			<xs:element name="CodiceCartEnte" type="i:Max50Text"/>
+			<xs:element name="TipoEnte" type="TipoEnte"/>
+			<xs:element name="RagioneSociale" type="i:Max100Text"/>
+			<xs:element name="CodiceFiscale" type="i:IdentificativoIdp"/>
+			<xs:element name="PartitaIVA" type="i:IdentificativoIdp" minOccurs="0"/>
+			<xs:element name="Indirizzo" type="Indirizzo" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Operatori -->
+	<xs:complexType name="Operatori">
+		<xs:sequence>
+			<xs:element name="Nome" type="i:Max50Text" minOccurs="0"/>
+			<xs:element name="Cognome" type="i:Max60Text" minOccurs="0"/>
+			<xs:element name="CodiceFiscale" type="i:IdentificativoIdp"/>
+			<xs:element name="Email" type="i:Max100Text" minOccurs="0"/>
+			<xs:element name="NumeroCellulare" type="i:Max20Text" minOccurs="0"/>
+			<xs:element name="TipoOperatore" type="TipoOperatore"/>
+			<xs:element name="Stato" type="Stato"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Rapporti -->
+	<xs:complexType name="Rapporti">
+		<xs:sequence>
+			<xs:element name="IBAN" type="i:IBANIdentifier"/>
+			<xs:element name="Descrizione" type="i:Max50Text" minOccurs="0"/>
+			<xs:element name="Intestazione" type="i:Max70Text" minOccurs="0"/>
+			<xs:element name="Stato" type="Stato"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Tributi -->
+	<xs:complexType name="Tributi">
+		<xs:sequence>
+			<xs:element name="CodiceTributo" type="i:Max50Text"/>
+			<xs:element name="Descrizione" type="i:Max50Text"/>
+			<xs:element name="Categoria" type="Categoria">
+				<xs:annotation>
+					<xs:documentation>
+						Categoria001 = Imposta comunale immobili (ICI)
+						Categoria002 = Tasse automobilistiche
+						Categoria003 = Concessioni cimiteriali
+						Categoria004 = Multe/Ammende/Sanzioni Amministrative
+						Categoria005 = Servizi scolastici
+						Categoria006 = Tassa occupazione spazi ed aree pubbliche (TOSAP)
+						Categoria007 = Pubblicità
+						Categoria008 = Canone occupazione spazi ed aree pubbliche (COSAP)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="FlagIniziativaDebitore" type="FlagNoSì"/>
+			<xs:element name="FlagPredeterminato" type="FlagNoSì"/>
+			<xs:element name="CodiceCartSilEnte" type="i:Max35Text"/>
+			<xs:element name="IBANAccredito" type="i:IBANIdentifier"/>
+			<xs:element name="Stato" type="Stato"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Indirizzo -->
+	<xs:complexType name="Indirizzo">
+		<xs:sequence>
+			<xs:element name="Indirizzo" type="i:Max100Text" minOccurs="0"/>
+			<xs:element name="Comune" type="i:Max35Text" minOccurs="0"/>
+			<xs:element name="Provincia" type="i:Max2Text" minOccurs="0"/>
+			<xs:element name="CAP" type="i:Max5Text" minOccurs="0"/>
+			<xs:element name="Nazione" type="i:Max20Text" minOccurs="0"/>
+			<xs:element name="NumeroTelefono" type="i:Max20Text" minOccurs="0"/>
+			<xs:element name="NumeroFAX" type="i:Max20Text" minOccurs="0"/>
+			<xs:element name="CasellaPostale" type="i:Max5Text" minOccurs="0"/>
+			<xs:element name="Email" type="i:Max256Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Definizione Tipo Ente -->
+	<xs:simpleType name="TipoEnte">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Comune"/>
+			<xs:enumeration value="Provincia"/>
+			<xs:enumeration value="Regione"/>
+			<xs:enumeration value="ASL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definizione Stato -->
+	<xs:simpleType name="Stato">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Attiva"/>
+			<xs:enumeration value="Disattiva"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definizione Flag No/Sì -->
+	<xs:simpleType name="FlagNoSì">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="No"/>
+			<xs:enumeration value="Sì"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definizione TipoOperatore -->
+	<xs:simpleType name="TipoOperatore">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Amministratore"/>
+			<xs:enumeration value="Operatore"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definizione Categoria -->
+	<xs:simpleType name="Categoria">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Categoria001"/>
+			<xs:enumeration value="Categoria002"/>
+			<xs:enumeration value="Categoria003"/>
+			<xs:enumeration value="Categoria004"/>
+			<xs:enumeration value="Categoria005"/>
+			<xs:enumeration value="Categoria006"/>
+			<xs:enumeration value="Categoria007"/>
+			<xs:enumeration value="Categoria008"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

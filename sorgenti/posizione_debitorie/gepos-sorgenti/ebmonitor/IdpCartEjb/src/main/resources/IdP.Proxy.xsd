@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema targetNamespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/proxy"
+	xmlns:idpAP="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze"
+	xmlns:idpIPP="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInformativaPagamento"
+	xmlns:idpCE="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazioneEnte"
+	xmlns:idpRE="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpRendicontazioneEnti"
+	xmlns:idpE="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze" schemaLocation="IdP.AllineamentoPendenze.xsd" />
+	<xsd:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInformativaPagamento" schemaLocation="IdP.InformativaPagamento.xsd" />
+	<xsd:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpConfigurazioneEnte" schemaLocation="IdP.ConfigurazioneEnte.xsd" />
+	<xsd:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpRendicontazioneEnti" schemaLocation="IdP.RendicontazioneEnti.xsd" />
+	<xsd:import namespace="http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpEsito" schemaLocation="IdP.Esito.Verifica.xsd" />
+	
+	<xsd:element name="IdpRendicontazioneEnti">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpRE:IdpRendicontazioneEnti" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpRendicontazioneEnti.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsito" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpConfigurazioneEnte">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpCE:IdpConfigurazioneEnte" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpConfigurazioneEnte.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsito" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpInformativaPagamento">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpIPP:IdpInformativaPagamento" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpInformativaPagamento.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsito" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpAllineamentoPendenzeEnte">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpAP:IdpAllineamentoPendenze" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpAllineamentoPendenzeEnte.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsito" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpVerificaStatoPagamenti">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpIPP:IdpVerificaStatoPagamento" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpVerificaStatoPagamenti.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsito" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="IdpAllineamentoPendenzeEnteOTF">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpAP:IdpAllineamentoPendenzeOTF" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="IdpAllineamentoPendenzeEnteOTF.Esito">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="idpE:IdpEsitoOTF" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

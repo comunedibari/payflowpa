@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>IdpWebServices</artifactId>
+	<packaging>war</packaging>
+	<name>IdpWebServices</name>
+	<description>IdpWebServices</description>
+	<version>${releaseVersion}</version>
+
+	<dependencies>
+
+		<!--  aggiunto perche' richiesta da Jb7 
+		valutare se si puo' inserire come provided -->
+	   	<dependency>
+			<groupId>net.sf.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>2.0</version>
+		</dependency>	
+			
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		
+		
+<!-- 	eliminato per errori JB7
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-frontend-jaxws</artifactId>
+			<version>2.2.7</version>
+		</dependency> -->
+
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpUtil</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpAppJpa</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>DRV_CART</artifactId>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>it.tasgroup.idp</groupId>
+			<artifactId>IdpSchemiRFC</artifactId>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>						
+	</dependencies>
+
+	<build>
+		<!-- cambio la posizione standard dei sorgenti per non modificare il repository preesistente -->
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+		<resources>
+			<resource>
+				<directory>resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+
+	   <plugin>
+	    <artifactId>maven-resources-plugin</artifactId>
+	    <executions>
+	        <execution>
+	            <id>copy-appCtx</id>
+	            <phase>generate-resources</phase>
+	            <goals>
+	                <goal>copy-resources</goal>
+	            </goals>
+	            <configuration>
+	                <outputDirectory>WebContent/WEB-INF/wsdl</outputDirectory>
+	                <overwrite>true</overwrite>
+	                <resources>
+	                    <resource>
+	                        <directory>../IdpSchemiRFC/src/main/resources/wsdl</directory>
+	                        <includes>
+	                            <include>*/**</include>
+	                        </includes>
+			                    </resource>
+			                </resources>
+			            </configuration>
+			        </execution>
+			    </executions>
+			</plugin>
+
+					
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<!-- <warName>IdpWebServices</warName> -->
+					<warSourceDirectory>WebContent</warSourceDirectory>
+				</configuration>
+ 			</plugin>
+
+
+		</plugins>
+	</build>
+	
+	
+</project>

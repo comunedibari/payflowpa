@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="PendenzeModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PendenzeModel" />
+		
+  <resultMap id="PendenzeResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PendenzeModel">
+  	<result property="idPendenza" column="ID_Pendenza" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="cdTrbEnte" column="CD_TRB_ENTE" /> 
+  	  	<result property="idTributo" column="ID_TRIBUTO" /> 
+  	  	<result property="idEnte" column="ID_ENTE" /> 
+  	  	<result property="idSystem" column="ID_SYSTEM" /> 
+  	  	<result property="idMittente" column="ID_Mittente" /> 
+  	  	<result property="deMittente" column="DE_Mittente" /> 
+  	  	<result property="idPendenzaEnte" column="ID_PendenzaEnte" /> 
+  	  	<result property="note" column="Note" /> 
+  	  	<result property="deCausale" column="DE_Causale" /> 
+  	  	<result property="coRiscossore" column="CO_RISCOSSORE" /> 
+  	  	<result property="riferimento" column="RIFERIMENTO" /> 
+  	  	<result property="tsCreazioneEnte" column="TS_CreazioneEnte" /> 
+  	  	<result property="tsEmissioneEnte" column="TS_EmissioneEnte" /> 
+  	  	<result property="tsPrescrizione" column="TS_Prescrizione" /> 
+  	  	<result property="annoRiferimento" column="Anno_Riferimento" /> 
+  	  	<result property="tsModificaEnte" column="TS_ModificaEnte" /> 
+  	  	<result property="stPendenza" column="ST_Pendenza" /> 
+  	  	<result property="imTotale" column="IM_Totale" /> 
+  	  	<result property="dvRiferimento" column="DV_Riferimento" /> 
+  	  	<result property="coAbi" column="CO_ABI" /> 
+  	  	<result property="flModPagamento" column="FL_Mod_Pagamento" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	<result property="opAnnullamento" column="OP_Annullamento" /> 
+  	  	<result property="tsAnnullamento" column="TS_Annullamento" />
+  	  	<result property="tsAnnullamentoMillis" column="TS_ANNULLAMENTO_MILLIS" />  
+  	  	<result property="idTributoStrutturato" column="ID_TRIBUTO_STRUTTURATO" />
+  	  	
+  </resultMap>		
+
+<insert id="insertPendenze" parameterClass="PendenzeModelType"><![CDATA[
+
+INSERT into ${PENDENZE} ( ID_Pendenza,TS_DECORRENZA,CD_TRB_ENTE,ID_TRIBUTO,ID_ENTE,ID_SYSTEM,ID_Mittente,DE_Mittente,ID_PendenzaEnte,Note,DE_Causale,CO_RISCOSSORE,RIFERIMENTO,TS_CreazioneEnte,TS_EmissioneEnte,TS_Prescrizione,Anno_Riferimento,TS_ModificaEnte,ST_Pendenza,IM_Totale,DV_Riferimento,CO_ABI,FL_Mod_Pagamento,ST_RIGA,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO,OP_AGGIORNAMENTO,TS_AGGIORNAMENTO,OP_Annullamento,TS_Annullamento,ID_TRIBUTO_STRUTTURATO, CARTELLA_PAGAMENTO, TS_ANNULLAMENTO_MILLIS ) values
+(  #idPendenza:VARCHAR#, #tsDecorrenza:TIMESTAMP#, #cdTrbEnte:VARCHAR#, #idTributo:VARCHAR#, #idEnte:VARCHAR#, #idSystem:VARCHAR#, #idMittente:VARCHAR#, #deMittente:VARCHAR#, #idPendenzaEnte:VARCHAR#, #note:VARCHAR#, #deCausale:VARCHAR#, #coRiscossore:VARCHAR#, #riferimento:VARCHAR#, #tsCreazioneEnte:TIMESTAMP#, #tsEmissioneEnte:TIMESTAMP#, #tsPrescrizione:TIMESTAMP#, #annoRiferimento:INTEGER#, #tsModificaEnte:TIMESTAMP#, #stPendenza:CHAR#, #imTotale:DECIMAL#, #dvRiferimento:VARCHAR#, #coAbi:VARCHAR#, #flModPagamento:CHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP#, #opAnnullamento:VARCHAR#, #tsAnnullamento:TIMESTAMP#, #idTributoStrutturato:INTEGER#, #cartellaDiPagamento:INTEGER#, #tsAnnullamentoMillis:INTEGER#  )
+
+]]></insert> 
+
+
+	<update id="updatePendenze" parameterClass="PendenzeModelType"><![CDATA[
+
+	UPDATE ${PENDENZE} SET TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, Note = #note:VARCHAR#, TS_ModificaEnte = #tsModificaEnte:TIMESTAMP#, ST_Pendenza = #stPendenza:CHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAggiornamento:VARCHAR#, TS_AGGIORNAMENTO = #tsAggiornamento:TIMESTAMP#
+	]]>
+		
+	<isNotNull prepend="," property="imTotale" ><![CDATA[
+  		IM_TOTALE=#imTotale:DECIMAL#
+	]]></isNotNull>
+
+	<isNotNull prepend="," property="coRiscossore" ><![CDATA[
+  		CO_RISCOSSORE=#coRiscossore:VARCHAR#
+	]]></isNotNull>
+	
+		<isNotNull prepend="," property="riferimento" ><![CDATA[
+  		RIFERIMENTO=#riferimento:VARCHAR#
+	]]></isNotNull>
+	
+	<![CDATA[ 
+	 
+	where ID_Pendenza = #idPendenza:VARCHAR#
+
+	]]></update>
+
+	<update id="updatePendenzaToReplace" parameterClass="PendenzeModelType"><![CDATA[
+
+	UPDATE ${PENDENZE} SET TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR#, TS_Annullamento = #tsAnnullamento:TIMESTAMP#, TS_ANNULLAMENTO_MILLIS = #tsAnnullamentoMillis:INTEGER# 
+	where ID_Pendenza = #idPendenza:VARCHAR#
+
+	]]></update>
+
+	<update id="updatePendenzaToDelete" parameterClass="PendenzeModelType"><![CDATA[
+
+	UPDATE ${PENDENZE} SET TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, Note = #note:VARCHAR#, ST_RIGA = #stRiga:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_Annullamento = #opAnnullamento:VARCHAR#, TS_Annullamento = #tsAnnullamento:TIMESTAMP#, TS_ANNULLAMENTO_MILLIS = #tsAnnullamentoMillis:INTEGER#  
+	where ID_Pendenza = #idPendenza:VARCHAR#
+
+	]]></update>
+ 
+
+</sqlMap>

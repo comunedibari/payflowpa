@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="tablesUidProvider" 
+		  class="it.nch.eb.xsqlcmd.dbtrpos.dao.BaseTablesUidProvider" singleton="true">
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceTimestampUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider"  singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.LoggerMemorySequenceUIdProvider" singleton="true"/>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true"/>
+		</constructor-arg>		
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true"/>
+		</constructor-arg>		
+
+	</bean>
+</beans>

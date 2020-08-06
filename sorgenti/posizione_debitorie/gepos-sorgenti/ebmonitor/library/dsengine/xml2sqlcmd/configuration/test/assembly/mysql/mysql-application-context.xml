@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<import resource="mysql-db-properties-context.xml"/>
+	<import resource="classpath:/test/assembly/datasource.xml"/>
+	<import resource="classpath:/assembly/ibatis-application-context.xml" />
+
+	<bean id="tablesUidProvider" 
+		  class="it.nch.eb.xsqlcmd.dbtrpos.dao.BaseTablesUidProvider" >
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.TimeStampUidProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="it.nch.eb.xsqlcmd.dao.MemorySequenceUIdProvider" singleton="true" />
+		</constructor-arg>		
+	</bean>
+</beans>

@@ -1,0 +1,60 @@
+group recordImpl;
+
+compilationUnit(sourceFolderPath, className, pkgName, modelsPackageName, records, modelInterfaces) ::=<<
+/* generated */
+package $pkgName$;
+
+$imports()$
+
+/* generated */
+public class $className$ {
+
+	static final File sourceFolder 			= new File("$sourceFolderPath$"); // FIXME provide a valid source folder location 
+	static final String packageName			= "$modelsPackageName$";
+
+	static XmlRecordWithExtraFields rec(XmlRecord rec) {
+		return XmlRecordWithExtraFields.create(rec, null);
+	}
+	
+	static XmlRecordWithExtraFields rec(XmlRecord rec, String[][] extraFlds ) {
+		return XmlRecordWithExtraFields.create(rec, extraFlds);
+	}
+	
+	static final XmlRecordWithExtraFields[] records = new XmlRecordWithExtraFields[] {
+		$records:recordNewInstance()$
+	};
+	
+	public static void main(String[] args) {
+		ClassesGenerator generator = new ClassesGenerator(sourceFolder, packageName);
+		$if(modelInterfaces)$
+			//generator.generateAll(records);
+			generator.generateAll(records, new String[] { $modelInterfaces:toStringArray()$ });
+		$else$
+			generator.generateAll(records);
+		$endif$
+	}
+}
+>>
+
+toStringArray(item) ::=<< 
+"$item$",  
+>>
+
+imports() ::=<<
+import java.io.File;
+
+import it.nch.eb.flatx.flatmodel.XmlRecord;
+import it.nch.eb.flatx.generator.xls.xmlrecord.XmlRecordWithExtraFields;
+import it.nch.eb.flatx.records.ClassesGenerator;
+>>
+
+recordNewInstance(record) ::=<< rec( new $record.xmlRecord$(),
+	new String[][] {
+	  $record.extraFields:nameTypePair()$ 
+	} ),
+
+>>
+
+nameTypePair(fieldDecl) ::=<<{ "$fieldDecl.fieldName$", "$fieldDecl.type$" },
+
+>>

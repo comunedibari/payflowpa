@@ -1,0 +1,44 @@
+group recordImpl;
+
+compilationUnit(sourceFolderPath, className, pkgName, modelsPackageName, records, modelInterfaces) ::=<<
+/* generated */
+package $pkgName$;
+
+$imports()$
+
+/* generated */
+public class $className$ {
+
+	static final File sourceFolder 			= new File("$sourceFolderPath$"); // FIXME provide a valid source folder location 
+	static final String packageName			= "$modelsPackageName$";
+
+	public static ParserRecord[] records = 
+		new ParserRecord[] {
+			$records:recordNewInstance()$
+		};
+
+	public static void main(String[] args) {
+		ClassesGenerator generator = new ClassesGenerator(sourceFolder, packageName);
+		$if(modelInterfaces)$
+			//generator.generateAll(records);
+			generator.generateAll(records, new String[] { $modelInterfaces:toStringArray()$ });
+		$else$
+			generator.generateAll(records);
+		$endif$
+	}
+}
+>>
+
+toStringArray(item) ::=<< 
+"$item$",  
+>>
+
+imports() ::=<<
+import it.nch.eb.flatx.flatmodel.flatfile.ParserRecord;
+import it.nch.eb.flatx.records.ClassesGenerator;
+
+import java.io.File;
+>>
+
+recordNewInstance(record) ::=<< new $record$(),
+>>

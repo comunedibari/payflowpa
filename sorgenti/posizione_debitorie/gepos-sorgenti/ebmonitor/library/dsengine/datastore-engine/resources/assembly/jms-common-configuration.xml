@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="jmsStreamDispatcherFactory" class="it.nch.eb.xsqlcmd.jms.JMSStreamDispatcherFactoryNoConsumers">
+		<constructor-arg> 
+			<ref bean="nss" /> 
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="sqlMapClient"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="tablesUidProvider"/>
+		</constructor-arg>
+		<constructor-arg>
+			<value>${jms.numberOfConsumers}</value> <!-- number  of consumers -->
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="connectionFactory"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="destinationFactory"/>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="jmsDispatcherFactory" class="it.tasgroup.dse.service.JMSDataStoreEngineBeanImpl">
+		<constructor-arg>
+			<ref bean="idpXsdValidator"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="storageDao"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="sqlMapClient"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="jmsStreamDispatcherFactory"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="tablesUidProvider"/>
+		</constructor-arg>
+		<constructor-arg>
+			<value>${DefaultCharset}</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="jmsDbConsumers" 
+			init-method="startDbConsumers"  
+			class="it.nch.eb.xsqlcmd.jms.StartablePendenzeDbConsumersFactory" 
+			singleton="true">
+		<constructor-arg>
+			<ref bean="sqlMapClient"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="tablesUidProvider"/>
+		</constructor-arg>
+		<constructor-arg>
+			<value>${jms.pendenzePerConsumer}</value> <!-- number of pendenze processed by each consumer -->
+		</constructor-arg>
+		<constructor-arg>
+			<value>${jms.numberOfConsumers}</value> <!-- number  of consumers -->
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="connectionFactory"/>
+		</constructor-arg>
+		<constructor-arg>
+			<ref bean="destinationFactory"/>
+		</constructor-arg>
+	</bean>
+
+</beans>

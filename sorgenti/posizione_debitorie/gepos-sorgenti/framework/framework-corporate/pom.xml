@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<groupId>it.tasgroup.iris.fwk</groupId>
+		<artifactId>framework</artifactId>
+		<version>0.1</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>framework-rt-corporate</artifactId>
+	<name>TAS Iris-FE Framework Base Corporate Services</name>
+	<packaging>jar</packaging>
+	<version>${releaseVersion}</version>
+	<inceptionYear>2011</inceptionYear>
+
+	<dependencies>
+		<!-- Framework Projects -->
+		<dependency>
+			<groupId>it.tasgroup.iris.fwk</groupId>
+			<artifactId>framework-rt-base</artifactId>
+		</dependency>
+		<!-- JEE API -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<!-- 3rd Parties -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+		</dependency>
+	</dependencies>
+</project>
+

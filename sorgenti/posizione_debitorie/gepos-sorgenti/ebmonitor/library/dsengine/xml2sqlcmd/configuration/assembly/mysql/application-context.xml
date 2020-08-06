@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="nss" class="it.nch.fwk.core.NamespacesInfos">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value></value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpAllineamentoPendenze</value>
+				</entry>
+				<entry>
+					<key><value>h</value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpHeader</value>
+				</entry>
+				<entry>
+					<key><value>i</value></key>
+					<value>http://www.cart.rete.toscana.it/servizi/iris_1_1/IdpInclude</value>
+				</entry>				
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<import resource="db-properties-context.xml"/>
+	<import resource="datasource.xml"/>
+	<import resource="dbseq-configuration.xml"/>
+	<import resource="classpath:/assembly/ibatis-application-context.xml" />
+	
+</beans>

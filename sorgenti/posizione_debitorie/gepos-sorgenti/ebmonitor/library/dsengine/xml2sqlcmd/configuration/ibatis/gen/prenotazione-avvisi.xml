@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="PrenotazioneAvvisiDigitaliModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PrenotazioneAvvisiDigitaliModel" />
+		
+  <resultMap id="PrenotazioneAvvisiDigitaliResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.PrenotazioneAvvisiDigitaliModel">
+  	    <result property="id"                      column="ID" /> 
+  	  	<result property="idCondizione"            column="ID_CONDIZIONE" /> 
+  	  	<result property="idEnte"                  column="ID_ENTE" /> 
+  	  	<result property="idPagamento"             column="ID_PAGAMENTO" /> 
+  	  	<result property="codiceAvviso"            column="CODICE_AVVISO" /> 
+  	  	<result property="tipoOperazioneOriginale" column="TIPO_OPERAZIONE_ORIG" /> 
+  	  	<result property="tipoOperazioneAvviso"    column="TIPO_OPERAZIONE_AVVISO" /> 
+  	  	<result property="tipoProcesso"            column="TIPO_PROCESSO" /> 
+  	  	<result property="idRichiestaAvviso"       column="ID_RICHIESTA_AVVISO" /> 
+  	  	<result property="statoAvviso"             column="STATO_AVVISO" /> 
+  	  	<result property="descrStatoAvviso"        column="DESCR_STATO_AVVISO" /> 
+  	  	<result property="numTentativiAvviso"      column="NUM_TENTATIVI_AVVISO" /> 
+  	  	<result property="idFileAvvisatura"        column="ID_FILE_AVVISATURA" /> 
+  	  	<result property="opInserimento"           column="OP_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento"         column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsInserimento"           column="TS_INSERIMENTO" /> 
+  	  	<result property="tsAggiornamento"         column="TS_AGGIORNAMENTO" /> 
+  </resultMap>		
+
+	<insert id="insertPrenotazioneAvvisiDigitali" parameterClass="PrenotazioneAvvisiDigitaliModelType"><![CDATA[	
+	INSERT into PRENOTA_AVVISI_DIGITALI ( ID_CONDIZIONE, ID_ENTE, ID_PAGAMENTO, CODICE_AVVISO, TIPO_OPERAZIONE_ORIG, TIPO_OPERAZIONE_AVVISO, TIPO_PROCESSO, ID_RICHIESTA_AVVISO, STATO_AVVISO, DESCR_STATO_AVVISO, NUM_TENTATIVI_AVVISO, ID_FILE_AVVISATURA, OP_INSERIMENTO, OP_AGGIORNAMENTO, TS_INSERIMENTO, TS_AGGIORNAMENTO ) values	
+	( #idCondizione:VARCHAR#, #idEnte:VARCHAR# , #idPagamento:VARCHAR# , #codiceAvviso:VARCHAR# , #tipoOperazioneOriginale:CHAR# , #tipoOperazioneAvviso:CHAR# , #tipoProcesso:CHAR# , #idRichiestaAvviso:VARCHAR#, #statoAvviso:CHAR# , #descrStatoAvviso:VARCHAR#, #numTentativiAvviso:INTEGER#, #idFileAvvisatura:VARCHAR#, #opInserimento:VARCHAR#, #opAggiornamento:VARCHAR#, #tsInserimento:DATETIME# , #tsAggiornamento:DATETIME#  )	
+	]]></insert> 
+
+<!--   
+	<update id="updateCondizioniPagamento" parameterClass="CondizioniPagamentoModelType">
+	<![CDATA[
+	UPDATE ${CONDIZIONI_PAGAMENTO} SET  ST_Pagamento = #stPagamento:CHAR#  
+	]]>
+		<isNotNull prepend="," property="tsDecorrenza" ><![CDATA[
+	  		TS_DECORRENZA = #tsDecorrenza:TIMESTAMP# 
+		]]></isNotNull>
+		<isNotNull prepend="," property="dtPagamento" ><![CDATA[
+		DT_PAGAMENTO = #dtPagamento:DATE# 
+		]]></isNotNull>
+		<isNotNull prepend="," property="deCanalepag" ><![CDATA[
+		DE_CANALEPAG = #deCanalepag:VARCHAR#
+		]]></isNotNull> 
+		<isNotNull prepend="," property="prVersione" ><![CDATA[
+		PR_VERSIONE = #prVersione:INTEGER#
+		]]></isNotNull>
+		<isNotNull prepend="," property="opAggiornamento" ><![CDATA[
+		OP_AGGIORNAMENTO = #opAggiornamento:VARCHAR#
+		]]></isNotNull>
+		<isNotNull prepend="," property="tsAggiornamento" ><![CDATA[
+		TS_AGGIORNAMENTO = #tsAggiornamento:TIMESTAMP#
+		]]></isNotNull>
+		<isNotNull prepend="," property="imPagamento" ><![CDATA[
+		IM_PAGAMENTO= #imPagamento:DECIMAL#
+		]]></isNotNull>
+		<isNotNull prepend="," property="deNotePagamento" ><![CDATA[
+		DE_NOTEPAGAMENTO=#deNotePagamento:VARCHAR#
+		]]></isNotNull>
+		<isNotNull prepend="," property="causalePagamento" ><![CDATA[
+		CAUSALE_PAGAMENTO=#causalePagamento:VARCHAR#
+		]]></isNotNull>
+		<isNotNull prepend="," property="dtScadenza" ><![CDATA[
+		DT_SCADENZA = #dtScadenza:DATE#
+		]]></isNotNull>
+		<isNotNull prepend="," property="imTotale" ><![CDATA[
+		IM_TOTALE=#imTotale:DECIMAL#
+		]]></isNotNull>
+		<isNotNull prepend="," property="tsAnnullamento" ><![CDATA[
+		TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#
+		]]></isNotNull>
+		<isNotNull prepend="," property="tsAnnullamentoMillis" ><![CDATA[
+		TS_ANNULLAMENTO_MILLIS = #tsAnnullamentoMillis:TIMESTAMP#
+		]]></isNotNull>
+		<isNotNull prepend="," property="opAnnullamento" ><![CDATA[
+		OP_ANNULLAMENTO=#opAnnullamento:VARCHAR#
+		]]></isNotNull> 	
+	<![CDATA[
+	where ID_Pendenza = #idPendenza:VARCHAR# AND ID_Condizione = #idCondizione:VARCHAR#
+	]]>
+	</update>
+
+
+
+
+
+
+	<update id="updateCondizioniPagamento" parameterClass="CondizioniPagamentoModelType">
+	<![CDATA[
+	UPDATE ${CONDIZIONI_PAGAMENTO} SET  TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, ST_Pagamento = #stPagamento:CHAR#, DT_PAGAMENTO = #dtPagamento:DATE#, DE_CANALEPAG = #deCanalepag:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAggiornamento:VARCHAR#, TS_AGGIORNAMENTO = #tsAggiornamento:TIMESTAMP#, IM_PAGAMENTO= #imPagamento:DECIMAL#, DE_NOTEPAGAMENTO=#deNotePagamento:VARCHAR#, CAUSALE_PAGAMENTO=#causalePagamento:VARCHAR#
+	where ID_Pendenza = #idPendenza:VARCHAR# AND ID_Condizione = #idCondizione:VARCHAR#
+	]]>
+	</update>
+	
+	<update id="updateCondizioniPagamentoImporto" parameterClass="CondizioniPagamentoModelType">
+	<![CDATA[
+	UPDATE ${CONDIZIONI_PAGAMENTO} SET  DT_SCADENZA = #dtScadenza:DATE#, TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, ST_Pagamento = #stPagamento:CHAR#, DT_PAGAMENTO = #dtPagamento:DATE#, DE_CANALEPAG = #deCanalepag:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAggiornamento:VARCHAR#, TS_AGGIORNAMENTO = #tsAggiornamento:TIMESTAMP#, IM_PAGAMENTO= #imPagamento:DECIMAL#, DE_NOTEPAGAMENTO=#deNotePagamento:VARCHAR#, CAUSALE_PAGAMENTO=#causalePagamento:VARCHAR#, IM_TOTALE=#imTotale:DECIMAL#
+	where ID_Pendenza = #idPendenza:VARCHAR# AND ID_Condizione = #idCondizione:VARCHAR#
+	]]>
+	</update>	
+	
+	<update id="updateCondizioniPagamentoUpdateStatus" parameterClass="CondizioniPagamentoModelType">
+	<![CDATA[
+	UPDATE ${CONDIZIONI_PAGAMENTO} SET  DT_SCADENZA = #dtScadenza:DATE#, TS_DECORRENZA = #tsDecorrenza:TIMESTAMP#, ST_Pagamento = #stPagamento:CHAR#, DT_PAGAMENTO = #dtPagamento:DATE#, DE_CANALEPAG = #deCanalepag:VARCHAR#, PR_VERSIONE = #prVersione:INTEGER#, OP_AGGIORNAMENTO = #opAggiornamento:VARCHAR#, TS_AGGIORNAMENTO = #tsAggiornamento:TIMESTAMP#, IM_PAGAMENTO= #imPagamento:DECIMAL#, DE_NOTEPAGAMENTO=#deNotePagamento:VARCHAR#, CAUSALE_PAGAMENTO=#causalePagamento:VARCHAR#, TS_ANNULLAMENTO = #tsAnnullamento:TIMESTAMP#, OP_ANNULLAMENTO=#opAnnullamento:VARCHAR# 
+	where ID_Pendenza = #idPendenza:VARCHAR# AND ID_Condizione = #idCondizione:VARCHAR#
+	]]>
+	</update>	
+ 
+ 	-->
+
+</sqlMap>

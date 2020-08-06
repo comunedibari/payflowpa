@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean
+		class="it.tasgroup.dse.spring.DsePropertyPlaceholderConfigurer">
+		<property name="systemPropertiesMode" value="2" />
+		<property name="locations">
+			<list>
+			<value>classpath:${it.tasgroup.dse.conf.location}/idp.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="configurationBean" class="it.tasgroup.dse.spring.SpringProperties" >
+		<constructor-arg>
+				<value>${it.tasgroup.dse.conf.location}/idp.properties</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="log4jInitialization"
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>${it.tasgroup.dse.conf.location}/dse-log4j.properties</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>	

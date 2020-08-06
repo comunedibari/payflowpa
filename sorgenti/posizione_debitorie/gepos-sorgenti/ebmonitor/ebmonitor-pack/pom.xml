@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>it.tasgroup.idp</groupId>
+    <artifactId>eBMonitor</artifactId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>ebmonitor-pack</artifactId>
+  <packaging>pom</packaging>
+  <name>eBMonitor Customer Packaging Builder</name>
+  <description>project packaging for eBMonitor customers</description>
+  <properties>
+    <!--
+                Sovrascrivo la cartella di rilascio.
+                NUOVO STANDARD   <path_base>/be/<version>/<cutomer_id>
+                -->
+    <be.release.folder>${outputRoot}/be/${releaseVersion}</be.release.folder>
+  </properties>
+  <modules>
+
+	<module>ebmonitor-pack-gepos-6.3-EAP</module>
+	<module>ebmonitor-pack-gepos-7.1.1.Final</module>
+
+	<!--
+	<module>ebmonitor-pack-sviluppo</module>
+	-->
+  </modules>
+</project>

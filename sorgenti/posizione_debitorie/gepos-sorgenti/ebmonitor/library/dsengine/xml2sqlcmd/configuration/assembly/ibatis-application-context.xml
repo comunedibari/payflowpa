@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="tableNameMappings" class="it.nch.eb.common.utils.loaders.ClasspathProperties">
+	<constructor-arg>
+		<value>db/table-name-mappings.properties</value>
+	</constructor-arg>
+	</bean>
+	
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+    	<property name="configLocation" value="ibatis/SqlMapConfig.xml"/>
+    	<property name="dataSource" ref="dataSource"/>
+    	<property name="sqlMapClientProperties" ref="tableNameMappings" />
+  	</bean>
+  	
+</beans>

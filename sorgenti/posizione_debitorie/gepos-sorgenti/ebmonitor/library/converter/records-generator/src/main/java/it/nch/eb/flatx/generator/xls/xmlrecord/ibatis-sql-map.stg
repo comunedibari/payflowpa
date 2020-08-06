@@ -1,0 +1,72 @@
+group recordImpl;
+
+insertFragment(tableName, xRowInfos) ::=<<
+INSERT into \${$tableName$} ( $xRowInfos:columnName(); separator=","$ ) values
+( $xRowInfos:javaName(); separator=","$ )
+>>
+
+updateFragment(tableName, updateCols, pkCols) ::=<<
+UPDATE \${$tableName$} SET $updateCols:setColumnValue(); separator=", "$ 
+$if(pkCols)$
+where $pkCols:pkPredicate(); separator=" AND "$
+$endif$
+>>
+
+columnName(row) ::= "$row.dbName$" 
+
+setColumnValue(row) ::= " $row.dbName$ = #$row.javaName$:$row.typeName$#"
+
+pkPredicate(row) ::= " $row.dbName$ = #$row.javaName$:$row.typeName$#"
+
+javaName(row) ::= " #$row.javaName$:$row.typeName$#"
+
+templateMain(ibatisParameterClass, typeAliasName, tableName, resultMap, insertStatement, updateStatements) ::=<<
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="$typeAliasName$"
+		type="$ibatisParameterClass$" />
+		
+$if(resultMap)$
+$resultMapTemplate(resultMap = resultMap)$
+$endif$		
+
+$insertXmlFragment( insertStatement = insertStatement, tableName = tableName, typeAliasName = typeAliasName )$ 
+
+$updateStatements:{ updStm |
+	$updateXmlFragment(updateStatement = updStm, tableName = tableName, typeAliasName = typeAliasName)$
+}$ 
+
+</sqlMap>
+>>
+
+resultMapTemplate( resultMap ) ::=<<
+  <resultMap id="$resultMap.id$" class="$resultMap.className$">
+  	$resultMap.resultProperties:{ item | <result property="$item.propertyName$" column="$item.columnName$" /> 
+  	}$
+  </resultMap>
+>>
+
+
+insertXmlFragment( insertStatement, tableName, typeAliasName) ::=<<
+<insert id="$insertStatement.statementName$" parameterClass="$typeAliasName$"><![CDATA[
+
+$insertFragment(tableName = tableName, xRowInfos = insertStatement.columns)$
+
+]]></insert>
+>>
+
+updateXmlFragment( updateStatement, tableName, typeAliasName) ::=<<
+$if(updateStatement.nonEmpty)$
+<update id="$updateStatement.statementName$" parameterClass="$typeAliasName$"><![CDATA[
+
+$updateFragment(tableName = tableName, updateCols = updateStatement.updateColumns, pkCols = updateStatement.pkColumns)$
+
+]]></update>
+$endif$
+>>

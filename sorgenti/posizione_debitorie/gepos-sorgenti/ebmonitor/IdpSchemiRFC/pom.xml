@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>eBMonitor</artifactId>
+		<groupId>it.tasgroup.idp</groupId>
+		<version>1.0</version>
+		<relativePath>..</relativePath>
+	</parent>
+	<artifactId>IdpSchemiRFC</artifactId>
+	<packaging>jar</packaging>
+	<name>IdpSchemiRFC</name>
+	<description>IdpSchemiRFC</description>
+	<version>${releaseVersion}</version>
+
+
+<!--  DECOMMENTARE E LANCIARE mvn clean install da riga di comando, per rigenerare gli artifact java -->
+
+ <!--
+	<build>
+	  <plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-codegen-plugin</artifactId>
+				<version>2.7.11</version>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+				</configuration>
+		    	<executions>
+					<execution> 
+						<id>generate-sources</id> 
+						<phase>generate-sources</phase>
+						<configuration>
+							<sourceRoot>${basedir}/src/main/java</sourceRoot>
+							<wsdlOptions>
+								<wsdlOption>
+									<frontEnd>jaxws21</frontEnd>
+									<wsdl>${basedir}/src/main/resources/wsdl/InvioNotificaPagamento_Ente.wsdl</wsdl>
+									<wsdlLocation>classpath:wsdl/InvioNotificaPagamento_Ente.wsdl</wsdlLocation>
+									<bindingFiles>
+										<bindingFile>${basedir}/src/main/resources/InvioNotificaPagamento-ente-jaxws-binding.xml</bindingFile>
+									</bindingFiles>
+								</wsdlOption> 
+								<wsdlOption>
+							        	<frontEnd>jaxws21</frontEnd>
+							        	<wsdl>${basedir}/src/main/resources/wsdl/InvioNotificaPagamento.wsdl</wsdl>
+							        	<wsdlLocation>classpath:wsdl/InvioNotificaPagamento.wsdl</wsdlLocation>
+							        	<bindingFiles>
+		       							       <bindingFile>${basedir}/src/main/resources/InvioNotificaPagamento-jaxws-binding.xml</bindingFile>
+   							        	</bindingFiles>															
+						        	</wsdlOption>
+								<wsdlOption>
+							        	<frontEnd>jaxws21</frontEnd>
+							        	<wsdl>${basedir}/src/main/resources/wsdl/ComunicazionePosizioniDebitorie.wsdl</wsdl>
+							        	<wsdlLocation>classpath:wsdl/ComunicazionePosizioniDebitorie.wsdl</wsdlLocation>
+							        	<bindingFiles>
+		       							       <bindingFile>${basedir}/src/main/resources/ComunicazionePosizioneDebitorie-jaxws-binding.xml</bindingFile>
+   							        	</bindingFiles>															
+						        	</wsdlOption>
+						        	<wsdlOption>
+							        	<frontEnd>jaxws21</frontEnd>
+							        	<wsdl>${basedir}/src/main/resources/wsdl/ConfigurazioneIDP.wsdl</wsdl>
+							        	<wsdlLocation>classpath:wsdl/ConfigurazioneIDP.wsdl</wsdlLocation>
+							        	<bindingFiles>
+		       							       <bindingFile>${basedir}/src/main/resources/ConfigurazioneIDP-jaxws-binding.xml</bindingFile>
+   							        	</bindingFiles>															
+						        	</wsdlOption>
+							</wsdlOptions> 							
+						</configuration>
+						<goals>
+							<goal>wsdl2java</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+        </plugins>
+ 	</build>
+ -->
+
+	
+</project>

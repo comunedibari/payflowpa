@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+
+<typeAlias alias="VociBilancioModelType"
+		type="it.nch.eb.xsqlcmd.dbtrpos.gen.model.VociBilancioModel" />
+		
+  <resultMap id="VociBilancioResultMap" class="it.nch.eb.xsqlcmd.dbtrpos.gen.model.VociBilancioModel">
+  	<result property="idPendenza" column="ID_PENDENZA" /> 
+  	  	<result property="idCondizione" column="ID_CONDIZIONE" /> 
+  	  	<result property="idVoce" column="ID_VOCE" /> 
+  	  	<result property="tsDecorrenza" column="TS_DECORRENZA" /> 
+  	  	<result property="tiVoce" column="TI_VOCE" /> 
+  	  	<result property="coVoce" column="CO_VOCE" /> 
+  	  	<result property="deVoce" column="DE_VOCE" /> 
+  	  	<result property="imVoce" column="IM_VOCE" /> 
+  	  	<result property="coCapbilancio" column="CO_CAPBILANCIO" /> 
+  	  	<result property="coAccertamento" column="CO_ACCERTAMENTO" /> 
+  	  	<result property="stRiga" column="ST_RIGA" /> 
+  	  	<result property="prVersione" column="PR_VERSIONE" /> 
+  	  	<result property="opInserimento" column="OP_INSERIMENTO" /> 
+  	  	<result property="tsInserimento" column="TS_INSERIMENTO" /> 
+  	  	<result property="opAggiornamento" column="OP_AGGIORNAMENTO" /> 
+  	  	<result property="tsAggiornamento" column="TS_AGGIORNAMENTO" /> 
+  	  	
+  </resultMap>		
+
+	<insert id="insertVociBilancio" parameterClass="VociBilancioModelType"><![CDATA[
+	
+	INSERT into ${VOCI_BILANCIO} ( ID_PENDENZA,ID_CONDIZIONE,ID_VOCE,TS_DECORRENZA,TI_VOCE,CO_VOCE,DE_VOCE,IM_VOCE,CO_CAPBILANCIO,CO_ACCERTAMENTO,ST_RIGA,PR_VERSIONE,OP_INSERIMENTO,TS_INSERIMENTO,OP_AGGIORNAMENTO,TS_AGGIORNAMENTO ) values
+	(  #idPendenza:VARCHAR#, #idCondizione:VARCHAR#, #idVoce:VARCHAR#, #tsDecorrenza:TIMESTAMP#, #tiVoce:VARCHAR#, #coVoce:VARCHAR#, #deVoce:VARCHAR#, #imVoce:DECIMAL#, #coCapbilancio:VARCHAR#, #coAccertamento:VARCHAR#, #stRiga:VARCHAR#, #prVersione:INTEGER#, #opInserimento:VARCHAR#, #tsInserimento:TIMESTAMP#, #opAggiornamento:VARCHAR#, #tsAggiornamento:TIMESTAMP# )
+	
+	]]></insert> 
+
+	<delete id="deleteVociBilancio" parameterClass="VociBilancioModelType">
+		DELETE FROM  ${VOCI_BILANCIO}  
+		where 	id_pendenza = #idPendenza:VARCHAR# and ID_CONDIZIONE = #idCondizione:VARCHAR#  			
+	</delete>	
+
+
+ 
+
+</sqlMap>

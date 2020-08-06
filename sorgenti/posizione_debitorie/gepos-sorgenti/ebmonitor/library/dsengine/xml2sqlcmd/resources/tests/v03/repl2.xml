@@ -1,0 +1,1193 @@
+
+  <n:IdpAllineamentoPendenze xmlns:n="urn:xsd:IdpAllineamentoPendenze" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Versione="01.03-00" xsi:schemaLocation="urn:xsd:IdpAllineamentoPendenze
+file:///D:/java/projects/flowmanager-svn/dsengine/xml2sqlcmd/docs/01.03-00/xsd/IdP.AllineamentoPendenze.xsd" >
+    <IdpHeader>
+<TRT><ServiceName>IdpAllineamentoPendenze</ServiceName><MsgId>idmsge2e001</MsgId><XMLCrtDt>2009-09-01T09:11:54.0Z</XMLCrtDt><Sender><SenderId>CFiglineVA</SenderId><SenderSys>SenderSys01</SenderSys></Sender><Receiver><ReceiverId>ReceiverId</ReceiverId><ReceiverSys>ReceiverSys01</ReceiverSys></Receiver></TRT>
+
+    <E2E>
+        <E2ESrvcNm>IdpAllineamentoPendenze</E2ESrvcNm>
+        <E2EMsgId>idmsge2eR05</E2EMsgId>
+        <XMLCrtDt>2009-05-01T09:30:47.0Z</XMLCrtDt>
+      <Sender>
+        <E2ESndrId>CFiglineVA</E2ESndrId>
+        <E2ESndrSys>SenderSys01</E2ESndrSys></Sender>
+      <Receiver>
+        <E2ERcvrId>ReceiverId</E2ERcvrId>
+        <E2ERcvrSys>ReceiverSys01</E2ERcvrSys></Receiver></E2E></IdpHeader>
+    <IdpBody>
+    <Pendenza TipoOperazione="Insert" TipoPendenza="Ici">
+        <IdPendenza>extunknw51</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+          </Destinatario>
+        </Destinatari>
+        <Insert>
+          <DescrizioneCausale>causale test integrazione TI 05-01</DescrizioneCausale>
+          <DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2001</AnnoRiferimento>
+          <Stato>Aperta</Stato>
+          <ImportoTotale>100</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag001</IdPagamento>
+              <DataScadenza>2009-03-11</DataScadenza>
+              <DataFineValidita>2009-03-11</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Insert>
+      </Pendenza>
+      <Pendenza TipoOperazione="Insert" TipoPendenza="Ici">
+        <IdPendenza>extunknw52</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc02</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>03490130287</Id>
+            <Descrizione>partita iva</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Note>note note note</Note>
+        <Insert>
+          <DescrizioneCausale>causale test integrazione TI 05-02</DescrizioneCausale>
+          <DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2001</AnnoRiferimento>
+          <DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Chiusa</Stato>
+          <ImportoTotale>1270</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento a Rate">
+            <DettaglioPagamento>
+              <IdPagamento>pag001</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 1di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag002</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 2 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag003</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 3 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>A0AE1010</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag004</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 4 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Insert>
+      </Pendenza>
+      <Pendenza TipoOperazione="Insert" TipoPendenza="Ici">
+        <IdPendenza>extunknw53</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc03</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Note>note note note</Note>
+        <Insert>
+          <DescrizioneCausale>causale test integrazione TI 05-03</DescrizioneCausale>
+          <DataCreazione>2001-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2001-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2001-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2001</AnnoRiferimento>
+          <DataModificaEnte>2001-12-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Aperta</Stato>
+          <ImportoTotale>1270</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag004</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B005</Codice>
+                  <Descrizione>descrizione di B005</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B006</Codice>
+                  <Descrizione>descrizione di B006</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B007</Codice>
+                  <Descrizione>descrizione di B007</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B008</Codice>
+                  <Descrizione>descrizione di B008</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B009</Codice>
+                  <Descrizione>descrizione di B009</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B001</Codice>
+                  <Descrizione>descrizione di B001</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B000</Codice>
+                  <Descrizione>descrizione di B000</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Insert>
+      </Pendenza>
+      <Pendenza TipoOperazione="Insert" TipoPendenza="Ici">
+        <IdPendenza>extunknw54</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc04</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>03490130287</Id>
+            <Descrizione>partita iva</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>01804890232</Id>
+            <Descrizione>ente ric</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Note>note note note</Note>
+        <Insert>
+          <DescrizioneCausale>causale test integrazione TI 05-04</DescrizioneCausale>
+          <DataCreazione>2001-11-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2001-11-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2001-11-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2001</AnnoRiferimento>
+          <DataModificaEnte>2001-08-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Chiusa</Stato>
+          <ImportoTotale>4400</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag005</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1969-08-13</DataInizioValidita>
+              <DataFineValidita>1980-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+            </DettaglioPagamento>
+          </InfoPagamento>
+          <InfoPagamento TipoPagamento="Pagamento a Rate">
+            <DettaglioPagamento>
+              <IdPagamento>pag006</IdPagamento>
+              <DataScadenza>1967-08-04</DataScadenza>
+              <DataInizioValidita>1967-08-10</DataInizioValidita>
+              <DataFineValidita>2020-01-01</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio di  TC04</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag007</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>2007-12-13</DataInizioValidita>
+              <DataFineValidita>1967-08-25</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>1100</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio di  TC04</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag008</IdPagamento>
+              <DataScadenza>1981-08-13</DataScadenza>
+              <DataInizioValidita>1982-08-13</DataInizioValidita>
+              <DataFineValidita>1983-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B001</Codice>
+                  <Descrizione>descrizione di B001</Descrizione>
+                  <Importo>700</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>500</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio  di  TC04</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>0909</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag009</IdPagamento>
+              <DataScadenza>1986-08-13</DataScadenza>
+              <DataInizioValidita>1987-08-13</DataInizioValidita>
+              <DataFineValidita>1988-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>1000</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>50.55</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004</Descrizione>
+                  <Importo>49.45</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio di  TC04</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Insert>
+      </Pendenza>
+      <Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+        <IdPendenza>extunknw51</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+          </Destinatario>
+        </Destinatari>
+        <Replace>
+          <DescrizioneCausale>causale test integrazione TI 01 REPLACED</DescrizioneCausale>
+          <DataCreazione>2009-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2009-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2009-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2009</AnnoRiferimento>
+          <Stato>Aperta</Stato>
+          <ImportoTotale>100.99</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag001</IdPagamento>
+              <DataScadenza>2010-03-11</DataScadenza>
+              <DataFineValidita>2010-03-11</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Replace>
+      </Pendenza>
+      <Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+        <IdPendenza>extunknw54</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc04</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>03490130287</Id>
+            <Descrizione>partita iva</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>01804890232</Id>
+            <Descrizione>ente ric</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Replace>
+          <DescrizioneCausale>causale test integrazione TI 04 REPLACED</DescrizioneCausale>
+          <DataCreazione>2012-11-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2012-10-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2012-09-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2012</AnnoRiferimento>
+          <DataModificaEnte>2012-08-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Chiusa</Stato>
+          <ImportoTotale>4400.88</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag005</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1969-08-13</DataInizioValidita>
+              <DataFineValidita>1980-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+            </DettaglioPagamento>
+          </InfoPagamento>
+          <InfoPagamento TipoPagamento="Pagamento a Rate">
+            <DettaglioPagamento>
+              <IdPagamento>pag006</IdPagamento>
+              <DataScadenza>1967-08-04</DataScadenza>
+              <DataInizioValidita>1967-08-10</DataInizioValidita>
+              <DataFineValidita>2020-01-01</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD PICCOLO dettaglio di  TC04 R.</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>JVBERi0xLjMKJcfsj6IKNSAwIG9iago8PC9MZW5ndGggNiAwIFIvRmlsdGVyIC9GbGF0ZURlY29k
+ZT4+CnN0cmVhbQp4nHWRy0pEMQyGcdun6LJZnNik6W3rFUXQke7E1aCCeJRBfWcfw/TIMEWdhtKQ
+/Ek+0o31SGx9t62zno2353qfzMYUDP0sidFfz/aomcPbbLWqPRqPtVahJUc2Jkxic/Iots3mzq2A
+MObog/uEySNXqVncAwTU5x0mQuZas/uAiZFSjMW9DULbfZKcK7uvn6IxNPZ83VN2A5MoP1F2JwuM
+CLsziJiy/JLOHUJirXELoTzRvezY/mIuCm1C2iWG3MdRnxeruwBmLKRDjmEKGFSbRvcapoISSKq7
+Aq1POlqDW0YcyCxw9PftUhdf/l08B4Upu827A2jPe7+JxWNIg9p29WkzK7Vv1/hsZ2VuZHN0cmVh
+bQplbmRvYmoKNiAwIG9iagoyNjYKZW5kb2JqCjQgMCBvYmoKPDwvVHlwZS9QYWdlL01lZGlhQm94
+IFswIDAgNTk1IDg0Ml0KL1JvdGF0ZSAwL1BhcmVudCAzIDAgUgovUmVzb3VyY2VzPDwvUHJvY1Nl
+dFsvUERGIC9UZXh0XQovRm9udCAxMCAwIFIKPj4KL0NvbnRlbnRzIDUgMCBSCj4+CmVuZG9iagoz
+IDAgb2JqCjw8IC9UeXBlIC9QYWdlcyAvS2lkcyBbCjQgMCBSCl0gL0NvdW50IDEKL1JvdGF0ZSAw
+Pj4KZW5kb2JqCjEgMCBvYmoKPDwvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMyAwIFIKPj4KZW5kb2Jq
+CjEwIDAgb2JqCjw8L1I3CjcgMCBSL1I4CjggMCBSPj4KZW5kb2JqCjcgMCBvYmoKPDwvQmFzZUZv
+bnQvVGltZXMtUm9tYW4vVHlwZS9Gb250Ci9FbmNvZGluZyAxMiAwIFIvU3VidHlwZS9UeXBlMT4+
+CmVuZG9iagoxMiAwIG9iago8PC9UeXBlL0VuY29kaW5nL0RpZmZlcmVuY2VzWwoyMzIvZWdyYXZl
+XT4+CmVuZG9iagoxMyAwIG9iago8PC9GaWx0ZXIvRmxhdGVEZWNvZGUvTGVuZ3RoIDE2MD4+c3Ry
+ZWFtCnicXU8xDoMwDNzzCv8gBKROiIUuDK2qth8IjoMy4EQhDP19SYAOHc7S+e7ks+yH68AugXxE
+jy9KYB2bSItfIxKMNDkWqgbjMB2sTJx1ELK/6fD+BILNQHbndz2TfKqmbNSeQW9oCRopap5ItFXV
+tdZ2gtj8SUdgtKdTdQX1pdHFfyo5mjucJwHXGIlTKVqK5AKO6fdL8CGnYIP4AvpcUyAKZW5kc3Ry
+ZWFtCmVuZG9iago4IDAgb2JqCjw8L0Jhc2VGb250L0tQU0hCTytXaW5nZGluZ3MvRm9udERlc2Ny
+aXB0b3IgOSAwIFIvVG9Vbmljb2RlIDEzIDAgUi9UeXBlL0ZvbnQKL0ZpcnN0Q2hhciAxL0xhc3RD
+aGFyIDEvV2lkdGhzWyA4NDNdCi9FbmNvZGluZyAxNCAwIFIvU3VidHlwZS9UcnVlVHlwZT4+CmVu
+ZG9iagoxNCAwIG9iago8PC9UeXBlL0VuY29kaW5nL0Jhc2VFbmNvZGluZy9XaW5BbnNpRW5jb2Rp
+bmcvRGlmZmVyZW5jZXNbCjEvc21pbGVmYWNlXT4+CmVuZG9iago5IDAgb2JqCjw8L1R5cGUvRm9u
+dERlc2NyaXB0b3IvRm9udE5hbWUvS1BTSEJPK1dpbmdkaW5ncy9Gb250QkJveFs0MSAtMTggODAx
+IDc0MF0vRmxhZ3MgNAovQXNjZW50IDc0MAovQ2FwSGVpZ2h0IDc0MAovRGVzY2VudCAtMTgKL0l0
+YWxpY0FuZ2xlIDAKL1N0ZW1WIDEyMAovTWlzc2luZ1dpZHRoIDUwMAovRm9udEZpbGUyIDExIDAg
+Uj4+CmVuZG9iagoxMSAwIG9iago8PC9GaWx0ZXIvRmxhdGVEZWNvZGUKL0xlbmd0aDEgNTE1Mi9M
+ZW5ndGggMjczNz4+c3RyZWFtCnic7VgNcFTVFT7nvt/ND9lsfliyAm95JGCSJSThJyEYliQb8zPW
+hATYRS27+cFEEokJkyZqmShScJPotlCnWpWgogFB3hKUgIxQFEjHdtQZ7Wih2nbi4FjiaBXpdMak
+572XpIltnc447dSZ3pNzv3PPOe/ce86972cDCADR0AUcVNxclZEFRrMNUreutjnQYo5j/QC4srZ9
+q/JCxoEDpLgEIKzY1HJ782tf5GkAoh2A33h7U+cm03+Glfx3NdQH6n65c1M1QNxHpFzWQApbXMRD
+ABEdNJ7f0Ly1w/SPI38YbNpSGzDHMT+j6883BzpauHViKvk/TkrlzkBz/fj69LGjZUvb1vHrh3R7
+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
+eYYcJUfIsizKvMxkeoVpcVw5K68qwHLtTC2U1yjal1XqIEZUbtAEtQA1WzmUVxfYtZw0je0ynoiD
+OBZGfGiHQ38YngDEsR29jnH0+SAx7R+bfdqovKLzFMzF5SBRnz0gzX1N0rVVpA0Z2pCuDRlaOx6t
+gKzyQLd/NvyTwH9v+I3WaZ6eRj3dCm9YhgJf4a0mDrDICMrH73D6ChKtLflGcnlO+zbHSR7o0z+S
+nglR9JKJJtZNrtWu1bqJB8M0Q3//jJvs2/KcjpPYP26ykjqWSkl3WRf9duqir36OklTdMdLbyL+N
+T9MPvDEQxrgT+CFAxuiIdQRWfUJ95uLsWGdssjPW2cXBV10MRkEY+mtOF08/yQRYN3ZRbBBGIJK+
+M1W6e/Og+bh99my7Y9ni+S/jQUgFB8tzRzij7gfb/WKqUxzEHcdhVod9dscc18t4ABZANh5wR+cm
+PMzFPGyxL8idw1tOMBtwGSMzc600f8Y4QcZI7qQiNzc2NzcjI3OxoECsFZxGnzxF5rJtTiUuWxTV
+eSlx81KWLlmWnUUfNKJzisxtHH1lNBcvYAHRhdHc0VdwFvaOto1eJmrD3iM3lOqm0vyZn58+/eeT
+2SUl2UtKSvHl7NLSbBokT71Sj1RLX/eziB4abTVDsHtGT+PqN69cwR+U6FdMYf35l/Ifo9f+T/8l
+0hsbf7PF0x1FDZOIRRJc3+6fCd/5xtPvDb3n9fp8ivROH+9pTE8loz4INqofI0kEC8D6xjtvryNu
+M74fMKT/Uvk3mzx9+Cl8OjZNgROLgq7vGounYZ15tr6h6fmxLghrR05ujFl5VXaYBdl/ePeojuHX
+pbcBRisiPpAyaRg1UY+/Ae0+pHgKZW5kc3RyZWFtCmVuZG9iagoyIDAgb2JqCjw8L1Byb2R1Y2Vy
+KEdQTCBHaG9zdHNjcmlwdCA4LjYxKQovQ3JlYXRpb25EYXRlKEQ6MjAwOTA2MDgxNzAyMTArMDIn
+MDAnKQovTW9kRGF0ZShEOjIwMDkwNjA4MTcwMjEwKzAyJzAwJykKL1RpdGxlKERvY3VtZW50bzEp
+Ci9DcmVhdG9yKFBERkNyZWF0b3IgVmVyc2lvbiAwLjkuNSkKL0F1dGhvcihCYXN0aWFQKQovS2V5
+d29yZHMoKQovU3ViamVjdCgpPj5lbmRvYmoKeHJlZgowIDE1CjAwMDAwMDAwMDAgNjU1MzUgZiAK
+MDAwMDAwMDU4MCAwMDAwMCBuIAowMDAwMDA0MzEzIDAwMDAwIG4gCjAwMDAwMDA1MTIgMDAwMDAg
+biAKMDAwMDAwMDM3MCAwMDAwMCBuIAowMDAwMDAwMDE1IDAwMDAwIG4gCjAwMDAwMDAzNTEgMDAw
+MDAgbiAKMDAwMDAwMDY2NyAwMDAwMCBuIAowMDAwMDAxMDM3IDAwMDAwIG4gCjAwMDAwMDEyOTIg
+MDAwMDAgbiAKMDAwMDAwMDYyOCAwMDAwMCBuIAowMDAwMDAxNDkzIDAwMDAwIG4gCjAwMDAwMDA3
+NDkgMDAwMDAgbiAKMDAwMDAwMDgwOSAwMDAwMCBuIAowMDAwMDAxMjAyIDAwMDAwIG4gCnRyYWls
+ZXIKPDwgL1NpemUgMTUgL1Jvb3QgMSAwIFIgL0luZm8gMiAwIFIKL0lEIFs8QTMwMTdCOTlDQTAz
+MjhCNEU4RERBOTc1NjRDOThENkM+PEEzMDE3Qjk5Q0EwMzI4QjRFOEREQTk3NTY0Qzk4RDZDPl0K
+Pj4Kc3RhcnR4cmVmCjQ1MzAKJSVFT0YK
+                </Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag007</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>2007-12-13</DataInizioValidita>
+              <DataFineValidita>1967-08-25</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002 R.</Descrizione>
+                  <Importo>1100.11</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>JPG small dettaglio di  TC04 R.</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>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
+qXayhAnn7VLlVxB4oMJllImUJ1IPih4guoUzKkSKG/iudVAPEJrwU68EJ/FS+SkE4hDIqNRdDJHN
+SCHUgnEvqwVTI4KrhiqEhWqlqpcyLqhkVD4qhIRJBqpYyXPgcVQkKHDFFAXEiRyxQ5HH2KZEYIci
+HRpDKo4nFVfA4qCQ6rwKNIYkcSr/APR+99iEclf/AKP3/sRQFB6H+05UC/eRu7dtNzWTCW67jvxZ
+ZRs9qJSF0unXOt52EwECJan9MPVJbnatj2G6/tvbtv2b5nt/9z/N2He3Sl81toVX7iuqO3tB6cJb
+euqFtjiWrV6vSyxv7a/yt91/jH9R064fNfKZavV0+ppwfPSij/N/k+86f6v8l1rf63o19Lqt+f19
+PpfT+p+z8WCsIb7j23Yzo3/ZNl22m63tuw2G62W/ojYd1uL93PYQkZEWTE42/NS0Q04eluLh/uKG
+27x2Xte87X26ra7sbmex39FG0O3nZvLBGyFdMIztE4Rj6Bjr1YyiNUQkLv8AJ/6BtOt/VP6B1B8n
+q1/La39PT+67vp9rLd2P+Xf17Zf1v+of1T5bdf0D+qPo+a6Xp6XX9PVy08epo1KEFbJ9p239y9r/
+ALau2cd/su0S+Svr6koV29xvmI7rdTMK65zjGxoRDjVCuOLYJPsO07TZv+/7PdbIbm2rZdws2N0r
+DGO3ltqb7NfSiPXI6Y6XLRzY4Ng7NvmqPk+v831IfL9NtfU1DRobHVqyTG2+c+a3Xy3znzXS3Hzm
+j4+lpl8z1Gx06X1uqKNH+2YntdG5/uqwAjtpFHbIzgSLO4XRl05R1VzgfloPcX4iA+8tPebDtg2e
+87RX2+isbPtW03+37tLVG6y7cS2eqyU5Wxh0beuYRjIejA4HUs3vun+if29p1f0v5a35fRpf5rrS
++c6v7b6G/wDnoVLP8j/xuvqf1T/GdR6b6/k9Wv8A/DdTLhqdsXUIPf3d2Ht3a+2dtl240XVQndRf
+vq91RfPd2jRLrRrous01DGMQ3pDa2lJkr/a227budr32vdbUbjc09tu3Oz3EpkCiVPxEVgeqUtQY
+k+luLrKt1/JbbrfM/IvZ8pqbpu8et0+GenUyL2/5n+Z/p3zf/wDNZ850P/8ALh1erp/68tTqu4Pc
+9TR27sG7/tecdrTtwdt2ye9v3Nhsj3Eb6ucYWNlUdqSRCIbT49R1b+zv7X7Bve63ys3dXcttXPob
+LZ7iVOzutnKk2T3F22tuNnSpyAgSZSY4ASWGf8k/xnH+qf4rrP4/k36g/dbq+zX+0on/AJB/kR6v
+9S/yXjq1fOfpYZ+r9H+FT7EnyPSbXtfYKP7Whsd3DaS79uO3b/exp6Vll1k6Jbg17iruNVpqjCNd
+DxrjExlpLl5heCDYF16Lbf5b/jcvlf6r/jLWa+nr+V0Oerl/16n1t6Xd+Kwf5X/6fwob9gb9ioZ8
+1II5qw+V/wDp/Cp/lm/7PD4UsUyr5KwIVv5b/wCn8Kn+W/b+hUUyoZWDKR8s33/oVv5b9v6FTBZV
+1z4q38v+39C7+X/bf2KisFXC5xgrD5dvv/Qu/l8Pj+hQmCruufFW/l/2/oU/y/7f8KorAPVgqkoh
+6Dff+hVPy/7bfuolASgGTioJRD8v+3/Cqn5f/wCn8KtQEoBPicFzliify7/9n8Kj+X0n9T+FEFgB
+I5YKkjj7EaXy+H6n8KofluPV8PhRoZWAL4qr4Ix+Vf8A7P4VH8r/APT+FGGBdE/6P3/sU/yv/wBP
+4Vf+V6P/AGNq/Z5KFn//2Q==
+                </Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag008</IdPagamento>
+              <DataScadenza>1981-08-13</DataScadenza>
+              <DataInizioValidita>1982-08-13</DataInizioValidita>
+              <DataFineValidita>1983-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B001</Codice>
+                  <Descrizione>descrizione di B001 R.</Descrizione>
+                  <Importo>700</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002 R.</Descrizione>
+                  <Importo>500</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio  di  TC04 R.</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>0909</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag009</IdPagamento>
+              <DataScadenza>1986-08-13</DataScadenza>
+              <DataInizioValidita>1987-08-13</DataInizioValidita>
+              <DataFineValidita>1988-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002 R.</Descrizione>
+                  <Importo>1000.01</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003 R.</Descrizione>
+                  <Importo>50.55</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004 R.</Descrizione>
+                  <Importo>49.45</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio di  TC04 R.</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Replace>
+      </Pendenza>
+      <Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+        <IdPendenza>extunknw52</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc02</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+          <Destinatario Tipo="Altro">
+            <Id>03490130287</Id>
+            <Descrizione>partita iva</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Replace>
+          <DescrizioneCausale>causale test integrazione TI 02 REPLACED</DescrizioneCausale>
+          <DataCreazione>2009-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2009-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2009-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2009</AnnoRiferimento>
+          <DataModificaEnte>2009-12-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Chiusa</Stato>
+          <ImportoTotale>1270.99</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento a Rate">
+            <DettaglioPagamento>
+              <IdPagamento>pag001</IdPagamento>
+              <DataScadenza>2010-08-13</DataScadenza>
+              <DataInizioValidita>2010-08-14</DataInizioValidita>
+              <DataFineValidita>2010-08-15</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 1di  TC02 REPLACED</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag002</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 2 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag003</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 3 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>A0AE1010</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+            <DettaglioPagamento>
+              <IdPagamento>pag004</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+              <Allegato Tipo="Documento">
+                <Titolo>PFD dettaglio 4 di  TC02</Titolo>
+                <Codifica>PDF_</Codifica>
+                <Contenuto>UjBsR09EbGhjZ0dTQUxNQUFBUUNBRU1tQ1p0dU1GUXhEUzhi</Contenuto>
+                <IdAntifalsificazione>md05</IdAntifalsificazione>
+              </Allegato>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Replace>
+      </Pendenza>
+      <Pendenza TipoOperazione="Replace" TipoPendenza="Ici">
+        <IdPendenza>extunknw53</IdPendenza>
+        <Mittente>
+          <Id>idUfficioMittente</Id>
+          <Descrizione>ufficio ente publico tc03 REPLACED</Descrizione>
+        </Mittente>
+        <Destinatari>
+          <Destinatario Tipo="Cittadino">
+            <Id>TSTMRA08A01E432T</Id>
+            <Descrizione>codice fiscale</Descrizione>
+          </Destinatario>
+        </Destinatari>
+        <Replace>
+          <DescrizioneCausale>causale test integrazione TI 03 REPLACED</DescrizioneCausale>
+          <DataCreazione>2011-12-17T09:30:47.0Z</DataCreazione>
+          <DataEmissione>2011-12-17T09:30:47.0Z</DataEmissione>
+          <DataPrescrizione>2011-12-17T09:30:47.0Z</DataPrescrizione>
+          <AnnoRiferimento>2011</AnnoRiferimento>
+          <DataModificaEnte>2011-12-17T09:30:47.0Z</DataModificaEnte>
+          <Stato>Aperta</Stato>
+          <ImportoTotale>1270.99</ImportoTotale>
+          <Divisa>EUR</Divisa>
+          <InfoPagamento TipoPagamento="Pagamento Unico">
+            <DettaglioPagamento>
+              <IdPagamento>pag004</IdPagamento>
+              <DataScadenza>1967-08-13</DataScadenza>
+              <DataInizioValidita>1967-08-13</DataInizioValidita>
+              <DataFineValidita>1967-08-13</DataFineValidita>
+              <Stato>Pagato</Stato>
+              <Importo>300</Importo>
+              <DettaglioImporto>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B002</Codice>
+                  <Descrizione>descrizione di B002 R.</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B003</Codice>
+                  <Descrizione>descrizione di B003 R.</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B004</Codice>
+                  <Descrizione>descrizione di B004 R.</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B005</Codice>
+                  <Descrizione>descrizione di B005 R.</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B006</Codice>
+                  <Descrizione>descrizione di B006 R.</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B007</Codice>
+                  <Descrizione>descrizione di B007 R.</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="ImportoBase">
+                  <Codice>B008</Codice>
+                  <Descrizione>descrizione di B008 R.</Descrizione>
+                  <Importo>300</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Spese">
+                  <Codice>B009</Codice>
+                  <Descrizione>descrizione di B009 R.</Descrizione>
+                  <Importo>10</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B001</Codice>
+                  <Descrizione>descrizione di B001 R.</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+                <Voce Tipo="Mora">
+                  <Codice>B000</Codice>
+                  <Descrizione>descrizione di B000 R.</Descrizione>
+                  <Importo>50</Importo>
+                  <CapitoloBilancio>codice bilancio</CapitoloBilancio>
+                  <Accertamento>codice accertamento</Accertamento>
+                </Voce>
+              </DettaglioImporto>
+            </DettaglioPagamento>
+          </InfoPagamento>
+        </Replace>
+      </Pendenza>
+    </IdpBody></n:IdpAllineamentoPendenze>

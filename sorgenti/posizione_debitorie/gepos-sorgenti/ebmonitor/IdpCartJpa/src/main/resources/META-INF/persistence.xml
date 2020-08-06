@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="dscmtCart" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- JBOSS5 DS NAME -->
+		<jta-data-source>java:/dscmt</jta-data-source>
+
+		<class>it.tasgroup.idp.cart.orm.monitoraggio.Gestioni</class>
+		<class>it.tasgroup.idp.cart.orm.monitoraggio.MessaggiNonGestiti</class>
+		<class>it.tasgroup.idp.cart.orm.monitoraggio.Messaggi</class>
+		
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<!-- <property name="hibernate.ejb.cfgfile" value="/${it.tasgroup.monitor.conf.location}/custom.hibernate.cfg.xml"/> -->
+<!-- 			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cart.cfg.xml" /> -->
+			<property name="hibernate.ejb.cfgfile" value="custom.hibernate.cfg.xml" />
+			<property name="hibernate.id.new_generator_mappings" value="false" />
+		</properties>
+
+	</persistence-unit>
+
+
+</persistence>

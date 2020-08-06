@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sample>
+	<doc>
+		<name>doc1</name>
+		<items>
+			<name>items1</name>
+			<item>
+				<quantity>q11</quantity>
+				<price>11$</price>
+				<product>p1</product>
+			</item>
+			<item>
+				<quantity>q22</quantity>
+				<product>p2</product>
+				<idescr>desc of prd1_2</idescr>
+			</item>
+			<item>
+				<price>33$</price>
+				<product>p3</product>
+				<idescr>desc of prd1_3</idescr>
+			</item>
+		</items>
+		<data>
+			<total>11331</total>
+			<note>note1</note>
+		</data>
+	</doc>
+</sample>

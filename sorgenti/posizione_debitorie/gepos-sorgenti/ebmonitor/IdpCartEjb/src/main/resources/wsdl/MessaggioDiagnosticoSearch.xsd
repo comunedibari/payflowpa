@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.openspcoop2.org/core/diagnostica/management" xmlns:api="http://www.openspcoop2.org/core/diagnostica" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.openspcoop2.org/core/diagnostica/management">
+			
+<!--  	<xsd:import namespace="http://www.openspcoop2.org/core/diagnostica"  -->
+<!--  	schemaLocation="http://159.213.227.156:8080/openspcoop2Diagnostica/MessaggioDiagnostico/Soap11?xsd=openspcoopDiagnostica.xsd"/> -->
+ 	
+ 	 	<xsd:import namespace="http://www.openspcoop2.org/core/diagnostica" 
+ 	schemaLocation="openspcoopDiagnostica.xsd"/>
+
+	<!-- FILTRI -->
+
+	<xsd:element name="search-filter-messaggio-diagnostico" type="tns:search-filter-messaggio-diagnostico"/>
+	<xsd:complexType name="search-filter-messaggio-diagnostico">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="dominio" type="tns:dominio-diagnostico"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo-richiesta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo-risposta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="ora-registrazione-min" type="xsd:dateTime"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="ora-registrazione-max" type="xsd:dateTime"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="codice" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="messaggio" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="severita" type="api:LivelloDiSeveritaType"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="protocollo" type="tns:protocollo"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="filtro-informazione-protocollo" type="tns:filtro-informazione-protocollo"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="limit" type="xsd:integer"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="offset" type="xsd:integer"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="descOrder" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="dominio-soggetto" type="tns:dominio-soggetto"/>
+	<xsd:complexType name="dominio-soggetto">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="base" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="tipo" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="dominio-diagnostico" type="tns:dominio-diagnostico"/>
+	<xsd:complexType name="dominio-diagnostico">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo-porta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="soggetto" type="tns:dominio-soggetto"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="modulo" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="protocollo" type="tns:protocollo"/>
+	<xsd:complexType name="protocollo">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="soggetto-identificativo" type="tns:soggetto-identificativo"/>
+	<xsd:complexType name="soggetto-identificativo">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="base" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="tipo" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="soggetto" type="tns:soggetto"/>
+	<xsd:complexType name="soggetto">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo" type="tns:soggetto-identificativo"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="servizio" type="tns:servizio"/>
+	<xsd:complexType name="servizio">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="base" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="tipo" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="versione" type="xsd:integer"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:element name="filtro-informazione-protocollo" type="tns:filtro-informazione-protocollo"/>
+	<xsd:complexType name="filtro-informazione-protocollo">
+		<xsd:sequence>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="tipo-porta" type="api:TipoPdD"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="nome-porta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="ricerca-solo-messaggi-correlati-informazioni-protocollo" type="xsd:boolean"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="fruitore" type="tns:soggetto"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="erogatore" type="tns:soggetto"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="servizio" type="tns:servizio"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="azione" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo-correlazione-richiesta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="identificativo-correlazione-risposta" type="xsd:string"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="correlazione-applicativa-and-match" type="xsd:boolean"/>
+ 			<xsd:element maxOccurs="1" minOccurs="0" name="servizio-applicativo" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+
+	<!-- EXCEPTION -->
+	<xsd:element name="diagnostica-service-exception" type="tns:diagnostica-service-exception"/>
+	<xsd:complexType name="diagnostica-service-exception">
+		<xsd:sequence>
+			<xsd:element name="methodName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="objectId" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorCode" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorStackTrace" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="diagnostica-not-found-exception" type="tns:diagnostica-not-found-exception"/>
+	<xsd:complexType name="diagnostica-not-found-exception">
+		<xsd:sequence>
+			<xsd:element name="methodName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="objectId" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorCode" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorStackTrace" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="diagnostica-multiple-result-exception" type="tns:diagnostica-multiple-result-exception"/>
+	<xsd:complexType name="diagnostica-multiple-result-exception">
+		<xsd:sequence>
+			<xsd:element name="methodName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="objectId" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorCode" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorStackTrace" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="diagnostica-not-implemented-exception" type="tns:diagnostica-not-implemented-exception"/>
+	<xsd:complexType name="diagnostica-not-implemented-exception">
+		<xsd:sequence>
+			<xsd:element name="methodName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="objectId" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorCode" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorStackTrace" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="diagnostica-not-authorized-exception" type="tns:diagnostica-not-authorized-exception"/>
+	<xsd:complexType name="diagnostica-not-authorized-exception">
+		<xsd:sequence>
+			<xsd:element name="methodName" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="objectId" type="xsd:string"/>
+			<xsd:element name="errorMessage" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorCode" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="errorStackTrace" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<!-- WRAPPED ELEMENT -->
+
+	<xsd:element name="findAll" type="tns:findAll"/>
+	<xsd:complexType name="findAll">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="filter" type="tns:search-filter-messaggio-diagnostico"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="findAllResponse" type="tns:findAllResponse"/>
+	<xsd:complexType name="findAllResponse">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="messaggioDiagnostico" type="api:messaggio-diagnostico"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="find" type="tns:find"/>
+	<xsd:complexType name="find">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="filter" type="tns:search-filter-messaggio-diagnostico"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="findResponse" type="tns:findResponse"/>
+	<xsd:complexType name="findResponse">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="messaggioDiagnostico" type="api:messaggio-diagnostico"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="count" type="tns:count"/>
+	<xsd:complexType name="count">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="filter" type="tns:search-filter-messaggio-diagnostico"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="countResponse" type="tns:countResponse"/>
+	<xsd:complexType name="countResponse">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="count" type="xsd:long"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+</xsd:schema>
