@@ -1,0 +1,1 @@
+Aggiornamento webapp per fix tasto annulla modifiche, fix grafici e aggiornamento funzione DB per rendicontazione subset

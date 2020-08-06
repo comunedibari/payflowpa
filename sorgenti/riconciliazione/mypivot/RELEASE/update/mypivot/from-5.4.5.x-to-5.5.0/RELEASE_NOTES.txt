@@ -1,0 +1,5 @@
+DB:
+Modificate le funzioni recupero classificazione IUF_NO_TES per gestire la classificazione IUV_NO_RT
+WEBAPP:
+disabilitazione tipo dovuto su jsp per classificazione  IUV_NO_RT
+
