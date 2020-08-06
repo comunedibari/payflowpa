@@ -1,0 +1,1 @@
+Rilascio con correzione versioni librerie bouncycastle

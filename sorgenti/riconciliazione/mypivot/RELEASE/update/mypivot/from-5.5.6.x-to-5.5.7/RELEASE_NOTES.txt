@@ -1,0 +1,3 @@
+Adeguamento BatchLoadFlussiTesoreria e BatchFlussoTesoreriaF2K (diversi formati descrizione estesa)
+
+Visualizzazione classificazione TES_NO_MATCH
