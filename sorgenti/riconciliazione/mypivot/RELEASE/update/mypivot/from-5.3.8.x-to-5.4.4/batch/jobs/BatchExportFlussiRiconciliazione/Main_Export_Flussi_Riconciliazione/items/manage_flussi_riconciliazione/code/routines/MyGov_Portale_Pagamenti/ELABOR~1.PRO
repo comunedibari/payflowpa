@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TalendProperties="http://www.talend.org/properties">
+  <TalendProperties:Property xmi:id="_iXMpsKc1EeaDcMlH_XM6rQ" id="_iXK0gKc1EeaDcMlH_XM6rQ" label="ElaboraStringhe" creationDate="2016-11-10T12:05:06.250+0100" modificationDate="2016-11-18T11:11:26.740+0100" version="0.1" statusCode="" item="_iXMpsqc1EeaDcMlH_XM6rQ" displayName="ElaboraStringhe">
+    <author href="../../../talend.project#_hoTp4KW1EeaAEbVzFF1pEg"/>
+  </TalendProperties:Property>
+  <TalendProperties:ItemState xmi:id="_iXMpsac1EeaDcMlH_XM6rQ" path="MyGov_Portale_Pagamenti"/>
+  <TalendProperties:RoutineItem xmi:id="_iXMpsqc1EeaDcMlH_XM6rQ" property="_iXMpsKc1EeaDcMlH_XM6rQ" state="_iXMpsac1EeaDcMlH_XM6rQ">
+    <content href="ElaboraStringhe_0.1.item#/"/>
+  </TalendProperties:RoutineItem>
+</xmi:XMI>
