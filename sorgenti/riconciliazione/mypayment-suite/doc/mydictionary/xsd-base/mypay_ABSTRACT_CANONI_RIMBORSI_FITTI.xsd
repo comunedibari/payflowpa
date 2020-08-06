@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Canoni, rimborsi e fitti]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_canoni_rimborsi_fitti">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="canoni_rimborsi_fitti">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                  <myp:render_ex join_template="${tipologia}#${descrizione}#${periodo}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element> 
+            <xs:element name="tipologia">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Tipologia" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare la tipologia" help_message="Specificare la tipologia"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Locazione"/>
+                        <xs:enumeration value="Rimborso spese di gestione"/>
+                        <xs:enumeration value="Concessione spazi"/>
+                        <xs:enumeration value="Utilizzo 'una tantum'"/>
+						<xs:enumeration value="Sovracanone derivazione acqua"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>    
+            <xs:element name="descrizione">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Descrizione (su quale immobile/n. concessione)" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="" help_message="Inserire n. concessione (se presente)/indirizzo dell'immobile o altro che individui la concessione" optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,255}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+			<xs:element name="periodo">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Periodo di riferimento (Mese, Anno, Da/a, Data singola)" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il periodo di riferimento che può essere un mese, un anno, un intervallo temporale da...a... oppure una data precisa, ecc" help_message="Specificare il periodo di riferimento che può essere un mese, un anno, un intervallo temporale da...a... oppure una data precisa, ecc" optional="false"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,255}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+ </xs:schema>

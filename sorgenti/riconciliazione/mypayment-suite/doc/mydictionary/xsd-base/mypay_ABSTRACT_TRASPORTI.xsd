@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Autotrasporto cose e persone/Esami/Agenzie pratiche auto]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_trasporti">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="trasporti">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                 <myp:render_ex join_template="${tipologia}#${descrizione}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element> 
+            <xs:element name="tipologia">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Tipologia" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare la tipologia" help_message="Specificare la tipologia"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Autoscuole/Centri di consulenza"/>
+                        <xs:enumeration value="Imprese di revisione"/>
+                        <xs:enumeration value="Trasporto merci conto proprio"/>
+                        <xs:enumeration value="Taxi/Ncc"/>
+						<xs:enumeration value="Esami abilitativi"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>    
+            <xs:element name="descrizione">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Descrizione versamento" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="" help_message="Specificare in dettaglio l'oggetto del versamento" optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,255}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Trasporto scolastico]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_trasporto_scolastico">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="trasporto_scolastico">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                 <myp:render_ex join_template="${codice_fiscale}#${nome_alunno}#${cognome_alunno}#${numero_rata}#${anno_scolastico}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element>
+            <xs:element name="codice_fiscale">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Codice fiscale" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il codice fiscale/partita iva." help_message="Specificare il codice fiscale." validation_type="id_univoco_FG"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="nome_alunno">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Nome dell'alunno" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Inserire il nome dell'alunno." error_message="Nome non valido."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value=".{1,50}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+
+            <xs:element name="cognome_alunno">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Cognome dell'alunno" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Cognome non valido." help_message="Inserire il cognome dell'alunno."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="numero_rata">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="4" renderable="true" renderable_order="4" html_label="Numero rata" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il numero della rata." help_message="Specificare il numero della rata."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^[0-9]{1,2}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+            <xs:element name="anno_scolastico">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="5" renderable="true" renderable_order="5" html_label="Anno scolastico" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare l'anno scolastico (ad es. 2015/2016)." help_message="Specificare l'anno scolastico (ad es. 2015/2016)."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,9}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

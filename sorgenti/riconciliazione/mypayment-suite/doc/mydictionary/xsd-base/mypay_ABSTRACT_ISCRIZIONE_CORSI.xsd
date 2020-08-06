@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:annotation id="description">
+	<xs:appinfo><![CDATA[Iscrizione corsi]]></xs:appinfo>
+</xs:annotation>
+<xs:complexType name="abstract_iscrizione_corsi">
+<xs:sequence>
+<xs:element name="nome_cognome_rag_sociale">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Nome e cognome (dello studente) / Student Name and Surname" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Specificare nome e cognome oppure la Ragione sociale di chi si iscrive al corso" help_message="Specificare nome e cognome di chi si iscrive al corso"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,50}$"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="codice_fiscale">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Codice Fiscale/Fiscal Code" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Il codice fiscale non risulta formalmente corretto" help_message="Specificare il codice fiscale di chi si iscrive al corso" validation_type="id_univoco_FG"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="(^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$)|(^[0-9]{11}$)"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="anno_iscrizione">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Anno d'iscrizione/Registration year" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Inserire a quale anno di corso ci si iscrive, es. Primo anno, Secondo anno, Fuori corso…" help_message="Specificare l'anno d'iscrizione"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,255}$"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="matricola">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="4" renderable="true" renderable_order="4" html_label="Matricola/Student Registration number" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Inserire la matricola dello studente, campo non obbligatorio" help_message="Inserire la matricola dello studente" optional="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value=""/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="tipologia">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="5" renderable="true" renderable_order="5" html_label="Tipologia/Typology" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Scegliere tra le tipologie presenti" help_message="Scegliere tra le seguenti tipologie: Biennio, Triennio, Vecchio ordinamento, Pre accademici, Contributo Corso Singolo, Contributo Esami Privatisti, Altro"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,30}$"/>
+		<xs:enumeration value=""/>
+		<xs:enumeration value="Biennio"/>
+		<xs:enumeration value="Triennio"/>
+		<xs:enumeration value="Vecchio ordinamento"/>
+		<xs:enumeration value="Pre accademici"/>
+		<xs:enumeration value="Contributo Corso Singolo"/>
+		<xs:enumeration value="Contributo Esami Privatisti"/>
+		<xs:enumeration value="Altro"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="dettaglio">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="6" renderable="true" renderable_order="6" html_label="Dettaglio/Detail" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Specificare la causale" help_message="Specificare la causale (es. Immatricolazione; Pianoforte Primo anno seconda rata; Ammissione...)"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,100}$"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="sys_type" fixed="ISCRIZIONE_CORSI">
+<xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:annotation>
+             <xs:appinfo>
+                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                 <myp:render_ex join_template="${nome_cognome_rag_sociale}#${codice_fiscale}#${anno_iscrizione}#${matricola}#${tipologia}#${dettaglio}"/>
+                 <myp:label value="Area"/>
+             </xs:appinfo>
+         </xs:annotation>
+    </xs:restriction>
+</xs:simpleType>
+</xs:element>
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Canoni, rimborsi e fitti]]></xs:appinfo>
+    </xs:annotation>
+    <xs:include schemaLocation="/mydictionary/scarica.html?codice=mypay_ABSTRACT_CANONI_RIMBORSI_FITTI"/>
+
+    <xs:complexType name="canoni_rimborsi_fitti">
+        <xs:complexContent>
+            <xs:extension base="myp:abstract_canoni_rimborsi_fitti">
+                <xs:sequence>
+	
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="documento" type="myp:canoni_rimborsi_fitti"/>
+</xs:schema>

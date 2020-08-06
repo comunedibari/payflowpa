@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Sanzioni amministrative]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_sanzioni_amministrative">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="sanzioni_amministrative">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                  <myp:render_ex join_template="${materia}#${numero}#${data}#${autorita_emittente}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element> 
+             <xs:element name="materia">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Materia della sanzione" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare la materia della sanzione" help_message="Specificare la materia della sanzione"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Abusi paesaggistici(D.Lgs. 42/2004)"/>
+                        <xs:enumeration value="Agenzie pratiche auto, autoscuole, consulenza mezzi di trasporto"/>
+                        <xs:enumeration value="Agriturismi"/>
+						<xs:enumeration value="Attività di cava(miglioramenti fondiari, scavi abusivi)"/>
+						<xs:enumeration value="Caccia"/>
+						<xs:enumeration value="Centri di revisione"/>
+						<xs:enumeration value="Codice della strada"/>
+						<xs:enumeration value="Emissioni in atmosfera(L.68/2005)"/>
+						<xs:enumeration value="Funghi"/>
+						<xs:enumeration value="Impianti a fune e piste da sci"/>
+						<xs:enumeration value="Impianti termici"/>
+						<xs:enumeration value="Irregolarità partecipazioni gare"/>
+						<xs:enumeration value="Nitrati (effluenti zootecnici)"/>
+						<xs:enumeration value="Pesca"/>
+						<xs:enumeration value="Polizia mineraria(sicurezza sul lavoro SPISAL)"/>
+						<xs:enumeration value="Rifiuti"/>
+						<xs:enumeration value="Scarico reflui"/>
+						<xs:enumeration value="Trasporto pubblico locale"/>
+						<xs:enumeration value="Turismo(agenzie viaggi, strutture ricettive)"/>
+						<xs:enumeration value="Tutela acque"/>
+						<xs:enumeration value="Tutela ambiente"/>
+                        <xs:enumeration value="Altro"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>    
+            <xs:element name="numero">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Numero Verbale/Ordinanza" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il numero Verbale/Ordinanza" help_message="Specificare il numero Verbale/Ordinanza" optional="false"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,16}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+            <xs:element name="data">
+                <xs:simpleType>
+                    <xs:restriction base="xs:dateTime">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="DATE" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Data di Verbale/Ordinanza" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex dateFormat="yyyyMMdd" error_message="Specificare la data di Verbale/Ordinanza" help_message="Specificare la data di Verbale/Ordinanza" validation_type="data"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="\d\d\/\d\d\/\d{4}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>  	
+			<xs:element name="autorita_emittente">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="4" renderable="true" renderable_order="4" html_label="Autorità emittente" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare l'Autorità emittente" help_message="Specificare l'Autorità emittente"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Carabinieri"/>
+                        <xs:enumeration value="Corpo Forestale dello Stato"/>
+                        <xs:enumeration value="Guardia di Finanza"/>
+                        <xs:enumeration value="Polizia di stato"/>
+						<xs:enumeration value="Polizia locale"/>
+						<xs:enumeration value="Altro"/>
+                   </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+ </xs:schema>

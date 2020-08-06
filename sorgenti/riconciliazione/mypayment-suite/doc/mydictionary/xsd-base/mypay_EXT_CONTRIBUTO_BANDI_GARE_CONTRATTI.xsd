@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Contributo Bandi/Gare/Contratti]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:include schemaLocation="/mydictionary/scarica.html?codice=mypay_ABSTRACT_CONTRIBUTO_BANDI_GARE_CONTRATTI"/>
+
+    <xs:complexType name="contributo_bandi_gare_contratti">
+        <xs:complexContent>
+            <xs:extension base="myp:abstract_contributo_bandi_gare_contratti">
+                <xs:sequence>
+    
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="documento" type="myp:contributo_bandi_gare_contratti"/>
+</xs:schema>

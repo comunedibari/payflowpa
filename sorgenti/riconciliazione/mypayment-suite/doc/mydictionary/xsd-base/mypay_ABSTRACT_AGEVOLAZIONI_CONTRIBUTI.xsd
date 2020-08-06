@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Over 70 e Tessera agevolata]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_agevolazioni_contributi">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="agevolazioni_contributi">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                 <myp:render_ex join_template="${residenza_beneficiario}#${descrizione}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element> 
+            <xs:element name="residenza_beneficiario">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Residenza beneficiario" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare la residenza del beneficiario" help_message="Specificare la residenza del beneficiario" optional="false"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,255}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+            <xs:element name="descrizione">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Descrizione versamento" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="" help_message="Specificare in dettaglio l'oggetto del versamento" optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,255}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+ </xs:schema>

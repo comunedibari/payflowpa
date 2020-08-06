@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:annotation id="description">
+	<xs:appinfo><![CDATA[Contributo da Enti]]></xs:appinfo>
+</xs:annotation>
+<xs:complexType name="abstract_contributo_enti">
+<xs:sequence>
+<xs:element name="nome_cognome_rag_sociale">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Nome e cognome/Ragione sociale" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Specificare nome e cognome oppure la Ragione sociale" help_message="Specificare nome e cognome oppure la Ragione sociale"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,50}$"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="codice_fiscale_partita_iva_contribuente">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Codice Fiscale o Partita IVA/Fiscal Code" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Il codice fiscale non risulta formalmente corretto" help_message="Specificare il codice fiscale" validation_type="id_univoco_FG"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="(^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$)|(^[0-9]{11}$)"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="dettaglio">
+<xs:simpleType>
+	<xs:restriction base="xs:string">
+		<xs:annotation>
+			<xs:appinfo>
+				<myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Dettaglio/Detail" detail_link="true" bind_cms="cm:name"/>
+				<myp:render_ex error_message="Specificare la causale" help_message="Specificare la causale"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:pattern value="^.{1,100}$"/>
+	</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="sys_type" fixed="CONTRIBUTO_ENTI">
+<xs:simpleType>
+    <xs:restriction base="xs:string">
+        <xs:annotation>
+             <xs:appinfo>
+                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                 <myp:render_ex join_template="${nome_cognome_rag_sociale}#${codice_fiscale_partita_iva_contribuente}#${dettaglio}"/>
+                 <myp:label value="Area"/>
+             </xs:appinfo>
+         </xs:annotation>
+    </xs:restriction>
+</xs:simpleType>
+</xs:element>
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>

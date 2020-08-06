@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Ambiente e territorio]]></xs:appinfo>
+    </xs:annotation>
+    <xs:include schemaLocation="/mydictionary/scarica.html?codice=mypay_ABSTRACT_AMBIENTE_TERRITORIO"/>
+
+    <xs:complexType name="ambiente_territorio">
+        <xs:complexContent>
+            <xs:extension base="myp:abstract_ambiente_territorio">
+                <xs:sequence>
+	
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="documento" type="myp:ambiente_territorio"/>
+</xs:schema>

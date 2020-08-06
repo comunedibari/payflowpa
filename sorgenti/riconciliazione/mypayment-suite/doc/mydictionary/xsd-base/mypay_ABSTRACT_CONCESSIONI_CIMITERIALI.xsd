@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Concessioni cimiteriali]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_concessioni_cimiteriali">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="concessioni_cimiteriali">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                 <myp:render_ex join_template="${nome_debitore}#${cognome_debitore}#${codice_fiscale_partita_iva_contribuente}#${nome_defunto}#${cognome_defunto}#${ubicazione}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element>
+            <xs:element name="nome_debitore">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Nome del debitore" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Specificare il nome del debitore." error_message="Specificare il nome del debitore."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value=".{1,50}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+
+            <xs:element name="cognome_debitore">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Cognome del debitore" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il cognome del debitore." help_message="Specificare il cognome del debitore."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{1,50}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>   
+            <xs:element name="codice_fiscale_partita_iva_contribuente">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Codice fiscale/Partita Iva del debitore" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il codice fiscale o la partita IVA del debitore." help_message="Specificare il codice fiscale o la partita IVA del debitore." validation_type="id_univoco_FG"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="(^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$)|(^[0-9]{11}$)"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="nome_defunto">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="4" renderable="true" renderable_order="4" html_label="Nome del defunto" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il nome del defunto." help_message="Specificare il nome del defunto." optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,35}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>    
+            <xs:element name="cognome_defunto">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="5" renderable="true" renderable_order="5" html_label="Cognome del defunto" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il cognome del defunto." help_message="Specificare il cognome del defunto." optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,35}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+            <xs:element name="ubicazione">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="6" renderable="true" renderable_order="6" html_label="Ubicazione" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Specificare l'ubicazione del loculo." error_message="Specificare l'ubicazione del loculo." optional="true"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="^.{0,100}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+    
+
+</xs:schema>

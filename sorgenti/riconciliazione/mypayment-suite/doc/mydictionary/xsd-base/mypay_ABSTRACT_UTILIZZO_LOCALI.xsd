@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:myp="http://myp25.regione.veneto.it/xsd/mypdocumento" targetNamespace="http://myp25.regione.veneto.it/xsd/mypdocumento" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <xs:annotation id="description">
+        <xs:appinfo><![CDATA[Utilizzo locali]]></xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="abstract_utilizzo_locali">
+        <xs:sequence>
+    		<xs:element name="sys_type" fixed="utilizzo_locali">
+                 <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                         <xs:annotation>
+                             <xs:appinfo>
+                                 <myp:render render_mode="NONE" insertable="false" insertable_order="0" searchable="false" searchable_order="0" listable="false" listable_order="0" renderable="false" renderable_order="0" html_label="Tipo"/>
+                                 <myp:render_ex join_template="${tipologia_locale}#${descrizione_periodo_utilizzo}#${cf_partita_iva}#${nome_cognome_rag_sociale}"/>
+                                 <myp:label value="Area"/>
+                             </xs:appinfo>
+                         </xs:annotation>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element>
+            <xs:element name="tipologia_locale">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="SINGLESELECT" insertable="true" insertable_order="1" renderable="true" renderable_order="1" html_label="Tipologia locale o attrezzature" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Specificare la tipologia." error_message="Specificare la tipologia."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value=".{1,50}$"/>
+                        <xs:enumeration value=""/>
+                        <xs:enumeration value="Alloggi comunali"/>
+                        <xs:enumeration value="Attrezzature"/>
+                        <xs:enumeration value="Biblioteca"/>
+                        <xs:enumeration value="Campo sportivo"/>
+                        <xs:enumeration value="Locale ex mensa"/>
+                        <xs:enumeration value="Museo"/>
+                        <xs:enumeration value="Padiglione fieristico"/>
+                        <xs:enumeration value="Palestra comunale e relativi impianti"/>
+                        <xs:enumeration value="Palestrina"/>
+                        <xs:enumeration value="Sala"/>
+                        <xs:enumeration value="Sala Consiliare"/>
+                        <xs:enumeration value="Sala giunta per matrimonio"/>
+                        <xs:enumeration value="Sala Polivalente"/>
+                        <xs:enumeration value="Sala riunioni presso biblioteca comunale"/>
+                        <xs:enumeration value="Teatro"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+            <xs:element name="descrizione_periodo_utilizzo">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="2" renderable="true" renderable_order="2" html_label="Descrizione periodo di utilizzo" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Inserire la descrizione." error_message="Descrizione non valida."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value=".{1,100}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="cf_partita_iva">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="3" renderable="true" renderable_order="3" html_label="Codice fiscale/Partita Iva" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex error_message="Specificare il codice fiscale o la partita IVA." help_message="Specificare il codice fiscale o la partita IVA." validation_type="id_univoco_FG"/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value="(^[A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9]{3}[A-Za-z]{1}$)|(^[0-9]{11}$)"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>   
+            <xs:element name="nome_cognome_rag_sociale">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:annotation>
+                            <xs:appinfo>
+                                <myp:render render_mode="TEXT" insertable="true" insertable_order="4" renderable="true" renderable_order="4" html_label="Nome e cognome/Ragione sociale" detail_link="true" bind_cms="cm:name"/>
+                                <myp:render_ex help_message="Inserire nome e cognome/Ragione sociale." error_message="Nome e cognome/Ragione sociale non validi."/>
+                            </xs:appinfo>
+                        </xs:annotation>
+                        <xs:pattern value=".{1,50}$"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element> 
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
