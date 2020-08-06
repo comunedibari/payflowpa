@@ -1,0 +1,1 @@
+Funzionalità di acquisizione dati delle bollette di tesoreria dal database F2K, correzione delle viste e integrazione della nuova tesoreria su mypivot 
