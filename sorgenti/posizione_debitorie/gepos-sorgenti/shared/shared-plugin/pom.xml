@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+	<artifactId>shared</artifactId>
+	<groupId>it.tasgroup.iris.shared</groupId>
+	<version>0.1</version>
+  </parent>
+  <artifactId>shared-plugin</artifactId>
+  <version>${shared.release.version}</version>
+  <packaging>jar</packaging>
+  <inceptionYear>2012</inceptionYear>
+  <name>Anonymous Plugin Project</name>
+  <description>Plugin Project for the Anonymous Webapp</description>
+  <dependencies>
+	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+	</dependency>
+	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-orm</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-util</artifactId>
+  	</dependency>
+
+	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+		<artifactId>shared-facade-ejb-client</artifactId>
+	</dependency>
+
+  </dependencies>
+</project>

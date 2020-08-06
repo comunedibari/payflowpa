@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>shared</artifactId>
+    <groupId>it.tasgroup.iris.shared</groupId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>shared-facade-ejb-client</artifactId>
+  <name>Anonymous Facade EJB Client</name>
+  <version>${shared.release.version}</version>
+  <packaging>jar</packaging>
+  <inceptionYear>2012</inceptionYear>
+  <dependencies>
+  	<dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
+  	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-dto</artifactId>
+  		<scope>provided</scope>
+  	</dependency>
+<!--  	<dependency> -->
+<!--  		<groupId>it.tasgroup.iris.shared</groupId> -->
+<!--  		<artifactId>shared-plugin</artifactId> -->
+<!--  		<scope>provided</scope> -->
+<!--  	</dependency> -->
+
+  	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-orm</artifactId>
+  		<scope>provided</scope>
+  	</dependency>
+  	<dependency>
+  		<groupId>it.tasgroup.iris.shared</groupId>
+  		<artifactId>shared-util</artifactId>
+  		<scope>provided</scope>
+  	</dependency>
+  </dependencies>
+</project>
