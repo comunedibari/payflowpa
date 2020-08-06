@@ -1,0 +1,12 @@
+Funzionalità "Cruscotto Incassi"
+
+DB: 
+Aggiunta funzione PLSQL per la selezione degli IUD per il dettaglio pagamenti del cruscotto incassi.
+Aggiunte viste materializzate
+
+WEBAPP:
+Sviluppo interfaccia del Cruscotto Incassi.
+
+BATCH: 
+Aggiornamento job batch: BatchAllineaDatabase -> Aggiunto la gestione del nuovo ruolo "ROLE_STATS", assegnato di default a tutti gli utenti.
+

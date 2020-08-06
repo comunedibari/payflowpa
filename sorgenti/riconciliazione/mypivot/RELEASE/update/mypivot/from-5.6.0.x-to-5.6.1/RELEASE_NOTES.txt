@@ -1,0 +1,2 @@
+Aggiornamento webapp, batch BatchExportFlussiRiconciliazione e DB.
+Se viene prenotato un export con versione 1.2 e le classificazioni si riferiscono al flag pagati il batch torna errore.

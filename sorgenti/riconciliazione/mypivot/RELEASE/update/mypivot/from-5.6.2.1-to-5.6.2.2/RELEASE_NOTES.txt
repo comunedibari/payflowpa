@@ -1,0 +1,1 @@
+Correzione query mygov_anagrafica_stato in BatchLoadFlussiExport

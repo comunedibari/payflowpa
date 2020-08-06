@@ -1,0 +1,5 @@
+Aggiornamento WS pivotSILAutorizzaImportFlussoTesoreria per caricamento giornale di cassa OPI
+
+passato in input parametro opzionale tipoFlusso che può assumere i valori T, C, O
+
+Se non passato, nell' elaborazione verrà considerato di default il tipo T

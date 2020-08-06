@@ -1,0 +1,6 @@
+Aggiornamento webapp e batch BatchLoadFlussiTesoreria per il caricamento del tracciato XML del Giornale di Cassa OPI
+
+Fix cruscotto incassi: ora nelle due statistiche
+	1. Totali Ripartiti per Uffici
+	2. Totali Ripartiti per Tipi Dovuto
+i risultati vengono sommati, dunque i dati non vengono correttamente ripetuti

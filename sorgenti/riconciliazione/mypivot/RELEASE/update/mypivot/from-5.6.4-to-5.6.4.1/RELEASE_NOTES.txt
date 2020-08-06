@@ -1,0 +1,1 @@
+Aggiornamento xsd nella cartella batch

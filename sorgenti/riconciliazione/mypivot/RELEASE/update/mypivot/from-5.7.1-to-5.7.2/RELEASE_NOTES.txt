@@ -1,0 +1,3 @@
+Bugfix errore in update anagrafica uffici capitoli e accertamenti
+
+jira: RVE_E45A-278

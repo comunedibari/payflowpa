@@ -1,0 +1,3 @@
+Rilascio dei BatchLoadFlussiExport e BatchFlussiExportWS per nuova versione tracciato.
+
+Rilascio webapp per visualizzazione accertamenti dell' utente ws nel caso il ruolo dell' utente sia ROLE_ACC

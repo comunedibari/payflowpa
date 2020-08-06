@@ -1,0 +1,6 @@
+Fix errori dettagli:
+
+(RVE_E45A-272) dettaglio rendicontazione: dovuto a presenza di più rt (con codEDatiPagCodiceEsitoPagamento 9 o 0)
+(RVE_E45A-274) dettaglio giornale di cassa: la jsp visualizzaFlussoTesoreria mandava alla visualizzazione delle rt anziché delle ricevute telematiche
+
+Corretto pulsante di ricerca per i flussi import giornale di cassa opi 
