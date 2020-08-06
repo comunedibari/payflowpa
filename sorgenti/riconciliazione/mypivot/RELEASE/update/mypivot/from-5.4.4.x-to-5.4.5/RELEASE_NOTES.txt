@@ -1,0 +1,6 @@
+DB:
+Modificata la function per recuperare il flusso di rendicontazione
+Aggiunta la function per recuperare il numero di flussi di rendicontazione
+
+NOTE:
+La feature comporta la ricompilazione di sorgenti
