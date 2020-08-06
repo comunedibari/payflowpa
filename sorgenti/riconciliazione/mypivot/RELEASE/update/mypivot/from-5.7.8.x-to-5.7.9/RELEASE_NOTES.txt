@@ -1,0 +1,22 @@
+47141 - pMEV - SPAC#150 - Rendicontazioni di altri Intermediari ed Errata Associazione RT
+
+from-5.7.8.x-to-5.7.9
+
+Scenario e contesto: Entri pluriintermediati, Rendicontazione e visualizzazione ricevute
+
+Quando per un ente pluri intermediato si effettua la ricerca delle rendicontazioni, vengono visualizzate anche rendicontazioni relative ad altri intermediari. In immagina mypivot-1.png ci sono tutte rendicontazioni del Comune di Pavia relative a pagamenti non effettuati con Regione Lombardia. E' certo in quanto abbiamo un unico pagamento effettuato e che al momento dello screenshot non risulta ancora rendicontato.
+
+Inoltre, cliccando sul dettaglio di rendicontazione di una qualsiasi di quelle in figura, fa vedere i dettagli di quella rendicontazione e sempre l'unica RT che abbiamo per Pavia (ovviamente non collegata a quella rendocontazione)
+
+--
+soluzione
+
+Nel dettaglio della rendicontazione vengono mostrate sempre tutte le righe contenute nelle rendicontazione, anche se non sono presenti le RT
+se le RT sono presenti i dati sono completi 
+* se le RT non sono presenti perchè afferenti ad altro intermediario vengono mostrati solamente i dati disponibili dalla rendicontazione
+
+stesso scenario (*) si applica al momento per le rendicontazioni con codice 9, per le quali abbiamo una RT fittizia inserita da MyPivot, contenente solamente i dati provenienti dalla rendicontazione.
+
+--
+rilascio solo webapp
+

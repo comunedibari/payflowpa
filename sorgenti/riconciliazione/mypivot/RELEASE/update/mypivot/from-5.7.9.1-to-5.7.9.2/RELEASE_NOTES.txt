@@ -1,0 +1,9 @@
+sysaid #82639 Adeguamento giornale di cassa 1.4
+
+from-5.7.9.x-to-5.7.10
+
+Adeguamento giornale di cassa 1.4
+
+modifica tabella mygov_flusso_tesoreria aggiunta colonna end_to_end_id
+modifica BatchLoadFlussiTesoreria
+

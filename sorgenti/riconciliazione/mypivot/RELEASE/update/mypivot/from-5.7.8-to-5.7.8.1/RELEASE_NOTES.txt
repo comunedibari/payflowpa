@@ -1,0 +1,15 @@
+47139 - pMEV - SPAC#120 - Righe doppie in cruscotto statistiche MyPivot
+
+ from-5.7.8-to-5.7.8.1
+
+Sistemazione viste materializze:
+
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_giorno_uff_td;
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_giorno_uff_td_cap;
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_giorno_uff_td_cap_acc;
+
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_uff_td;
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_uff_td_cap;
+ MATERIALIZED VIEW vm_statistica_ente_anno_mese_uff_td_cap_acc;
+ 
+

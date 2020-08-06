@@ -1,0 +1,4 @@
+SPAC#114: Modifica vista classificazioni riconciliazioni mypivot: reso case-insensitive il criterio di uguaglianza idRendicontazione (webapp + BatchExportFlussiRiconciliazione + db)
+SPAC#124: Fix nome flusso non visualizzato nei flussi opi non caricati
+
+Fix BatchExportFlussiRiconciliazione (filtro data esecuzione pagamento per enti con flg_pagati = true)

@@ -1,0 +1,8 @@
+sysaid #79330 Modifiche giornale di cassa (in riferimento a #78250)
+
+from-5.7.9-to-5.7.9.1
+
+Problema gionale di cassa
+
+modifica tabella mygov_flusso_tesoreria allargamento campo cod_conto_anagrafica a 50 caratteri
+

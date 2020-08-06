@@ -1,0 +1,2 @@
+SPAC#114: cambiato critero: dao per estrarre rendicontazione case insensitive
+
