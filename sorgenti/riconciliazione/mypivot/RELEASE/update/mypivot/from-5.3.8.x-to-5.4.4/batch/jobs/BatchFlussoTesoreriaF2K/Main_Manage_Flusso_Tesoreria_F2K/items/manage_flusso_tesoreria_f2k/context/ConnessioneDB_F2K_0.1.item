@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" confirmationNeeded="false" name="Default">
+  <contextParameter comment="" name="conn_usr_F2K" prompt="conn_usr_F2K?" promptNeeded="false" type="id_String" value="USER502O"/>
+  <contextParameter comment="" name="conn_psw_F2K" prompt="conn_psw_F2K?" promptNeeded="false" type="id_Password" value="S8zVCdhuwkU="/>
+  <contextParameter comment="" name="conn_url_F2K" prompt="conn_url_F2K?" promptNeeded="false" type="id_String" value="192.168.47.11"/>
+</talendfile:ContextType>

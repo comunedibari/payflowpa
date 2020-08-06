@@ -1,0 +1,151 @@
+package routines;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+public class Utils {
+
+	private static final String GENNAIO = "GENNAIO";
+	private static final String FEBBRAIO = "FEBBRAIO";
+	private static final String MARZO = "MARZO";
+	private static final String APRILE = "APRILE";
+	private static final String MAGGIO = "MAGGIO";
+	private static final String GIUGNO = "GIUGNO";
+	private static final String LUGLIO = "LUGLIO";
+	private static final String AGOSTO = "AGOSTO";
+	private static final String SETTEMBRE = "SETTEMBRE";
+	private static final String OTTOBRE = "OTTOBRE";
+	private static final String NOVEMBRE = "NOVEMBRE";
+	private static final String DICEMBRE = "DICEMBRE";
+
+	public static boolean isEntroTrentaAprile(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int month = cal.get(Calendar.MONTH);
+		if (getStringMonth(month).equals(GENNAIO)
+				|| getStringMonth(month).equals(FEBBRAIO)
+				|| getStringMonth(month).equals(MARZO)
+				|| getStringMonth(month).equals(APRILE)) {
+			return true;
+		}
+		return false;
+	}
+
+	public static boolean isAfterTrentaAprile(Date date) {
+		return !isEntroTrentaAprile(date);
+	}
+
+	private static String getStringMonth(int month) {
+		switch (month) {
+		case 0:
+			return "GENNAIO";
+		case 1:
+			return "FEBBRAIO";
+		case 2:
+			return "MARZO";
+		case 3:
+			return "APRILE";
+		case 4:
+			return "MAGGIO";
+		case 5:
+			return "GIUGNO";
+		case 6:
+			return "LUGLIO";
+		case 7:
+			return "AGOSTO";
+		case 8:
+			return "SETTEMBRE";
+		case 9:
+			return "OTTOBRE";
+		case 10:
+			return "NOVEMBRE";
+		case 11:
+			return "DICEMBRE";
+		default:
+			return null;
+		}
+	}
+
+	public static String getYearString(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		return String.valueOf(year).toString();
+	}
+
+	public static String getYearBeforeString(Date date) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(date);
+		int year = cal.get(Calendar.YEAR);
+		year--;
+		return String.valueOf(year).toString();
+	}
+
+	public static String stringArrayToInClause(List<String> lista) {
+		if (lista.isEmpty())
+			return null;
+		String splittedString = "";
+		for (String s : lista) {
+			splittedString = splittedString + "'" + s + "',";
+		}
+		if (splittedString.endsWith(","))
+			splittedString = splittedString.substring(0,
+					splittedString.length() - 1);
+		return splittedString;
+	}
+	
+	public static Long getMillisFromNowAndTriggerDate(String triggerTime) {
+		Date now = new Date();
+		Date triggerDate = getTriggerDate(triggerTime);
+		long triggerDateMillis = triggerDate.getTime();
+		long nowMillis = now.getTime();
+		if(nowMillis > triggerDateMillis) {
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(triggerDate);
+			cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 1);
+			triggerDate = cal.getTime();
+			triggerDateMillis = triggerDate.getTime();
+		}
+//		System.out.println("TriggerDate: "+triggerDate);
+		return triggerDateMillis-nowMillis;
+	}
+	
+	private static String getHourFromTriggerTime(String triggerTime) {
+		String[] arr = triggerTime.split(":");
+		return arr[0];
+	}
+	
+	private static String getMinutesFromTriggerTime(String triggerTime) {
+		String[] arr = triggerTime.split(":");
+		return arr[1];
+	}
+	
+	private static String getSecondsFromTriggerTime(String triggerTime) {
+		String[] arr = triggerTime.split(":");
+		return arr[2];
+	}
+	
+	private static Date getDateWithoutTime() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTime();
+	}
+	
+	public static Date getTriggerDate(String triggerTime) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(getDateWithoutTime());
+		
+		int hours = Integer.parseInt(getHourFromTriggerTime(triggerTime));
+		int minutes = Integer.parseInt(getMinutesFromTriggerTime(triggerTime));
+		int seconds = Integer.parseInt(getSecondsFromTriggerTime(triggerTime));
+		calendar.add(Calendar.HOUR_OF_DAY, hours);
+		calendar.add(Calendar.MINUTE, minutes);
+		calendar.add(Calendar.SECOND, seconds);
+		
+		return calendar.getTime();
+	}
+}
