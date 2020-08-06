@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	">
+
+	<bean id="myBoxClientDao" class="it.regioneveneto.mybox.dao.hibernate.HibernateMyBoxClientDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="myBoxAuthorizationDao" class="it.regioneveneto.mybox.dao.hibernate.HibernateMyBoxAuthorizationDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>it/regioneveneto/mybox/domain/po/MyboxClient.hbm.xml</value>
+				<value>it/regioneveneto/mybox/domain/po/MyboxAuthorization.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.use_sql_comments">false</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>${dataSource.jndiName}</value>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Class-Path: commons-fileupload-1.3.jar commons-io-2.4.jar commons-lang
+ -2.6.jar javax.mail-api-1.5.1.jar activation-1.1.jar jta-1.1.jar joda
+ -time-2.3.jar log4j-1.2.17.jar cxf-rt-frontend-jaxws-2.7.18.jar asm-3
+ .3.1.jar cxf-api-2.7.18.jar woodstox-core-asl-4.4.1.jar stax2-api-3.1
+ .4.jar xmlschema-core-2.1.0.jar wsdl4j-1.6.3.jar cxf-rt-core-2.7.18.j
+ ar cxf-rt-bindings-soap-2.7.18.jar cxf-rt-databinding-jaxb-2.7.18.jar
+  cxf-rt-bindings-xml-2.7.18.jar cxf-rt-frontend-simple-2.7.18.jar cxf
+ -rt-transports-http-2.7.18.jar cxf-rt-ws-addr-2.7.18.jar cxf-rt-ws-po
+ licy-2.7.18.jar neethi-3.0.3.jar cxf-rt-transports-http-jetty-2.7.18.
+ jar jetty-server-8.1.15.v20140411.jar jetty-continuation-8.1.15.v2014
+ 0411.jar jetty-http-8.1.15.v20140411.jar jetty-io-8.1.15.v20140411.ja
+ r jetty-util-8.1.15.v20140411.jar jetty-security-8.1.15.v20140411.jar
+  slf4j-api-1.7.5.jar aspectjrt-1.7.4.jar aspectjweaver-1.7.4.jar hibe
+ rnate-core-3.6.10.Final.jar antlr-2.7.6.jar commons-collections-3.1.j
+ ar dom4j-1.6.1.jar hibernate-commons-annotations-3.2.0.Final.jar hibe
+ rnate-jpa-2.0-api-1.0.1.Final.jar javassist-3.18.1-GA.jar jcl-over-sl
+ f4j-1.7.5.jar slf4j-log4j12-1.7.5.jar jstl-1.2.jar jackson-core-asl-1
+ .9.13.jar jackson-mapper-asl-1.9.13.jar spring-aop-3.2.15.RELEASE.jar
+  aopalliance-1.0.jar spring-beans-3.2.15.RELEASE.jar spring-core-3.2.
+ 15.RELEASE.jar commons-logging-1.1.3.jar spring-context-3.2.15.RELEAS
+ E.jar spring-expression-3.2.15.RELEASE.jar spring-context-support-3.2
+ .15.RELEASE.jar spring-jdbc-3.2.15.RELEASE.jar spring-tx-3.2.15.RELEA
+ SE.jar spring-orm-3.2.15.RELEASE.jar spring-web-3.2.15.RELEASE.jar sp
+ ring-webmvc-3.2.15.RELEASE.jar
+

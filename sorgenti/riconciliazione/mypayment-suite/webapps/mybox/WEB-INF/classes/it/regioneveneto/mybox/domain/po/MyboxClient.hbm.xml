@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2013 17.21.43 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="it.regioneveneto.mybox.domain.po.MyboxClient" table="mybox_client" >
+        <id name="myboxClientId" type="java.lang.Long">
+            <column name="mybox_client_id" />
+            <generator class="sequence">
+                <param name="sequence">mybox_client_id_seq</param>
+            </generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="myboxClientKey" type="string">
+            <column name="mybox_client_key" length="256" not-null="true" unique="true" />
+        </property>
+        <property name="clientSecret" type="string">
+            <column name="client_secret" length="256" not-null="true" />
+        </property>
+        <property name="uploadHome" type="string">
+            <column name="upload_home" length="256" not-null="true" />
+        </property>
+        <property name="downloadHome" type="string">
+            <column name="download_home" length="256" not-null="true" />
+        </property>
+        <property name="locked" type="boolean">
+            <column name="locked" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

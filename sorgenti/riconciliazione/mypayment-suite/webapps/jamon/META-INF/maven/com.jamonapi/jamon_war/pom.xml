@@ -1,0 +1,19 @@
+ <project>
+  <modelVersion>4.0.0</modelVersion>
+
+     <parent>
+         <groupId>com.jamonapi</groupId>
+         <artifactId>jamon-parent</artifactId>
+         <version>2.81</version>
+     </parent>
+
+  <groupId>com.jamonapi</groupId>
+  <artifactId>jamon_war</artifactId>
+  <packaging>war</packaging>
+  <name>JAMon War</name>
+
+  <build>
+    <finalName>jamon</finalName>
+  </build>
+
+</project>

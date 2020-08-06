@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 15-nov-2013 17.21.43 by Hibernate Tools 3.2.4.GA -->
+<hibernate-mapping>
+    <class name="it.regioneveneto.mybox.domain.po.MyboxAuthorization" table="mybox_authorization" >
+        <id name="myboxAuthorizationId" type="java.lang.Long">
+            <column name="mybox_authorization_id" />
+            <generator class="sequence">
+                <param name="sequence">mybox_authorization_id_seq</param>
+            </generator>
+        </id>
+        <version name="version" type="int">
+            <column name="version" not-null="true" />
+        </version>
+        <property name="myboxClientKey" type="string">
+            <column name="mybox_client_key" length="256" not-null="true" />
+        </property>
+        <property name="authorizationToken" type="string">
+            <column name="authorization_token" length="256" not-null="true" />
+        </property>
+        <property name="timestamp" type="timestamp">
+            <column name="timestamp" length="29" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
