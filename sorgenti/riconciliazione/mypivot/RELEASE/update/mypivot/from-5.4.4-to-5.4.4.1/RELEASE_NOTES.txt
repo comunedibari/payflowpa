@@ -1,0 +1,1 @@
+Aggiornamento batch di tesoreria e tesoreria F2K con correzione della regex per il recupero dello IUF

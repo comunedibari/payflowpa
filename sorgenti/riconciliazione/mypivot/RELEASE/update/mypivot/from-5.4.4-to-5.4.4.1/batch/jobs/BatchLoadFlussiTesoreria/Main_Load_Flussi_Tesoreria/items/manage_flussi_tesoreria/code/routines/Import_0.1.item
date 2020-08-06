@@ -1,0 +1,11 @@
+package routines;
+
+
+public class Import {
+
+ 
+    public static void helloExample() throws Exception {
+    	String message = "Data Ordine: 31/08/2016; Descrizione Ordinante: UniCredit S.p.A.                                                      VIA ALESSA :BI1:UNCRITMMXXX :BI2:UNCRITMM :BE1:REGIONE VENETO :IB1:IT13R0200802017000101059865 :IB2:IT43D0200802584000 103743251 :IB4:IT13R0200802017000101059865 :TID:1201162440104841 :DTE:160831 :DTN:REGIONE VENETO :ERI:EUR 0 00000001890327 :IM2:000000001890327 :MA2:EUR :RI3:/PUR/LGPE-RIVERSAMENTO/URI/2016-08- 31UNCRITMM-u7ru3eh760 54 :ICO:IT00348170101 :ICB:80007580279 :OR1:UniCredit S.p.A. VIA ALESSANDRO SPECCHI 16 :SC2:37300";
+    	System.out.println(org.apache.commons.lang.StringUtils.deleteWhitespace(RegEx.catchIdentificativo(message, RegEx.RI3))); 
+    }
+}

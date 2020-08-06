@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="directory_talend" prompt="directory_talend?" promptNeeded="false" type="id_Directory" value="D:/E45"/>
+    <contextParameter comment="" name="directory_root_enti" prompt="directory_root_enti?" promptNeeded="false" type="id_Directory" value=""/>
+    <contextParameter comment="" name="numero_minuti_avviso" prompt="numero_minuti_avviso?" promptNeeded="false" type="id_Integer" value=""/>
+    <contextParameter comment="" name="numero_ore_trigger_batch" prompt="numero_ore_trigger_batch?" promptNeeded="false" type="id_Integer" value=""/>
+    <contextParameter comment="" name="numero_minuti_trigger_batch" prompt="numero_minuti_trigger_batch?" promptNeeded="false" type="id_Integer" value=""/>
+    <contextParameter comment="" name="directory_root_log" prompt="directory_root_log?" promptNeeded="false" type="id_Directory" value=""/>
+  </talendfile:ContextType>
+  <talendfile:ContextType confirmationNeeded="false" name="local">
+    <contextParameter comment="" name="directory_talend" prompt="directory_talend?" promptNeeded="false" type="id_Directory" value="D:/E45"/>
+    <contextParameter comment="" name="directory_root_enti" prompt="directory_root_enti?" promptNeeded="false" type="id_Directory" value="D:/E45/DATA"/>
+    <contextParameter comment="" name="numero_minuti_avviso" prompt="numero_minuti_avviso?" promptNeeded="false" type="id_Integer" value="1"/>
+    <contextParameter comment="" name="numero_ore_trigger_batch" prompt="numero_ore_trigger_batch?" promptNeeded="false" type="id_Integer" value="1"/>
+    <contextParameter comment="" name="numero_minuti_trigger_batch" prompt="numero_minuti_trigger_batch?" promptNeeded="false" type="id_Integer" value=""/>
+    <contextParameter comment="" name="directory_root_log" prompt="directory_root_log?" promptNeeded="false" type="id_Directory" value=""/>
+  </talendfile:ContextType>
+</xmi:XMI>
