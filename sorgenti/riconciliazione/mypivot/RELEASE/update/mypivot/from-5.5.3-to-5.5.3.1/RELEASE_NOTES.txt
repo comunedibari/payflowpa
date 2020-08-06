@@ -1,0 +1,2 @@
+BATCH:
+Batch_load_flusso_pagati validazione campo bilancio con xsd

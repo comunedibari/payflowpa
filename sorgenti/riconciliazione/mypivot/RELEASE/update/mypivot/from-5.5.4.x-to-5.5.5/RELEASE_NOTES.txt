@@ -1,0 +1,1 @@
+Aggiornamento webapp e batch BatchAllineaDatabase per estrazione codice applicazione

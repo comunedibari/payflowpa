@@ -1,0 +1,12 @@
+Funzionalità di accertamento
+
+DB: Aggiunte tabelle e function per la gestione delle informazioni relative un'accertamento.
+
+WEBAPP: Sviluppo interfaccia di accertamento.
+
+REPORT: Template jrxml per l'export descrittivo dell'accertamento.
+
+BATTCH: Modifiche al Job ALLINEA_DATABASE.
+
+NOTE:
+La feature comporta la ricompilazione di sorgenti

@@ -1,0 +1,1 @@
+Fix Errore premendo il pulsante "annulla modifiche". Ora il button Annulla Modifiche, effettua un ritorna il dettaglio senza le modifiche.

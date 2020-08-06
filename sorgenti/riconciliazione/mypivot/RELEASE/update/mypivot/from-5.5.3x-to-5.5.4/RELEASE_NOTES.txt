@@ -1,0 +1,2 @@
+DB:
+Creazione delle function per recuperare le classificazioni di visualizzazione  (rendicontazione esclusa)

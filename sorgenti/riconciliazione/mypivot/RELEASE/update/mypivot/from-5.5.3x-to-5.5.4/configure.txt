@@ -1,0 +1,3 @@
+# aggiunta tag per la cartella dei report di mypivot
+
+__TAG_MYPIVOT_REPORTS_PATH__ = ...
