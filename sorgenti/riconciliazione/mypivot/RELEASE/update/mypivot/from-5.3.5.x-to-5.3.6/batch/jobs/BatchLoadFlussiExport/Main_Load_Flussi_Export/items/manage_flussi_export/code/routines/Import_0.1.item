@@ -1,0 +1,23 @@
+package routines;
+
+
+public class Import {
+
+	public static void main(String[] args) {
+
+		String stato = "CHIEDI_STATO_EXPORT_NO_FILE";
+		String faultCode = "";
+		Boolean errorChildJob = false;
+
+		String prova = errorChildJob ? "ERROR_CHIEDI_STATO_EXPORT"
+				: (faultCode != null ? "ERROR_CHIEDI_STATO_EXPORT"
+						: ("EXPORT_ESEGUITO_NESSUN_DOVUTO_TROVATO".equalsIgnoreCase(stato) ? 
+							"CHIEDI_STATO_EXPORT_NO_FILE"
+								: ("LOAD_EXPORT".equalsIgnoreCase(stato) || "EXPORT_IN_ELAB".equalsIgnoreCase(stato) ? 
+								   "ATTESA_PRODUZIONE_FILE"
+										: ("EXPORT_ESEGUITO"
+												.equalsIgnoreCase(stato) ? "CHIEDI_STATO_EXPORT"
+												: "ERROR_CHIEDI_STATO_EXPORT"))));
+		System.out.println(prova);
+	}
+}

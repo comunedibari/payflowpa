@@ -1,0 +1,1 @@
+Aggiunta segnalazioni, gestione errori con note e profilatura operatori per tipo dovuto
