@@ -1,0 +1,1 @@
+BatchLoadFlussiTesoreria: scartati da i flussi OPI e CSV i giornali per cui gli IUV o gli IUF estratti sono più lunghi di 35 caratteri.

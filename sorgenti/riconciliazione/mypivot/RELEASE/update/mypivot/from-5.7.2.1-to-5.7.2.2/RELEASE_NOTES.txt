@@ -1,0 +1,2 @@
+Correzione LoadFlussiExort: corretta query su mygov_ente_tipo_dovuto
+

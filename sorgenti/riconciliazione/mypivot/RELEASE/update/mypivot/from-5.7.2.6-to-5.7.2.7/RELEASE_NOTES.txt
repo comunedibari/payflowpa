@@ -1,0 +1,3 @@
+Correzione tLoop1: non venivano mostrati log con errori nel caso in cui denominazione, anno, codice bolletta fossero formattati male
+
+BatchFlussoTesoreriaF2K per non eliminare gli accerrtamenti in anagrafica di bollo auto

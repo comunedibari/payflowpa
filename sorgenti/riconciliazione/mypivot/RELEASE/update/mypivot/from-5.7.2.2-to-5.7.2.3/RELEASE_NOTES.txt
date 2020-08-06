@@ -1,0 +1,18 @@
+Aggiornamento BatchLoadFlussiTesoreria:
+
+- nuovo tracciato opi OPI_GIORNALE_DI_CASSA_V_1_2_4.XSD
+- modifica logica batch (load flussi a partire da filesystem)
+
+Istruzioni:
+
+1. Per ogni ente censito, nel filesystem, rinominare le cartella
+denominata secondo con questo pattern:
+	 "__TAG_MYBOX_ROOT_UPLOAD_PATH__/COD_IPA_ENTE/TESORERIA_FLUSSI_MP"
+	in:
+	 "__TAG_MYBOX_ROOT_UPLOAD_PATH__/COD_IPA_ENTE/TESORERIA_FLUSSI_MP_ELABORATI"
+
+2. eseguire sul database "USERE45_4" lo script "db/USERE45_4_CREATE_UPDATE.sql"
+	contenuto in questa cartella
+
+3. eseguire sul database "USERE45_4" lo script "db/USERE45_4_INSERT_UPDATE.sql"
+	contenuto in questa cartella

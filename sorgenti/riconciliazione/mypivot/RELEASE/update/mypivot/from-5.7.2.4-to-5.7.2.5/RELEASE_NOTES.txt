@@ -1,0 +1,2 @@
+Bugfix batch tesoreria f2k (solo regione veneto)
+

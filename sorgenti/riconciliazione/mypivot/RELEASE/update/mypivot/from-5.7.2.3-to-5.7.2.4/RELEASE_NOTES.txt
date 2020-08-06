@@ -1,0 +1,4 @@
+Fix BatchLoadFlussiTesoreria:
+
+- Upload file duplicati
+- File scarti su DATA

@@ -1,0 +1,2 @@
+Attività SPAC#65: BatchLoadFlussiExport MyPivot inserisce anagrafica uff_cap_acc se non presente
+
