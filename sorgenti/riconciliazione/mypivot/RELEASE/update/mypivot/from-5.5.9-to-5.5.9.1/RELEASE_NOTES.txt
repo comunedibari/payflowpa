@@ -1,0 +1,4 @@
+Aggiornamento job batch:
+
+BatchExportFlussiWS -> richiede export pagati a mypay versione tracciato 1.2
+BatchLoadFlussiExport -> carica gli accertamenti in mygov_accertamento e mygov_accertamento_dettaglio a partire dal bilancio dei pagati o da mygov_anagrafica_uff_cap_acc

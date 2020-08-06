@@ -1,0 +1,1 @@
+Aggiornamento webapp e batch BatchLoadFlussiTesoreria per il caricamento del giornale di cassa CSV

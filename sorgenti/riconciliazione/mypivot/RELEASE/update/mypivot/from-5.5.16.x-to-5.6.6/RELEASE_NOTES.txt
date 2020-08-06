@@ -1,0 +1,3 @@
+Aggiunta cruscotto incassi
+Aggiunta caricamento flusso giornale di cassa OPI
+Bugfix vari

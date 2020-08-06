@@ -1,0 +1,2 @@
+Aggiornamento base dati MyPivot e adeguamento webapp
+Aggiornamento grafica menu e pagine

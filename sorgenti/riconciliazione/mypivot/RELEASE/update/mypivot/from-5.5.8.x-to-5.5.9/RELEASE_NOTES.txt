@@ -1,0 +1,11 @@
+Aggiornamento base dati MyPivot e adeguamento webapp
+Aggiunta WebService pivotSILChiediAccertamento
+Aggiornamento regole per l'estrazione degli IUF malformati nei flussi di tesoreria nel batch BatchLoadFlussiTesoreria
+
+Sviluppo componenti su MyPivot per caso: IMPORTI PER CAPITOLO E ACCERTAMENTO SCONOSCIUTI
+  - procedura acquisizione dati più pagamenti, scomposizione su unico capitolo
+  - procedura acquisizione dati singolo pagamento
+
+Import massivo CSV anagrafica uffici capitoli accertamenti
+
+Aggiornamento batch BatchFlussoTesoreriaF2K per il recupero dell'anagrafica uffici capitoli accertamenti
