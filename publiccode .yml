@@ -1,0 +1,91 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - payment-gateway
+description:
+  it:
+    features:
+      - Riconciliazione automatica degli incassi
+      - Gestione delle posizioni debitorie (anche extra nodo)
+      - Modello tracciato dati per cooperazione applicativa
+      - Interfacce di comunicazione con i gestionali interni delle PA
+    genericName: Pagamenti elettronici per le PA
+    longDescription: >
+      Obiettivo è fornire un sistema integrato di monitoraggio e gestione delle
+      posizioni debitorie dell’Ente riconciliate con gli incassi ottenuti dalle
+      Amministrazioni Pubbliche che aderiscono alla piattaforma PagoPA.
+
+
+      La soluzione PayFlowPA nasce dal riuso di due moduli applicativi
+      sviluppati e messi a disposizione dalla Regione Toscana e dalla Regione
+      Veneto. Le best practice nazionali nell’ambito delle soluzioni per i
+      pagamenti verso le Pubbliche Amministrazioni cooperano, scambiando dati,
+      codice, know-how ed esperienze, per efficientare ed innovare.
+
+
+      I vantaggi per il cittadino sono:
+
+
+      1) “Fascicolo dei pagamenti elettronici" sempre aggiornato
+
+
+      2) Pagamenti online tramite PagoPA ed integrati con le informazioni sui
+      pagamenti della Pubblica Amministrazione
+
+
+      3) Tracciabilità dei pagamenti effettuati verso la Pubblica
+      Amministrazione
+
+
+      4) Multicanalità: possibilità di effettuare i pagamenti mediante canali
+      differenziati: online, banche, Sisal, Lottomatica, ecc.
+
+
+      5) Incentivo ad usare PagoPA come sistema di pagamento online perché
+      comodo, sicuro e integrato.
+    shortDescription: >-
+      Kit di riuso a disposizione delle PA per l’integrazione dei flussi di
+      pagamento e delle posizioni debitorie nell'ambito del sistema PagoPA
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: true
+    spid: false
+legal:
+  license: EUPL-1.2
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: false
+logo: >-
+  https://raw.githubusercontent.com/payflowpa/payflowpa/master/img/PayFlow%20-%20Logo.png
+maintenance:
+  type: none
+name: Kit di riuso PayFlowPA
+platforms:
+  - windows
+  - linux
+releaseDate: '2020-08-28'
+softwareType: standalone/backend
+url: 'https://github.com/payflowpa/payflowpa'
+usedBy:
+  - Regione Veneto
+  - Regione Toscana
+  - Regione Lombardia
+  - Regione Umbria
+  - Città Metropolitana di Roma Capitale
+  - Regione Puglia
+  - Regione Campania
+  - Città Metropolitana di Bari
+  - Provincia Autonoma di Trento
