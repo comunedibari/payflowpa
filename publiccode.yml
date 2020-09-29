@@ -51,6 +51,8 @@ description:
       pagamento e delle posizioni debitorie nell'ambito del sistema PagoPA
 developmentStatus: stable
 it:
+  riuso:
+    codiceIPA: c_a662
   conforme:
     gdpr: false
     lineeGuidaDesign: false
@@ -69,7 +71,7 @@ localisation:
     - it
   localisationReady: false
 logo: >-
-  https://raw.githubusercontent.com/payflowpa/payflowpa/master/img/PayFlow%20-%20Logo.png
+  https://raw.githubusercontent.com/comunedibari/payflowpa/master/img/PayFlow%20-%20Logo.png
 maintenance:
   type: none
 name: Kit di riuso PayFlowPA
@@ -78,7 +80,7 @@ platforms:
   - linux
 releaseDate: '2020-08-28'
 softwareType: standalone/backend
-url: 'https://github.com/payflowpa/payflowpa'
+url: 'https://github.com/comunedibari/payflowpa'
 usedBy:
   - Regione Veneto
   - Regione Toscana
