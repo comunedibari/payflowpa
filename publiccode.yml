@@ -14,7 +14,7 @@ description:
       - Interfacce di comunicazione con i gestionali interni delle PA
     genericName: Pagamenti elettronici per le PA
     longDescription: >
-      Obiettivo è fornire un sistema integrato di monitoraggio e gestione delle
+      Obiettivo è quello di fornire un sistema integrato di monitoraggio e gestione delle
       posizioni debitorie dell’Ente riconciliate con gli incassi ottenuti dalle
       Amministrazioni Pubbliche che aderiscono alla piattaforma PagoPA.
 
